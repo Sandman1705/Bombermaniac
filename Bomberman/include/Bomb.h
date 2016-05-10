@@ -15,11 +15,11 @@
 #include"Timer.h"
 
 /** \class Bomb
- *  \brief class which represents one bomb
+ *  \brief Class which represents one bomb
  *  \details This class contains all properties of a bomb like it's coordinates
- *           on a map, it's size time needed to explode as well as time
+ *           on a map, it's size, time needed to explode as well as time
  *           currently elapsed since it was placed. Also contains a method
- *           Draw() which draws it on a proper place on map.
+ *           Draw() which draws it on a proper place on the map.
  */
 class Bomb
 {
@@ -27,10 +27,10 @@ class Bomb
         /**
          *  \brief Constructor for Bomb
          *
-         *  Constructor for class Bomb which requires all the needed attributes.
+         *  Makes an object of class Bomb according to given attributes
          *  \param fuse_duration the length of bomb's fuse.
-         *  \param texture SDL_texture file from which the texture will be taken
-         *         for method draw
+         *  \param texture pointer to SDL_texture object from which the texture
+         *         will be taken for method Draw()
          *  \param SrcR location and size of texture on given SLD_Texture
          *  \param x coordinate of the bomb on the map
          *  \param x coordinate of the bomb on the map
@@ -59,7 +59,7 @@ class Bomb
         /**
          *  \brief Update function for class Bomb
          *
-         *  Updates the values int class according to it's internal timer.
+         *  Updates the values in class according to it's internal timer.
          *  Specifically, it checks if the bomb's fuse has run out and
          *  sets the appropriate value so that the call of method Explode()
          *  returns true;
@@ -70,8 +70,8 @@ class Bomb
         /**
          *  \brief Tells if the bomb should explode
          *
-         *  Checks if the bomb's fuse has burned out and returns true if
-         *  the bomb should explode. Otherwise returns false.
+         *  Returns true if the bomb's fuse has burned out.
+         *  Otherwise returns false.
          *
          *  \return true if the fuse has burned out, else false.
          */

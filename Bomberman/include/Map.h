@@ -1,15 +1,46 @@
 #ifndef MAP_H
 #define MAP_H
 
+/**
+ *  \file Map.h
+ *
+ *  Defines class Map which represents one map.
+ *
+ */
+
 #include <vector>
 #include <string>
 #include <SDL.h>
 #include "MapObject.h"
 
+/** \class Map
+ *  \brief Class which represents one level of the game.
+ *  \details This class keeps the current layout of the map in the game. It can
+ *           make the layout using given text file, it can draw it on the given
+ *           renderer as well make changes to itself by destroying wall that are
+ *           specified as destructible.
+ */
 class Map
 {
     public:
+        /**
+         *  \brief Constructor for Map
+         *
+         *  Makes an object of class Map according to given attributes
+         *  \param path_to_file string which represent relative path to .txt
+         *         map's properties needed for making a layout, such as height,
+         *         width and layout of MapObjects
+         *  \param texture pointer to SDL_texture object from which the texture
+         *         will be taken for method Draw()
+         *  \param tile_size pixel size of one tile which will be used for
+         *         method Draw()
+         */
         Map(std::string path_to_file, SDL_Texture* texture, unsigned int tile_size);
+        /**
+         *  \brief Destructor for Map
+         *
+         *  Destroys all MapObjects on the map before deleting itself.
+         */
         ~Map();
         //TODO Copy constructor
         //TODO Operator=
@@ -18,9 +49,49 @@ class Map
         unsigned int Get_width() const { return m_width; }
         unsigned int Get_tile_size() const { return m_tile_size; }
 
+        /**
+         *  \brief Tells if the tile at given coordinates is walkable on
+         *
+         *  Specifically it checks if the MapObject on given coordinates is of
+         *  type MapObject::EMPTY and return true if it is.
+         *  \param i row coordinate of the map
+         *  \param j column coordinate of the map
+         *  \return true if the tile at the given coordinates is empty
+         */
         bool Walkable(unsigned int i,unsigned int j) const;
+        /**
+         *  \brief Draw the map's current layout on the given renderer
+         *
+         *  Calls MapObject::Draw() methods for all the MapObject in it's layout
+         *  and draws them on the given renderer.
+         *  \param renderer represents the SDL_Renderer on which the map will be
+         *         drawn on.
+         *
+         *  \return void
+         */
         void Draw(SDL_Renderer* renderer) const;
+        /**
+         *  \brief Destroys wall on given coordinates
+         *
+         *  Checks if the wall on the given coordinates id of type
+         *  MapObject::DESTRUCTABLE_WALL and swaps it with object of type
+         *  MapObject::EMPTY
+         *  \param i row coordinate of the map
+         *  \param j column coordinate of the map
+         *
+         *  \return void
+         */
         void DestroyWall(unsigned int i, unsigned int j);
+        /**
+         *  \brief Checks the type of MapObject on given coordinates
+         *
+         *  Checks the value of type MapObject::Tile on the given coordinates
+         *  and returns the appropriate tile id int the form of MapObject::Tile
+         *  \param i row coordinate of the map
+         *  \param j column coordinate of the map
+         *
+         *  \return MapObject::Tile which represents the type of object
+         */
         MapObject::Tile Get_tile_type(unsigned int i, unsigned int j) const;
 
 
