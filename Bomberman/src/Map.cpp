@@ -46,6 +46,11 @@ Map::Map(std::string path_to_file)
     fs.close();
 }
 
-
-
+bool Map::Walkable(unsigned int i,unsigned int j)
+{
+    if (m_layout[i][j] == 0)
+        return true;
+    else
+        return false;
+}
 

@@ -799,15 +799,15 @@
 1461436527 source:c:\users\sasa\documents\projects\rs project\016sasa -- bomberman crop and move adjustment\src\player.cpp
 	"player.h"
 
-1461431113 source:c:\users\sasa\documents\github\rs16-14\bomberman\game.cpp
+1461672416 source:e:\rs\016sasa -- bomberman crop and move adjustment\game.cpp
 	"game.h"
 
-1461432430 c:\users\sasa\documents\github\rs16-14\bomberman\game.h
+1461672416 e:\rs\016sasa -- bomberman crop and move adjustment\game.h
 	"includes.h"
 	"Map.h"
 	"player.h"
 
-1395855848 c:\users\sasa\documents\github\rs16-14\bomberman\includes.h
+1461672416 e:\rs\016sasa -- bomberman crop and move adjustment\includes.h
 	<SDL.h>
 	<SDL_image.h>
 	<iostream>
@@ -816,33 +816,33 @@
 	<SDL2/SDL.h>
 	<SDL2/SDL_image.h>
 
-1461436218 c:\users\sasa\documents\github\rs16-14\bomberman\include\map.h
+1461672422 e:\rs\016sasa -- bomberman crop and move adjustment\include\map.h
 	<vector>
 	<string>
 
-1461429263 c:\users\sasa\documents\github\rs16-14\bomberman\include\player.h
+1461672422 e:\rs\016sasa -- bomberman crop and move adjustment\include\player.h
 
-1460675308 source:c:\users\sasa\documents\github\rs16-14\bomberman\game_cleanup.cpp
+1461672416 source:e:\rs\016sasa -- bomberman crop and move adjustment\game_cleanup.cpp
 	"game.h"
 
-1461696159 source:c:\users\sasa\documents\github\rs16-14\bomberman\game_loadcontent.cpp
+1461672416 source:e:\rs\016sasa -- bomberman crop and move adjustment\game_loadcontent.cpp
 	"game.h"
 	"SDL_image.h"
 
-1461694275 source:c:\users\sasa\documents\github\rs16-14\bomberman\game_onevent.cpp
+1461672416 source:e:\rs\016sasa -- bomberman crop and move adjustment\game_onevent.cpp
 	"game.h"
 	<cstdio>
 
-1460675878 source:c:\users\sasa\documents\github\rs16-14\bomberman\game_oninit.cpp
+1461672416 source:e:\rs\016sasa -- bomberman crop and move adjustment\game_oninit.cpp
 	"game.h"
 
-1374547568 source:c:\users\sasa\documents\github\rs16-14\bomberman\game_onloop.cpp
+1461672416 source:e:\rs\016sasa -- bomberman crop and move adjustment\game_onloop.cpp
 	"game.h"
 
-1461688978 source:c:\users\sasa\documents\github\rs16-14\bomberman\game_onrender.cpp
+1461672416 source:e:\rs\016sasa -- bomberman crop and move adjustment\game_onrender.cpp
 	"game.h"
 
-1461436199 source:c:\users\sasa\documents\github\rs16-14\bomberman\src\map.cpp
+1461672422 source:e:\rs\016sasa -- bomberman crop and move adjustment\src\map.cpp
 	"Map.h"
 	<stdio.h>
 	<stdlib.h>
@@ -850,6 +850,114 @@
 	<fstream>
 	<iostream>
 
-1461436527 source:c:\users\sasa\documents\github\rs16-14\bomberman\src\player.cpp
+1461672422 source:e:\rs\016sasa -- bomberman crop and move adjustment\src\player.cpp
+	"player.h"
+
+1461672416 source:e:\rs\018mickey\game.cpp
+	"game.h"
+
+1461672416 e:\rs\018mickey\game.h
+	"includes.h"
+	"Map.h"
+	"player.h"
+
+1461672416 e:\rs\018mickey\includes.h
+	<SDL.h>
+	<SDL_image.h>
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL2/SDL.h>
+	<SDL2/SDL_image.h>
+
+1462630532 e:\rs\018mickey\include\map.h
+	<vector>
+	<string>
+
+1461672422 e:\rs\018mickey\include\player.h
+
+1461672416 source:e:\rs\018mickey\game_cleanup.cpp
+	"game.h"
+
+1461672416 source:e:\rs\018mickey\game_loadcontent.cpp
+	"game.h"
+	"SDL_image.h"
+
+1461672416 source:e:\rs\018mickey\game_onevent.cpp
+	"game.h"
+	<cstdio>
+
+1461672416 source:e:\rs\018mickey\game_oninit.cpp
+	"game.h"
+
+1461672416 source:e:\rs\018mickey\game_onloop.cpp
+	"game.h"
+
+1461672416 source:e:\rs\018mickey\game_onrender.cpp
+	"game.h"
+
+1462630567 source:e:\rs\018mickey\src\map.cpp
+	"Map.h"
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<fstream>
+	<iostream>
+
+1461672422 source:e:\rs\018mickey\src\player.cpp
+	"player.h"
+
+1461672416 source:e:\gitprojects\rs16-14\bomberman\game.cpp
+	"game.h"
+
+1461672416 e:\gitprojects\rs16-14\bomberman\game.h
+	"includes.h"
+	"Map.h"
+	"player.h"
+
+1461672416 e:\gitprojects\rs16-14\bomberman\includes.h
+	<SDL.h>
+	<SDL_image.h>
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL2/SDL.h>
+	<SDL2/SDL_image.h>
+
+1462630532 e:\gitprojects\rs16-14\bomberman\include\map.h
+	<vector>
+	<string>
+
+1461672422 e:\gitprojects\rs16-14\bomberman\include\player.h
+
+1461672416 source:e:\gitprojects\rs16-14\bomberman\game_cleanup.cpp
+	"game.h"
+
+1461672416 source:e:\gitprojects\rs16-14\bomberman\game_loadcontent.cpp
+	"game.h"
+	"SDL_image.h"
+
+1461672416 source:e:\gitprojects\rs16-14\bomberman\game_onevent.cpp
+	"game.h"
+	<cstdio>
+
+1461672416 source:e:\gitprojects\rs16-14\bomberman\game_oninit.cpp
+	"game.h"
+
+1461672416 source:e:\gitprojects\rs16-14\bomberman\game_onloop.cpp
+	"game.h"
+
+1461672416 source:e:\gitprojects\rs16-14\bomberman\game_onrender.cpp
+	"game.h"
+
+1462630567 source:e:\gitprojects\rs16-14\bomberman\src\map.cpp
+	"Map.h"
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<fstream>
+	<iostream>
+
+1461672422 source:e:\gitprojects\rs16-14\bomberman\src\player.cpp
 	"player.h"
 

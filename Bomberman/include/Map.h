@@ -15,6 +15,8 @@ class Map
         unsigned int Get_width() { return m_width; }
         //void Set_width(unsigned int val) { m_width = val; }
 
+        bool Walkable(unsigned int i,unsigned int j);
+
         unsigned int m_height;
         unsigned int m_width;
         std::vector<std::vector<int>> m_layout;
