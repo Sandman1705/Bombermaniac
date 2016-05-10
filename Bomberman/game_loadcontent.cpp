@@ -4,14 +4,14 @@
 bool game::LoadContent()
 {
     /** Texture loading - Begin **/
-    std::string resourcesPaths = "resources\\textures.bmp";
-    SDL_Surface *bmp = SDL_LoadBMP(resourcesPaths.c_str());
+    std::string resourcesPath = "resources\\textures.bmp";
+    SDL_Surface *bmp = SDL_LoadBMP(resourcesPath.c_str());
 
     SDL_SetColorKey(bmp, SDL_TRUE, SDL_MapRGB(bmp->format, 0, 0xC0, 0xC0) );
 
     if (bmp == nullptr)
     {
-        std::cout << "Failed to load: " << resourcesPaths.c_str() << std::endl;
+        std::cout << "Failed to load: " << resourcesPath.c_str() << std::endl;
         return false;
     }
 

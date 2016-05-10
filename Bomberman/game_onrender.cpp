@@ -5,7 +5,7 @@ void game::OnRender()
     //Clear the renderer
     SDL_RenderClear(renderer);
 
-    //Draw map and player
+    //Draw
     level->Draw(renderer);
     bomb_manager->Draw(renderer);
     enemy->Draw(renderer);

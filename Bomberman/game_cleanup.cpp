@@ -3,8 +3,9 @@
 void game::Cleanup()
 {
     delete level;
-    delete bomberman;
     delete bomb_manager;
+    delete explosion_manager;
+    delete bomberman;
     delete enemy;
 
     SDL_DestroyTexture(texture);

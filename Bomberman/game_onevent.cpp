@@ -50,7 +50,6 @@ void game::OnEvent(SDL_Event* Event)
             bomberman->place_bomb();
             break;
         case SDLK_f: // mostly for testing
-            //level->DestroyWall(1,7);
             //SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN);
             break;
         default:
