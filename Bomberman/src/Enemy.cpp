@@ -1,9 +1,18 @@
 #include "Enemy.h"
 
-Enemy::Enemy(SDL_Texture* tex, unsigned int tile_size)
+Enemy::Enemy(SDL_Texture* tex, unsigned int tile_size, unsigned int val_x, unsigned int val_y)
 {
-    this->m_x = 2*tile_size;
-    this->m_y = tile_size;
+    if(val_x == 0 && val_y == 0)
+    {
+        this->m_x = 2*tile_size;
+        this->m_y = tile_size;
+    }
+    else
+    {
+        this->m_x = val_x;
+        this->m_y = val_y;
+    }
+
     this->m_tex = tex;
     this->m_status = 0;
     this->m_tile_size = tile_size;
@@ -16,11 +25,6 @@ Enemy::Enemy(SDL_Texture* tex, unsigned int tile_size)
     m_enemy_size_w = m_enemy_size_w *tile_size/32;
     m_enemy_size_h = m_enemy_size_h *tile_size/32; //size according to 32px tile size
     m_move_speed = m_move_speed *m_tile_size/32; //speed according to 32px tile size
-}
-
-Enemy::~Enemy()
-{
-    //dtor
 }
 
 void Enemy::update(Map *level)

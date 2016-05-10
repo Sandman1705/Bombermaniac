@@ -1,19 +1,44 @@
 #ifndef ENEMY_H
 #define ENEMY_H
 
+/**
+ *  \file Enemy.h
+ *
+ *  Defines class Enemy which represents an enemy.
+ *
+ */
+
 #include <SDL.h>
 #include <cstdlib>
 #include <ctime>
 #include "Map.h"
 #include "Timer.h"
 
+/** \class Enemy
+ *  \brief class which represents an enemy
+ *  \details This class contains all properties of an enemy like he's
+ *           coordinates on a map, he's size, direction where he's going
+ *           as well as he's speed. Also contains a method Draw()
+ *           which draws him on a proper place on map, method enemy_move()
+ *           for moving around the map and update() for
+ *           refreshing he's position.
+ */
 
 class Enemy
 {
     public:
-        Enemy(SDL_Texture* tex, unsigned int tile_size);
-        //Enemy(SDL_Texture* tex, unsigned int tile_size, unsigned int val_x, unsigned int val_y);
-        virtual ~Enemy();
+        /**
+         *  \brief Constructor for Enemy.
+         *
+         *  Makes an object of class Enemy according to given attributes.
+         *  \param tex pointer to SDL_texture object from which the texture
+         *         will be taken for method Draw()
+         *  \param tile_size size of one tile on map
+         *  \param val_x coordinate of the player on the map
+         *  \param val_y coordinate of the player on the map
+         *
+         */
+        Enemy(SDL_Texture* tex, unsigned int tile_size, unsigned int val_x = 0, unsigned int val_y = 0);
 
         unsigned int Get_x() const;
         void Set_x(unsigned int val);
@@ -29,8 +54,36 @@ class Enemy
         unsigned int Get_direction() const;
         void Set_direction(int d);
 
+        /**
+        *  \brief Function that implements movement for enemy.
+        *
+        *  Updates the position of enemy on the map according to
+        *  method update().
+        *  \param level pointer to Map object of the game
+        *
+        *  \return void
+        */
         void enemy_move(Map *level);
+
+        /**
+         *  \brief Draws the enemy on given SDL_Renderer.
+         *
+         *  Draws the enemy on the map according to he's coordinates.
+         *  \param renderer represents SDL_Renderer on which the enemy
+         *  will be drawn on
+         *
+         *  \return void
+         */
         void Draw(SDL_Renderer* renderer);
+
+        /**
+         *  \brief Updates enemy's position on map.
+         *
+         *  Calculates where enemy should go and updates enemy's position
+         *  on map accordingly and calls appropriate actions.
+         *
+         *  \return void
+         */
         void update(Map *level);
 
     protected:

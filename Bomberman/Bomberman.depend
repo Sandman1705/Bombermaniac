@@ -718,10 +718,10 @@
 1462828993 source:e:\rs\bomberman\036bomb\src\player.cpp
 	"Player.h"
 
-1462744498 source:c:\users\sasa\documents\github\rs16-14\bomberman\game.cpp
+1462744498 source:c:\users\sasa\documents\projects\rs project\037sasa -- documentation\game.cpp
 	"game.h"
 
-1462824129 c:\users\sasa\documents\github\rs16-14\bomberman\game.h
+1462824129 c:\users\sasa\documents\projects\rs project\037sasa -- documentation\game.h
 	"includes.h"
 	"KeyboardInput.h"
 	"Map.h"
@@ -730,7 +730,7 @@
 	"Player.h"
 	"Enemy.h"
 
-1462731202 c:\users\sasa\documents\github\rs16-14\bomberman\includes.h
+1462731202 c:\users\sasa\documents\projects\rs project\037sasa -- documentation\includes.h
 	<SDL.h>
 	<SDL_image.h>
 	<iostream>
@@ -739,99 +739,99 @@
 	<SDL2/SDL.h>
 	<SDL2/SDL_image.h>
 
-1462823709 c:\users\sasa\documents\github\rs16-14\bomberman\include\keyboardinput.h
+1462823709 c:\users\sasa\documents\projects\rs project\037sasa -- documentation\include\keyboardinput.h
 	<SDL_keycode.h>
 	<map>
 
-1462731737 c:\users\sasa\documents\github\rs16-14\bomberman\include\map.h
+1462731737 c:\users\sasa\documents\projects\rs project\037sasa -- documentation\include\map.h
 	<vector>
 	<string>
 	<SDL.h>
 	"MapObject.h"
 
-1462731256 c:\users\sasa\documents\github\rs16-14\bomberman\include\mapobject.h
+1462835830 c:\users\sasa\documents\projects\rs project\037sasa -- documentation\include\mapobject.h
 	<SDL.h>
 
-1462731642 c:\users\sasa\documents\github\rs16-14\bomberman\include\explosionmanager.h
+1462731642 c:\users\sasa\documents\projects\rs project\037sasa -- documentation\include\explosionmanager.h
 	<list>
 	"Explosion.h"
 
-1462731618 c:\users\sasa\documents\github\rs16-14\bomberman\include\explosion.h
+1462731618 c:\users\sasa\documents\projects\rs project\037sasa -- documentation\include\explosion.h
 	<iostream>
 	<SDL.h>
 	"Timer.h"
 
-1462828255 c:\users\sasa\documents\github\rs16-14\bomberman\include\timer.h
+1462828255 c:\users\sasa\documents\projects\rs project\037sasa -- documentation\include\timer.h
 
-1462731512 c:\users\sasa\documents\github\rs16-14\bomberman\include\bombmanager.h
+1462731512 c:\users\sasa\documents\projects\rs project\037sasa -- documentation\include\bombmanager.h
 	<list>
 	"Bomb.h"
 	"ExplosionManager.h"
 	"Map.h"
 
-1462828710 c:\users\sasa\documents\github\rs16-14\bomberman\include\bomb.h
+1462828710 c:\users\sasa\documents\projects\rs project\037sasa -- documentation\include\bomb.h
 	<SDL.h>
 	"Timer.h"
 
-1462828989 c:\users\sasa\documents\github\rs16-14\bomberman\include\player.h
+1462835780 c:\users\sasa\documents\projects\rs project\037sasa -- documentation\include\player.h
 	<SDL.h>
 	"Map.h"
 	"BombManager.h"
 	"KeyboardInput.h"
 
-1462663600 c:\users\sasa\documents\github\rs16-14\bomberman\include\enemy.h
+1462835805 c:\users\sasa\documents\projects\rs project\037sasa -- documentation\include\enemy.h
 	<SDL.h>
 	<cstdlib>
 	<ctime>
 	"Map.h"
 	"Timer.h"
 
-1462733659 source:c:\users\sasa\documents\github\rs16-14\bomberman\game_cleanup.cpp
+1462733659 source:c:\users\sasa\documents\projects\rs project\037sasa -- documentation\game_cleanup.cpp
 	"game.h"
 
-1462829007 source:c:\users\sasa\documents\github\rs16-14\bomberman\game_loadcontent.cpp
+1462834201 source:c:\users\sasa\documents\projects\rs project\037sasa -- documentation\game_loadcontent.cpp
 	"game.h"
 	"SDL_image.h"
 
-1462829028 source:c:\users\sasa\documents\github\rs16-14\bomberman\game_onevent.cpp
+1462829028 source:c:\users\sasa\documents\projects\rs project\037sasa -- documentation\game_onevent.cpp
 	"game.h"
 	<cstdio>
 
-1462659150 source:c:\users\sasa\documents\github\rs16-14\bomberman\game_oninit.cpp
+1462659150 source:c:\users\sasa\documents\projects\rs project\037sasa -- documentation\game_oninit.cpp
 	"game.h"
 
-1462829021 source:c:\users\sasa\documents\github\rs16-14\bomberman\game_onloop.cpp
+1462829021 source:c:\users\sasa\documents\projects\rs project\037sasa -- documentation\game_onloop.cpp
 	"game.h"
 
-1462733761 source:c:\users\sasa\documents\github\rs16-14\bomberman\game_onrender.cpp
+1462733761 source:c:\users\sasa\documents\projects\rs project\037sasa -- documentation\game_onrender.cpp
 	"game.h"
 
-1462744728 source:c:\users\sasa\documents\github\rs16-14\bomberman\src\bomb.cpp
+1462744728 source:c:\users\sasa\documents\projects\rs project\037sasa -- documentation\src\bomb.cpp
 	"Bomb.h"
 	<iostream>
 
-1462731518 source:c:\users\sasa\documents\github\rs16-14\bomberman\src\bombmanager.cpp
+1462731518 source:c:\users\sasa\documents\projects\rs project\037sasa -- documentation\src\bombmanager.cpp
 	"BombManager.h"
 	<iostream>
 	"WallDestroyer.h"
 
-1462729982 c:\users\sasa\documents\github\rs16-14\bomberman\include\walldestroyer.h
+1462729982 c:\users\sasa\documents\projects\rs project\037sasa -- documentation\include\walldestroyer.h
 	"Map.h"
 
-1462826199 source:c:\users\sasa\documents\github\rs16-14\bomberman\src\enemy.cpp
+1462826199 source:c:\users\sasa\documents\projects\rs project\037sasa -- documentation\src\enemy.cpp
 	"Enemy.h"
 
-1462731624 source:c:\users\sasa\documents\github\rs16-14\bomberman\src\explosion.cpp
+1462731624 source:c:\users\sasa\documents\projects\rs project\037sasa -- documentation\src\explosion.cpp
 	"Explosion.h"
 
-1462731647 source:c:\users\sasa\documents\github\rs16-14\bomberman\src\explosionmanager.cpp
+1462731647 source:c:\users\sasa\documents\projects\rs project\037sasa -- documentation\src\explosionmanager.cpp
 	"ExplosionManager.h"
 
-1462828198 source:c:\users\sasa\documents\github\rs16-14\bomberman\src\keyboardinput.cpp
+1462828198 source:c:\users\sasa\documents\projects\rs project\037sasa -- documentation\src\keyboardinput.cpp
 	"KeyboardInput.h"
 	<iostream>
 
-1462731754 source:c:\users\sasa\documents\github\rs16-14\bomberman\src\map.cpp
+1462731754 source:c:\users\sasa\documents\projects\rs project\037sasa -- documentation\src\map.cpp
 	"Map.h"
 	<stdio.h>
 	<stdlib.h>
@@ -839,17 +839,17 @@
 	<fstream>
 	<iostream>
 
-1462729155 source:c:\users\sasa\documents\github\rs16-14\bomberman\src\mapobject.cpp
+1462729155 source:c:\users\sasa\documents\projects\rs project\037sasa -- documentation\src\mapobject.cpp
 	"MapObject.h"
 
-1462828993 source:c:\users\sasa\documents\github\rs16-14\bomberman\src\player.cpp
-	"Player.h"
-
-1462742718 source:c:\users\sasa\documents\github\rs16-14\bomberman\src\timer.cpp
+1462742718 source:c:\users\sasa\documents\projects\rs project\037sasa -- documentation\src\timer.cpp
 	"Timer.h"
 	<SDL.h>
 
-1462730775 source:c:\users\sasa\documents\github\rs16-14\bomberman\src\walldestroyer.cpp
+1462730775 source:c:\users\sasa\documents\projects\rs project\037sasa -- documentation\src\walldestroyer.cpp
 	"WallDestroyer.h"
 	<iostream>
+
+1462830525 source:c:\users\sasa\documents\projects\rs project\037sasa -- documentation\src\player.cpp
+	"Player.h"
 
