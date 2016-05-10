@@ -19,25 +19,6 @@ void game::OnEvent(SDL_Event* Event)
 
     case SDL_KEYDOWN:
         keyboard_input->TurnKeyOn(Event->key.keysym.sym);
-        switch( Event->key.keysym.sym )
-        {
-        case SDLK_UP:
-            bomberman->player_move(0, -1, level);
-            break;
-
-        case SDLK_DOWN:
-            bomberman->player_move(0, 1, level);
-            break;
-
-        case SDLK_LEFT:
-            bomberman->player_move(-1, 0, level);
-            break;
-
-        case SDLK_RIGHT:
-            bomberman->player_move(1, 0, level);
-            break;
-        }
-
         break;
 
     case SDL_KEYUP:
@@ -48,14 +29,11 @@ void game::OnEvent(SDL_Event* Event)
         #endif // DEBUG_OUTPUT
         switch( Event->key.keysym.sym )
         {
-        case SDLK_SPACE:
-            bomberman->place_bomb();
-            break;
-        case SDLK_f: // mostly for testing
-            //SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN);
-            break;
-        default:
-            break;
+            case SDLK_f: // mostly for testing
+                //SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN);
+                break;
+            default:
+                break;
         }
         break;
 
