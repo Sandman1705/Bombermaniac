@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="SDL2-test01" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/SDL2-test01" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="./" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-std=c++11" />
+					<Add option="-g" />
+					<Add directory="$(SDL_install_dir)/SDL2-2.0.4/i686-w64-mingw32/include/SDL2" />
+					<Add directory="$(SDL_install_dir)/SDL2_image-2.0.1/i686-w64-mingw32/include/SDL2" />
+					<Add directory="$(SDL_install_dir)/SDL2_mixer-2.0.1/i686-w64-mingw32/include/SDL2" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_mixer" />
+					<Add directory="$(SDL_install_dir)/SDL2-2.0.4/i686-w64-mingw32/lib" />
+					<Add directory="$(SDL_install_dir)/SDL2_image-2.0.1/i686-w64-mingw32/lib" />
+					<Add directory="$(SDL_install_dir)/SDL2_mixer-2.0.1/i686-w64-mingw32/lib" />
+				</Linker>
+				<Environment>
+					<Variable name="SDL_install_dir" value="C:\SDL" />
+				</Environment>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/game-release" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="./" />
+				<Option object_output="obj/Release/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="C:/SDL/SDL2-2.0.4/i686-w64-mingw32/include/SDL2" />
+					<Add directory="C:/SDL/SDL2_image-2.0.1/i686-w64-mingw32/include/SDL2" />
+					<Add directory="C:/SDL/SDL2_mixer-2.0.1/i686-w64-mingw32/include/SDL2" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="-lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_mixer" />
+					<Add directory="C:/SDL/SDL2-2.0.4/i686-w64-mingw32/lib" />
+					<Add directory="C:/SDL/SDL2_image-2.0.1/i686-w64-mingw32/lib" />
+					<Add directory="C:/SDL/SDL2_mixer-2.0.1/i686-w64-mingw32/lib" />
+				</Linker>
+				<Environment>
+					<Variable name="SLD_install_dir" value="C:\SDL\" />
+				</Environment>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="game.cpp" />
+		<Unit filename="game.h" />
+		<Unit filename="game_cleanup.cpp" />
+		<Unit filename="game_loadcontent.cpp" />
+		<Unit filename="game_onevent.cpp" />
+		<Unit filename="game_oninit.cpp" />
+		<Unit filename="game_onloop.cpp" />
+		<Unit filename="game_onrender.cpp" />
+		<Unit filename="include/Map.h" />
+		<Unit filename="include/player.h" />
+		<Unit filename="includes.h" />
+		<Unit filename="src/Map.cpp" />
+		<Unit filename="src/player.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

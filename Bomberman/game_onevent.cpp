@@ -11,33 +11,57 @@ void game::OnEvent(SDL_Event* Event)
         Running = false;
     }
 
+    unsigned int tmp_x;
+    unsigned int tmp_y;
 
-    SDL_Event event;
-    /* Poll for events. SDL_PollEvent() returns 0 when there are no  */
-    /* more events on the event queue, our while loop will exit when */
-    /* that occurs.                                                  */
-    while( SDL_PollEvent( &event ) )
+    unsigned int move_speed = 4;
+
+    //  SDL_Event event;
+
+
+    switch( Event->type )
     {
+    /* Keyboard event */
+    /* Pass the event data onto PrintKeyInfo() */
 
-        switch( event.type )
-        {
-        /* Keyboard event */
-        /* Pass the event data onto PrintKeyInfo() */
-        case SDL_KEYDOWN:
-        case SDL_KEYUP:
-            PrintKeyInfo( &event.key );
+    case SDL_KEYDOWN:
+       switch( Event->key.keysym.sym )
+       {
+        case SDLK_UP:
+            tmp_y = bomberman->Get_y();
+            bomberman->Set_y(tmp_y-move_speed);
+            break;
+        case SDLK_DOWN:
+            tmp_y = bomberman->Get_y();
+            bomberman->Set_y(tmp_y+move_speed);
+            break;
+        case SDLK_LEFT:
+            tmp_x = bomberman->Get_x();
+            bomberman->Set_x(tmp_x-move_speed);;
+            break;
+        case SDLK_RIGHT:
+            tmp_x = bomberman->Get_x();
+            bomberman->Set_x(tmp_x+move_speed);
             break;
 
-        /* SDL_QUIT event (window close) */
-        case SDL_QUIT:
-            Running = false;
-            break;
 
-        default:
-            break;
         }
+        break;
 
+    case SDL_KEYUP:
+        PrintKeyInfo( &(Event->key) );
+        break;
+
+    /* SDL_QUIT event (window close) */
+    case SDL_QUIT:
+        Running = false;
+        break;
+
+    default:
+        break;
     }
+
+
 }
 
 void PrintKeyInfo( SDL_KeyboardEvent *key )

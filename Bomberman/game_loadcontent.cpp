@@ -5,6 +5,8 @@ bool game::LoadContent()
     level = new Map(6,7);
     level->loadLayout();
 
+    bomberman = new player();
+
     for (auto i = resourcesPaths.cbegin(); i != resourcesPaths.cend(); ++i)
     {
         SDL_Surface *bmp = SDL_LoadBMP((*i).c_str());
@@ -37,6 +39,7 @@ bool game::GetResourcesPaths()
     resourcesPaths.push_back("resources\\blue.bmp");
     resourcesPaths.push_back("resources\\red.bmp");
     resourcesPaths.push_back("resources\\green.bmp");
+    resourcesPaths.push_back("resources\\bomberman.bmp");
     //std::cout << "Loaded resources file paths" << std::endl;
     return true;
 }

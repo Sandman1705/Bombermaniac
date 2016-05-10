@@ -31,9 +31,18 @@ void game::OnRender()
         }
 
     }
+    /*
+    DestR.x = 0;
+    DestR.y = 0;
+    */
+
+    DestR.x = bomberman->Get_x();
+    DestR.y = bomberman->Get_y();
+
+    SDL_Texture *tex = textures[4];
+    SDL_RenderCopy(renderer, tex, &SrcR, &DestR);
+
     //Update the screen
     SDL_RenderPresent(renderer);
-    SDL_Delay(100);
-
 }
 

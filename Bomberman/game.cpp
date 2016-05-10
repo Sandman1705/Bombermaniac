@@ -4,11 +4,17 @@ game::game()
 {
     window = NULL;
     Running = true;
+    level = nullptr;
 }
 
 int game::OnExecute()
 {
     if(OnInit() == false)
+    {
+        return -1;
+    }
+
+    if (LoadContent() == false)
     {
         return -1;
     }
@@ -22,6 +28,8 @@ int game::OnExecute()
 
         OnLoop();
         OnRender();
+
+        SDL_Delay(100);
     }
 
     Cleanup();
@@ -32,6 +40,7 @@ int game::OnExecute()
 int main(int argc, char* argv[])
 {
     game theGame;
+
 
     return theGame.OnExecute();
 }
