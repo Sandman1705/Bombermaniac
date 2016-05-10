@@ -961,15 +961,15 @@
 	"game.h"
 	<cstdio>
 
-1461672416 source:c:\users\sasa\documents\projects\rs project\019bomb\game.cpp
+1461672416 source:e:\rs\019bomb\game.cpp
 	"game.h"
 
-1461672416 c:\users\sasa\documents\projects\rs project\019bomb\game.h
+1461672416 e:\rs\019bomb\game.h
 	"includes.h"
 	"Map.h"
 	"player.h"
 
-1461672416 c:\users\sasa\documents\projects\rs project\019bomb\includes.h
+1461672416 e:\rs\019bomb\includes.h
 	<SDL.h>
 	<SDL_image.h>
 	<iostream>
@@ -978,28 +978,34 @@
 	<SDL2/SDL.h>
 	<SDL2/SDL_image.h>
 
-1462632204 c:\users\sasa\documents\projects\rs project\019bomb\include\map.h
+1462634471 e:\rs\019bomb\include\map.h
 	<vector>
 	<string>
-
-1462635907 c:\users\sasa\documents\projects\rs project\019bomb\include\player.h
 	<SDL.h>
-	"Map.h"
 
-1461672416 source:c:\users\sasa\documents\projects\rs project\019bomb\game_cleanup.cpp
+1461672422 e:\rs\019bomb\include\player.h
+
+1461672416 source:e:\rs\019bomb\game_cleanup.cpp
 	"game.h"
 
-1462635271 source:c:\users\sasa\documents\projects\rs project\019bomb\game_loadcontent.cpp
+1461672416 source:e:\rs\019bomb\game_loadcontent.cpp
 	"game.h"
 	"SDL_image.h"
 
-1461672416 source:c:\users\sasa\documents\projects\rs project\019bomb\game_oninit.cpp
+1462632063 source:e:\rs\019bomb\game_onevent.cpp
+	"game.h"
+	<cstdio>
+
+1461672416 source:e:\rs\019bomb\game_oninit.cpp
 	"game.h"
 
-1461672416 source:c:\users\sasa\documents\projects\rs project\019bomb\game_onloop.cpp
+1461672416 source:e:\rs\019bomb\game_onloop.cpp
 	"game.h"
 
-1462630567 source:c:\users\sasa\documents\projects\rs project\019bomb\src\map.cpp
+1462633931 source:e:\rs\019bomb\game_onrender.cpp
+	"game.h"
+
+1462633825 source:e:\rs\019bomb\src\map.cpp
 	"Map.h"
 	<stdio.h>
 	<stdlib.h>
@@ -1007,12 +1013,126 @@
 	<fstream>
 	<iostream>
 
-1462634745 source:c:\users\sasa\documents\projects\rs project\019bomb\game_onevent.cpp
+1461672422 source:e:\rs\019bomb\src\player.cpp
+	"player.h"
+
+1462633594 source:e:\rs\019bomb\src\mapobject.cpp
+	"MapObject.h"
+
+1462634209 e:\rs\019bomb\include\mapobject.h
+	"SDL.h"
+
+1461672416 source:e:\rs\021mickey\game.cpp
+	"game.h"
+
+1461672416 e:\rs\021mickey\game.h
+	"includes.h"
+	"Map.h"
+	"player.h"
+
+1461672416 e:\rs\021mickey\includes.h
+	<SDL.h>
+	<SDL_image.h>
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL2/SDL.h>
+	<SDL2/SDL_image.h>
+
+1462636215 e:\rs\021mickey\include\map.h
+	<vector>
+	<string>
+	<SDL.h>
+	"MapObject.h"
+
+1461672422 e:\rs\021mickey\include\player.h
+
+1461672416 source:e:\rs\021mickey\game_cleanup.cpp
+	"game.h"
+
+1462636150 source:e:\rs\021mickey\game_loadcontent.cpp
+	"game.h"
+	"SDL_image.h"
+
+1462632063 source:e:\rs\021mickey\game_onevent.cpp
 	"game.h"
 	<cstdio>
 
-1462635960 source:c:\users\sasa\documents\projects\rs project\019bomb\game_onrender.cpp
+1461672416 source:e:\rs\021mickey\game_oninit.cpp
 	"game.h"
+
+1461672416 source:e:\rs\021mickey\game_onloop.cpp
+	"game.h"
+
+1462633931 source:e:\rs\021mickey\game_onrender.cpp
+	"game.h"
+
+1462636309 source:e:\rs\021mickey\src\map.cpp
+	"Map.h"
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<fstream>
+	<iostream>
+
+1462636402 source:e:\rs\021mickey\src\mapobject.cpp
+	"MapObject.h"
+
+1462636348 e:\rs\021mickey\include\mapobject.h
+	<SDL.h>
+
+1461672422 source:e:\rs\021mickey\src\player.cpp
+	"player.h"
+
+1461672416 source:e:\rs\022bomb\game.cpp
+	"game.h"
+
+1461672416 e:\rs\022bomb\game.h
+	"includes.h"
+	"Map.h"
+	"player.h"
+
+1461672416 e:\rs\022bomb\includes.h
+	<SDL.h>
+	<SDL_image.h>
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL2/SDL.h>
+	<SDL2/SDL_image.h>
+
+1462636598 e:\rs\022bomb\include\map.h
+	<vector>
+	<string>
+	<SDL.h>
+	"MapObject.h"
+
+1462636348 e:\rs\022bomb\include\mapobject.h
+	<SDL.h>
+
+1462636912 e:\rs\022bomb\include\player.h
+	<SDL.h>
+	"Map.h"
+
+1461672416 source:e:\rs\022bomb\game_cleanup.cpp
+	"game.h"
+
+1461672416 source:e:\rs\022bomb\game_oninit.cpp
+	"game.h"
+
+1461672416 source:e:\rs\022bomb\game_onloop.cpp
+	"game.h"
+
+1462636309 source:e:\rs\022bomb\src\map.cpp
+	"Map.h"
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<fstream>
+	<iostream>
+
+1462636402 source:e:\rs\022bomb\src\mapobject.cpp
+	"MapObject.h"
 
 1461672416 source:c:\users\sasa\documents\github\rs16-14\bomberman\game.cpp
 	"game.h"
@@ -1031,22 +1151,27 @@
 	<SDL2/SDL.h>
 	<SDL2/SDL_image.h>
 
-1462632204 c:\users\sasa\documents\github\rs16-14\bomberman\include\map.h
+1462636598 c:\users\sasa\documents\github\rs16-14\bomberman\include\map.h
 	<vector>
 	<string>
+	<SDL.h>
+	"MapObject.h"
 
-1462635907 c:\users\sasa\documents\github\rs16-14\bomberman\include\player.h
+1462636348 c:\users\sasa\documents\github\rs16-14\bomberman\include\mapobject.h
+	<SDL.h>
+
+1462636912 c:\users\sasa\documents\github\rs16-14\bomberman\include\player.h
 	<SDL.h>
 	"Map.h"
 
 1461672416 source:c:\users\sasa\documents\github\rs16-14\bomberman\game_cleanup.cpp
 	"game.h"
 
-1462635271 source:c:\users\sasa\documents\github\rs16-14\bomberman\game_loadcontent.cpp
+1462637024 source:c:\users\sasa\documents\github\rs16-14\bomberman\game_loadcontent.cpp
 	"game.h"
 	"SDL_image.h"
 
-1462634745 source:c:\users\sasa\documents\github\rs16-14\bomberman\game_onevent.cpp
+1462636961 source:c:\users\sasa\documents\github\rs16-14\bomberman\game_onevent.cpp
 	"game.h"
 	<cstdio>
 
@@ -1056,7 +1181,7 @@
 1461672416 source:c:\users\sasa\documents\github\rs16-14\bomberman\game_onloop.cpp
 	"game.h"
 
-1462630567 source:c:\users\sasa\documents\github\rs16-14\bomberman\src\map.cpp
+1462636309 source:c:\users\sasa\documents\github\rs16-14\bomberman\src\map.cpp
 	"Map.h"
 	<stdio.h>
 	<stdlib.h>
@@ -1064,6 +1189,12 @@
 	<fstream>
 	<iostream>
 
-1462636074 source:c:\users\sasa\documents\github\rs16-14\bomberman\src\player.cpp
+1462636402 source:c:\users\sasa\documents\github\rs16-14\bomberman\src\mapobject.cpp
+	"MapObject.h"
+
+1462636903 source:c:\users\sasa\documents\github\rs16-14\bomberman\src\player.cpp
 	"player.h"
+
+1462637090 source:c:\users\sasa\documents\github\rs16-14\bomberman\game_onrender.cpp
+	"game.h"
 

@@ -2,27 +2,38 @@
 #define MAP_H
 #include <vector>
 #include <string>
+#include <SDL.h>
+#include "MapObject.h"
 
 class Map
 {
     public:
-        Map(int height, int width);
-        Map(std::string path_to_file);
+        //Map(int height, int width);
+        Map(std::string path_to_file, const std::vector<SDL_Texture*> *textures);
         //~Map();
 
         unsigned int Get_height() { return m_height; }
-        //void Set_height(unsigned int val) { m_height = val; }
         unsigned int Get_width() { return m_width; }
-        //void Set_width(unsigned int val) { m_width = val; }
+        unsigned int Get_tile_size() { return m_tile_size; }
 
-        bool Walkable(unsigned int i,unsigned int j);
+        bool Walkable(unsigned int i,unsigned int j) const;
+        void Draw(SDL_Renderer* renderer, const std::vector<SDL_Texture*> *textures);
 
-        unsigned int m_height;
-        unsigned int m_width;
-        std::vector<std::vector<int>> m_layout;
+        enum Tile
+        {
+              EMPTY = 0,
+              DESTRUCTABLE_WALL = 1,
+              INDESTRUCTABLE_WALL = 2
+        };
+
     protected:
 
     private:
+        unsigned int m_height;
+        unsigned int m_width;
+        std::vector<std::vector<MapObject*>> m_layout;
+        const int m_tile_size;
+
         std::string path_to_file;
 
 };

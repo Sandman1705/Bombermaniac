@@ -67,9 +67,11 @@
 		<Unit filename="game_onloop.cpp" />
 		<Unit filename="game_onrender.cpp" />
 		<Unit filename="include/Map.h" />
+		<Unit filename="include/MapObject.h" />
 		<Unit filename="include/player.h" />
 		<Unit filename="includes.h" />
 		<Unit filename="src/Map.cpp" />
+		<Unit filename="src/MapObject.cpp" />
 		<Unit filename="src/player.cpp" />
 		<Extensions>
 			<code_completion />

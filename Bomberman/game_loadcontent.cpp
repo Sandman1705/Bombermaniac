@@ -3,9 +3,7 @@
 
 bool game::LoadContent()
 {
-    level = new Map("resources\\levels\\level1.txt");
-
-
+    /** Texture loading - Begin **/
     for (auto i = resourcesPaths.cbegin(); i != resourcesPaths.cend(); ++i)
     {
         SDL_Surface *bmp = SDL_LoadBMP((*i).c_str());
@@ -44,7 +42,9 @@ bool game::LoadContent()
         }
         textures.push_back(tex);
     }
+    /** Texture loading - End **/
 
+    level = new Map("resources\\levels\\level1.txt",&textures);
     bomberman = new player(textures[3]);
 
     return true;
