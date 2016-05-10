@@ -1683,13 +1683,195 @@
 1462658651 source:c:\users\sasa\documents\projects\rs project\027sasa -- loadcontent update3\src\player.cpp
 	"Player.h"
 
-1462656507 source:c:\users\sasa\documents\github\rs16-14\bomberman\game.cpp
+1462656507 source:c:\users\sasa\documents\projects\rs project\028sasa -- enemy -- one can dream\game.cpp
 	"game.h"
 
-1462652290 c:\users\sasa\documents\github\rs16-14\bomberman\game.h
+1462662607 c:\users\sasa\documents\projects\rs project\028sasa -- enemy -- one can dream\game.h
 	"includes.h"
 	"Map.h"
 	"Player.h"
+	"Enemy.h"
+	"Bomb.h"
+
+1461672416 c:\users\sasa\documents\projects\rs project\028sasa -- enemy -- one can dream\includes.h
+	<SDL.h>
+	<SDL_image.h>
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL2/SDL.h>
+	<SDL2/SDL_image.h>
+
+1462655595 c:\users\sasa\documents\projects\rs project\028sasa -- enemy -- one can dream\include\map.h
+	<vector>
+	<string>
+	<SDL.h>
+	"MapObject.h"
+
+1462656176 c:\users\sasa\documents\projects\rs project\028sasa -- enemy -- one can dream\include\mapobject.h
+	<SDL.h>
+
+1462647649 c:\users\sasa\documents\projects\rs project\028sasa -- enemy -- one can dream\include\player.h
+	<SDL.h>
+	"Map.h"
+
+1462646504 c:\users\sasa\documents\projects\rs project\028sasa -- enemy -- one can dream\include\bomb.h
+	<SDL.h>
+	"Timer.h"
+
+1462642709 c:\users\sasa\documents\projects\rs project\028sasa -- enemy -- one can dream\include\timer.h
+
+1462656353 source:c:\users\sasa\documents\projects\rs project\028sasa -- enemy -- one can dream\game_cleanup.cpp
+	"game.h"
+
+1462661286 source:c:\users\sasa\documents\projects\rs project\028sasa -- enemy -- one can dream\game_loadcontent.cpp
+	"game.h"
+	"SDL_image.h"
+
+1462658947 source:c:\users\sasa\documents\projects\rs project\028sasa -- enemy -- one can dream\game_onevent.cpp
+	"game.h"
+	<cstdio>
+
+1462663373 source:c:\users\sasa\documents\projects\rs project\028sasa -- enemy -- one can dream\game_oninit.cpp
+	"game.h"
+
+1462662901 source:c:\users\sasa\documents\projects\rs project\028sasa -- enemy -- one can dream\game_onloop.cpp
+	"game.h"
+
+1462661757 source:c:\users\sasa\documents\projects\rs project\028sasa -- enemy -- one can dream\game_onrender.cpp
+	"game.h"
+
+1462646764 source:c:\users\sasa\documents\projects\rs project\028sasa -- enemy -- one can dream\src\bomb.cpp
+	"Bomb.h"
+	<iostream>
+
+1462656424 source:c:\users\sasa\documents\projects\rs project\028sasa -- enemy -- one can dream\src\map.cpp
+	"Map.h"
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<fstream>
+	<iostream>
+
+1462656436 source:c:\users\sasa\documents\projects\rs project\028sasa -- enemy -- one can dream\src\mapobject.cpp
+	"MapObject.h"
+
+1462658651 source:c:\users\sasa\documents\projects\rs project\028sasa -- enemy -- one can dream\src\player.cpp
+	"Player.h"
+
+1462641827 source:c:\users\sasa\documents\projects\rs project\028sasa -- enemy -- one can dream\src\timer.cpp
+	"Timer.h"
+	<SDL.h>
+
+1462661916 source:c:\users\sasa\documents\projects\rs project\028sasa -- enemy -- one can dream\src\enemy.cpp
+	"Enemy.h"
+
+1462663600 c:\users\sasa\documents\projects\rs project\028sasa -- enemy -- one can dream\include\enemy.h
+	<SDL.h>
+	<cstdlib>
+	<ctime>
+	"Map.h"
+	"Timer.h"
+
+1462656507 source:c:\users\sasa\documents\projects\rs project\028sasa -- enemy\game.cpp
+	"game.h"
+
+1462662607 c:\users\sasa\documents\projects\rs project\028sasa -- enemy\game.h
+	"includes.h"
+	"Map.h"
+	"Player.h"
+	"Enemy.h"
+	"Bomb.h"
+
+1461672416 c:\users\sasa\documents\projects\rs project\028sasa -- enemy\includes.h
+	<SDL.h>
+	<SDL_image.h>
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL2/SDL.h>
+	<SDL2/SDL_image.h>
+
+1462655595 c:\users\sasa\documents\projects\rs project\028sasa -- enemy\include\map.h
+	<vector>
+	<string>
+	<SDL.h>
+	"MapObject.h"
+
+1462656176 c:\users\sasa\documents\projects\rs project\028sasa -- enemy\include\mapobject.h
+	<SDL.h>
+
+1462647649 c:\users\sasa\documents\projects\rs project\028sasa -- enemy\include\player.h
+	<SDL.h>
+	"Map.h"
+
+1462663600 c:\users\sasa\documents\projects\rs project\028sasa -- enemy\include\enemy.h
+	<SDL.h>
+	<cstdlib>
+	<ctime>
+	"Map.h"
+	"Timer.h"
+
+1462642709 c:\users\sasa\documents\projects\rs project\028sasa -- enemy\include\timer.h
+
+1462646504 c:\users\sasa\documents\projects\rs project\028sasa -- enemy\include\bomb.h
+	<SDL.h>
+	"Timer.h"
+
+1462656353 source:c:\users\sasa\documents\projects\rs project\028sasa -- enemy\game_cleanup.cpp
+	"game.h"
+
+1462661286 source:c:\users\sasa\documents\projects\rs project\028sasa -- enemy\game_loadcontent.cpp
+	"game.h"
+	"SDL_image.h"
+
+1462658947 source:c:\users\sasa\documents\projects\rs project\028sasa -- enemy\game_onevent.cpp
+	"game.h"
+	<cstdio>
+
+1462663373 source:c:\users\sasa\documents\projects\rs project\028sasa -- enemy\game_oninit.cpp
+	"game.h"
+
+1462662901 source:c:\users\sasa\documents\projects\rs project\028sasa -- enemy\game_onloop.cpp
+	"game.h"
+
+1462661757 source:c:\users\sasa\documents\projects\rs project\028sasa -- enemy\game_onrender.cpp
+	"game.h"
+
+1462646764 source:c:\users\sasa\documents\projects\rs project\028sasa -- enemy\src\bomb.cpp
+	"Bomb.h"
+	<iostream>
+
+1462663988 source:c:\users\sasa\documents\projects\rs project\028sasa -- enemy\src\enemy.cpp
+	"Enemy.h"
+	<iostream>
+
+1462656424 source:c:\users\sasa\documents\projects\rs project\028sasa -- enemy\src\map.cpp
+	"Map.h"
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<fstream>
+	<iostream>
+
+1462656436 source:c:\users\sasa\documents\projects\rs project\028sasa -- enemy\src\mapobject.cpp
+	"MapObject.h"
+
+1462658651 source:c:\users\sasa\documents\projects\rs project\028sasa -- enemy\src\player.cpp
+	"Player.h"
+
+1462641827 source:c:\users\sasa\documents\projects\rs project\028sasa -- enemy\src\timer.cpp
+	"Timer.h"
+	<SDL.h>
+
+1462656507 source:c:\users\sasa\documents\github\rs16-14\bomberman\game.cpp
+	"game.h"
+
+1462662607 c:\users\sasa\documents\github\rs16-14\bomberman\game.h
+	"includes.h"
+	"Map.h"
+	"Player.h"
+	"Enemy.h"
 	"Bomb.h"
 
 1461672416 c:\users\sasa\documents\github\rs16-14\bomberman\includes.h
@@ -1714,16 +1896,23 @@
 	<SDL.h>
 	"Map.h"
 
-1462646504 c:\users\sasa\documents\github\rs16-14\bomberman\include\bomb.h
+1462663600 c:\users\sasa\documents\github\rs16-14\bomberman\include\enemy.h
 	<SDL.h>
+	<cstdlib>
+	<ctime>
+	"Map.h"
 	"Timer.h"
 
 1462642709 c:\users\sasa\documents\github\rs16-14\bomberman\include\timer.h
 
+1462646504 c:\users\sasa\documents\github\rs16-14\bomberman\include\bomb.h
+	<SDL.h>
+	"Timer.h"
+
 1462656353 source:c:\users\sasa\documents\github\rs16-14\bomberman\game_cleanup.cpp
 	"game.h"
 
-1462658484 source:c:\users\sasa\documents\github\rs16-14\bomberman\game_loadcontent.cpp
+1462661286 source:c:\users\sasa\documents\github\rs16-14\bomberman\game_loadcontent.cpp
 	"game.h"
 	"SDL_image.h"
 
@@ -1731,17 +1920,21 @@
 	"game.h"
 	<cstdio>
 
-1462652268 source:c:\users\sasa\documents\github\rs16-14\bomberman\game_oninit.cpp
+1462663373 source:c:\users\sasa\documents\github\rs16-14\bomberman\game_oninit.cpp
 	"game.h"
 
-1462646819 source:c:\users\sasa\documents\github\rs16-14\bomberman\game_onloop.cpp
+1462662901 source:c:\users\sasa\documents\github\rs16-14\bomberman\game_onloop.cpp
 	"game.h"
 
-1462656722 source:c:\users\sasa\documents\github\rs16-14\bomberman\game_onrender.cpp
+1462661757 source:c:\users\sasa\documents\github\rs16-14\bomberman\game_onrender.cpp
 	"game.h"
 
 1462646764 source:c:\users\sasa\documents\github\rs16-14\bomberman\src\bomb.cpp
 	"Bomb.h"
+	<iostream>
+
+1462663988 source:c:\users\sasa\documents\github\rs16-14\bomberman\src\enemy.cpp
+	"Enemy.h"
 	<iostream>
 
 1462656424 source:c:\users\sasa\documents\github\rs16-14\bomberman\src\map.cpp

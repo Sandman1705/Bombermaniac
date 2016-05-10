@@ -2,5 +2,5 @@
 
 void game::OnLoop()
 {
-
+    enemy->update(level);
 }

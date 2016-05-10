@@ -27,6 +27,7 @@ bool game::LoadContent()
     unsigned int tile_size = 45;
     level = new Map("resources\\levels\\level1.txt",texture, tile_size);
     bomberman = new Player(texture, tile_size);
+    enemy = new Enemy(texture, tile_size);
 
     return true;
 }
