@@ -32,8 +32,8 @@ void game::OnEvent(SDL_Event* Event)
             tmp_x = bomberman->Get_x();
             tmp_y = bomberman->Get_y();
 
-            if(level->m_layout[(tmp_y - move_speed)/field_size][tmp_x/field_size] == 0
-                    &&  level->m_layout[(tmp_y - move_speed)/field_size][(tmp_x+player_size_w)/field_size] == 0)
+            if(level->Walkable( (tmp_y - move_speed)/field_size, tmp_x/field_size )
+                    &&  level->Walkable( (tmp_y - move_speed)/field_size, (tmp_x+player_size_w)/field_size) )
             {
                 tmp_y = bomberman->Get_y();
                 bomberman->Set_y(tmp_y-move_speed);
@@ -45,8 +45,8 @@ void game::OnEvent(SDL_Event* Event)
             tmp_x = bomberman->Get_x();
             tmp_y = bomberman->Get_y();
 
-            if(level->m_layout[(tmp_y+player_size_h+move_speed)/field_size][tmp_x/field_size] == 0
-                    && level->m_layout[(tmp_y+player_size_h+move_speed)/field_size][(tmp_x+player_size_w)/field_size] == 0)
+            if(level->Walkable( (tmp_y+player_size_h+move_speed)/field_size, tmp_x/field_size )
+                    && level->Walkable( (tmp_y+player_size_h+move_speed)/field_size, (tmp_x+player_size_w)/field_size ) )
             {
                 tmp_y = bomberman->Get_y();
                 bomberman->Set_y(tmp_y+move_speed);
@@ -58,8 +58,8 @@ void game::OnEvent(SDL_Event* Event)
             tmp_x = bomberman->Get_x();
             tmp_y = bomberman->Get_y();
 
-            if(level->m_layout[tmp_y/field_size][(tmp_x-move_speed)/field_size] == 0
-                    && level->m_layout[(tmp_y+player_size_h)/field_size][(tmp_x-move_speed)/field_size] == 0)
+            if(level->Walkable( tmp_y/field_size, (tmp_x-move_speed)/field_size )
+                    && level->Walkable( (tmp_y+player_size_h)/field_size, (tmp_x-move_speed)/field_size) )
             {
                 tmp_x = bomberman->Get_x();
                 bomberman->Set_x(tmp_x-move_speed);
@@ -71,8 +71,8 @@ void game::OnEvent(SDL_Event* Event)
             tmp_x = bomberman->Get_x();
             tmp_y = bomberman->Get_y();
 
-            if( level->m_layout[tmp_y/field_size][(tmp_x+player_size_w+move_speed)/field_size] == 0
-                    && level->m_layout[(tmp_y+player_size_h)/field_size][(tmp_x+player_size_w+move_speed)/field_size] == 0)
+            if( level->Walkable( tmp_y/field_size, (tmp_x+player_size_w+move_speed)/field_size )
+                    && level->Walkable( (tmp_y+player_size_h)/field_size, (tmp_x+player_size_w+move_speed)/field_size) )
             {
                 tmp_x = bomberman->Get_x();
                 bomberman->Set_x(tmp_x+move_speed);

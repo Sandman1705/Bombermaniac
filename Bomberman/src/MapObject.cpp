@@ -2,10 +2,6 @@
 
 MapObject::MapObject()
 {
-    //ctor
+
 }
 
-MapObject::~MapObject()
-{
-    //dtor
-}
