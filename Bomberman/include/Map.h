@@ -10,14 +10,14 @@ class Map
     public:
         //Map(int height, int width);
         Map(std::string path_to_file, const std::vector<SDL_Texture*> *textures);
-        //~Map();
+        ~Map();
 
         unsigned int Get_height() { return m_height; }
         unsigned int Get_width() { return m_width; }
         unsigned int Get_tile_size() { return m_tile_size; }
 
         bool Walkable(unsigned int i,unsigned int j) const;
-        void Draw(SDL_Renderer* renderer, const std::vector<SDL_Texture*> *textures);
+        void Draw(SDL_Renderer* renderer);
 
         enum Tile
         {
@@ -29,13 +29,11 @@ class Map
     protected:
 
     private:
-        unsigned int m_height;
-        unsigned int m_width;
-        std::vector<std::vector<MapObject*>> m_layout;
-        const int m_tile_size;
-
-        std::string path_to_file;
-
+        unsigned int                            m_height;
+        unsigned int                            m_width;
+        std::vector<std::vector<MapObject*>>    m_layout;
+        const int                               m_tile_size;
+        std::string                             path_to_file;
 };
 
 #endif // MAP_H

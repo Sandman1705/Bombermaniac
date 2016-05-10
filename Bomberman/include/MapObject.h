@@ -19,8 +19,8 @@ class MapObject
     protected:
 
     private:
-        unsigned int m_id;
-        SDL_Texture* m_texture;
+        unsigned int    m_id;
+        SDL_Texture*    m_texture;
 };
 
 #endif // MAPOBJECT_H

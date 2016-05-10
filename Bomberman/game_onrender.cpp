@@ -5,7 +5,7 @@ void game::OnRender()
     SDL_RenderClear(renderer);
 
     //Draw map and player
-    level->Draw(renderer,&textures);
+    level->Draw(renderer);
     bomberman->Draw(renderer);
 
     //Update the screen

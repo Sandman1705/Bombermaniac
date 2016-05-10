@@ -43,9 +43,11 @@ bool game::LoadContent()
         textures.push_back(tex);
     }
     /** Texture loading - End **/
-
+    unsigned int tile_size = 32;
     level = new Map("resources\\levels\\level1.txt",&textures);
     bomberman = new player(textures[3]);
+
+    //bombs.push_back(new Bomb(10000,textures[4],tile_size,tile_size*2,15));
 
     return true;
 }
@@ -56,7 +58,7 @@ bool game::GetResourcesPaths()
     resourcesPaths.push_back("resources\\wall1.bmp");
     resourcesPaths.push_back("resources\\wall2.bmp");
     resourcesPaths.push_back("resources\\player_move.bmp");
-    //resourcesPaths.push_back("resources\\player_move.png");
+    //resourcesPaths.push_back("resources\\bomb4.bmp");
     //std::cout << "Loaded resources file paths" << std::endl;
     return true;
 }

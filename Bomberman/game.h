@@ -4,6 +4,7 @@
 #include"includes.h"
 #include"Map.h"
 #include"player.h"
+#include"Bomb.h"
 
 class game
 {
@@ -17,6 +18,8 @@ private:
     std::vector<std::string> resourcesPaths;
     std::vector<SDL_Surface*> bmpFiles;
     std::vector<SDL_Texture*> textures;
+
+    //std::vector<Bomb*> bombs;
 
 protected:
     bool GetResourcesPaths();

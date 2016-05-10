@@ -52,6 +52,17 @@ Map::Map(std::string path_to_file, const std::vector<SDL_Texture*> *textures)
     fs.close();
 }
 
+Map::~Map()
+{
+    for (unsigned i = 0; i < this->Get_height(); ++i)
+    {
+        for (unsigned j = 0; j < this->Get_width(); ++j)
+        {
+            delete m_layout[i][j];
+        }
+    }
+}
+
 bool Map::Walkable(unsigned int i,unsigned int j) const
 {
     if (m_layout[i][j]->Get_id() == EMPTY)
@@ -61,7 +72,7 @@ bool Map::Walkable(unsigned int i,unsigned int j) const
 }
 
 
-void Map::Draw(SDL_Renderer* renderer, const std::vector<SDL_Texture*> *textures)
+void Map::Draw(SDL_Renderer* renderer)
 {
     SDL_Rect DestR;
     int tile_size = Get_tile_size();

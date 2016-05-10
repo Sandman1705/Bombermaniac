@@ -41,6 +41,5 @@ int main(int argc, char* argv[])
 {
     game theGame;
 
-
     return theGame.OnExecute();
 }
