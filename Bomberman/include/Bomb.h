@@ -9,12 +9,13 @@ class Bomb
     public:
         Bomb(unsigned int fuse_duration,
              SDL_Texture* texture,
+             SDL_Rect* SrcR,
              unsigned int x,
              unsigned int y,
              unsigned int bomb_size);
         //virtual ~Bomb();
 
-        void UpdateFuse();
+        void BurnFuse();
         bool Explode();
         void Draw(SDL_Renderer* renderer);
 
@@ -26,6 +27,7 @@ class Bomb
         Timer           m_timer;
         unsigned int    m_fuse_duration;
         SDL_Texture*    m_texture;
+        SDL_Rect*       m_SrcR;
         bool            m_explode;
         unsigned int    m_x;
         unsigned int    m_y;

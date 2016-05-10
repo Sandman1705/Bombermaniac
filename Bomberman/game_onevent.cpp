@@ -40,8 +40,15 @@ void game::OnEvent(SDL_Event* Event)
 
     case SDL_KEYUP:
         bomberman->Set_status(0);
-
         PrintKeyInfo( &(Event->key) );
+        switch( Event->key.keysym.sym )
+        {
+        case SDLK_SPACE:
+            bomberman->place_bomb();
+            break;
+        default:
+            break;
+        }
         break;
 
     /* SDL_QUIT event (window close) */

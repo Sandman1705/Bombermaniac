@@ -1525,16 +1525,16 @@
 1462656436 source:e:\rs\025sasa -- enemy\src\mapobject.cpp
 	"MapObject.h"
 
-1462656507 source:e:\rs\026mickey -- game_loadcontent2\game.cpp
+1462656507 source:c:\users\sasa\documents\projects\rs project\027sasa --\game.cpp
 	"game.h"
 
-1462652290 e:\rs\026mickey -- game_loadcontent2\game.h
+1462652290 c:\users\sasa\documents\projects\rs project\027sasa --\game.h
 	"includes.h"
 	"Map.h"
 	"Player.h"
 	"Bomb.h"
 
-1461672416 e:\rs\026mickey -- game_loadcontent2\includes.h
+1461672416 c:\users\sasa\documents\projects\rs project\027sasa --\includes.h
 	<SDL.h>
 	<SDL_image.h>
 	<iostream>
@@ -1543,50 +1543,43 @@
 	<SDL2/SDL.h>
 	<SDL2/SDL_image.h>
 
-1462658408 e:\rs\026mickey -- game_loadcontent2\include\map.h
+1462655595 c:\users\sasa\documents\projects\rs project\027sasa --\include\map.h
 	<vector>
 	<string>
 	<SDL.h>
 	"MapObject.h"
 
-1462656176 e:\rs\026mickey -- game_loadcontent2\include\mapobject.h
+1462656176 c:\users\sasa\documents\projects\rs project\027sasa --\include\mapobject.h
 	<SDL.h>
 
-1462647649 e:\rs\026mickey -- game_loadcontent2\include\player.h
+1462647649 c:\users\sasa\documents\projects\rs project\027sasa --\include\player.h
 	<SDL.h>
 	"Map.h"
 
-1462646504 e:\rs\026mickey -- game_loadcontent2\include\bomb.h
+1462646504 c:\users\sasa\documents\projects\rs project\027sasa --\include\bomb.h
 	<SDL.h>
 	"Timer.h"
 
-1462642709 e:\rs\026mickey -- game_loadcontent2\include\timer.h
+1462642709 c:\users\sasa\documents\projects\rs project\027sasa --\include\timer.h
 
-1462656353 source:e:\rs\026mickey -- game_loadcontent2\game_cleanup.cpp
+1462656353 source:c:\users\sasa\documents\projects\rs project\027sasa --\game_cleanup.cpp
 	"game.h"
 
-1462657206 source:e:\rs\026mickey -- game_loadcontent2\game_loadcontent.cpp
-	"game.h"
-	"SDL_image.h"
-
-1462647216 source:e:\rs\026mickey -- game_loadcontent2\game_onevent.cpp
+1462657153 source:c:\users\sasa\documents\projects\rs project\027sasa --\game_onevent.cpp
 	"game.h"
 	<cstdio>
 
-1462652268 source:e:\rs\026mickey -- game_loadcontent2\game_oninit.cpp
+1462652268 source:c:\users\sasa\documents\projects\rs project\027sasa --\game_oninit.cpp
 	"game.h"
 
-1462646819 source:e:\rs\026mickey -- game_loadcontent2\game_onloop.cpp
+1462646819 source:c:\users\sasa\documents\projects\rs project\027sasa --\game_onloop.cpp
 	"game.h"
 
-1462656530 source:e:\rs\026mickey -- game_loadcontent2\game_onrender.cpp
-	"game.h"
-
-1462646764 source:e:\rs\026mickey -- game_loadcontent2\src\bomb.cpp
+1462646764 source:c:\users\sasa\documents\projects\rs project\027sasa --\src\bomb.cpp
 	"Bomb.h"
 	<iostream>
 
-1462656424 source:e:\rs\026mickey -- game_loadcontent2\src\map.cpp
+1462656424 source:c:\users\sasa\documents\projects\rs project\027sasa --\src\map.cpp
 	"Map.h"
 	<stdio.h>
 	<stdlib.h>
@@ -1594,26 +1587,34 @@
 	<fstream>
 	<iostream>
 
-1462656436 source:e:\rs\026mickey -- game_loadcontent2\src\mapobject.cpp
+1462656436 source:c:\users\sasa\documents\projects\rs project\027sasa --\src\mapobject.cpp
 	"MapObject.h"
 
-1462647606 source:e:\rs\026mickey -- game_loadcontent2\src\player.cpp
-	"Player.h"
-
-1462641827 source:e:\rs\026mickey -- game_loadcontent2\src\timer.cpp
+1462641827 source:c:\users\sasa\documents\projects\rs project\027sasa --\src\timer.cpp
 	"Timer.h"
 	<SDL.h>
 
-1462656507 source:e:\gitprojects\rs16-14\bomberman\game.cpp
+1462658484 source:c:\users\sasa\documents\projects\rs project\027sasa --\game_loadcontent.cpp
+	"game.h"
+	"SDL_image.h"
+
+1462656722 source:c:\users\sasa\documents\projects\rs project\027sasa --\game_onrender.cpp
 	"game.h"
 
-1462652290 e:\gitprojects\rs16-14\bomberman\game.h
+1462658460 source:c:\users\sasa\documents\projects\rs project\027sasa --\src\player.cpp
+	"Player.h"
+
+1462656507 source:e:\rs\028mickey\game.cpp
+	"game.h"
+
+1462660667 e:\rs\028mickey\game.h
 	"includes.h"
 	"Map.h"
 	"Player.h"
 	"Bomb.h"
+	"BombManager.h"
 
-1461672416 e:\gitprojects\rs16-14\bomberman\includes.h
+1461672416 e:\rs\028mickey\includes.h
 	<SDL.h>
 	<SDL_image.h>
 	<iostream>
@@ -1622,50 +1623,47 @@
 	<SDL2/SDL.h>
 	<SDL2/SDL_image.h>
 
-1462658408 e:\gitprojects\rs16-14\bomberman\include\map.h
+1462659290 e:\rs\028mickey\include\map.h
 	<vector>
 	<string>
 	<SDL.h>
 	"MapObject.h"
 
-1462656176 e:\gitprojects\rs16-14\bomberman\include\mapobject.h
+1462656176 e:\rs\028mickey\include\mapobject.h
 	<SDL.h>
 
-1462647649 e:\gitprojects\rs16-14\bomberman\include\player.h
+1462660963 e:\rs\028mickey\include\player.h
 	<SDL.h>
 	"Map.h"
+	"BombManager.h"
 
-1462646504 e:\gitprojects\rs16-14\bomberman\include\bomb.h
+1462661694 e:\rs\028mickey\include\bomb.h
 	<SDL.h>
 	"Timer.h"
 
-1462642709 e:\gitprojects\rs16-14\bomberman\include\timer.h
+1462642709 e:\rs\028mickey\include\timer.h
 
-1462656353 source:e:\gitprojects\rs16-14\bomberman\game_cleanup.cpp
+1462656353 source:e:\rs\028mickey\game_cleanup.cpp
 	"game.h"
 
-1462657206 source:e:\gitprojects\rs16-14\bomberman\game_loadcontent.cpp
+1462661557 source:e:\rs\028mickey\game_loadcontent.cpp
 	"game.h"
 	"SDL_image.h"
 
-1462647216 source:e:\gitprojects\rs16-14\bomberman\game_onevent.cpp
-	"game.h"
-	<cstdio>
-
-1462652268 source:e:\gitprojects\rs16-14\bomberman\game_oninit.cpp
+1462659150 source:e:\rs\028mickey\game_oninit.cpp
 	"game.h"
 
-1462646819 source:e:\gitprojects\rs16-14\bomberman\game_onloop.cpp
+1462662563 source:e:\rs\028mickey\game_onloop.cpp
 	"game.h"
 
-1462656530 source:e:\gitprojects\rs16-14\bomberman\game_onrender.cpp
+1462662549 source:e:\rs\028mickey\game_onrender.cpp
 	"game.h"
 
-1462646764 source:e:\gitprojects\rs16-14\bomberman\src\bomb.cpp
+1462661723 source:e:\rs\028mickey\src\bomb.cpp
 	"Bomb.h"
 	<iostream>
 
-1462656424 source:e:\gitprojects\rs16-14\bomberman\src\map.cpp
+1462656424 source:e:\rs\028mickey\src\map.cpp
 	"Map.h"
 	<stdio.h>
 	<stdlib.h>
@@ -1673,13 +1671,114 @@
 	<fstream>
 	<iostream>
 
-1462656436 source:e:\gitprojects\rs16-14\bomberman\src\mapobject.cpp
+1462656436 source:e:\rs\028mickey\src\mapobject.cpp
 	"MapObject.h"
 
-1462647606 source:e:\gitprojects\rs16-14\bomberman\src\player.cpp
+1462641827 source:e:\rs\028mickey\src\timer.cpp
+	"Timer.h"
+	<SDL.h>
+
+1462662286 source:e:\rs\028mickey\game_onevent.cpp
+	"game.h"
+	<cstdio>
+
+1462662340 source:e:\rs\028mickey\src\player.cpp
 	"Player.h"
 
-1462641827 source:e:\gitprojects\rs16-14\bomberman\src\timer.cpp
+1462662508 source:e:\rs\028mickey\src\bombmanager.cpp
+	"BombManager.h"
+	<iostream>
+
+1462662430 e:\rs\028mickey\include\bombmanager.h
+	<list>
+	"Bomb.h"
+
+1462656507 source:e:\rs\028mickey -- bomb2 + bombmanager + player\game.cpp
+	"game.h"
+
+1462660667 e:\rs\028mickey -- bomb2 + bombmanager + player\game.h
+	"includes.h"
+	"Map.h"
+	"Player.h"
+	"Bomb.h"
+	"BombManager.h"
+
+1461672416 e:\rs\028mickey -- bomb2 + bombmanager + player\includes.h
+	<SDL.h>
+	<SDL_image.h>
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL2/SDL.h>
+	<SDL2/SDL_image.h>
+
+1462659290 e:\rs\028mickey -- bomb2 + bombmanager + player\include\map.h
+	<vector>
+	<string>
+	<SDL.h>
+	"MapObject.h"
+
+1462656176 e:\rs\028mickey -- bomb2 + bombmanager + player\include\mapobject.h
+	<SDL.h>
+
+1462660963 e:\rs\028mickey -- bomb2 + bombmanager + player\include\player.h
+	<SDL.h>
+	"Map.h"
+	"BombManager.h"
+
+1462662430 e:\rs\028mickey -- bomb2 + bombmanager + player\include\bombmanager.h
+	<list>
+	"Bomb.h"
+
+1462661694 e:\rs\028mickey -- bomb2 + bombmanager + player\include\bomb.h
+	<SDL.h>
+	"Timer.h"
+
+1462642709 e:\rs\028mickey -- bomb2 + bombmanager + player\include\timer.h
+
+1462656353 source:e:\rs\028mickey -- bomb2 + bombmanager + player\game_cleanup.cpp
+	"game.h"
+
+1462661557 source:e:\rs\028mickey -- bomb2 + bombmanager + player\game_loadcontent.cpp
+	"game.h"
+	"SDL_image.h"
+
+1462662286 source:e:\rs\028mickey -- bomb2 + bombmanager + player\game_onevent.cpp
+	"game.h"
+	<cstdio>
+
+1462659150 source:e:\rs\028mickey -- bomb2 + bombmanager + player\game_oninit.cpp
+	"game.h"
+
+1462662563 source:e:\rs\028mickey -- bomb2 + bombmanager + player\game_onloop.cpp
+	"game.h"
+
+1462662549 source:e:\rs\028mickey -- bomb2 + bombmanager + player\game_onrender.cpp
+	"game.h"
+
+1462661723 source:e:\rs\028mickey -- bomb2 + bombmanager + player\src\bomb.cpp
+	"Bomb.h"
+	<iostream>
+
+1462662508 source:e:\rs\028mickey -- bomb2 + bombmanager + player\src\bombmanager.cpp
+	"BombManager.h"
+	<iostream>
+
+1462656424 source:e:\rs\028mickey -- bomb2 + bombmanager + player\src\map.cpp
+	"Map.h"
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<fstream>
+	<iostream>
+
+1462656436 source:e:\rs\028mickey -- bomb2 + bombmanager + player\src\mapobject.cpp
+	"MapObject.h"
+
+1462662340 source:e:\rs\028mickey -- bomb2 + bombmanager + player\src\player.cpp
+	"Player.h"
+
+1462641827 source:e:\rs\028mickey -- bomb2 + bombmanager + player\src\timer.cpp
 	"Timer.h"
 	<SDL.h>
 

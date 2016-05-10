@@ -9,7 +9,7 @@ bool game::OnInit()
     }
 
     //win = SDL_CreateWindow("Image Loading", 100, 100, WIDTH, HEIGHT, SDL_WINDOW_RESIZABLE);
-     if((window = SDL_CreateWindow("SDL Render Clear",100,100,640, 480, SDL_WINDOW_SHOWN)) == NULL) {
+     if((window = SDL_CreateWindow("SDL Render Clear",100,100,1000,600, SDL_WINDOW_SHOWN)) == NULL) {
         //std::cout << "SDL_CreateWindow Error: " << SDL_GetError() << std::endl;
         //SDL_Quit();
         return false;

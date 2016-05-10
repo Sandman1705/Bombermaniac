@@ -3,14 +3,13 @@
 
 #include <SDL.h>
 #include "Map.h"
-
-
+#include "BombManager.h"
 
 class Player
 {
     public:
-        Player(SDL_Texture* tex, unsigned int tile_size);
-        Player(SDL_Texture* tex, unsigned int tile_size, unsigned int val_x, unsigned int val_y);
+        Player(SDL_Texture* tex, unsigned int tile_size, BombManager *bomb_manager);
+        Player(SDL_Texture* tex, unsigned int tile_size, unsigned int val_x, unsigned int val_y, BombManager *bomb_manager);
         virtual ~Player();
 
         unsigned int Get_x() const;
@@ -29,6 +28,7 @@ class Player
 
         void player_move(int x, int y, Map *level);
         void Draw(SDL_Renderer* renderer);
+        void place_bomb();
 
     protected:
 
@@ -49,6 +49,7 @@ class Player
         unsigned int m_player_size_h = 23;
         SDL_Texture* m_tex;
         unsigned int m_tile_size;
+        BombManager* m_bomb_manager;
 };
 
 #endif // PLAYER_H

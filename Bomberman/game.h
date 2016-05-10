@@ -5,6 +5,7 @@
 #include"Map.h"
 #include"Player.h"
 #include"Bomb.h"
+#include"BombManager.h"
 
 class game
 {
@@ -15,10 +16,8 @@ private:
     SDL_Event Event;
     Map* level;
     Player *bomberman;
-
+    BombManager *bomb_manager;
     SDL_Texture* texture;
-
-    //std::vector<Bomb*> bombs;
 
 protected:
 
