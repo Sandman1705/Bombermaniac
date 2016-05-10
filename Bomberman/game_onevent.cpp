@@ -39,6 +39,8 @@ void game::OnEvent(SDL_Event* Event)
         break;
 
     case SDL_KEYUP:
+        bomberman->Set_status(0);
+
         PrintKeyInfo( &(Event->key) );
         break;
 

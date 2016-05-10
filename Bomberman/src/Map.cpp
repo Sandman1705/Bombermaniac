@@ -24,7 +24,7 @@ Map::Map(int height, int width)
 */
 
 Map::Map(std::string path_to_file, const std::vector<SDL_Texture*> *textures)
-    : m_tile_size(32)
+    : m_tile_size(40)
 {
     std::fstream fs;
     fs.open (path_to_file, std::fstream::in);
