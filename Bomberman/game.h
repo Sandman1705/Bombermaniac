@@ -15,14 +15,12 @@ private:
     SDL_Event Event;
     Map* level;
     Player *bomberman;
-    std::vector<std::string> resourcesPaths;
-    std::vector<SDL_Surface*> bmpFiles;
-    std::vector<SDL_Texture*> textures;
+
+    SDL_Texture* texture;
 
     //std::vector<Bomb*> bombs;
 
 protected:
-    bool GetResourcesPaths();
 
 public:
     game();

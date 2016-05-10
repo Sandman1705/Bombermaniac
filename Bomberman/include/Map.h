@@ -9,7 +9,7 @@ class Map
 {
     public:
         //Map(int height, int width);
-        Map(std::string path_to_file, const std::vector<SDL_Texture*> *textures, unsigned int tile_size);
+        Map(std::string path_to_file, SDL_Texture* texture, unsigned int tile_size);
         ~Map();
 
         unsigned int Get_height() { return m_height; }
@@ -33,7 +33,7 @@ class Map
         unsigned int                            m_width;
         std::vector<std::vector<MapObject*>>    m_layout;
         const int                               m_tile_size;
-        std::string                             path_to_file;
+        std::string                             m_path_to_file;
 };
 
 #endif // MAP_H
