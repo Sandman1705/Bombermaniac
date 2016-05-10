@@ -25,6 +25,7 @@ bool game::LoadContent()
 
     /** Game objects initializing - Begin **/
     unsigned int tile_size = 44;
+    keyboard_input = new KeyboardInput();
     level = new Map("resources\\levels\\level2.txt",texture, tile_size);
     explosion_manager = new ExplosionManager(texture, tile_size);
     bomb_manager = new BombManager(texture, tile_size, explosion_manager, level);

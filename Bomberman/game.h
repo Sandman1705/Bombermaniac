@@ -2,6 +2,7 @@
 #define GAME_H_INCLUDED
 
 #include "includes.h"
+#include "KeyboardInput.h"
 #include "Map.h"
 #include "ExplosionManager.h"
 #include "BombManager.h"
@@ -15,6 +16,7 @@ private:
     SDL_Window*         window;
     SDL_Renderer*       renderer;
     SDL_Event           Event;
+    KeyboardInput*      keyboard_input;
     Map*                level;
     ExplosionManager*   explosion_manager;
     BombManager*        bomb_manager;

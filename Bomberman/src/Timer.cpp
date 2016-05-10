@@ -11,7 +11,7 @@ void Timer::resetTimer()
     pastTicks = SDL_GetTicks();
 }
 
-unsigned int Timer::getTimeElapsed()
+unsigned long Timer::getTimeElapsed()
 {
     return SDL_GetTicks() - pastTicks;
 }

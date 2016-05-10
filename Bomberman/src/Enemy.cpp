@@ -50,12 +50,9 @@ void Enemy::update(Map *level)
         }
     }
 
-    m_walk_len--;
-
-
-
     if(m_timer.getTimeElapsed() > 100)
     {
+        m_walk_len--;
         this->enemy_move(level);
         m_timer.resetTimer();
     }

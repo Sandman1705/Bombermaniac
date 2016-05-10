@@ -5,12 +5,13 @@
 #endif // DEBUG_OUTPUT
 
 Bomb::Bomb(unsigned int fuse_duration,
-             SDL_Texture* texture,
-             SDL_Rect* SrcR,
-             unsigned int x,
-             unsigned int y,
-             unsigned int bomb_size,
-             double intensity)
+           SDL_Texture* texture,
+           SDL_Rect* SrcR,
+           unsigned int x,
+           unsigned int y,
+           unsigned int bomb_size,
+           double intensity
+          )
     :   m_timer(),
         m_fuse_duration(fuse_duration),
         m_texture(texture),

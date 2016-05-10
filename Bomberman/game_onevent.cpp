@@ -18,6 +18,7 @@ void game::OnEvent(SDL_Event* Event)
     {
 
     case SDL_KEYDOWN:
+        keyboard_input->TurnKeyOn(Event->key.keysym.sym);
         switch( Event->key.keysym.sym )
         {
         case SDLK_UP:
@@ -40,6 +41,7 @@ void game::OnEvent(SDL_Event* Event)
         break;
 
     case SDL_KEYUP:
+        keyboard_input->TurnKeyOff(Event->key.keysym.sym);
         bomberman->Set_status(0);
         #ifdef DEBUG_OUTPUT
         PrintKeyInfo( &(Event->key) );
