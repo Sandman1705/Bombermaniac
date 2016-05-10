@@ -3,7 +3,7 @@
 
 #include"includes.h"
 #include"Map.h"
-#include"player.h"
+#include"Player.h"
 #include"Bomb.h"
 
 class game
@@ -14,7 +14,7 @@ private:
     SDL_Renderer* renderer;
     SDL_Event Event;
     Map* level;
-    player *bomberman;
+    Player *bomberman;
     std::vector<std::string> resourcesPaths;
     std::vector<SDL_Surface*> bmpFiles;
     std::vector<SDL_Texture*> textures;

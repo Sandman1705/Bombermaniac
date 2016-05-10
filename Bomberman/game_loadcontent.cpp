@@ -43,9 +43,9 @@ bool game::LoadContent()
         textures.push_back(tex);
     }
     /** Texture loading - End **/
-    unsigned int tile_size = 32;
-    level = new Map("resources\\levels\\level1.txt",&textures);
-    bomberman = new player(textures[3]);
+    unsigned int tile_size = 45;
+    level = new Map("resources\\levels\\level1.txt",&textures, tile_size);
+    bomberman = new Player(textures[3], tile_size);
 
     //bombs.push_back(new Bomb(10000,textures[4],tile_size,tile_size*2,15));
 

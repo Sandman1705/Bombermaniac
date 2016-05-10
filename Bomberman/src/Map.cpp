@@ -23,8 +23,8 @@ Map::Map(int height, int width)
 }
 */
 
-Map::Map(std::string path_to_file, const std::vector<SDL_Texture*> *textures)
-    : m_tile_size(32)
+Map::Map(std::string path_to_file, const std::vector<SDL_Texture*> *textures, unsigned int tile_size)
+    : m_tile_size(tile_size)
 {
     std::fstream fs;
     fs.open (path_to_file, std::fstream::in);
