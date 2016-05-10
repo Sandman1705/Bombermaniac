@@ -21,9 +21,5 @@ bool game::OnInit()
         return 1;
     }
 
-    if (!GetResourcesPaths())
-    {
-        std::cout << "game::GetResourcesPath() Error" << std::endl;
-    }
     return true;
 }
