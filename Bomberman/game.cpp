@@ -21,6 +21,7 @@ int game::OnExecute()
 
     while(Running)
     {
+
         while(SDL_PollEvent(&Event))
         {
             OnEvent(&Event);
@@ -28,6 +29,7 @@ int game::OnExecute()
 
         OnLoop();
         OnRender();
+        SDL_Delay(100);
     }
 
     Cleanup();
@@ -41,3 +43,4 @@ int main(int argc, char* argv[])
 
     return theGame.OnExecute();
 }
+

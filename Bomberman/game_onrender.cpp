@@ -22,18 +22,18 @@ void game::OnRender()
     {
         for (unsigned j = 0; j < level->Get_width(); ++j)
         {
+
             DestR.x = SHAPE_SIZE*i;
             DestR.y = SHAPE_SIZE*j;
             //Draw the texture
             //std::cout << i << ":" << j << "=" << level->m_layout[i][j] << std::endl;
-            SDL_Texture *tex = textures[ level->m_layout[i][j] ];
+            SDL_Texture *tex = textures[level->m_layout[i][j] ];
             SDL_RenderCopy(renderer, tex, &SrcR, &DestR);
         }
 
     }
     //Update the screen
     SDL_RenderPresent(renderer);
-    SDL_Delay(100);
 
 }
 

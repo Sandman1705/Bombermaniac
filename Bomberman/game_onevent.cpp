@@ -12,20 +12,15 @@ void game::OnEvent(SDL_Event* Event)
     }
 
 
-    SDL_Event event;
-    /* Poll for events. SDL_PollEvent() returns 0 when there are no  */
-    /* more events on the event queue, our while loop will exit when */
-    /* that occurs.                                                  */
-    while( SDL_PollEvent( &event ) )
-    {
+    //SDL_Event event;
 
-        switch( event.type )
+        switch( Event->type )
         {
         /* Keyboard event */
         /* Pass the event data onto PrintKeyInfo() */
         case SDL_KEYDOWN:
         case SDL_KEYUP:
-            PrintKeyInfo( &event.key );
+            PrintKeyInfo( &(Event->key) );
             break;
 
         /* SDL_QUIT event (window close) */
@@ -37,7 +32,6 @@ void game::OnEvent(SDL_Event* Event)
             break;
         }
 
-    }
 }
 
 void PrintKeyInfo( SDL_KeyboardEvent *key )
