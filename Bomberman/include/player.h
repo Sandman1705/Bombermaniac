@@ -1,19 +1,49 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
+/**
+ *  \file Player.h
+ *
+ *  Defines class Player which represents a player.
+ *
+ */
+
 #include <SDL.h>
 #include "Map.h"
 #include "BombManager.h"
 #include "KeyboardInput.h"
 
+/** \class Player
+ *  \brief class which represents a player
+ *  \details This class contains all properties of a player like its
+ *           coordinates on a map, its size, direction where its going,
+ *           its speed as well as some information about bombs.
+ *           Also contains a method Draw() which draws him on a proper place on
+ *           map, method player_move() for moving around the map, update()
+ *           for refreshing its position and place_bomb() for
+ *           placing bombs on map.
+ */
+
 class Player
 {
     public:
+        /**
+         *  \brief Constructor for Player.
+         *
+         *  Makes an object of class Player according to given attributes.
+         *  \param tex pointer to SDL_texture object from which the texture
+         *         will be taken for method Draw()
+         *  \param tile_size size of one tile on map
+         *  \param bomb_manager list of bombs with methods for management
+         *  \param keyboard_input pointer to KeyboardInput object of the game
+         *         (which is used to keep track of input given by the user)
+         *  \param level pointer to Map object of the game
+         *  \param val_x coordinate of the player on the map
+         *  \param val_y coordinate of the player on the map
+         *
+         */
         Player(SDL_Texture* tex, unsigned int tile_size, BombManager *bomb_manager,
-                KeyboardInput *keyboard_input, Map *level);
-        Player(SDL_Texture* tex, unsigned int tile_size, unsigned int val_x,
-                unsigned int val_y, BombManager *bomb_manager,KeyboardInput *keyboard_input, Map *level);
-        virtual ~Player();
+               KeyboardInput *keyboard_input, Map *level,  unsigned int val_x = 0, unsigned int val_y = 0);
 
         unsigned int Get_x() const;
         void Set_x(unsigned int val);
@@ -29,9 +59,49 @@ class Player
         unsigned int Get_direction() const;
         void Set_direction(int d);
 
+        /**
+         *  \brief Function that implements movement for player.
+         *
+         *  Updates the position of player on the map according to it's
+         *  parameters that depend on keys that player used.
+         *  \param x value that represents where player wishes to go
+         *  relative to its current position on x axis
+         *  \param y value that represents where player wishes to go
+         *  relative to its current position on y axis
+         *  \param level pointer to Map object of the game
+         *
+         *  \return void
+         */
         void player_move(int x, int y, Map *level);
+
+        /**
+         *  \brief Draws the player on given SDL_Renderer.
+         *
+         *  Draws the player on the map according to its coordinates.
+         *  \param renderer represents SDL_Renderer on which the player
+         *  will be drawn on
+         *
+         *  \return void
+         */
         void Draw(SDL_Renderer* renderer);
+
+        /**
+         *  \brief Places the bomb on the map.
+         *
+         *  Places the bomb on map on player's current position.
+         *
+         *  \return void
+         */
         void place_bomb();
+
+        /**
+         *  \brief Updates player's position on map.
+         *
+         *  Updates player's position and calls appropriate actions according
+         *  to KeyboardInput of user.
+         *
+         *  \return void
+         */
         void update();
 
     protected:

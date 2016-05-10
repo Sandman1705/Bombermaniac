@@ -95,10 +95,10 @@
 			<debugger />
 			<DoxyBlocks>
 				<comment_style block="0" line="0" />
-				<doxyfile_project project_number="v0.033" />
+				<doxyfile_project project_number="v0.038" />
 				<doxyfile_build />
 				<doxyfile_warnings warn_if_undocumented="1" />
-				<doxyfile_output />
+				<doxyfile_output latex="1" />
 				<doxyfile_dot have_dot="1" />
 				<general />
 			</DoxyBlocks>

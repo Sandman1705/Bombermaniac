@@ -3,7 +3,7 @@
 
 bool game::LoadContent()
 {
-    /** Texture loading - Begin **/
+    /* Texture loading - Begin */
     std::string resourcesPath = "resources\\textures.bmp";
     SDL_Surface *bmp = SDL_LoadBMP(resourcesPath.c_str());
 
@@ -21,9 +21,9 @@ bool game::LoadContent()
         std::cout << "SDL_CreateTextureFromSurface Error: " << SDL_GetError() << std::endl;
         return false;
     }
-    /** Texture loading - End **/
+    /* Texture loading - End */
 
-    /** Game objects initializing - Begin **/
+    /* Game objects initializing - Begin */
     unsigned int tile_size = 44;
     keyboard_input = new KeyboardInput();
     level = new Map("resources\\levels\\level2.txt",texture, tile_size);
@@ -31,7 +31,7 @@ bool game::LoadContent()
     bomb_manager = new BombManager(texture, tile_size, explosion_manager, level);
     bomberman = new Player(texture, tile_size, bomb_manager, keyboard_input, level);
     enemy = new Enemy(texture, tile_size);
-    /** Game objects initializing - End **/
+    /* Game objects initializing - End */
 
     return true;
 }

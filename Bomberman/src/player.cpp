@@ -1,10 +1,20 @@
 #include "Player.h"
 
+
 Player::Player(SDL_Texture* tex, unsigned int tile_size, BombManager *bomb_manager,
-                KeyboardInput *keyboard_input, Map *level)
+               KeyboardInput *keyboard_input, Map *level, unsigned int val_x, unsigned int val_y)
 {
-    this->m_x = tile_size;
-    this->m_y = tile_size;
+    if(val_x == 0 && val_y == 0)
+    {
+        this->m_x = tile_size;
+        this->m_y = tile_size;
+    }
+    else
+    {
+        this->m_x = val_x;
+        this->m_y = val_y;
+    }
+
     this->m_tex = tex;
     this->m_direction = DOWN;
     this->m_status = 0;
@@ -16,25 +26,6 @@ Player::Player(SDL_Texture* tex, unsigned int tile_size, BombManager *bomb_manag
     m_bomb_manager = bomb_manager;
     m_keyboard_input = keyboard_input;
     m_level = level;
-}
-
-Player::Player(SDL_Texture* tex, unsigned int tile_size, unsigned int val_x, unsigned int val_y,
-               BombManager *bomb_manager, KeyboardInput *keyboard_input, Map *level)
-{
-    this->m_x = val_x;
-    this->m_y = val_y;
-    this->m_tex = tex;
-    this->m_direction = DOWN;
-    this->m_status = 0;
-    this->m_tile_size = tile_size;
-    m_bomb_manager = bomb_manager;
-    m_keyboard_input = keyboard_input;
-    m_level = level;
-}
-
-Player::~Player()
-{
-    //dtor
 }
 
 void Player::update()
