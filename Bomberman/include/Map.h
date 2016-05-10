@@ -3,12 +3,13 @@
 #include <vector>
 #include <string>
 #include <SDL.h>
+#include "MapObject.h"
 
 class Map
 {
     public:
-        Map(int height, int width);
-        Map(std::string path_to_file);
+        //Map(int height, int width);
+        Map(std::string path_to_file, const std::vector<SDL_Texture*> *textures);
         //~Map();
 
         unsigned int Get_height() { return m_height; }
@@ -30,12 +31,10 @@ class Map
     private:
         unsigned int m_height;
         unsigned int m_width;
-        std::vector<std::vector<int>> m_layout;
+        std::vector<std::vector<MapObject*>> m_layout;
         const int m_tile_size;
 
         std::string path_to_file;
-
-
 
 };
 

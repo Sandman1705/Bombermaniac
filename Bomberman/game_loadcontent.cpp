@@ -3,7 +3,6 @@
 
 bool game::LoadContent()
 {
-    level = new Map("resources\\levels\\level1.txt");
 
     bomberman = new player();
 
@@ -45,6 +44,8 @@ bool game::LoadContent()
         }
         textures.push_back(tex);
     }
+
+    level = new Map("resources\\levels\\level1.txt",&textures);
 
     return true;
 }

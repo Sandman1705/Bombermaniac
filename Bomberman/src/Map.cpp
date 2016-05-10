@@ -8,6 +8,7 @@
 #include <iostream>     /* FOR DEBUR   REMOVE LATER */
 
 //random map
+/*
 Map::Map(int height, int width)
     : m_height(height), m_width(width), m_layout(m_height, std::vector<int>(m_width)), m_tile_size(32)
 {
@@ -20,9 +21,9 @@ Map::Map(int height, int width)
         }
     }
 }
+*/
 
-
-Map::Map(std::string path_to_file)
+Map::Map(std::string path_to_file, const std::vector<SDL_Texture*> *textures)
     : m_tile_size(32)
 {
     std::fstream fs;
@@ -42,14 +43,18 @@ Map::Map(std::string path_to_file)
 
     for (unsigned i=0; i<m_height; ++i)
         for (unsigned j=0; j<m_width; ++j)
-            fs >> m_layout[i][j];
+        {
+            int id;
+            fs >> id;
+            m_layout[i][j] = new MapObject(id, (*textures)[id]);
+        }
 
     fs.close();
 }
 
 bool Map::Walkable(unsigned int i,unsigned int j) const
 {
-    if (m_layout[i][j] == EMPTY)
+    if (m_layout[i][j]->Get_id() == EMPTY)
         return true;
     else
         return false;
@@ -58,14 +63,8 @@ bool Map::Walkable(unsigned int i,unsigned int j) const
 
 void Map::Draw(SDL_Renderer* renderer, const std::vector<SDL_Texture*> *textures)
 {
-    SDL_Rect SrcR;
     SDL_Rect DestR;
     int tile_size = Get_tile_size();
-
-    SrcR.x = 0;
-    SrcR.y = 0;
-    SrcR.w = tile_size;
-    SrcR.h = tile_size;
 
     DestR.x = 0;
     DestR.y = 0;
@@ -78,10 +77,7 @@ void Map::Draw(SDL_Renderer* renderer, const std::vector<SDL_Texture*> *textures
         {
             DestR.y = tile_size*i;
             DestR.x = tile_size*j;
-            //Draw the texture
-            //std::cout << i << ":" << j << "=" << this->m_layout[i][j] << std::endl;
-            SDL_Texture *tex = (*textures)[ this->m_layout[i][j] ];
-            SDL_RenderCopy(renderer, tex, &SrcR, &DestR);
+            m_layout[i][j]->Draw(renderer, tile_size, &DestR);
         }
     }
 }
