@@ -4,6 +4,7 @@
 #include"includes.h"
 #include"Map.h"
 #include"Player.h"
+#include"Enemy.h"
 #include"Bomb.h"
 #include"BombManager.h"
 
@@ -16,6 +17,7 @@ private:
     SDL_Event Event;
     Map* level;
     Player *bomberman;
+    Enemy *enemy;
     BombManager *bomb_manager;
     SDL_Texture* texture;
 

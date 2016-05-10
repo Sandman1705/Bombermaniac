@@ -1,11 +1,18 @@
 #ifndef ENEMY_H
 #define ENEMY_H
 
+#include <SDL.h>
+#include <cstdlib>
+#include <ctime>
+#include "Map.h"
+#include "Timer.h"
+
+
 class Enemy
 {
     public:
         Enemy(SDL_Texture* tex, unsigned int tile_size);
-        Enemy(SDL_Texture* tex, unsigned int tile_size, unsigned int val_x, unsigned int val_y);
+        //Enemy(SDL_Texture* tex, unsigned int tile_size, unsigned int val_x, unsigned int val_y);
         virtual ~Enemy();
 
         unsigned int Get_x() const;
@@ -22,8 +29,9 @@ class Enemy
         unsigned int Get_direction() const;
         void Set_direction(int d);
 
-        void enemy_move(int x, int y, Map *level);
+        void enemy_move(Map *level);
         void Draw(SDL_Renderer* renderer);
+        void update(Map *level);
 
     protected:
 
@@ -36,7 +44,9 @@ class Enemy
               DOWN = 3
         };
         Direction m_direction;
-        int m_status;
+        int m_walk_len = 0;
+        Timer m_timer;
+        unsigned int m_status;
         unsigned int m_x;
         unsigned int m_y;
         unsigned int m_move_speed = 4;

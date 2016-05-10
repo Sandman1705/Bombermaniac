@@ -46,6 +46,9 @@ void game::OnEvent(SDL_Event* Event)
         case SDLK_SPACE:
             bomberman->place_bomb();
             break;
+        case SDLK_f:
+            //SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN);
+            break;
         default:
             break;
         }
