@@ -32,20 +32,7 @@ void game::OnRender()
 
     }
 
-    //Cropping players image: 7px on sides, 5px top and bottom
-    SrcR.x = 7;
-    SrcR.y = 5;
-    SrcR.w = SHAPE_SIZE-14;
-    SrcR.h = SHAPE_SIZE-10;
-    //----------------------
-    DestR.x = bomberman->Get_x();
-    DestR.y = bomberman->Get_y();
-    DestR.w = 17;
-    DestR.h = 23;
-    //----------------------
-
-    SDL_Texture *tex = textures[3];
-    SDL_RenderCopy(renderer, tex, &SrcR, &DestR);
+    bomberman->Draw(renderer);
 
     //Update the screen
     SDL_RenderPresent(renderer);

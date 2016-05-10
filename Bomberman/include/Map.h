@@ -24,6 +24,7 @@ class Map
 
     private:
         std::string path_to_file;
+
 };
 
 #endif // MAP_H

@@ -11,14 +11,6 @@ void game::OnEvent(SDL_Event* Event)
         Running = false;
     }
 
-    unsigned int tmp_x;
-    unsigned int tmp_y;
-
-    unsigned int move_speed = 4;
-    int field_size = 32;
-    int player_size_w = 17;
-    int player_size_h = 23;
-
     switch( Event->type )
     {
     /* Keyboard event */
@@ -28,56 +20,19 @@ void game::OnEvent(SDL_Event* Event)
         switch( Event->key.keysym.sym )
         {
         case SDLK_UP:
-            //checking if bomberman can go up:
-            tmp_x = bomberman->Get_x();
-            tmp_y = bomberman->Get_y();
-
-            if(level->m_layout[(tmp_y - move_speed)/field_size][tmp_x/field_size] == 0
-                    &&  level->m_layout[(tmp_y - move_speed)/field_size][(tmp_x+player_size_w)/field_size] == 0)
-            {
-                tmp_y = bomberman->Get_y();
-                bomberman->Set_y(tmp_y-move_speed);
-            }
+            bomberman->player_move(0, -1, level);
             break;
 
         case SDLK_DOWN:
-            //checking if bomberman can go down:
-            tmp_x = bomberman->Get_x();
-            tmp_y = bomberman->Get_y();
-
-            if(level->m_layout[(tmp_y+player_size_h+move_speed)/field_size][tmp_x/field_size] == 0
-                    && level->m_layout[(tmp_y+player_size_h+move_speed)/field_size][(tmp_x+player_size_w)/field_size] == 0)
-            {
-                tmp_y = bomberman->Get_y();
-                bomberman->Set_y(tmp_y+move_speed);
-            }
+            bomberman->player_move(0, 1, level);
             break;
 
         case SDLK_LEFT:
-            //checking if bomberman can go down:
-            tmp_x = bomberman->Get_x();
-            tmp_y = bomberman->Get_y();
-
-            if(level->m_layout[tmp_y/field_size][(tmp_x-move_speed)/field_size] == 0
-                    && level->m_layout[(tmp_y+player_size_h)/field_size][(tmp_x-move_speed)/field_size] == 0)
-            {
-                tmp_x = bomberman->Get_x();
-                bomberman->Set_x(tmp_x-move_speed);
-            }
+            bomberman->player_move(-1, 0, level);
             break;
 
         case SDLK_RIGHT:
-            //checking if bomberman can go down:
-            tmp_x = bomberman->Get_x();
-            tmp_y = bomberman->Get_y();
-
-            if( level->m_layout[tmp_y/field_size][(tmp_x+player_size_w+move_speed)/field_size] == 0
-                    && level->m_layout[(tmp_y+player_size_h)/field_size][(tmp_x+player_size_w+move_speed)/field_size] == 0)
-            {
-                tmp_x = bomberman->Get_x();
-                bomberman->Set_x(tmp_x+move_speed);
-            }
-
+            bomberman->player_move(1, 0, level);
             break;
         }
 
