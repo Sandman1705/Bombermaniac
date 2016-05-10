@@ -96,9 +96,9 @@
 			<DoxyBlocks>
 				<comment_style block="0" line="0" />
 				<doxyfile_project project_number="v0.033" />
-				<doxyfile_build extract_all="1" extract_private="1" extract_static="1" />
+				<doxyfile_build />
 				<doxyfile_warnings warn_if_undocumented="1" />
-				<doxyfile_output html="0" latex="1" />
+				<doxyfile_output />
 				<doxyfile_dot have_dot="1" />
 				<general />
 			</DoxyBlocks>
