@@ -1,13 +1,16 @@
 #include "Bomb.h"
 
+#ifdef DEBUG_OUTPUT
 #include <iostream>
+#endif // DEBUG_OUTPUT
 
 Bomb::Bomb(unsigned int fuse_duration,
              SDL_Texture* texture,
              SDL_Rect* SrcR,
              unsigned int x,
              unsigned int y,
-             unsigned int bomb_size)
+             unsigned int bomb_size,
+             double intensity)
     :   m_timer(),
         m_fuse_duration(fuse_duration),
         m_texture(texture),
@@ -15,15 +18,21 @@ Bomb::Bomb(unsigned int fuse_duration,
         m_explode(false),
         m_x(x),
         m_y(y),
-        m_draw_size(bomb_size)
+        m_draw_size(bomb_size),
+        m_intensity(intensity)
 {
+    #ifdef DEBUG_OUTPUT
+    std::cout << "Bomb placed: X:" << m_x << " Y:" << m_y << " fuse:" << m_fuse_duration << " intesity:" << m_intensity << std::endl;
+    #endif // DEBUG_OUTPUT
 }
 
-/*
+#ifdef DEBUG_OUTPUT
 Bomb::~Bomb()
 {
+    std::cout << "Bomb destroyed: X:" << m_x << " Y:" << m_y << " fuse:" << m_fuse_duration << " intesity:" << m_intensity << std::endl;
 }
-*/
+#endif // DEBUG_OUTPUT
+
 
 void Bomb::BurnFuse()
 {
@@ -46,9 +55,4 @@ void Bomb::Draw(SDL_Renderer* renderer)
     DestR.h = m_draw_size;
 
     SDL_RenderCopy(renderer, m_texture, m_SrcR, &DestR);
-}
-
-void Bomb::DEBUG_ShowTimer()
-{
-    std::cout << m_timer.getTimeElapsed() << std::endl;
 }

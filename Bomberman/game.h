@@ -1,25 +1,26 @@
 #ifndef GAME_H_INCLUDED
 #define GAME_H_INCLUDED
 
-#include"includes.h"
-#include"Map.h"
-#include"Player.h"
-#include"Enemy.h"
-#include"Bomb.h"
-#include"BombManager.h"
+#include "includes.h"
+#include "Map.h"
+#include "ExplosionManager.h"
+#include "BombManager.h"
+#include "Player.h"
+#include "Enemy.h"
 
 class game
 {
 private:
-    bool Running;
-    SDL_Window* window;
-    SDL_Renderer* renderer;
-    SDL_Event Event;
-    Map* level;
-    Player *bomberman;
-    Enemy *enemy;
-    BombManager *bomb_manager;
-    SDL_Texture* texture;
+    bool                Running;
+    SDL_Window*         window;
+    SDL_Renderer*       renderer;
+    SDL_Event           Event;
+    Map*                level;
+    ExplosionManager*   explosion_manager;
+    BombManager*        bomb_manager;
+    Player*             bomberman;
+    Enemy*              enemy;
+    SDL_Texture*        texture;
 
 protected:
 

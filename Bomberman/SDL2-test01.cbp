@@ -69,6 +69,8 @@
 		<Unit filename="include/Bomb.h" />
 		<Unit filename="include/BombManager.h" />
 		<Unit filename="include/Enemy.h" />
+		<Unit filename="include/Explosion.h" />
+		<Unit filename="include/ExplosionManager.h" />
 		<Unit filename="include/Map.h" />
 		<Unit filename="include/MapObject.h" />
 		<Unit filename="include/Player.h" />
@@ -77,6 +79,8 @@
 		<Unit filename="src/Bomb.cpp" />
 		<Unit filename="src/BombManager.cpp" />
 		<Unit filename="src/Enemy.cpp" />
+		<Unit filename="src/Explosion.cpp" />
+		<Unit filename="src/ExplosionManager.cpp" />
 		<Unit filename="src/Map.cpp" />
 		<Unit filename="src/MapObject.cpp" />
 		<Unit filename="src/Player.cpp" />

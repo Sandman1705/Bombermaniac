@@ -5,6 +5,9 @@ game::game()
     window = NULL;
     Running = true;
     level = nullptr;
+    explosion_manager = nullptr;
+    bomb_manager = nullptr;
+    bomberman = nullptr;
 }
 
 int game::OnExecute()

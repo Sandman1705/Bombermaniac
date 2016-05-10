@@ -1,5 +1,5 @@
 #include "Enemy.h"
-#include <iostream>
+
 Enemy::Enemy(SDL_Texture* tex, unsigned int tile_size)
 {
     this->m_x = 2*tile_size;
@@ -31,7 +31,6 @@ void Enemy::update(Map *level)
     {
         m_walk_len = rand()%5 + 10;
         r = rand()%4;
-        std::cout<< m_walk_len << " " << r << std::endl;
         switch(r)
         {
             case 0:

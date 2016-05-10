@@ -1,8 +1,11 @@
 #include "BombManager.h"
-#include <iostream>
 
-BombManager::BombManager(SDL_Texture* texture, unsigned int bomb_size)
-    : m_texture(texture), m_bomb_size(bomb_size)
+#ifdef DEBUG_OUTPUT
+#include <iostream>
+#endif // DEBUG_OUTPUT
+
+BombManager::BombManager(SDL_Texture* texture, unsigned int bomb_size, ExplosionManager* explosion_manager)
+    : m_texture(texture), m_bomb_size(bomb_size), m_explosion_manager(explosion_manager)
 {
     m_SrcR.x = 304;
     m_SrcR.y = 1;
@@ -15,6 +18,9 @@ BombManager::~BombManager()
     for(auto i = m_bombs.begin(); i != m_bombs.end(); ++i)
     {
         delete (*i);
+        #ifdef DEBUG_OUTPUT
+        std::cout << "Bomb deleted" << std::endl;
+        #endif // DEBUG_OUTPUT
     }
 }
 
@@ -23,9 +29,9 @@ void BombManager::AddBomb(Bomb *bomb)
     m_bombs.push_back(bomb);
 }
 
-void BombManager::MakeBomb(unsigned int fuse_duration, unsigned int x, unsigned int y)
+void BombManager::MakeBomb(unsigned int fuse_duration, unsigned int x, unsigned int y, double intensity)
 {
-    Bomb* b = new Bomb(fuse_duration,m_texture,&m_SrcR,x,y,m_bomb_size);
+    Bomb* b = new Bomb(fuse_duration,m_texture,&m_SrcR,x,y,m_bomb_size,intensity);
     AddBomb(b);
 }
 
@@ -36,6 +42,8 @@ void BombManager::BurnFuses()
         (*i)->BurnFuse();
         if((*i)->Explode())
         {
+            unsigned int half_bomb_size = (*i)->Get_bomb_size() / 2;
+            m_explosion_manager->MakeExplosion(1000, (*i)->Get_x()+half_bomb_size, (*i)->Get_y()+half_bomb_size, (*i)->Get_intensity());
             delete (*i);
             i = m_bombs.erase(i);
         }

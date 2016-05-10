@@ -8,7 +8,6 @@
 class Map
 {
     public:
-        //Map(int height, int width);
         Map(std::string path_to_file, SDL_Texture* texture, unsigned int tile_size);
         ~Map();
         //TODO Copy constructor
