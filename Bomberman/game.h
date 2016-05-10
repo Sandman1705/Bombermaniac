@@ -2,6 +2,7 @@
 #define GAME_H_INCLUDED
 
 #include"includes.h"
+#include"Map.h"
 
 class game
 {
@@ -10,6 +11,14 @@ private:
     SDL_Window* window;
     SDL_Renderer* renderer;
     SDL_Event Event;
+    Map* level;
+    std::vector<std::string> resourcesPaths;
+    std::vector<SDL_Surface*> bmpFiles;
+    std::vector<SDL_Texture*> textures;
+
+protected:
+    bool GetResourcesPaths();
+
 public:
     game();
     //virtual ~game();

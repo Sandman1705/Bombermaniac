@@ -4,11 +4,17 @@ game::game()
 {
     window = NULL;
     Running = true;
+    level = nullptr;
 }
 
 int game::OnExecute()
 {
     if(OnInit() == false)
+    {
+        return -1;
+    }
+
+    if (LoadContent() == false)
     {
         return -1;
     }
