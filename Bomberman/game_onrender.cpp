@@ -22,8 +22,8 @@ void game::OnRender()
     {
         for (unsigned j = 0; j < level->Get_width(); ++j)
         {
-            DestR.x = SHAPE_SIZE*i;
-            DestR.y = SHAPE_SIZE*j;
+            DestR.y = SHAPE_SIZE*i;
+            DestR.x = SHAPE_SIZE*j;
             //Draw the texture
             //std::cout << i << ":" << j << "=" << level->m_layout[i][j] << std::endl;
             SDL_Texture *tex = textures[ level->m_layout[i][j] ];
@@ -39,7 +39,7 @@ void game::OnRender()
     DestR.x = bomberman->Get_x();
     DestR.y = bomberman->Get_y();
 
-    SDL_Texture *tex = textures[4];
+    SDL_Texture *tex = textures[3];
     SDL_RenderCopy(renderer, tex, &SrcR, &DestR);
 
     //Update the screen

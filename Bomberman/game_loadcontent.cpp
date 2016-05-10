@@ -2,8 +2,7 @@
 
 bool game::LoadContent()
 {
-    level = new Map(6,7);
-    level->loadLayout();
+    level = new Map("resources\\levels\\level1.txt");
 
     bomberman = new player();
 
@@ -35,10 +34,9 @@ bool game::LoadContent()
 
 bool game::GetResourcesPaths()
 {
-    resourcesPaths.push_back("resources\\yellow.bmp");
-    resourcesPaths.push_back("resources\\blue.bmp");
-    resourcesPaths.push_back("resources\\red.bmp");
-    resourcesPaths.push_back("resources\\green.bmp");
+    resourcesPaths.push_back("resources\\green0.bmp");
+    resourcesPaths.push_back("resources\\wall1.bmp");
+    resourcesPaths.push_back("resources\\wall2.bmp");
     resourcesPaths.push_back("resources\\bomberman.bmp");
     //std::cout << "Loaded resources file paths" << std::endl;
     return true;

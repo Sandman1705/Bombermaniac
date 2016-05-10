@@ -2,8 +2,8 @@
 
 player::player()
 {
-    this->m_x = 0;
-    this->m_y = 0;
+    this->m_x = 32;
+    this->m_y = 32;
 }
 
 player::player(unsigned int val_x, unsigned int val_y)
