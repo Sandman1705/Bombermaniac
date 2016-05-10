@@ -1,24 +1,30 @@
 #ifndef MAPOBJECT_H
 #define MAPOBJECT_H
+
+// in MapObject.h MapObject.cpp Map.h Map.cpp WallDestroyer.h WallDestroyer.cpp
+//#define DEBUG_OUTPUT
+
 #include<SDL.h>
 
 class MapObject
 {
     public:
-        MapObject(unsigned int id, SDL_Texture *texture, SDL_Rect SrcR);
-        //virtual ~MapObject();
+        typedef enum Tile
+        {
+              EMPTY = 0,
+              DESTRUCTABLE_WALL = 1,
+              INDESTRUCTABLE_WALL = 2
+        } Tile;
 
-        unsigned int Get_id() { return m_id; }
-        //void Setid(unsigned int val) { m_id = val; }
-        //SDL_Texture* Gettexture() { return m_texture; }
-        //void Settexture(SDL_Texture* val) { m_texture = val; }
+        MapObject(Tile id, SDL_Texture *texture, SDL_Rect SrcR);
 
+        Tile Get_id() { return m_id; }
         void Draw(SDL_Renderer* renderer, const SDL_Rect *DestR);
 
     protected:
 
     private:
-        unsigned int    m_id;
+        Tile            m_id;
         SDL_Texture*    m_texture;
         SDL_Rect        m_SrcR;
 };

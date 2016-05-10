@@ -24,10 +24,10 @@ bool game::LoadContent()
     /** Texture loading - End **/
 
     /** Game objects initializing - Begin **/
-    unsigned int tile_size = 45;
-    level = new Map("resources\\levels\\level1.txt",texture, tile_size);
+    unsigned int tile_size = 44;
+    level = new Map("resources\\levels\\level2.txt",texture, tile_size);
     explosion_manager = new ExplosionManager(texture, tile_size);
-    bomb_manager = new BombManager(texture, tile_size * 20 / 32, explosion_manager);
+    bomb_manager = new BombManager(texture, tile_size, explosion_manager, level);
     bomberman = new Player(texture, tile_size, bomb_manager);
     enemy = new Enemy(texture, tile_size);
     /** Game objects initializing - End **/

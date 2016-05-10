@@ -1,5 +1,6 @@
 #ifndef MAP_H
 #define MAP_H
+
 #include <vector>
 #include <string>
 #include <SDL.h>
@@ -13,19 +14,15 @@ class Map
         //TODO Copy constructor
         //TODO Operator=
 
-        unsigned int Get_height() { return m_height; }
-        unsigned int Get_width() { return m_width; }
-        unsigned int Get_tile_size() { return m_tile_size; }
+        unsigned int Get_height() const { return m_height; }
+        unsigned int Get_width() const { return m_width; }
+        unsigned int Get_tile_size() const { return m_tile_size; }
 
         bool Walkable(unsigned int i,unsigned int j) const;
-        void Draw(SDL_Renderer* renderer);
+        void Draw(SDL_Renderer* renderer) const;
+        void DestroyWall(unsigned int i, unsigned int j);
+        MapObject::Tile Get_tile_type(unsigned int i, unsigned int j) const;
 
-        enum Tile
-        {
-              EMPTY = 0,
-              DESTRUCTABLE_WALL = 1,
-              INDESTRUCTABLE_WALL = 2
-        };
 
     protected:
 
@@ -34,6 +31,9 @@ class Map
         unsigned int                            m_width;
         std::vector<std::vector<MapObject*>>    m_layout;
         const int                               m_tile_size;
+        SDL_Texture*                            m_texture;
+
+        static const unsigned int               TEXTURE_SIZE = 64;
 };
 
 #endif // MAP_H

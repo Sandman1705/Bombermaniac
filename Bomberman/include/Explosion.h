@@ -23,8 +23,8 @@ class Explosion
                   SDL_Rect*  start_SrcR);
 
         void Update();
-        bool IsExploding();
-        void Draw(SDL_Renderer* renderer);
+        bool IsExploding() const;
+        void Draw(SDL_Renderer* renderer) const;
 
     protected:
 

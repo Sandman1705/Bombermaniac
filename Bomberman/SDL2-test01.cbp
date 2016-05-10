@@ -75,6 +75,7 @@
 		<Unit filename="include/MapObject.h" />
 		<Unit filename="include/Player.h" />
 		<Unit filename="include/Timer.h" />
+		<Unit filename="include/WallDestroyer.h" />
 		<Unit filename="includes.h" />
 		<Unit filename="src/Bomb.cpp" />
 		<Unit filename="src/BombManager.cpp" />
@@ -85,6 +86,7 @@
 		<Unit filename="src/MapObject.cpp" />
 		<Unit filename="src/Player.cpp" />
 		<Unit filename="src/Timer.cpp" />
+		<Unit filename="src/WallDestroyer.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

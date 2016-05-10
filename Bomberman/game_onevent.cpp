@@ -1,8 +1,11 @@
 #include"game.h"
 
-#include<cstdio>
+//#define DEBUG_OUTPUT
 
+#ifdef DEBUG_OUTPUT
+#include<cstdio>
 void PrintKeyInfo( SDL_KeyboardEvent *key );
+#endif // DEBUG_OUTPUT
 
 void game::OnEvent(SDL_Event* Event)
 {
@@ -13,8 +16,6 @@ void game::OnEvent(SDL_Event* Event)
 
     switch( Event->type )
     {
-    /* Keyboard event */
-    /* Pass the event data onto PrintKeyInfo() */
 
     case SDL_KEYDOWN:
         switch( Event->key.keysym.sym )
@@ -40,13 +41,16 @@ void game::OnEvent(SDL_Event* Event)
 
     case SDL_KEYUP:
         bomberman->Set_status(0);
+        #ifdef DEBUG_OUTPUT
         PrintKeyInfo( &(Event->key) );
+        #endif // DEBUG_OUTPUT
         switch( Event->key.keysym.sym )
         {
         case SDLK_SPACE:
             bomberman->place_bomb();
             break;
-        case SDLK_f:
+        case SDLK_f: // mostly for testing
+            //level->DestroyWall(1,7);
             //SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN);
             break;
         default:
@@ -66,6 +70,7 @@ void game::OnEvent(SDL_Event* Event)
 
 }
 
+#ifdef DEBUG_OUTPUT
 void PrintKeyInfo( SDL_KeyboardEvent *key )
 {
     /* Is it a release or a press? */
@@ -132,3 +137,4 @@ void PrintModifiers( Unit16 mod )
     printf( "\n" );
 }
 */
+#endif // DEBUG_OUTPUT

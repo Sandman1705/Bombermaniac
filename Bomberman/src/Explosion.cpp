@@ -36,12 +36,12 @@ void Explosion::Update()
     }
 }
 
-bool Explosion::IsExploding()
+bool Explosion::IsExploding() const
 {
     return m_exploding;
 }
 
-void Explosion::Draw(SDL_Renderer* renderer)
+void Explosion::Draw(SDL_Renderer* renderer) const
 {
     SDL_Rect SrcR;
     SDL_Rect DestR;

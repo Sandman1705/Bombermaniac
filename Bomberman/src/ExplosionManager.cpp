@@ -50,7 +50,7 @@ void ExplosionManager::Update()
     }
 }
 
-void ExplosionManager::Draw(SDL_Renderer* renderer)
+void ExplosionManager::Draw(SDL_Renderer* renderer) const
 {
     for(auto i = m_explosions.begin(); i != m_explosions.end(); ++i)
     {

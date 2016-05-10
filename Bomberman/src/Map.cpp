@@ -1,5 +1,4 @@
 #include "Map.h"
-
 #include <stdio.h>      /*  NULL */
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>       /* time */
@@ -8,7 +7,7 @@
 #include <iostream>     /* FOR DEBUG   REMOVE LATER */
 
 Map::Map(std::string path_to_file, SDL_Texture* texture, unsigned int tile_size)
-    : m_tile_size(tile_size)
+    : m_tile_size(tile_size), m_texture(texture)
 {
     std::fstream fs;
     fs.open (path_to_file, std::fstream::in);
@@ -26,18 +25,33 @@ Map::Map(std::string path_to_file, SDL_Texture* texture, unsigned int tile_size)
         m_layout[i].resize(m_width);
 
     SDL_Rect SrcR;
-    unsigned int texture_size = 64;
     SrcR.y = 126;
-    SrcR.w = texture_size;
-    SrcR.h = texture_size;
+    SrcR.w = TEXTURE_SIZE;
+    SrcR.h = TEXTURE_SIZE;
 
     for (unsigned i=0; i<m_height; ++i)
         for (unsigned j=0; j<m_width; ++j)
         {
             int id;
             fs >> id;
-            SrcR.x = 365 + texture_size * id;
-            m_layout[i][j] = new MapObject(id, texture, SrcR);
+            SrcR.x = 365 + TEXTURE_SIZE * id;
+            MapObject::Tile tile;
+            switch(id)
+            {
+            case 0:
+                tile = MapObject::EMPTY;
+                break;
+            case 1:
+                tile = MapObject::DESTRUCTABLE_WALL;
+                break;
+            case 2:
+                tile = MapObject::INDESTRUCTABLE_WALL;
+                break;
+            default:
+                tile = MapObject::EMPTY;
+                break;
+            }
+            m_layout[i][j] = new MapObject(tile, m_texture, SrcR);
         }
 
     fs.close();
@@ -56,14 +70,14 @@ Map::~Map()
 
 bool Map::Walkable(unsigned int i,unsigned int j) const
 {
-    if (m_layout[i][j]->Get_id() == EMPTY)
+    if (m_layout[i][j]->Get_id() == MapObject::EMPTY)
         return true;
     else
         return false;
 }
 
 
-void Map::Draw(SDL_Renderer* renderer)
+void Map::Draw(SDL_Renderer* renderer) const
 {
     SDL_Rect DestR;
     int tile_size = Get_tile_size();
@@ -83,3 +97,33 @@ void Map::Draw(SDL_Renderer* renderer)
         }
     }
 }
+
+void Map::DestroyWall(unsigned int i, unsigned int j)
+{
+    if (m_layout[i][j]->Get_id() == MapObject::DESTRUCTABLE_WALL)
+    {
+        delete m_layout[i][j];
+        SDL_Rect SrcR;
+        SrcR.x = 365 + TEXTURE_SIZE * MapObject::EMPTY;
+        SrcR.y = 126;
+        SrcR.w = TEXTURE_SIZE;
+        SrcR.h = TEXTURE_SIZE;
+        m_layout[i][j] = new MapObject(MapObject::EMPTY, m_texture, SrcR);
+        #ifdef DEBUG_OUTPUT
+        std::cout << "MapObject at X:" << j << " Y:" << i << " is replaced with EMPTY." << std::endl;
+        #endif // DEBUG_OUTPUT
+    }
+    #ifdef DEBUG_OUTPUT
+    else
+    {
+        std::cout << "MapObject at X:" << j << " Y:" << i << " is not DESTRUCTABLE_WALL." << std::endl;
+    }
+    #endif // DEBUG_OUTPUT
+}
+
+
+MapObject::Tile Map::Get_tile_type(unsigned int i, unsigned int j) const
+{
+    return m_layout[i][j]->Get_id();
+}
+

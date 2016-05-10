@@ -239,5 +239,5 @@ void Player::Set_direction(int d)
 
 void Player::place_bomb()
 {
-    m_bomb_manager->MakeBomb(5000,m_x,m_y); // TODO Fix testing values
+    m_bomb_manager->MakeBomb(5000,m_x,m_y,2.5); // TODO Fix testing values
 }

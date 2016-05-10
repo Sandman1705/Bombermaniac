@@ -21,14 +21,14 @@ class Bomb
         ~Bomb();
         #endif // DEBUG_OUTPUT
 
-        unsigned int Get_x () { return m_x; }
-        unsigned int Get_y () { return m_y; }
-        unsigned int Get_bomb_size () { return m_draw_size; }
-        double Get_intensity () { return m_intensity; }
+        unsigned int Get_x () const { return m_x; }
+        unsigned int Get_y () const { return m_y; }
+        unsigned int Get_bomb_size () const { return m_draw_size; }
+        double Get_intensity () const { return m_intensity; }
 
         void BurnFuse();
-        bool Explode();
-        void Draw(SDL_Renderer* renderer);
+        bool Explode() const;
+        void Draw(SDL_Renderer* renderer) const;
 
     protected:
 

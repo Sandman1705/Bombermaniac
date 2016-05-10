@@ -18,7 +18,7 @@ class ExplosionManager
                            unsigned int y_center,
                            double intensity);
         void Update();
-        void Draw(SDL_Renderer* renderer);
+        void Draw(SDL_Renderer* renderer) const;
 
     protected:
 

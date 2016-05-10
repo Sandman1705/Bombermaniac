@@ -2008,3 +2008,128 @@
 	<list>
 	"Explosion.h"
 
+1462732193 source:e:\rs\bomberman\031mickey\game.cpp
+	"game.h"
+
+1462721197 e:\rs\bomberman\031mickey\game.h
+	"includes.h"
+	"Map.h"
+	"ExplosionManager.h"
+	"BombManager.h"
+	"Player.h"
+	"Enemy.h"
+
+1462731202 e:\rs\bomberman\031mickey\includes.h
+	<SDL.h>
+	<SDL_image.h>
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL2/SDL.h>
+	<SDL2/SDL_image.h>
+
+1462731737 e:\rs\bomberman\031mickey\include\map.h
+	<vector>
+	<string>
+	<SDL.h>
+	"MapObject.h"
+
+1462731256 e:\rs\bomberman\031mickey\include\mapobject.h
+	<SDL.h>
+
+1462731642 e:\rs\bomberman\031mickey\include\explosionmanager.h
+	<list>
+	"Explosion.h"
+
+1462731618 e:\rs\bomberman\031mickey\include\explosion.h
+	<iostream>
+	<SDL.h>
+	"Timer.h"
+
+1462642709 e:\rs\bomberman\031mickey\include\timer.h
+
+1462731512 e:\rs\bomberman\031mickey\include\bombmanager.h
+	<list>
+	"Bomb.h"
+	"ExplosionManager.h"
+	"Map.h"
+
+1462731474 e:\rs\bomberman\031mickey\include\bomb.h
+	<SDL.h>
+	"Timer.h"
+
+1462660963 e:\rs\bomberman\031mickey\include\player.h
+	<SDL.h>
+	"Map.h"
+	"BombManager.h"
+
+1462663600 e:\rs\bomberman\031mickey\include\enemy.h
+	<SDL.h>
+	<cstdlib>
+	<ctime>
+	"Map.h"
+	"Timer.h"
+
+1462664548 source:e:\rs\bomberman\031mickey\game_cleanup.cpp
+	"game.h"
+
+1462730437 source:e:\rs\bomberman\031mickey\game_loadcontent.cpp
+	"game.h"
+	"SDL_image.h"
+
+1462731090 source:e:\rs\bomberman\031mickey\game_onevent.cpp
+	"game.h"
+	<cstdio>
+
+1462659150 source:e:\rs\bomberman\031mickey\game_oninit.cpp
+	"game.h"
+
+1462722148 source:e:\rs\bomberman\031mickey\game_onloop.cpp
+	"game.h"
+
+1462722164 source:e:\rs\bomberman\031mickey\game_onrender.cpp
+	"game.h"
+
+1462731477 source:e:\rs\bomberman\031mickey\src\bomb.cpp
+	"Bomb.h"
+	<iostream>
+
+1462731518 source:e:\rs\bomberman\031mickey\src\bombmanager.cpp
+	"BombManager.h"
+	<iostream>
+	"WallDestroyer.h"
+
+1462713971 source:e:\rs\bomberman\031mickey\src\enemy.cpp
+	"Enemy.h"
+
+1462731624 source:e:\rs\bomberman\031mickey\src\explosion.cpp
+	"Explosion.h"
+
+1462731647 source:e:\rs\bomberman\031mickey\src\explosionmanager.cpp
+	"ExplosionManager.h"
+
+1462729155 source:e:\rs\bomberman\031mickey\src\mapobject.cpp
+	"MapObject.h"
+
+1462725629 source:e:\rs\bomberman\031mickey\src\player.cpp
+	"Player.h"
+
+1462641827 source:e:\rs\bomberman\031mickey\src\timer.cpp
+	"Timer.h"
+	<SDL.h>
+
+1462731754 source:e:\rs\bomberman\031mickey\src\map.cpp
+	"Map.h"
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<fstream>
+	<iostream>
+
+1462730775 source:e:\rs\bomberman\031mickey\src\walldestroyer.cpp
+	"WallDestroyer.h"
+	<iostream>
+
+1462729982 e:\rs\bomberman\031mickey\include\walldestroyer.h
+	"Map.h"
+

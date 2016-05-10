@@ -40,12 +40,12 @@ void Bomb::BurnFuse()
         m_explode = true;
 }
 
-bool Bomb::Explode()
+bool Bomb::Explode() const
 {
     return m_explode;
 }
 
-void Bomb::Draw(SDL_Renderer* renderer)
+void Bomb::Draw(SDL_Renderer* renderer) const
 {
     SDL_Rect DestR;
 

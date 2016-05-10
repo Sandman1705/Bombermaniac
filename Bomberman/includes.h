@@ -9,8 +9,6 @@ using namespace std;
 
 #endif // INCLUDES_H_INCLUDED
 
-#define DEBUG_OUTPUT
-
 /*
 Please not that if you use a later version of SDL you will need to update the linker directories and compiler directories under
 Settings>Compiler>Search directories>Linker and Settings>Compiler>Search directories>compiler
