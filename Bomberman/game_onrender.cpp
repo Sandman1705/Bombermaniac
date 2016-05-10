@@ -32,6 +32,13 @@ void game::OnRender()
 
     }
 
+    //Cropping players image
+    SrcR.x = 2;
+    SrcR.y = 2;
+    SrcR.w = SHAPE_SIZE-4;
+    SrcR.h = SHAPE_SIZE-4;
+    //----------------------
+
     DestR.x = bomberman->Get_x();
     DestR.y = bomberman->Get_y();
 

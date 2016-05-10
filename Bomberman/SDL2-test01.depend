@@ -583,6 +583,114 @@
 1461436527 source:c:\users\sasa\documents\projects\rs project\014sasa -- map and player co-op\src\player.cpp
 	"player.h"
 
+1461431113 source:c:\users\sasa\documents\projects\rs project\015sasa -- animated bomberman\game.cpp
+	"game.h"
+
+1461432430 c:\users\sasa\documents\projects\rs project\015sasa -- animated bomberman\game.h
+	"includes.h"
+	"Map.h"
+	"player.h"
+
+1395855848 c:\users\sasa\documents\projects\rs project\015sasa -- animated bomberman\includes.h
+	<SDL.h>
+	<SDL_image.h>
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL2/SDL.h>
+	<SDL2/SDL_image.h>
+
+1461436218 c:\users\sasa\documents\projects\rs project\015sasa -- animated bomberman\include\map.h
+	<vector>
+	<string>
+
+1461429263 c:\users\sasa\documents\projects\rs project\015sasa -- animated bomberman\include\player.h
+
+1460675308 source:c:\users\sasa\documents\projects\rs project\015sasa -- animated bomberman\game_cleanup.cpp
+	"game.h"
+
+1461604277 source:c:\users\sasa\documents\projects\rs project\015sasa -- animated bomberman\game_onevent.cpp
+	"game.h"
+	<cstdio>
+
+1460675878 source:c:\users\sasa\documents\projects\rs project\015sasa -- animated bomberman\game_oninit.cpp
+	"game.h"
+
+1374547568 source:c:\users\sasa\documents\projects\rs project\015sasa -- animated bomberman\game_onloop.cpp
+	"game.h"
+
+1461622876 source:c:\users\sasa\documents\projects\rs project\015sasa -- animated bomberman\game_onrender.cpp
+	"game.h"
+
+1461436199 source:c:\users\sasa\documents\projects\rs project\015sasa -- animated bomberman\src\map.cpp
+	"Map.h"
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<fstream>
+	<iostream>
+
+1461436527 source:c:\users\sasa\documents\projects\rs project\015sasa -- animated bomberman\src\player.cpp
+	"player.h"
+
+1461622805 source:c:\users\sasa\documents\projects\rs project\015sasa -- animated bomberman\game_loadcontent.cpp
+	"game.h"
+	"SDL_image.h"
+
+1461431113 source:c:\users\sasa\documents\projects\rs project\015sasa -- removing bombermans backgroung\game.cpp
+	"game.h"
+
+1461432430 c:\users\sasa\documents\projects\rs project\015sasa -- removing bombermans backgroung\game.h
+	"includes.h"
+	"Map.h"
+	"player.h"
+
+1395855848 c:\users\sasa\documents\projects\rs project\015sasa -- removing bombermans backgroung\includes.h
+	<SDL.h>
+	<SDL_image.h>
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL2/SDL.h>
+	<SDL2/SDL_image.h>
+
+1461436218 c:\users\sasa\documents\projects\rs project\015sasa -- removing bombermans backgroung\include\map.h
+	<vector>
+	<string>
+
+1461429263 c:\users\sasa\documents\projects\rs project\015sasa -- removing bombermans backgroung\include\player.h
+
+1460675308 source:c:\users\sasa\documents\projects\rs project\015sasa -- removing bombermans backgroung\game_cleanup.cpp
+	"game.h"
+
+1461622805 source:c:\users\sasa\documents\projects\rs project\015sasa -- removing bombermans backgroung\game_loadcontent.cpp
+	"game.h"
+	"SDL_image.h"
+
+1461604277 source:c:\users\sasa\documents\projects\rs project\015sasa -- removing bombermans backgroung\game_onevent.cpp
+	"game.h"
+	<cstdio>
+
+1460675878 source:c:\users\sasa\documents\projects\rs project\015sasa -- removing bombermans backgroung\game_oninit.cpp
+	"game.h"
+
+1374547568 source:c:\users\sasa\documents\projects\rs project\015sasa -- removing bombermans backgroung\game_onloop.cpp
+	"game.h"
+
+1461623150 source:c:\users\sasa\documents\projects\rs project\015sasa -- removing bombermans backgroung\game_onrender.cpp
+	"game.h"
+
+1461436199 source:c:\users\sasa\documents\projects\rs project\015sasa -- removing bombermans backgroung\src\map.cpp
+	"Map.h"
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<fstream>
+	<iostream>
+
+1461436527 source:c:\users\sasa\documents\projects\rs project\015sasa -- removing bombermans backgroung\src\player.cpp
+	"player.h"
+
 1461431113 source:c:\users\sasa\documents\github\rs16-14\bomberman\game.cpp
 	"game.h"
 
@@ -609,9 +717,6 @@
 1460675308 source:c:\users\sasa\documents\github\rs16-14\bomberman\game_cleanup.cpp
 	"game.h"
 
-1461436347 source:c:\users\sasa\documents\github\rs16-14\bomberman\game_loadcontent.cpp
-	"game.h"
-
 1461604277 source:c:\users\sasa\documents\github\rs16-14\bomberman\game_onevent.cpp
 	"game.h"
 	<cstdio>
@@ -622,7 +727,7 @@
 1374547568 source:c:\users\sasa\documents\github\rs16-14\bomberman\game_onloop.cpp
 	"game.h"
 
-1461596983 source:c:\users\sasa\documents\github\rs16-14\bomberman\game_onrender.cpp
+1461623150 source:c:\users\sasa\documents\github\rs16-14\bomberman\game_onrender.cpp
 	"game.h"
 
 1461436199 source:c:\users\sasa\documents\github\rs16-14\bomberman\src\map.cpp
