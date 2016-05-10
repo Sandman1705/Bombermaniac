@@ -15,7 +15,9 @@ void game::OnEvent(SDL_Event* Event)
     unsigned int tmp_y;
 
     unsigned int move_speed = 4;
-    int image_size = 32;
+    int field_size = 32;
+    int player_size_w = 17;
+    int player_size_h = 23;
 
     switch( Event->type )
     {
@@ -23,55 +25,18 @@ void game::OnEvent(SDL_Event* Event)
     /* Pass the event data onto PrintKeyInfo() */
 
     case SDL_KEYDOWN:
-       switch( Event->key.keysym.sym )
-       {
+        switch( Event->key.keysym.sym )
+        {
         case SDLK_UP:
             //checking if bomberman can go up:
             tmp_x = bomberman->Get_x();
             tmp_y = bomberman->Get_y();
 
-            if(tmp_y % image_size != 0) //then he is partly on allowed field so he can go!
+            if(level->m_layout[(tmp_y - move_speed)/field_size][tmp_x/field_size] == 0
+                    &&  level->m_layout[(tmp_y - move_speed)/field_size][(tmp_x+player_size_w)/field_size] == 0)
             {
                 tmp_y = bomberman->Get_y();
                 bomberman->Set_y(tmp_y-move_speed);
-            }
-            else //else we are checking does left and right end of bomberman is allowed on the field
-            {
-                if(tmp_x % image_size == 0) //then he is on x-axis on one hole field
-                {
-                    tmp_x /= image_size;
-                    tmp_y /= image_size;
-
-                    // NOTE:  MATRIX is reversed so CAUTION!!!!!
-                    if(level->m_layout[tmp_y-1][tmp_x] == 0)
-                    {
-                        tmp_y = bomberman->Get_y();
-                        bomberman->Set_y(tmp_y-move_speed);
-                    }
-                    else
-                    {
-                        std::cout<<"Can't go up matrix field ("<<tmp_x <<", "<<
-                            tmp_y-1 <<") is: " <<level->m_layout[tmp_y-1][tmp_x]<< std::endl;
-                    }
-                }
-                else // bomberman is on two fields and both must be free to step on
-                {
-
-                    tmp_x /= image_size;
-                    tmp_y /= image_size;
-
-                    // NOTE:  MATRIX is reversed so CAUTION!!!!!
-                    if((level->m_layout[tmp_y-1][tmp_x] == 0) && (level->m_layout[tmp_y-1][tmp_x+1] == 0))
-                    {
-                        tmp_y = bomberman->Get_y();
-                        bomberman->Set_y(tmp_y-move_speed);
-                    }
-                    else
-                    {
-                        std::cout<<"Can't go up matrix field ("<<tmp_x <<", "<<
-                            tmp_y-1 <<") is: " <<level->m_layout[tmp_y-1][tmp_x]<< std::endl;
-                    }
-                }
             }
             break;
 
@@ -80,48 +45,11 @@ void game::OnEvent(SDL_Event* Event)
             tmp_x = bomberman->Get_x();
             tmp_y = bomberman->Get_y();
 
-            if(tmp_y % image_size != 0) //then he is partly on allowed field so he can go!
+            if(level->m_layout[(tmp_y+player_size_h+move_speed)/field_size][tmp_x/field_size] == 0
+                    && level->m_layout[(tmp_y+player_size_h+move_speed)/field_size][(tmp_x+player_size_w)/field_size] == 0)
             {
                 tmp_y = bomberman->Get_y();
                 bomberman->Set_y(tmp_y+move_speed);
-            }
-            else //else we are checking does left and right end of bomberman is allowed on the field
-            {
-                if(tmp_x % image_size == 0) //then he is on x-axis on one hole field
-                {
-                    tmp_x /= image_size;
-                    tmp_y /= image_size;
-
-                    // NOTE:  MATRIX is reversed so CAUTION!!!!!
-                    if(level->m_layout[tmp_y+1][tmp_x] == 0)
-                    {
-                        tmp_y = bomberman->Get_y();
-                        bomberman->Set_y(tmp_y+move_speed);
-                    }
-                    else
-                    {
-                        std::cout<<"Can't go down matrix field ("<<tmp_x <<", "<<
-                            tmp_y+1 <<") is: " <<level->m_layout[tmp_y+1][tmp_x]<< std::endl;
-                    }
-                }
-                else // bomberman is on two fields and both must be free to step on
-                {
-
-                    tmp_x /= image_size;
-                    tmp_y /= image_size;
-
-                    // NOTE:  MATRIX is reversed so CAUTION!!!!!
-                    if((level->m_layout[tmp_y+1][tmp_x] == 0) && (level->m_layout[tmp_y+1][tmp_x+1] == 0))
-                    {
-                        tmp_y = bomberman->Get_y();
-                        bomberman->Set_y(tmp_y+move_speed);
-                    }
-                    else
-                    {
-                        std::cout<<"Can't go up matrix field ("<<tmp_x <<", "<<
-                            tmp_y+1 <<") is: " <<level->m_layout[tmp_y+1][tmp_x]<< std::endl;
-                    }
-                }
             }
             break;
 
@@ -130,48 +58,11 @@ void game::OnEvent(SDL_Event* Event)
             tmp_x = bomberman->Get_x();
             tmp_y = bomberman->Get_y();
 
-            if(tmp_x % image_size != 0) //then he is partly on allowed field so he can go!
+            if(level->m_layout[tmp_y/field_size][(tmp_x-move_speed)/field_size] == 0
+                    && level->m_layout[(tmp_y+player_size_h)/field_size][(tmp_x-move_speed)/field_size] == 0)
             {
                 tmp_x = bomberman->Get_x();
                 bomberman->Set_x(tmp_x-move_speed);
-            }
-            else //else we are checking does top and bottom end of bomberman is allowed on the field
-            {
-                if(tmp_y % image_size == 0) //then he is on y-axis on one hole field
-                {
-                    tmp_x /= image_size;
-                    tmp_y /= image_size;
-
-                    // NOTE:  MATRIX is reversed so CAUTION!!!!!
-                    if(level->m_layout[tmp_y][tmp_x-1] == 0)
-                    {
-                        tmp_x = bomberman->Get_x();
-                        bomberman->Set_x(tmp_x-move_speed);
-                    }
-                    else
-                    {
-                        std::cout<<"Can't go left matrix field ("<<tmp_x-1 <<", "<<
-                            tmp_y <<") is: " <<level->m_layout[tmp_y][tmp_x-1]<< std::endl;
-                    }
-                }
-                else // bomberman is on two fields and both must be free to step on
-                {
-
-                    tmp_x /= image_size;
-                    tmp_y /= image_size;
-
-                    // NOTE:  MATRIX is reversed so CAUTION!!!!!
-                    if((level->m_layout[tmp_y][tmp_x-1] == 0) && (level->m_layout[tmp_y+1][tmp_x-1] == 0))
-                    {
-                        tmp_x = bomberman->Get_x();
-                        bomberman->Set_x(tmp_x-move_speed);
-                    }
-                    else
-                    {
-                        std::cout<<"Can't go left matrix field ("<<tmp_x-1 <<", "<<
-                            tmp_y <<") is: " <<level->m_layout[tmp_y][tmp_x-1]<< std::endl;
-                    }
-                }
             }
             break;
 
@@ -180,51 +71,16 @@ void game::OnEvent(SDL_Event* Event)
             tmp_x = bomberman->Get_x();
             tmp_y = bomberman->Get_y();
 
-            if(tmp_x % image_size != 0) //then he is partly on allowed field so he can go!
+            if( level->m_layout[tmp_y/field_size][(tmp_x+player_size_w+move_speed)/field_size] == 0
+                    && level->m_layout[(tmp_y+player_size_h)/field_size][(tmp_x+player_size_w+move_speed)/field_size] == 0)
             {
                 tmp_x = bomberman->Get_x();
                 bomberman->Set_x(tmp_x+move_speed);
             }
-            else //else we are checking does top and bottom end of bomberman is allowed on the field
-            {
-                if(tmp_y % image_size == 0) //then he is on y-axis on one hole field
-                {
-                    tmp_x /= image_size;
-                    tmp_y /= image_size;
 
-                    // NOTE:  MATRIX is reversed so CAUTION!!!!!
-                    if(level->m_layout[tmp_y][tmp_x+1] == 0)
-                    {
-                        tmp_x = bomberman->Get_x();
-                        bomberman->Set_x(tmp_x+move_speed);
-                    }
-                    else
-                    {
-                        std::cout<<"Can't go right matrix field ("<<tmp_x+1 <<", "<<
-                            tmp_y <<") is: " <<level->m_layout[tmp_y][tmp_x+1]<< std::endl;
-                    }
-                }
-                else // bomberman is on two fields and both must be free to step on
-                {
-
-                    tmp_x /= image_size;
-                    tmp_y /= image_size;
-
-                    // NOTE:  MATRIX is reversed so CAUTION!!!!!
-                    if((level->m_layout[tmp_y][tmp_x+1] == 0) && (level->m_layout[tmp_y+1][tmp_x+1] == 0))
-                    {
-                        tmp_x = bomberman->Get_x();
-                        bomberman->Set_x(tmp_x+move_speed);
-                    }
-                    else
-                    {
-                        std::cout<<"Can't go right matrix field ("<<tmp_x+1 <<", "<<
-                            tmp_y <<") is: " <<level->m_layout[tmp_y][tmp_x+1]<< std::endl;
-                    }
-                }
-            }
             break;
         }
+
         break;
 
     case SDL_KEYUP:
