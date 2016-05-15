@@ -80,6 +80,7 @@
 		<Unit filename="include/KeyboardInput.h" />
 		<Unit filename="include/Map.h" />
 		<Unit filename="include/MapObject.h" />
+		<Unit filename="include/PlayerManager.h" />
 		<Unit filename="include/Timer.h" />
 		<Unit filename="include/WallDestroyer.h" />
 		<Unit filename="include/player.h" />
@@ -97,6 +98,7 @@
 		<Unit filename="src/KeyboardInput.cpp" />
 		<Unit filename="src/Map.cpp" />
 		<Unit filename="src/MapObject.cpp" />
+		<Unit filename="src/PlayerManager.cpp" />
 		<Unit filename="src/Timer.cpp" />
 		<Unit filename="src/WallDestroyer.cpp" />
 		<Unit filename="src/player.cpp" />
