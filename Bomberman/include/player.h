@@ -119,6 +119,7 @@ class Player
         bool           m_bomb_ready = false;
         int            m_status;
         Timer          m_timer;
+        unsigned int   m_health = 100; //percent
         unsigned int   m_speed = 100;
         unsigned int   m_x;
         unsigned int   m_y;

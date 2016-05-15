@@ -40,6 +40,8 @@ void Enemy::Update(Map *level)
 
     if(m_walk_len <= 0)
     {
+
+
         m_walk_len = rand()%5 + 10;
         r = rand()%4;
         switch(r)
@@ -192,4 +194,14 @@ unsigned int Enemy::Get_status() const
 void Enemy::Set_status(int s)
 {
     m_status = s;
+}
+
+unsigned int Enemy::Get_health() const
+{
+    return m_health;
+}
+
+void Enemy::Set_health(int h)
+{
+    m_health = h;
 }
