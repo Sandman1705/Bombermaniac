@@ -45,9 +45,9 @@ class Map
         //TODO Copy constructor
         //TODO Operator=
 
-        unsigned int Get_height() const { return m_height; }
-        unsigned int Get_width() const { return m_width; }
-        unsigned int Get_tile_size() const { return m_tile_size; }
+        unsigned int GetHeight() const { return m_height; }
+        unsigned int GetWidth() const { return m_width; }
+        unsigned int GetTileSize() const { return m_tile_size; }
 
         /**
          *  \brief Tells if the tile at given coordinates is walkable on
@@ -92,7 +92,7 @@ class Map
          *
          *  \return MapObject::Tile which represents the type of object
          */
-        MapObject::Tile Get_tile_type(unsigned int i, unsigned int j) const;
+        MapObject::Tile GetTileType(unsigned int i, unsigned int j) const;
 
 
     protected:

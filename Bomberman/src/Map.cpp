@@ -42,10 +42,10 @@ Map::Map(std::string path_to_file, SDL_Texture* texture, unsigned int tile_size)
                 tile = MapObject::EMPTY;
                 break;
             case 1:
-                tile = MapObject::DESTRUCTABLE_WALL;
+                tile = MapObject::DESTRUCTIBLE_WALL;
                 break;
             case 2:
-                tile = MapObject::INDESTRUCTABLE_WALL;
+                tile = MapObject::INDESTRUCTIBLE_WALL;
                 break;
             default:
                 tile = MapObject::EMPTY;
@@ -59,9 +59,9 @@ Map::Map(std::string path_to_file, SDL_Texture* texture, unsigned int tile_size)
 
 Map::~Map()
 {
-    for (unsigned i = 0; i < this->Get_height(); ++i)
+    for (unsigned i = 0; i < m_height; ++i)
     {
-        for (unsigned j = 0; j < this->Get_width(); ++j)
+        for (unsigned j = 0; j < m_width; ++j)
         {
             delete m_layout[i][j];
         }
@@ -70,7 +70,7 @@ Map::~Map()
 
 bool Map::Walkable(unsigned int i,unsigned int j) const
 {
-    if (m_layout[i][j]->Get_id() == MapObject::EMPTY)
+    if (m_layout[i][j]->GetId() == MapObject::EMPTY)
         return true;
     else
         return false;
@@ -80,16 +80,16 @@ bool Map::Walkable(unsigned int i,unsigned int j) const
 void Map::Draw(SDL_Renderer* renderer) const
 {
     SDL_Rect DestR;
-    int tile_size = Get_tile_size();
+    int tile_size = m_tile_size;
 
     DestR.x = 0;
     DestR.y = 0;
     DestR.w = tile_size;
     DestR.h = tile_size;
 
-    for (unsigned i = 0; i < this->Get_height(); ++i)
+    for (unsigned i = 0; i < m_height; ++i)
     {
-        for (unsigned j = 0; j < this->Get_width(); ++j)
+        for (unsigned j = 0; j < m_width; ++j)
         {
             DestR.y = tile_size*i;
             DestR.x = tile_size*j;
@@ -100,7 +100,7 @@ void Map::Draw(SDL_Renderer* renderer) const
 
 void Map::DestroyWall(unsigned int i, unsigned int j)
 {
-    if (m_layout[i][j]->Get_id() == MapObject::DESTRUCTABLE_WALL)
+    if (m_layout[i][j]->GetId() == MapObject::DESTRUCTIBLE_WALL)
     {
         delete m_layout[i][j];
         SDL_Rect SrcR;
@@ -122,8 +122,8 @@ void Map::DestroyWall(unsigned int i, unsigned int j)
 }
 
 
-MapObject::Tile Map::Get_tile_type(unsigned int i, unsigned int j) const
+MapObject::Tile Map::GetTileType(unsigned int i, unsigned int j) const
 {
-    return m_layout[i][j]->Get_id();
+    return m_layout[i][j]->GetId();
 }
 

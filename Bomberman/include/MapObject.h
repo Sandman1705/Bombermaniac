@@ -26,8 +26,8 @@ class MapObject
         typedef enum Tile
         {
               EMPTY = 0,
-              DESTRUCTABLE_WALL = 1,
-              INDESTRUCTABLE_WALL = 2
+              DESTRUCTIBLE_WALL = 1,
+              INDESTRUCTIBLE_WALL = 2
         } Tile;
 
         /**
@@ -42,7 +42,7 @@ class MapObject
          */
         MapObject(Tile id, SDL_Texture *texture, SDL_Rect SrcR);
 
-        Tile Get_id() { return m_id; }
+        Tile GetId() { return m_id; }
 
         /**
          *  \brief Draws a tile on given SDL_Renderer.

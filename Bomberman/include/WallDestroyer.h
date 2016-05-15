@@ -37,15 +37,15 @@ class WallDestroyer
 
     protected:
 
+        void Spread(int row, int col, int direction_row, int direction_col);
+        void Destroy(int row, int col);
+
     private:
         Map*            m_level;
         unsigned int    m_start_x;
         unsigned int    m_start_y;
         unsigned int    m_tile_size;
         double          m_intensity;
-
-        void Spread(int row, int col, int direction_row, int direction_col);
-        void Destroy(int row, int col);
 
 };
 
