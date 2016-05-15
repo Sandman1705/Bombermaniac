@@ -21,13 +21,12 @@ Enemy::Enemy(SDL_Texture* tex, unsigned int tile_size, unsigned int val_x, unsig
     srand(time(NULL));
 
     m_timer.ResetTimer();
-
     m_enemy_size_w = m_enemy_size_w *tile_size/32;
     m_enemy_size_h = m_enemy_size_h *tile_size/32; //size according to 32px tile size
     m_move_speed = m_move_speed *m_tile_size/32; //speed according to 32px tile size
 }
 
-void Enemy::update(Map *level)
+void Enemy::Update(Map *level)
 {
     int r;
 
@@ -54,10 +53,10 @@ void Enemy::update(Map *level)
         }
     }
 
-    if(m_timer.GetTimeElapsed() > 100)
+    if(m_timer.GetTimeElapsed() > m_speed)
     {
         m_walk_len--;
-        this->enemy_move(level);
+        this->EnemyMove(level);
         m_timer.ResetTimer();
     }
 }
@@ -103,7 +102,7 @@ void Enemy::Draw(SDL_Renderer *renderer)
     SDL_RenderCopy(renderer, m_tex, &SrcR, &DestR);
 }
 
-void Enemy::enemy_move(Map *level)
+void Enemy::EnemyMove(Map *level)
 {
     unsigned int field_size = m_tile_size;
 
