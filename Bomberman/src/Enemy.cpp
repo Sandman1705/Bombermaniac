@@ -1,5 +1,5 @@
 #include "Enemy.h"
-
+#include <iostream>
 Enemy::Enemy(SDL_Texture* tex, unsigned int tile_size, unsigned int val_x, unsigned int val_y)
 {
     //default for x
@@ -34,6 +34,17 @@ Enemy::Enemy(SDL_Texture* tex, unsigned int tile_size, unsigned int val_x, unsig
     m_move_speed = m_move_speed *m_tile_size/32; //speed according to 32px tile size
 }
 
+bool Enemy::Touch(unsigned int enemy_x, unsigned int enemy_y, unsigned int player_x, unsigned int player_y,
+                   unsigned int player_w, unsigned int player_h)
+{
+    if(enemy_x >= player_x && enemy_y >= player_y && enemy_x <= player_x+player_w
+       && enemy_y <= player_y+player_h)
+    {
+        return true;
+    }
+    return false;
+}
+
 void Enemy::Update(Map *level, Player *player)
 {
     unsigned int player_health = player->Get_health();
@@ -42,19 +53,19 @@ void Enemy::Update(Map *level, Player *player)
     unsigned int player_w = player->Get_size_w();
     unsigned int player_h = player->Get_size_h();
 
-    if(m_x - (player_x+player_w) <= 0) //coming from the left side of the player
+    if(Touch(m_x, m_y, player_x, player_y, player_w, player_h))
     {
         player->Set_health(0);
     }
-    else if((m_x+m_enemy_size_w) - player_x) //coming from the right side of the player
+    else if(Touch(m_x + m_enemy_size_w, m_y, player_x, player_y, player_w, player_h))
         {
             player->Set_health(0);
         }
-        else if(m_y - (player_y+player_h)) //coming from the down side of the player
+        else if(Touch(m_x, m_y+m_enemy_size_h, player_x, player_y, player_w, player_h))
             {
                 player->Set_health(0);
             }
-            else if((m_y+m_enemy_size_h) - player_y) //coming from the upper side of the player
+            else if(Touch(m_x+m_enemy_size_w, m_y+m_enemy_size_h, player_x, player_y, player_w, player_h))
                 {
                     player->Set_health(0);
                 }

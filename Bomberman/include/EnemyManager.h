@@ -4,6 +4,7 @@
 #include <list>
 #include "Map.h"
 #include "Enemy.h"
+#include "Player.h"
 
 class EnemyManager
 {

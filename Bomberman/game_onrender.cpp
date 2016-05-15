@@ -9,7 +9,7 @@ void game::OnRender()
     level->Draw(renderer);
     bomb_manager->Draw(renderer);
     enemy_manager->Draw(renderer);
-    bomberman->Draw(renderer);
+    player_manager->Draw(renderer);
     explosion_manager->Draw(renderer);
 
     //Update the screen

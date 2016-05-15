@@ -9,6 +9,7 @@
 #include "Player.h"
 #include "Enemy.h"
 #include "EnemyManager.h"
+#include "PlayerManager.h"
 
 class game
 {
@@ -21,7 +22,8 @@ private:
     Map*                level;
     ExplosionManager*   explosion_manager;
     BombManager*        bomb_manager;
-    Player*             bomberman;
+    //Player*             bomberman;
+    PlayerManager*      player_manager;
     EnemyManager*       enemy_manager;
     SDL_Texture*        texture;
 
