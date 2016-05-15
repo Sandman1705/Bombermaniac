@@ -44,9 +44,9 @@ void BombManager::BurnFuses()
         (*i)->BurnFuse();
         if((*i)->Explode())
         {
-            unsigned int half_bomb_size = (*i)->Get_bomb_size() / 2;
-            m_explosion_manager->MakeExplosion(1000, (*i)->Get_x()+half_bomb_size, (*i)->Get_y()+half_bomb_size, (*i)->Get_intensity());
-            WallDestroyer wd(m_level,(*i)->Get_x()+half_bomb_size,(*i)->Get_y()+half_bomb_size,m_tile_size,(*i)->Get_intensity());
+            unsigned int half_bomb_size = (*i)->GetBombSize() / 2;
+            m_explosion_manager->MakeExplosion(1000, (*i)->GetX()+half_bomb_size, (*i)->GetY()+half_bomb_size, (*i)->GetIntensity());
+            WallDestroyer wd(m_level,(*i)->GetX()+half_bomb_size,(*i)->GetY()+half_bomb_size,m_tile_size,(*i)->GetIntensity());
             delete (*i);
             i = m_bombs.erase(i);
         }

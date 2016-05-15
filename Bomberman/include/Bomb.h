@@ -51,10 +51,10 @@ class Bomb
         ~Bomb();
         #endif // DEBUG_OUTPUT
 
-        unsigned int Get_x () const { return m_x; }
-        unsigned int Get_y () const { return m_y; }
-        unsigned int Get_bomb_size () const { return m_draw_size; }
-        double Get_intensity () const { return m_intensity; }
+        unsigned int GetX() const { return m_x; }
+        unsigned int GetY() const { return m_y; }
+        unsigned int GetBombSize () const { return m_draw_size; }
+        double GetIntensity () const { return m_intensity; }
 
         /**
          *  \brief Update function for class Bomb

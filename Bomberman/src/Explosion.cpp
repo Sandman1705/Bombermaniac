@@ -25,11 +25,11 @@ Explosion::Explosion(unsigned int duration,
 
 void Explosion::Update()
 {
-    if (m_timer.getTimeElapsed() > m_duration)
+    if (m_timer.GetTimeElapsed() > m_duration)
         m_exploding = false;
     else
     {
-        m_phase_number =  m_timer.getTimeElapsed() / (m_duration / NUMBER_OF_PHASES); // timeElapsed / phaseLength
+        m_phase_number =  m_timer.GetTimeElapsed() / (m_duration / NUMBER_OF_PHASES); // timeElapsed / phaseLength
         #ifdef DEBUG_OUTPUT
         std::cout << "Explosion: X:" << m_x_center << " Y:" << m_y_center << " Phase:" << m_phase_number << std::endl;
         #endif // DEBUG_OUTPUT

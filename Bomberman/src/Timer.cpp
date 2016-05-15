@@ -3,15 +3,20 @@
 
 Timer::Timer()
 {
-    pastTicks = SDL_GetTicks();
+    m_pastTicks = SDL_GetTicks();
 }
 
-void Timer::resetTimer()
+void Timer::ResetTimer()
 {
-    pastTicks = SDL_GetTicks();
+    m_pastTicks = SDL_GetTicks();
 }
 
-unsigned long Timer::getTimeElapsed()
+void Timer::DecreaseTimer(unsigned long interval)
 {
-    return SDL_GetTicks() - pastTicks;
+    m_pastTicks += interval;
+}
+
+unsigned long Timer::GetTimeElapsed()
+{
+    return SDL_GetTicks() - m_pastTicks;
 }

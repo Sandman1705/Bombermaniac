@@ -20,7 +20,7 @@ Enemy::Enemy(SDL_Texture* tex, unsigned int tile_size, unsigned int val_x, unsig
 
     srand(time(NULL));
 
-    m_timer.resetTimer();
+    m_timer.ResetTimer();
 
     m_enemy_size_w = m_enemy_size_w *tile_size/32;
     m_enemy_size_h = m_enemy_size_h *tile_size/32; //size according to 32px tile size
@@ -54,11 +54,11 @@ void Enemy::update(Map *level)
         }
     }
 
-    if(m_timer.getTimeElapsed() > 100)
+    if(m_timer.GetTimeElapsed() > 100)
     {
         m_walk_len--;
         this->enemy_move(level);
-        m_timer.resetTimer();
+        m_timer.ResetTimer();
     }
 }
 

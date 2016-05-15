@@ -30,7 +30,9 @@ class Timer
          *
          *  \return void
          */
-        void resetTimer();
+        void ResetTimer();
+
+        void DecreaseTimer(unsigned long interval);
         /**
          *  \brief Gives time elapsed in milliseconds
          *
@@ -40,12 +42,12 @@ class Timer
          *
          *  \return number of milliseconds since last reset
          */
-        unsigned long getTimeElapsed();
+        unsigned long GetTimeElapsed();
 
     protected:
 
     private:
-        unsigned long    pastTicks;
+        unsigned long    m_pastTicks;
 };
 
 #endif // TIMER_H

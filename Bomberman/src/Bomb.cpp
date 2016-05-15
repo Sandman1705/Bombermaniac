@@ -37,7 +37,7 @@ Bomb::~Bomb()
 
 void Bomb::BurnFuse()
 {
-    if (m_timer.getTimeElapsed() > m_fuse_duration)
+    if (m_timer.GetTimeElapsed() > m_fuse_duration)
         m_explode = true;
 }
 
