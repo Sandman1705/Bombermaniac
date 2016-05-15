@@ -13,6 +13,7 @@
 #include <ctime>
 #include "Map.h"
 #include "Timer.h"
+#include "Player.h"
 
 /** \class Enemy
  *  \brief class which represents an enemy
@@ -85,9 +86,12 @@ class Enemy
          *  Calculates where enemy should go and updates enemy's position
          *  on map accordingly and calls appropriate actions.
          *
+         *  \param level pointer to Map object of the game
+         *  \param player pointer to Player object of the game
+         *
          *  \return void
          */
-        void Update(Map *level);
+        void Update(Map *level, Player *player);
 
     protected:
 

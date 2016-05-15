@@ -8,7 +8,8 @@
 class EnemyManager
 {
     public:
-        EnemyManager(SDL_Texture* texture, unsigned int tile_size, Map* level);
+        EnemyManager(SDL_Texture* texture, unsigned int tile_size, Map* level,
+                     Player* player);
         virtual ~EnemyManager();
 
         void AddEnemy(Enemy *enemy);
@@ -22,6 +23,7 @@ class EnemyManager
     std::list<Enemy*>       m_enemies;
     SDL_Texture*            m_texture;
     Map*                    m_level;
+    Player*                 m_player;
     unsigned int            m_tile_size;
 };
 

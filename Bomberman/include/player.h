@@ -60,6 +60,9 @@ class Player
         unsigned int Get_direction() const;
         void Set_direction(int d);
 
+        unsigned int Get_health() const;
+        void Set_health(int h);
+
         /**
          *  \brief Function that implements movement for player.
          *

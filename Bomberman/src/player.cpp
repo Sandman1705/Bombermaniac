@@ -286,3 +286,14 @@ void Player::Set_direction(int d)
             m_direction = DOWN;
     }
 }
+
+unsigned int Player::Get_health() const
+{
+    return m_health;
+}
+
+void Player::Set_health(int h)
+{
+    m_health = h;
+}
+
