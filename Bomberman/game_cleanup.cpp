@@ -6,7 +6,7 @@ void game::Cleanup()
     delete bomb_manager;
     delete explosion_manager;
     delete bomberman;
-    delete enemy;
+    delete enemy_manager;
 
     SDL_DestroyTexture(texture);
     SDL_DestroyRenderer(renderer);

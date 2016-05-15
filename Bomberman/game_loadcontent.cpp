@@ -29,8 +29,13 @@ bool game::LoadContent()
     level = new Map("resources\\levels\\level2.txt",texture, tile_size);
     explosion_manager = new ExplosionManager(texture, tile_size);
     bomb_manager = new BombManager(texture, tile_size, explosion_manager, level);
+    enemy_manager = new EnemyManager(texture, tile_size, level);
+
+    enemy_manager->MakeEnemy(2*tile_size);
+    enemy_manager->MakeEnemy(3*tile_size);
+    enemy_manager->MakeEnemy(0, 2*tile_size);
+
     bomberman = new Player(texture, tile_size, bomb_manager, keyboard_input, level);
-    enemy = new Enemy(texture, tile_size);
     /* Game objects initializing - End */
 
     return true;

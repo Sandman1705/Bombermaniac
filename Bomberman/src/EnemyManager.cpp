@@ -1,0 +1,43 @@
+#include "EnemyManager.h"
+
+EnemyManager::EnemyManager(SDL_Texture* texture, unsigned int tile_size, Map* level)
+{
+    m_texture = texture;
+    m_tile_size = tile_size;
+    m_level = level;
+}
+
+EnemyManager::~EnemyManager()
+{
+    for(auto i = m_enemies.begin(); i != m_enemies.end(); ++i)
+    {
+        delete (*i);
+    }
+}
+
+void EnemyManager::AddEnemy(Enemy *enemy)
+{
+    m_enemies.push_back(enemy);
+}
+
+void EnemyManager::MakeEnemy(unsigned int x, unsigned int y)
+{
+    Enemy* e = new Enemy(m_texture, m_tile_size, x, y);
+    AddEnemy(e);
+}
+
+void EnemyManager::Draw(SDL_Renderer* renderer) const
+{
+    for(auto i = m_enemies.begin(); i != m_enemies.end(); ++i)
+    {
+        (*i)->Draw(renderer);
+    }
+}
+
+void EnemyManager::Update()
+{
+    for(auto i = m_enemies.begin(); i != m_enemies.end(); ++i)
+    {
+        (*i)->Update(m_level);
+    }
+}

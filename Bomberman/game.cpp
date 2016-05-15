@@ -7,6 +7,7 @@ game::game()
     level = nullptr;
     explosion_manager = nullptr;
     bomb_manager = nullptr;
+    enemy_manager = nullptr;
     bomberman = nullptr;
 }
 

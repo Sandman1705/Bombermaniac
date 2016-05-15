@@ -4,14 +4,22 @@
 Player::Player(SDL_Texture* tex, unsigned int tile_size, BombManager *bomb_manager,
                KeyboardInput *keyboard_input, Map *level, unsigned int val_x, unsigned int val_y)
 {
-    if(val_x == 0 && val_y == 0)
+    //default for x
+    if(val_x == 0)
     {
         this->m_x = tile_size;
-        this->m_y = tile_size;
     }
     else
     {
         this->m_x = val_x;
+    }
+    //default for y
+    if(val_y == 0)
+    {
+        this->m_y = tile_size;
+    }
+    else
+    {
         this->m_y = val_y;
     }
 
