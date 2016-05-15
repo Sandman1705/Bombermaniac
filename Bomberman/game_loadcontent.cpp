@@ -34,6 +34,8 @@ bool game::LoadContent()
     enemy_manager->MakeEnemy(2*tile_size);
     enemy_manager->MakeEnemy(3*tile_size);
     enemy_manager->MakeEnemy(0, 2*tile_size);
+    enemy_manager->MakeEnemy(10*tile_size);
+    enemy_manager->MakeEnemy(8*tile_size, 8*tile_size);
 
     bomberman = new Player(texture, tile_size, bomb_manager, keyboard_input, level);
     /* Game objects initializing - End */
