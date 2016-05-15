@@ -2,14 +2,22 @@
 
 Enemy::Enemy(SDL_Texture* tex, unsigned int tile_size, unsigned int val_x, unsigned int val_y)
 {
-    if(val_x == 0 && val_y == 0)
+    //default for x
+    if(val_x == 0)
     {
-        this->m_x = 2*tile_size;
-        this->m_y = tile_size;
+        this->m_x = tile_size;
     }
     else
     {
         this->m_x = val_x;
+    }
+    //default for y
+    if(val_y == 0)
+    {
+        this->m_y = tile_size;
+    }
+    else
+    {
         this->m_y = val_y;
     }
 
@@ -26,12 +34,35 @@ Enemy::Enemy(SDL_Texture* tex, unsigned int tile_size, unsigned int val_x, unsig
     m_move_speed = m_move_speed *m_tile_size/32; //speed according to 32px tile size
 }
 
-void Enemy::Update(Map *level)
+void Enemy::Update(Map *level, Player *player)
 {
+    unsigned int player_health = player->Get_health();
+    unsigned int player_x = player->Get_x();
+    unsigned int player_y = player->Get_y();
+    unsigned int player_w = player->Get_size_w();
+    unsigned int player_h = player->Get_size_h();
+
+    if(m_x - (player_x+player_w) <= 0) //coming from the left side of the player
+    {
+        player->Set_health(0);
+    }
+    else if((m_x+m_enemy_size_w) - player_x) //coming from the right side of the player
+        {
+            player->Set_health(0);
+        }
+        else if(m_y - (player_y+player_h)) //coming from the down side of the player
+            {
+                player->Set_health(0);
+            }
+            else if((m_y+m_enemy_size_h) - player_y) //coming from the upper side of the player
+                {
+                    player->Set_health(0);
+                }
     int r;
 
     if(m_walk_len <= 0)
     {
+
         m_walk_len = rand()%5 + 10;
         r = rand()%4;
         switch(r)
@@ -184,4 +215,14 @@ unsigned int Enemy::Get_status() const
 void Enemy::Set_status(int s)
 {
     m_status = s;
+}
+
+unsigned int Enemy::Get_health() const
+{
+    return m_health;
+}
+
+void Enemy::Set_health(int h)
+{
+    m_health = h;
 }

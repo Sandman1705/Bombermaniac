@@ -8,7 +8,7 @@ void game::OnRender()
     //Draw
     level->Draw(renderer);
     bomb_manager->Draw(renderer);
-    enemy->Draw(renderer);
+    enemy_manager->Draw(renderer);
     bomberman->Draw(renderer);
     explosion_manager->Draw(renderer);
 

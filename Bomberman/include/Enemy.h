@@ -13,6 +13,7 @@
 #include <ctime>
 #include "Map.h"
 #include "Timer.h"
+#include "Player.h"
 
 /** \class Enemy
  *  \brief class which represents an enemy
@@ -54,6 +55,9 @@ class Enemy
         unsigned int Get_direction() const;
         void Set_direction(int d);
 
+        unsigned int Get_health() const;
+        void Set_health(int h);
+
         /**
         *  \brief Function that implements movement for enemy.
         *
@@ -82,9 +86,12 @@ class Enemy
          *  Calculates where enemy should go and updates enemy's position
          *  on map accordingly and calls appropriate actions.
          *
+         *  \param level pointer to Map object of the game
+         *  \param player pointer to Player object of the game
+         *
          *  \return void
          */
-        void Update(Map *level);
+        void Update(Map *level, Player *player);
 
     protected:
 
@@ -101,6 +108,7 @@ class Enemy
         Timer        m_timer;
         unsigned int m_speed = 100;
         unsigned int m_status;
+        unsigned int m_health = 100; //percent
         unsigned int m_x;
         unsigned int m_y;
         unsigned int m_move_speed = 4;

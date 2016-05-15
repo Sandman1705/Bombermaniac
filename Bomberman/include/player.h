@@ -60,6 +60,9 @@ class Player
         unsigned int Get_direction() const;
         void Set_direction(int d);
 
+        unsigned int Get_health() const;
+        void Set_health(int h);
+
         /**
          *  \brief Function that implements movement for player.
          *
@@ -119,6 +122,7 @@ class Player
         bool           m_bomb_ready = false;
         int            m_status;
         Timer          m_timer;
+        unsigned int   m_health = 100; //percent
         unsigned int   m_speed = 100;
         unsigned int   m_x;
         unsigned int   m_y;
