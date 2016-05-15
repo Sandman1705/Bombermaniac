@@ -5,7 +5,7 @@ DestructibleWall::DestructibleWall(SDL_Texture *texture, SDL_Rect SrcR)
 {
 }
 
-bool DestructibleWall::IsDestroyed()
+bool DestructibleWall::IsDestroyed() const
 {
     if (m_integrity <= 0)
         return true;

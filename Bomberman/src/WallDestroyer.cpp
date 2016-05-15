@@ -34,7 +34,7 @@ WallDestroyer::WallDestroyer(Map* level,
     CheckAndCall(i+1,j+1,1,1);      //DOWN RIGHT
 }
 
-void WallDestroyer::Spread(int row, int col, int direction_row, int direction_col)
+void WallDestroyer::Spread(int row, int col, int direction_row, int direction_col) const
 {
     #ifdef DEBUG_OUTPUT_WALLDESTROYER
     std::cout << "WallDestroyer Explosion spread to: (i,j)=" << row << "," << col << std::endl;
@@ -47,7 +47,7 @@ void WallDestroyer::Spread(int row, int col, int direction_row, int direction_co
         CheckAndCall(row+direction_row,col+direction_col,direction_row,direction_col);
 }
 
-void WallDestroyer::Destroy(int row, int col)
+void WallDestroyer::Destroy(int row, int col) const
 {
     double distance = DistanceToCenter(row,col);
     #ifdef DEBUG_OUTPUT_WALLDESTROYER
@@ -62,14 +62,14 @@ void WallDestroyer::Destroy(int row, int col)
     }
 }
 
-double WallDestroyer::DistanceToCenter(int row, int col)
+double WallDestroyer::DistanceToCenter(int row, int col) const
 {
     int wall_center_x = col * m_tile_size + m_tile_size / 2;
     int wall_center_y = row * m_tile_size + m_tile_size / 2;
     return std::sqrt( Square(m_start_x-wall_center_x) + Square(m_start_y-wall_center_y) );
 }
 
-void WallDestroyer::CheckAndCall(int new_row, int new_col, int direction_row, int direction_col)
+void WallDestroyer::CheckAndCall(int new_row, int new_col, int direction_row, int direction_col) const
 {
     if (DistanceToCenter(new_row,new_col) < m_intensity * m_tile_size)
     {

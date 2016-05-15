@@ -39,11 +39,11 @@ class WallDestroyer
 
     protected:
 
-        void Spread(int row, int col, int direction_row, int direction_col);
-        void Destroy(int row, int col);
-        double DistanceToCenter(int row, int col);
-        int Square(int x) { return x*x; }
-        void CheckAndCall(int new_row, int new_col, int direction_row, int direction_col);
+        void Spread(int row, int col, int direction_row, int direction_col) const;
+        void Destroy(int row, int col) const;
+        double DistanceToCenter(int row, int col) const;
+        int Square(int x) const { return x*x; }
+        void CheckAndCall(int new_row, int new_col, int direction_row, int direction_col) const;
 
     private:
         Map*            m_level;

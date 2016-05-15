@@ -42,7 +42,7 @@ class MapObject
          */
         MapObject(Tile id, SDL_Texture *texture, SDL_Rect SrcR);
 
-        Tile GetId() { return m_id; }
+        Tile GetId() const { return m_id; }
 
         /**
          *  \brief Draws a tile on given SDL_Renderer.

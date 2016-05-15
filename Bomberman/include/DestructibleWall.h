@@ -8,7 +8,7 @@ class DestructibleWall : public MapObject
     public:
         DestructibleWall(SDL_Texture *texture, SDL_Rect SrcR);
 
-        bool IsDestroyed();
+        bool IsDestroyed() const;
         void DecreaseIntegrity(int value);
 
         static const int S_MAX_INTEGRITY = 100;

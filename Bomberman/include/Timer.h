@@ -42,11 +42,11 @@ class Timer
          *
          *  \return number of milliseconds since last reset
          */
-        unsigned long GetTimeElapsed();
+        unsigned long GetTimeElapsed() const;
 
         void Pause();
         void Unpause();
-        bool IsPaused();
+        bool IsPaused() const;
 
     protected:
 
