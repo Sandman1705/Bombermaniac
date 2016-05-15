@@ -20,29 +20,29 @@ WallDestroyer::WallDestroyer(Map* level,
     #ifdef DEBUG_OUTPUT
     std::cout << "WallDestroyer Start at: (i,j)=" << i << "," << j << std::endl;
     #endif // DEBUG_OUTPUT
-    MapObject::Tile up    = level->Get_tile_type(i-1,j);
-    MapObject::Tile down  = level->Get_tile_type(i+1,j);
-    MapObject::Tile left  = level->Get_tile_type(i,j-1);
-    MapObject::Tile right = level->Get_tile_type(i,j+1);
+    MapObject::Tile up    = level->GetTileType(i-1,j);
+    MapObject::Tile down  = level->GetTileType(i+1,j);
+    MapObject::Tile left  = level->GetTileType(i,j-1);
+    MapObject::Tile right = level->GetTileType(i,j+1);
      //UP
     if (up == MapObject::EMPTY)
         Spread(i-1,j,-1,0);
-    else if (up == MapObject::DESTRUCTABLE_WALL)
+    else if (up == MapObject::DESTRUCTIBLE_WALL)
         Destroy(i-1,j);
      //DOWN
     if (down == MapObject::EMPTY)
         Spread(i+1,j,1,0);
-    else if (down == MapObject::DESTRUCTABLE_WALL)
+    else if (down == MapObject::DESTRUCTIBLE_WALL)
         Destroy(i+1,j);
      //LEFT
     if (left == MapObject::EMPTY)
         Spread(i,j-1,0,-1);
-    else if (left == MapObject::DESTRUCTABLE_WALL)
+    else if (left == MapObject::DESTRUCTIBLE_WALL)
         Destroy(i,j-1);
      //RIGHT
     if (right == MapObject::EMPTY)
         Spread(i,j+1,0,1);
-    else if (right == MapObject::DESTRUCTABLE_WALL)
+    else if (right == MapObject::DESTRUCTIBLE_WALL)
         Destroy(i,j+1);
 }
 
