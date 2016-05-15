@@ -63,7 +63,7 @@ class Enemy
         *
         *  \return void
         */
-        void enemy_move(Map *level);
+        void EnemyMove(Map *level);
 
         /**
          *  \brief Draws the enemy on given SDL_Renderer.
@@ -84,7 +84,7 @@ class Enemy
          *
          *  \return void
          */
-        void update(Map *level);
+        void Update(Map *level);
 
     protected:
 
@@ -96,9 +96,10 @@ class Enemy
               UP = 2,
               DOWN = 3
         };
-        Direction m_direction;
-        int m_walk_len = 0;
-        Timer m_timer;
+        Direction    m_direction;
+        int          m_walk_len = 0;
+        Timer        m_timer;
+        unsigned int m_speed = 100;
         unsigned int m_status;
         unsigned int m_x;
         unsigned int m_y;

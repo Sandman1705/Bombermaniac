@@ -12,6 +12,7 @@
 #include "Map.h"
 #include "BombManager.h"
 #include "KeyboardInput.h"
+#include "Timer.h"
 
 /** \class Player
  *  \brief class which represents a player
@@ -72,7 +73,7 @@ class Player
          *
          *  \return void
          */
-        void player_move(int x, int y, Map *level);
+        void PlayerMove(int x, int y, Map *level);
 
         /**
          *  \brief Draws the player on given SDL_Renderer.
@@ -92,7 +93,7 @@ class Player
          *
          *  \return void
          */
-        void place_bomb();
+        void PlaceBomb();
 
         /**
          *  \brief Updates player's position on map.
@@ -102,7 +103,7 @@ class Player
          *
          *  \return void
          */
-        void update();
+        void Update();
 
     protected:
 
@@ -114,19 +115,21 @@ class Player
               UP = 2,
               DOWN = 3
         };
-        Direction m_direction;
-        bool m_bomb_ready = false;
-        int m_status;
-        unsigned int m_x;
-        unsigned int m_y;
-        unsigned int m_move_speed = 4;
-        unsigned int m_player_size_w = 17;
-        unsigned int m_player_size_h = 23;
-        SDL_Texture* m_tex;
-        unsigned int m_tile_size;
-        BombManager* m_bomb_manager;
+        Direction      m_direction;
+        bool           m_bomb_ready = false;
+        int            m_status;
+        Timer          m_timer;
+        unsigned int   m_speed = 100;
+        unsigned int   m_x;
+        unsigned int   m_y;
+        unsigned int   m_move_speed = 4;
+        unsigned int   m_player_size_w = 17;
+        unsigned int   m_player_size_h = 23;
+        SDL_Texture*   m_tex;
+        unsigned int   m_tile_size;
+        BombManager*   m_bomb_manager;
         KeyboardInput* m_keyboard_input;
-        Map* m_level;
+        Map*           m_level;
 };
 
 #endif // PLAYER_H

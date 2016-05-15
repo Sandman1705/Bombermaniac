@@ -20,6 +20,7 @@ Player::Player(SDL_Texture* tex, unsigned int tile_size, BombManager *bomb_manag
     this->m_status = 0;
     this->m_tile_size = tile_size;
 
+    m_timer.ResetTimer();
     m_player_size_w = m_player_size_w *tile_size/32;
     m_player_size_h = m_player_size_h *tile_size/32; //size according to 32px tile size
     m_move_speed = m_move_speed *m_tile_size/32; //speed according to 32px tile size
@@ -28,36 +29,46 @@ Player::Player(SDL_Texture* tex, unsigned int tile_size, BombManager *bomb_manag
     m_level = level;
 }
 
-void Player::update()
+void Player::Update()
 {
-    if(m_keyboard_input->IsKeyOn(SDLK_UP))
+    if(m_timer.GetTimeElapsed()>m_speed)
     {
-        this->player_move(0, -1, m_level);
+        //Key Input
+        if(m_keyboard_input->IsKeyOn(SDLK_SPACE))
+         {
+             m_bomb_ready = true;
+         }
+         else if(!m_keyboard_input->IsKeyOn(SDLK_SPACE) && m_bomb_ready)
+             {
+                 this->PlaceBomb();
+                 m_bomb_ready = false;
+             }
+             else if(m_keyboard_input->IsKeyOn(SDLK_UP))
+                    {
+                        this->PlayerMove(0, -1, m_level);
+                    }
+                    else if(m_keyboard_input->IsKeyOn(SDLK_DOWN))
+                        {
+                            this->PlayerMove(0, 1, m_level);
+                        }
+                        else if(m_keyboard_input->IsKeyOn(SDLK_LEFT))
+                            {
+                                this->PlayerMove(-1, 0, m_level);
+                            }
+                            else if (m_keyboard_input->IsKeyOn(SDLK_RIGHT))
+                                 {
+                                    this->PlayerMove(1, 0, m_level);
+                                 }
     }
-    else if(m_keyboard_input->IsKeyOn(SDLK_DOWN))
-        {
-            this->player_move(0, 1, m_level);
-        }
-        else if(m_keyboard_input->IsKeyOn(SDLK_LEFT))
-            {
-                this->player_move(-1, 0, m_level);
-            }
-            else if (m_keyboard_input->IsKeyOn(SDLK_RIGHT))
-                 {
-                    this->player_move(1, 0, m_level);
-                 }
-                 else if(m_keyboard_input->IsKeyOn(SDLK_SPACE))
-                     {
-                         m_bomb_ready = true;
-                     }
-                     if(!m_keyboard_input->IsKeyOn(SDLK_SPACE) && m_bomb_ready)
-                     {
-                         this->place_bomb();
-                         m_bomb_ready = false;
-                     }
+
+    while(m_timer.GetTimeElapsed()>m_speed)
+    {
+        m_timer.DecreaseTimer(m_speed);
+    }
+
 }
 
-void Player::place_bomb()
+void Player::PlaceBomb()
 {
     m_bomb_manager->MakeBomb(5000,m_x,m_y,2.5); // TODO Fix testing values
 }
@@ -157,7 +168,7 @@ void Player::Draw(SDL_Renderer *renderer)
     SDL_RenderCopy(renderer, m_tex, &SrcR, &DestR);
 }
 
-void Player::player_move(int x, int y, Map *level)
+void Player::PlayerMove(int x, int y, Map *level)
 {
     unsigned int field_size = m_tile_size;
 
