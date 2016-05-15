@@ -18,7 +18,7 @@ class Timer
         /**
          *  \brief Make new timer and set it to 0.
          *
-         *  Basic constructor which makes new timer class and sets it's value
+         *  Basic constructor which makes new Timer object and sets it's value
          *  to 0.
          */
         Timer();
@@ -44,10 +44,17 @@ class Timer
          */
         unsigned long GetTimeElapsed();
 
+        void Pause();
+        void Unpause();
+        bool IsPaused();
+
     protected:
 
     private:
-        unsigned long    m_pastTicks;
+        unsigned long    m_past_ticks;
+        unsigned long    m_paused_ticks;
+        bool             m_paused;
+
 };
 
 #endif // TIMER_H
