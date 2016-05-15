@@ -14,6 +14,8 @@
  *  \brief class for destroying walls on the map
  *  \details This class is used to calculate the effects of bomb explosions and
  *           makes changes to the map in the game.
+ *           Contains an algorithm for traversing the map and making required
+ *           changes.
  */
 class WallDestroyer
 {
@@ -39,6 +41,9 @@ class WallDestroyer
 
         void Spread(int row, int col, int direction_row, int direction_col);
         void Destroy(int row, int col);
+        double DistanceToCenter(int row, int col);
+        int Square(int x) { return x*x; }
+        void CheckAndCall(int new_row, int new_col, int direction_row, int direction_col);
 
     private:
         Map*            m_level;
