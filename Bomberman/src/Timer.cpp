@@ -18,7 +18,7 @@ void Timer::DecreaseTimer(unsigned long interval)
     m_past_ticks += interval;
 }
 
-unsigned long Timer::GetTimeElapsed()
+unsigned long Timer::GetTimeElapsed() const
 {
     if (m_paused)
         return m_paused_ticks - m_past_ticks;
@@ -44,7 +44,7 @@ void Timer::Unpause()
     }
 }
 
-bool Timer::IsPaused()
+bool Timer::IsPaused() const
 {
     return m_paused;
 }

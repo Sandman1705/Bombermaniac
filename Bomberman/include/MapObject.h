@@ -42,7 +42,7 @@ class MapObject
          */
         MapObject(Tile id, SDL_Texture *texture, SDL_Rect SrcR);
 
-        Tile GetId() { return m_id; }
+        Tile GetId() const { return m_id; }
 
         /**
          *  \brief Draws a tile on given SDL_Renderer.
@@ -57,11 +57,11 @@ class MapObject
         void Draw(SDL_Renderer* renderer, const SDL_Rect *DestR);
 
     protected:
+        SDL_Rect        m_SrcR;
 
     private:
         Tile            m_id;
         SDL_Texture*    m_texture;
-        SDL_Rect        m_SrcR;
 };
 
 #endif // MAPOBJECT_H
