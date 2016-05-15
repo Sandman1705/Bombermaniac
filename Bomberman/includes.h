@@ -9,6 +9,34 @@ using namespace std;
 
 #endif // INCLUDES_H_INCLUDED
 
+/** \mainpage Introduction
+ *
+ * \section intro_sec Introduction
+ *
+ * Project name: Bomberman
+ *
+ * Authors: Aleksandar Miletic, Mirko Brkusanin
+ *
+ * Description: Clone of Bomberman game in C++ using SDL2
+ *
+ * Documentation:
+ *     html version: http://alas.matf.bg.ac.rs/~mi13211/bomberman/
+ *     pdf version : http://alas.matf.bg.ac.rs/~mi13211/Bomberman.pdf
+ *
+ * \section install_sec Installation
+ *
+ * \subsection step1 Step 1: Setting up SDL2
+ *
+ *
+ *
+ * \subsection step2 Step 2: Compiling using g++
+ *
+ * ...
+ *
+ * \subsection step3 etc...
+ */
+
+
 /*
 Please not that if you use a later version of SDL you will need to update the linker directories and compiler directories under
 Settings>Compiler>Search directories>Linker and Settings>Compiler>Search directories>compiler

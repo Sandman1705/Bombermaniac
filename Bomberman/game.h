@@ -23,6 +23,7 @@ private:
     Player*             bomberman;
     Enemy*              enemy;
     SDL_Texture*        texture;
+    Timer               timer;
 
 protected:
 
