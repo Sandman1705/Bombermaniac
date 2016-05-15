@@ -12,6 +12,7 @@
 #include <string>
 #include <SDL.h>
 #include "MapObject.h"
+#include "DestructibleWall.h"
 
 /** \class Map
  *  \brief Class which represents one level of the game.

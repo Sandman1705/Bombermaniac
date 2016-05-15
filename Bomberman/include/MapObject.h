@@ -57,11 +57,11 @@ class MapObject
         void Draw(SDL_Renderer* renderer, const SDL_Rect *DestR);
 
     protected:
+        SDL_Rect        m_SrcR;
 
     private:
         Tile            m_id;
         SDL_Texture*    m_texture;
-        SDL_Rect        m_SrcR;
 };
 
 #endif // MAPOBJECT_H

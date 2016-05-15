@@ -72,6 +72,7 @@
 		<Unit filename="game_onrender.cpp" />
 		<Unit filename="include/Bomb.h" />
 		<Unit filename="include/BombManager.h" />
+		<Unit filename="include/DestructibleWall.h" />
 		<Unit filename="include/Enemy.h" />
 		<Unit filename="include/EnemyManager.h" />
 		<Unit filename="include/Explosion.h" />
@@ -79,15 +80,16 @@
 		<Unit filename="include/KeyboardInput.h" />
 		<Unit filename="include/Map.h" />
 		<Unit filename="include/MapObject.h" />
-		<Unit filename="include/Player.h" />
 		<Unit filename="include/Timer.h" />
 		<Unit filename="include/WallDestroyer.h" />
+		<Unit filename="include/player.h" />
 		<Unit filename="includes.h" />
 		<Unit filename="resources/levels/level1.txt" />
 		<Unit filename="resources/levels/level2.txt" />
 		<Unit filename="resources/textures.bmp" />
 		<Unit filename="src/Bomb.cpp" />
 		<Unit filename="src/BombManager.cpp" />
+		<Unit filename="src/DestructibleWall.cpp" />
 		<Unit filename="src/Enemy.cpp" />
 		<Unit filename="src/EnemyManager.cpp" />
 		<Unit filename="src/Explosion.cpp" />
@@ -95,19 +97,19 @@
 		<Unit filename="src/KeyboardInput.cpp" />
 		<Unit filename="src/Map.cpp" />
 		<Unit filename="src/MapObject.cpp" />
-		<Unit filename="src/Player.cpp" />
 		<Unit filename="src/Timer.cpp" />
 		<Unit filename="src/WallDestroyer.cpp" />
+		<Unit filename="src/player.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
 			<debugger />
 			<DoxyBlocks>
 				<comment_style block="0" line="0" />
-				<doxyfile_project project_number="v0.038" />
+				<doxyfile_project project_number="v0.047" />
 				<doxyfile_build extract_all="1" extract_private="1" extract_static="1" />
 				<doxyfile_warnings warn_if_undocumented="1" />
-				<doxyfile_output latex="1" man="1" />
+				<doxyfile_output latex="1" />
 				<doxyfile_dot have_dot="1" />
 				<general />
 			</DoxyBlocks>

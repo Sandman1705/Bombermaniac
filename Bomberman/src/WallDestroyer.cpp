@@ -17,7 +17,7 @@ WallDestroyer::WallDestroyer(Map* level,
         m_start_x(start_x),
         m_start_y(start_y),
         m_tile_size(tile_size),
-        m_intensity(intensity)
+        m_intensity(intensity/2)
 {
     int i = m_start_y / tile_size; // row number
     int j = m_start_x / tile_size; // column number
