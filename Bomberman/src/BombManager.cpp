@@ -6,6 +6,7 @@
 
 #include "WallDestroyer.h"
 #include "EnemyManager.h"
+#include "PlayerManager.h"
 
 BombManager::BombManager(SDL_Texture* texture,
                          unsigned int tile_size,
@@ -57,6 +58,7 @@ void BombManager::Update()
             m_explosion_manager->MakeExplosion(1000, (*i)->GetX()+half_bomb_size, (*i)->GetY()+half_bomb_size, (*i)->GetIntensity());
             WallDestroyer wd(m_level,(*i)->GetX()+half_bomb_size,(*i)->GetY()+half_bomb_size,m_tile_size,(*i)->GetIntensity());
             m_enemy_manager->KillEnemies((*i)->GetX()+half_bomb_size,(*i)->GetY()+half_bomb_size,(*i)->GetIntensity());
+            m_player_manager->KillPlayer((*i)->GetX()+half_bomb_size,(*i)->GetY()+half_bomb_size,(*i)->GetIntensity());
             delete (*i);
             i = m_bombs.erase(i);
         }

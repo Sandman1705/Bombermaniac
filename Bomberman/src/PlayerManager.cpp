@@ -16,6 +16,11 @@ void PlayerManager::MakePlayer(unsigned int x, unsigned int y)
     m_player = new Player(m_texture, m_tile_size, m_bomb_manager, m_keyboard_input, m_level, x, y);
 }
 
+void PlayerManager::KillPlayer(unsigned int x, unsigned int y, double intensity)
+{
+    EnemyDestroyer::DestroyPlayer(m_player, x, y, m_tile_size, intensity);
+}
+
 void PlayerManager::Draw(SDL_Renderer* renderer)
 {
     if(m_player->Get_health() == 0 && m_alive)

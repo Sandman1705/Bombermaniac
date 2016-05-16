@@ -13,6 +13,7 @@
 #include "Player.h"
 #include "Map.h"
 #include "Timer.h"
+#include "EnemyDestroyer.h"
 
 /** \class PlayerManager
  *  \brief Class which is used for keeping track of player in the game.
@@ -82,6 +83,8 @@ class PlayerManager
          *  \return void
          */
         void Update();
+
+        void KillPlayer(unsigned int x, unsigned int y, double intensity);
     protected:
 
     private:

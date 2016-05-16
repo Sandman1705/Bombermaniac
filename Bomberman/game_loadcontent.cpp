@@ -33,6 +33,7 @@ bool game::LoadContent()
     player_manager->MakePlayer();
     enemy_manager = new EnemyManager(texture, tile_size, level, player_manager->Get_player());
     bomb_manager->SetEnemyManager(enemy_manager);
+    bomb_manager->SetPlayerManager(player_manager);
 
     enemy_manager->MakeEnemy(5*tile_size);
     enemy_manager->MakeEnemy(0, 10*tile_size);

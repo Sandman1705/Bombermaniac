@@ -15,6 +15,7 @@
 #include "Map.h"
 
 class EnemyManager;
+class PlayerManager;
 
 /** \class BombManager
  *  \brief Class which is used for keeping track of all the bombs in the game.
@@ -97,6 +98,7 @@ class BombManager
         void Draw(SDL_Renderer* renderer) const;
 
         void SetEnemyManager(EnemyManager* enemy_manager) { m_enemy_manager = enemy_manager;}
+        void SetPlayerManager(PlayerManager* player_manager) { m_player_manager = player_manager;}
 
     protected:
 
@@ -109,6 +111,7 @@ class BombManager
         Map*                    m_level;
         unsigned int            m_tile_size;
         EnemyManager*           m_enemy_manager;
+        PlayerManager*          m_player_manager;
 };
 
 #endif // BOMBMANAGER_H

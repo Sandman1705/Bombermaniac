@@ -8,7 +8,8 @@ void game::OnRender()
     //Draw
     level->Draw(renderer);
     bomb_manager->Draw(renderer);
-    enemy_manager->Draw(renderer);
+    if(player_manager->Get_player() != nullptr)
+        enemy_manager->Draw(renderer);
     player_manager->Draw(renderer);
     explosion_manager->Draw(renderer);
 
