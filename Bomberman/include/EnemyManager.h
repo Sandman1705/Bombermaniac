@@ -13,6 +13,7 @@
 #include "Map.h"
 #include "Enemy.h"
 #include "Player.h"
+#include "EnemyDestroyer.h"
 
 /** \class EnemyManager
  *  \brief Class which is used for keeping track of all the enemies in the game.
@@ -86,6 +87,8 @@ class EnemyManager
          *  \return void
          */
         void Update();
+
+        void KillEnemies(unsigned int x, unsigned int y, double intensity);
 
     protected:
 
