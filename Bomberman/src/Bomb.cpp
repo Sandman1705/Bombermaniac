@@ -35,7 +35,7 @@ Bomb::~Bomb()
 #endif // DEBUG_OUTPUT
 
 
-void Bomb::BurnFuse()
+void Bomb::Update()
 {
     if (m_timer.GetTimeElapsed() > m_fuse_duration)
         m_explode = true;

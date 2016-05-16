@@ -66,7 +66,7 @@ class Bomb
          *
          *  \return void
          */
-        void BurnFuse();
+        void Update();
         /**
          *  \brief Tells if the bomb should explode
          *

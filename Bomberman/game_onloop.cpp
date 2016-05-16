@@ -2,7 +2,7 @@
 
 void game::OnLoop()
 {
-    bomb_manager->BurnFuses();
+    bomb_manager->Update();
     explosion_manager->Update();
     enemy_manager->Update();
     player_manager->Update();

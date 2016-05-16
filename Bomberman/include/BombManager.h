@@ -81,7 +81,7 @@ class BombManager
          *
          *  \return void
          */
-        void BurnFuses();
+        void Update();
         /**
          *  \brief Draw all the bombs it keeps track of on given SLD_Renderer
          *

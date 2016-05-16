@@ -37,11 +37,11 @@ void BombManager::MakeBomb(unsigned int fuse_duration, unsigned int x, unsigned 
     AddBomb(b);
 }
 
-void BombManager::BurnFuses()
+void BombManager::Update()
 {
     for(auto i = m_bombs.begin(); i != m_bombs.end();)
     {
-        (*i)->BurnFuse();
+        (*i)->Update();
         if((*i)->Explode())
         {
             unsigned int half_bomb_size = (*i)->GetBombSize() / 2;
