@@ -1,6 +1,7 @@
 #ifndef PLAYERMANAGER_H
 #define PLAYERMANAGER_H
 
+#include <SDL.h>
 #include "Player.h"
 #include "Map.h"
 #include "Timer.h"
@@ -20,6 +21,7 @@ class PlayerManager
 
     private:
     unsigned int    m_alive=1;
+    unsigned int    m_lives=3;
     unsigned int    m_death_time;
     Timer           m_timer;
     Player*         m_player;

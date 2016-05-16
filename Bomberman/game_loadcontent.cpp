@@ -30,11 +30,9 @@ bool game::LoadContent()
     explosion_manager = new ExplosionManager(texture, tile_size);
     bomb_manager = new BombManager(texture, tile_size, explosion_manager, level);
     player_manager = new PlayerManager(texture, tile_size, bomb_manager, keyboard_input, level);
-   // bomberman = new Player(texture, tile_size, bomb_manager, keyboard_input, level);
     player_manager->MakePlayer();
     enemy_manager = new EnemyManager(texture, tile_size, level, player_manager->Get_player());
 
-    //enemy_manager->MakeEnemy(2*tile_size);
     enemy_manager->MakeEnemy(5*tile_size);
     enemy_manager->MakeEnemy(0, 10*tile_size);
     enemy_manager->MakeEnemy(10*tile_size);

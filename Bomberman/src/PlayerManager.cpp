@@ -21,7 +21,11 @@ void PlayerManager::Draw(SDL_Renderer* renderer)
     if(m_player->Get_health() == 0 && m_alive)
     {
         m_alive = 0;
+        m_lives--;
         m_timer.ResetTimer();
+
+        if(m_lives == -1)
+            m_lives = 3;
     }
 
     if(m_alive == 0 && m_timer.GetTimeElapsed() >= 2000)
@@ -30,6 +34,47 @@ void PlayerManager::Draw(SDL_Renderer* renderer)
         m_player->Set_health(100);
     }
 
+    //Draw number of lives
+    SDL_Rect SrcR;
+    SDL_Rect DestR;
+
+    unsigned int SHAPE_SIZE_x = 12;
+    unsigned int SHAPE_SIZE_y = 17;
+
+    unsigned int source_x = 200;
+    unsigned int source_y = 174;
+    //unsigned int source_const = 4;
+    //unsigned int texture_offset = source_const + SHAPE_SIZE_x + 2;
+
+    SrcR.y = source_y;
+    SrcR.w = SHAPE_SIZE_x;
+    SrcR.h = SHAPE_SIZE_y;
+
+    switch(m_lives)
+    {
+        case 0:
+            SrcR.x = (m_lives)*SHAPE_SIZE_x + source_x;
+        break;
+
+        case 1:
+            SrcR.x = (m_lives)*SHAPE_SIZE_x + source_x;
+        break;
+
+        case 2:
+            SrcR.x = (m_lives)*SHAPE_SIZE_x + source_x;
+        break;
+
+        case 3:
+            SrcR.x = (m_lives)*SHAPE_SIZE_x + source_x;
+        break;
+    }
+
+    DestR.x = 0;
+    DestR.y = 0;
+    DestR.w = m_tile_size;
+    DestR.h = m_tile_size;
+
+    SDL_RenderCopy(renderer, m_texture, &SrcR, &DestR);
 
     //main condition
     if(m_alive != 0)
