@@ -74,6 +74,7 @@
 		<Unit filename="include/BombManager.h" />
 		<Unit filename="include/DestructibleWall.h" />
 		<Unit filename="include/Enemy.h" />
+		<Unit filename="include/EnemyDestroyer.h" />
 		<Unit filename="include/EnemyManager.h" />
 		<Unit filename="include/Explosion.h" />
 		<Unit filename="include/ExplosionManager.h" />
@@ -92,6 +93,7 @@
 		<Unit filename="src/BombManager.cpp" />
 		<Unit filename="src/DestructibleWall.cpp" />
 		<Unit filename="src/Enemy.cpp" />
+		<Unit filename="src/EnemyDestroyer.cpp" />
 		<Unit filename="src/EnemyManager.cpp" />
 		<Unit filename="src/Explosion.cpp" />
 		<Unit filename="src/ExplosionManager.cpp" />
