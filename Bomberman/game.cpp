@@ -33,8 +33,6 @@ int game::OnExecute()
 
         OnLoop();
         OnRender();
-
-        //SDL_Delay(100);
     }
 
     Cleanup();
