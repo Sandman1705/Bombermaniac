@@ -1,6 +1,8 @@
 #ifndef TIMER_H
 #define TIMER_H
 
+#include "ScreenTimer.h"
+
 /**
  *  \file Timer.h
  *
@@ -22,6 +24,15 @@ class Timer
          *  to 0.
          */
         Timer();
+        /**
+         *  \brief Make new timer and set it to 0.
+         *
+         *  Basic constructor which makes new Timer object and sets it's value
+         *  to 0.
+         *  \param screen_timer Represents the ScreenTimer it will use to
+         *         measure time
+         */
+        Timer(ScreenTimer* screen_timer);
         /**
          *  \brief Resets the timer
          *
@@ -51,6 +62,7 @@ class Timer
     protected:
 
     private:
+        ScreenTimer*     m_screen_timer;
         unsigned long    m_past_ticks;
         unsigned long    m_paused_ticks;
         bool             m_paused;
