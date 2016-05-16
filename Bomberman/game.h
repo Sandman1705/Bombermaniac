@@ -18,7 +18,7 @@
 #include "EnemyManager.h"
 #include "PlayerManager.h"
 
-/** \class Game
+/** \class game
  *  \brief Class which represents the game
  *  \details This class all the basic methods of an SDL program.
  *           Also keeps track of all the objects in the game such as map,
