@@ -19,7 +19,6 @@
  *           that can be placed on map like tile ID and texture on which should
  *           be placed. Also contains a method Draw() which draws it on a map.
  */
-
 class MapObject
 {
     public:
@@ -41,9 +40,13 @@ class MapObject
          *
          */
         MapObject(Tile id, SDL_Texture *texture, SDL_Rect SrcR);
-
+        /** \brief Returns id of the tile
+         *
+         * Value returned is of type MapObject::Tile and represents id of this
+         * tile
+         * \return value of type MapObject::Tile of this tile
+         */
         Tile GetId() const { return m_id; }
-
         /**
          *  \brief Draws a tile on given SDL_Renderer.
          *

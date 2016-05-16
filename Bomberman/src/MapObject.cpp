@@ -1,7 +1,7 @@
 #include "MapObject.h"
 
 MapObject::MapObject(Tile id, SDL_Texture *texture, SDL_Rect SrcR)
-    : m_id(id), m_texture(texture), m_SrcR(SrcR)
+    : m_SrcR(SrcR), m_id(id), m_texture(texture)
 {
 }
 
