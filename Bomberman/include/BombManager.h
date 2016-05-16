@@ -14,6 +14,8 @@
 #include "ExplosionManager.h"
 #include "Map.h"
 
+class EnemyManager;
+
 /** \class BombManager
  *  \brief Class which is used for keeping track of all the bombs in the game.
  *  \details This class contains the list of all bomb which are placed by the
@@ -94,6 +96,8 @@ class BombManager
          */
         void Draw(SDL_Renderer* renderer) const;
 
+        void SetEnemyManager(EnemyManager* enemy_manager) { m_enemy_manager = enemy_manager;}
+
     protected:
 
     private:
@@ -104,6 +108,7 @@ class BombManager
         ExplosionManager*       m_explosion_manager;
         Map*                    m_level;
         unsigned int            m_tile_size;
+        EnemyManager*           m_enemy_manager;
 };
 
 #endif // BOMBMANAGER_H

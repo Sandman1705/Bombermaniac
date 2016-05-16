@@ -5,9 +5,18 @@
 #endif // DEBUG_OUTPUT
 
 #include "WallDestroyer.h"
+#include "EnemyManager.h"
 
-BombManager::BombManager(SDL_Texture* texture, unsigned int tile_size, ExplosionManager* explosion_manager, Map* level)
-    : m_texture(texture), m_bomb_size(tile_size * 20 / 32), m_explosion_manager(explosion_manager), m_level(level), m_tile_size(tile_size)
+BombManager::BombManager(SDL_Texture* texture,
+                         unsigned int tile_size,
+                         ExplosionManager* explosion_manager,
+                         Map* level)
+    : m_texture(texture),
+      m_bomb_size(tile_size * 20 / 32),
+      m_explosion_manager(explosion_manager),
+      m_level(level),
+      m_tile_size(tile_size),
+      m_enemy_manager(nullptr)
 {
     m_SrcR.x = 304;
     m_SrcR.y = 1;
@@ -47,6 +56,7 @@ void BombManager::Update()
             unsigned int half_bomb_size = (*i)->GetBombSize() / 2;
             m_explosion_manager->MakeExplosion(1000, (*i)->GetX()+half_bomb_size, (*i)->GetY()+half_bomb_size, (*i)->GetIntensity());
             WallDestroyer wd(m_level,(*i)->GetX()+half_bomb_size,(*i)->GetY()+half_bomb_size,m_tile_size,(*i)->GetIntensity());
+            m_enemy_manager->KillEnemies((*i)->GetX()+half_bomb_size,(*i)->GetY()+half_bomb_size,(*i)->GetIntensity());
             delete (*i);
             i = m_bombs.erase(i);
         }
