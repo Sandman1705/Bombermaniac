@@ -93,8 +93,7 @@ class Enemy
          */
         void Update(Map *level, Player *player);
 
-        bool Touch(unsigned int enemy_x, unsigned int enemy_y, unsigned int player_x, unsigned int player_y,
-                   unsigned int player_w, unsigned int player_h);
+        bool Touch(unsigned int player_x, unsigned int player_y);
 
     protected:
 
