@@ -7,6 +7,7 @@ void game::Cleanup()
     delete explosion_manager;
     delete player_manager;
     delete enemy_manager;
+    delete relay;
 
     SDL_DestroyTexture(texture);
     SDL_DestroyRenderer(renderer);

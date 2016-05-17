@@ -17,6 +17,7 @@
 #include "Enemy.h"
 #include "EnemyManager.h"
 #include "PlayerManager.h"
+#include "Relay.h"
 
 /** \class game
  *  \brief Class which represents the game
@@ -111,6 +112,7 @@ class game
         BombManager*        bomb_manager;
         PlayerManager*      player_manager;
         EnemyManager*       enemy_manager;
+        Relay*              relay;
         SDL_Texture*        texture;
 
 

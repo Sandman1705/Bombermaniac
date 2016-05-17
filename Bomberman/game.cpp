@@ -8,8 +8,8 @@ game::game()
     explosion_manager = nullptr;
     bomb_manager = nullptr;
     enemy_manager = nullptr;
-    //bomberman = nullptr;
     player_manager = nullptr;
+    relay = nullptr;
 }
 
 int game::OnExecute()

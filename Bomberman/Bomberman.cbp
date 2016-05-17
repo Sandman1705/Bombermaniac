@@ -82,6 +82,7 @@
 		<Unit filename="include/Map.h" />
 		<Unit filename="include/MapObject.h" />
 		<Unit filename="include/PlayerManager.h" />
+		<Unit filename="include/Relay.h" />
 		<Unit filename="include/ScreenTimer.h" />
 		<Unit filename="include/Timer.h" />
 		<Unit filename="include/WallDestroyer.h" />
@@ -102,6 +103,7 @@
 		<Unit filename="src/Map.cpp" />
 		<Unit filename="src/MapObject.cpp" />
 		<Unit filename="src/PlayerManager.cpp" />
+		<Unit filename="src/Relay.cpp" />
 		<Unit filename="src/ScreenTimer.cpp" />
 		<Unit filename="src/Timer.cpp" />
 		<Unit filename="src/WallDestroyer.cpp" />

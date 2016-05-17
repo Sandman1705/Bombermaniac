@@ -25,6 +25,7 @@ bool game::LoadContent()
 
     /* Game objects initializing - Begin */
     unsigned int tile_size = 44;
+    relay = new Relay();
     keyboard_input = new KeyboardInput();
     level = new Map("resources\\levels\\level2.txt",texture, tile_size);
     explosion_manager = new ExplosionManager(texture, tile_size);
@@ -39,6 +40,12 @@ bool game::LoadContent()
     enemy_manager->MakeEnemy(0, 10*tile_size);
     enemy_manager->MakeEnemy(10*tile_size);
     enemy_manager->MakeEnemy(8*tile_size, 8*tile_size);
+
+    relay->Set_explosion_manager(explosion_manager);
+    relay->Set_bomb_manager(bomb_manager);
+    relay->Set_player_manager(player_manager);
+    relay->Set_enemy_manager(enemy_manager);
+
     /* Game objects initializing - End */
 
     return true;
