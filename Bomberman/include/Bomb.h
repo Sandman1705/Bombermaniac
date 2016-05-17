@@ -31,7 +31,6 @@ class Bomb
          *  \param fuse_duration the length of bomb's fuse.
          *  \param texture pointer to SDL_texture object from which the texture
          *         will be taken for method Draw()
-         *  \param SrcR location and size of texture on given SLD_Texture
          *  \param x coordinate of the bomb on the map
          *  \param x coordinate of the bomb on the map
          *  \param bomb_size drawing size of the bomb according to 32 pixel tile
@@ -42,7 +41,6 @@ class Bomb
          */
         Bomb(unsigned int fuse_duration,
              SDL_Texture* texture,
-             SDL_Rect* SrcR,
              unsigned int x,
              unsigned int y,
              unsigned int bomb_size,
@@ -93,12 +91,12 @@ class Bomb
         Timer           m_timer;
         unsigned int    m_fuse_duration;
         SDL_Texture*    m_texture;
-        SDL_Rect*       m_SrcR;
         bool            m_explode;
         unsigned int    m_x;
         unsigned int    m_y;
         unsigned int    m_draw_size;
         double          m_intensity;
+        unsigned int    m_phase_number;
 };
 
 #endif // BOMB_H

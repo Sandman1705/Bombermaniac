@@ -1,4 +1,5 @@
 #include "Bomb.h"
+#include "Constants/TextureBombConstants.h"
 
 #ifdef DEBUG_OUTPUT_BOMB
 #include <iostream>
@@ -6,7 +7,6 @@
 
 Bomb::Bomb(unsigned int fuse_duration,
            SDL_Texture* texture,
-           SDL_Rect* SrcR,
            unsigned int x,
            unsigned int y,
            unsigned int bomb_size,
@@ -15,7 +15,6 @@ Bomb::Bomb(unsigned int fuse_duration,
     :   m_timer(),
         m_fuse_duration(fuse_duration),
         m_texture(texture),
-        m_SrcR(SrcR),
         m_explode(false),
         m_x(x),
         m_y(y),
@@ -38,7 +37,13 @@ Bomb::~Bomb()
 void Bomb::Update()
 {
     if (m_timer.GetTimeElapsed() > m_fuse_duration)
-        m_explode = true;
+        m_explode = true;    else
+    {
+        m_phase_number =  m_timer.GetTimeElapsed() / (m_fuse_duration / TEXTURE_BOMB_COUNT); // Time elapsed / Phase length
+        #ifdef DEBUG_OUTPUT_BOMB
+        std::cout << "Bomb: X:" << m_x << " Y:" << m_y << " Phase:" << m_phase_number << std::endl;
+        #endif // DEBUG_OUTPUT_BOMB
+    }
 }
 
 bool Bomb::Explode() const
@@ -48,12 +53,18 @@ bool Bomb::Explode() const
 
 void Bomb::Draw(SDL_Renderer* renderer) const
 {
+    SDL_Rect SrcR;
     SDL_Rect DestR;
 
+    SrcR.h = TEXTURE_BOMB_H;
+    SrcR.w = TEXTURE_BOMB_W;
+    SrcR.x = TEXTURE_BOMB_X + m_phase_number * TEXTURE_BOMB_OFFSET_X;
+    SrcR.y = TEXTURE_BOMB_Y + m_phase_number * TEXTURE_BOMB_OFFSET_Y;
+
+    DestR.h = m_draw_size;
+    DestR.w = m_draw_size;
     DestR.x = m_x;
     DestR.y = m_y;
-    DestR.w = m_draw_size;
-    DestR.h = m_draw_size;
 
-    SDL_RenderCopy(renderer, m_texture, m_SrcR, &DestR);
+    SDL_RenderCopy(renderer, m_texture, &SrcR, &DestR);
 }

@@ -3,10 +3,6 @@
 ExplosionManager::ExplosionManager(SDL_Texture* texture, unsigned int tile_size)
     : m_texture(texture), m_tile_size(tile_size)
 {
-    m_start_SrcR.x = 0;
-    m_start_SrcR.y = 286;
-    m_start_SrcR.w = 100;
-    m_start_SrcR.h = 100;
 }
 
 ExplosionManager::~ExplosionManager()
@@ -31,7 +27,7 @@ void ExplosionManager::MakeExplosion(unsigned int duration,
                                      unsigned int y_center,
                                      double intensity)
 {
-    Explosion* e = new Explosion(duration,x_center,y_center,intensity,m_tile_size,m_texture,&m_start_SrcR);
+    Explosion* e = new Explosion(duration,x_center,y_center,intensity,m_tile_size,m_texture);
     AddExplosion(e);
 }
 

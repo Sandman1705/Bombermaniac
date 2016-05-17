@@ -1,8 +1,8 @@
 #include "BombManager.h"
 
-#ifdef DEBUG_OUTPUT
+#ifdef DEBUG_OUTPUT_BOMB
 #include <iostream>
-#endif // DEBUG_OUTPUT
+#endif // DEBUG_OUTPUT_BOMB
 
 #include "WallDestroyer.h"
 #include "ExplosionManager.h"
@@ -41,7 +41,7 @@ void BombManager::AddBomb(Bomb *bomb)
 
 void BombManager::MakeBomb(unsigned int fuse_duration, unsigned int x, unsigned int y, double intensity)
 {
-    Bomb* b = new Bomb(fuse_duration,m_texture,&m_SrcR,x,y,m_bomb_size,intensity);
+    Bomb* b = new Bomb(fuse_duration,m_texture,x,y,m_bomb_size,intensity);
     AddBomb(b);
 }
 

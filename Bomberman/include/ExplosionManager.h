@@ -99,7 +99,6 @@ class ExplosionManager
         std::list<Explosion*>   m_explosions;
         SDL_Texture*            m_texture;
         unsigned int            m_tile_size;
-        SDL_Rect                m_start_SrcR;
 };
 
 #endif // EXPLOSIONMANAGER_H

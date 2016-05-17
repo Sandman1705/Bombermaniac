@@ -44,8 +44,6 @@ class Explosion
          *  \param tile_size pixel size of one tile of the map (used for Draw())
          *  \param texture pointer to SDL_texture object from which the texture
          *         will be taken for method Draw()
-         *  \param start_SrcR location and size of first texture on given
-         *         SLD_Texture
          *
          */
         Explosion(unsigned int duration,
@@ -53,8 +51,7 @@ class Explosion
                   unsigned int y_center,
                   double intensity,
                   unsigned int tile_size,
-                  SDL_Texture* texture,
-                  SDL_Rect*  start_SrcR);
+                  SDL_Texture* texture);
 
         /**
          *  \brief Update function for class Explosion
@@ -100,10 +97,9 @@ class Explosion
         double          m_intensity;
         unsigned int    m_tile_size;
         SDL_Texture*    m_texture;
-        SDL_Rect*       m_start_SrcR;
         unsigned int    m_phase_number;
 
-        static const unsigned int NUMBER_OF_PHASES = 74;
+        //static const unsigned int NUMBER_OF_PHASES = 74;
         // defined by number of different textures for explosion in textures.bmp
 
 };

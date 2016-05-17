@@ -1,0 +1,13 @@
+#ifndef TEXTUREBOMBCONSTANTS_H_INCLUDED
+#define TEXTUREBOMBCONSTANTS_H_INCLUDED
+
+/* Bomb Textures */
+unsigned int TEXTURE_BOMB_H = 23;
+unsigned int TEXTURE_BOMB_W = 23;
+unsigned int TEXTURE_BOMB_X = 352;
+unsigned int TEXTURE_BOMB_Y = 1;
+unsigned int TEXTURE_BOMB_COUNT = 3;
+unsigned int TEXTURE_BOMB_OFFSET_X = -24;
+unsigned int TEXTURE_BOMB_OFFSET_Y = 0;
+
+#endif // TEXTUREBOMBCONSTANTS_H_INCLUDED
