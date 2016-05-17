@@ -13,14 +13,10 @@ BombManager::BombManager(SDL_Texture* texture,
                          unsigned int tile_size,
                          Relay* relay)
     : m_texture(texture),
-      m_bomb_size(tile_size * 20 / 32),
+      m_bomb_size(tile_size * 0.625),
       m_tile_size(tile_size),
       m_relay(relay)
 {
-    m_SrcR.x = 304;
-    m_SrcR.y = 1;
-    m_SrcR.w = 23;
-    m_SrcR.h = 23;
 }
 
 BombManager::~BombManager()
@@ -52,11 +48,10 @@ void BombManager::Update()
         (*i)->Update();
         if((*i)->Explode())
         {
-            unsigned int half_bomb_size = (*i)->GetBombSize() / 2;
-            m_relay->GetExplosionManager()->MakeExplosion(1000, (*i)->GetX()+half_bomb_size, (*i)->GetY()+half_bomb_size, (*i)->GetIntensity());
-            WallDestroyer wd(m_relay->GetMap(), (*i)->GetX()+half_bomb_size, (*i)->GetY()+half_bomb_size, m_tile_size, (*i)->GetIntensity());
-            m_relay->GetEnemyManager()->KillEnemies((*i)->GetX()+half_bomb_size, (*i)->GetY()+half_bomb_size, (*i)->GetIntensity());
-            m_relay->GetPlayerManager()->KillPlayer((*i)->GetX()+half_bomb_size, (*i)->GetY()+half_bomb_size, (*i)->GetIntensity());
+            m_relay->GetExplosionManager()->MakeExplosion(1000, (*i)->GetX(), (*i)->GetY(), (*i)->GetIntensity());
+            WallDestroyer wd(m_relay->GetMap(), (*i)->GetX(), (*i)->GetY(), m_tile_size, (*i)->GetIntensity());
+            m_relay->GetEnemyManager()->KillEnemies((*i)->GetX(), (*i)->GetY(), (*i)->GetIntensity());
+            m_relay->GetPlayerManager()->KillPlayer((*i)->GetX(), (*i)->GetY(), (*i)->GetIntensity());
             delete (*i);
             i = m_bombs.erase(i);
         }

@@ -94,7 +94,6 @@ class BombManager
     private:
         std::list<Bomb*>        m_bombs;
         SDL_Texture*            m_texture;
-        SDL_Rect                m_SrcR;
         unsigned int            m_bomb_size;
         Map*                    m_level;
         unsigned int            m_tile_size;

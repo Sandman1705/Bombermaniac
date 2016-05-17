@@ -78,7 +78,7 @@ void Player::Update()
 
 void Player::PlaceBomb()
 {
-    m_bomb_manager->MakeBomb(5000,m_x,m_y,2.5); // TODO Fix testing values
+    m_bomb_manager->MakeBomb(5000,m_x+m_player_size_w/2,m_y+m_player_size_h/2,2.5); // TODO Fix testing values
 }
 
 void Player::Draw(SDL_Renderer *renderer)

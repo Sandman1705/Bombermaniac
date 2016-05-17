@@ -19,7 +19,8 @@ Bomb::Bomb(unsigned int fuse_duration,
         m_x(x),
         m_y(y),
         m_draw_size(bomb_size),
-        m_intensity(intensity)
+        m_intensity(intensity),
+        m_phase_number(0)
 {
     #ifdef DEBUG_OUTPUT_BOMB
     std::cout << "Bomb placed: X:" << m_x << " Y:" << m_y << " fuse:" << m_fuse_duration << " intesity:" << m_intensity << std::endl;
@@ -37,7 +38,8 @@ Bomb::~Bomb()
 void Bomb::Update()
 {
     if (m_timer.GetTimeElapsed() > m_fuse_duration)
-        m_explode = true;    else
+        m_explode = true;
+    else
     {
         m_phase_number =  m_timer.GetTimeElapsed() / (m_fuse_duration / TEXTURE_BOMB_COUNT); // Time elapsed / Phase length
         #ifdef DEBUG_OUTPUT_BOMB
@@ -63,8 +65,8 @@ void Bomb::Draw(SDL_Renderer* renderer) const
 
     DestR.h = m_draw_size;
     DestR.w = m_draw_size;
-    DestR.x = m_x;
-    DestR.y = m_y;
+    DestR.x = m_x - m_draw_size / 2;
+    DestR.y = m_y - m_draw_size / 2;
 
     SDL_RenderCopy(renderer, m_texture, &SrcR, &DestR);
 }
