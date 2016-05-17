@@ -34,11 +34,10 @@ Enemy::Enemy(SDL_Texture* tex, unsigned int tile_size, unsigned int val_x, unsig
     m_move_speed = m_move_speed *m_tile_size/32; //speed according to 32px tile size
 }
 
-bool Enemy::Touch(unsigned int enemy_x, unsigned int enemy_y, unsigned int player_x, unsigned int player_y,
-                   unsigned int player_w, unsigned int player_h)
+bool Enemy::Touch(unsigned int player_x, unsigned int player_y)
 {
-    if(enemy_x >= player_x && enemy_y >= player_y && enemy_x <= player_x+player_w
-       && enemy_y <= player_y+player_h)
+    if(player_x >= m_x && player_y >= m_y && player_x <= m_x+m_enemy_size_w
+       && player_y <= m_y+m_enemy_size_h)
     {
         return true;
     }
@@ -53,19 +52,26 @@ void Enemy::Update(Map *level, Player *player)
     unsigned int player_w = player->Get_size_w();
     unsigned int player_h = player->Get_size_h();
 
-    if(Touch(m_x, m_y, player_x, player_y, player_w, player_h))
+    //Setting coordinates for better collision
+    player_x = player_x + m_tile_size/6;
+    player_y = player_y + m_tile_size/6;
+    player_w = player_w - m_tile_size/3;
+    player_h = player_h - m_tile_size/3;
+    //----------------------------------------
+
+    if(Touch(player_x, player_y))
     {
         player->Set_health(0);
     }
-    else if(Touch(m_x + m_enemy_size_w, m_y, player_x, player_y, player_w, player_h))
+    else if(Touch(player_x+player_w, player_y))
         {
             player->Set_health(0);
         }
-        else if(Touch(m_x, m_y+m_enemy_size_h, player_x, player_y, player_w, player_h))
+        else if(Touch(player_x, player_y+player_h))
             {
                 player->Set_health(0);
             }
-            else if(Touch(m_x+m_enemy_size_w, m_y+m_enemy_size_h, player_x, player_y, player_w, player_h))
+            else if(Touch(player_x+player_w, player_y+player_h))
                 {
                     player->Set_health(0);
                 }
