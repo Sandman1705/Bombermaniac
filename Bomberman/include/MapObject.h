@@ -36,16 +36,18 @@ class MapObject
          *  \param id describes type of tile on map
          *  \param texture pointer to SDL_texture object from which the texture
          *         will be taken for method Draw()
-         *  \param SrcR location and size of texture on given SLD_Texture
+         *  \param kind variation of texture for given type of Tile
          *
          */
-        MapObject(Tile id, SDL_Texture *texture, SDL_Rect SrcR);
+        MapObject(Tile id, SDL_Texture *texture, unsigned int kind = 0);
         /** \brief Returns id of the tile
          *
          * Value returned is of type MapObject::Tile and represents id of this
          * tile
          * \return value of type MapObject::Tile of this tile
          */
+        virtual ~MapObject() { };
+
         Tile GetId() const { return m_id; }
         /**
          *  \brief Draws a tile on given SDL_Renderer.
@@ -57,14 +59,14 @@ class MapObject
          *
          *  \return void
          */
-        void Draw(SDL_Renderer* renderer, const SDL_Rect *DestR);
+        virtual void Draw(SDL_Renderer* renderer, const SDL_Rect *DestR);
 
     protected:
-        SDL_Rect        m_SrcR;
-
-    private:
         Tile            m_id;
         SDL_Texture*    m_texture;
+        unsigned int    m_kind;
+
+    private:
 };
 
 #endif // MAPOBJECT_H

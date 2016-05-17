@@ -28,7 +28,8 @@ void Explosion::Update()
         m_exploding = false;
     else
     {
-        m_phase_number =  m_timer.GetTimeElapsed() / (m_duration / TEXTURE_EXPLOSION_COUNT); // Time elapsed / Phase length
+        m_phase_number = m_timer.GetTimeElapsed() / (m_duration / TEXTURE_EXPLOSION_COUNT); // Time elapsed / Phase length
+        m_phase_number = min2(m_phase_number, TEXTURE_EXPLOSION_COUNT - 1); // stops overflow
         #ifdef DEBUG_OUTPUT
         std::cout << "Explosion: X:" << m_x_center << " Y:" << m_y_center << " Phase:" << m_phase_number << std::endl;
         #endif // DEBUG_OUTPUT
@@ -51,12 +52,12 @@ void Explosion::Draw(SDL_Renderer* renderer) const
     SrcR.h = TEXTURE_EXPLOSION_H;
     SrcR.w = TEXTURE_EXPLOSION_W;
     SrcR.x = TEXTURE_EXPLOSION_X
-        //+ TEXTURE_EXPLOSION_LINE_OFFSET_X * line_number
+        + TEXTURE_EXPLOSION_LINE_OFFSET_X * line_number
         + TEXTURE_EXPLOSION_OFFSET_X * number_in_line
         ;
     SrcR.y = TEXTURE_EXPLOSION_Y
         + TEXTURE_EXPLOSION_LINE_OFFSET_Y * line_number
-        //+ TEXTURE_EXPLOSION_OFFSET_Y * number_in_line
+        + TEXTURE_EXPLOSION_OFFSET_Y * number_in_line
         ;
 
     DestR.h = explosion_size;

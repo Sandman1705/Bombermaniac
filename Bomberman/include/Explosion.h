@@ -99,8 +99,10 @@ class Explosion
         SDL_Texture*    m_texture;
         unsigned int    m_phase_number;
 
-        //static const unsigned int NUMBER_OF_PHASES = 74;
-        // defined by number of different textures for explosion in textures.bmp
+        inline unsigned int min2(unsigned int a, unsigned int b)
+        {
+            return a*(a<b) + b*(a>=b);
+        }
 
 };
 

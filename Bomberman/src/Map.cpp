@@ -1,11 +1,11 @@
 #include "Map.h"
-#include <stdio.h>      /* NULL */
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>       /* time */
 #include <fstream>      /* fstream open close */
+#include "Constants/TextureMapObjectConstants.h"
 
 #ifdef DEBUG_OUTPUT_MAP
-#include <iostream>     /* FOR DEBUG   REMOVE LATER */
+#include <iostream>
 #endif // DEBUG_OUTPUT_MAP
 
 Map::Map(std::string path_to_file, SDL_Texture* texture, unsigned int tile_size)
@@ -28,35 +28,30 @@ Map::Map(std::string path_to_file, SDL_Texture* texture, unsigned int tile_size)
     for (unsigned i=0; i<m_height; ++i)
         m_layout[i].resize(m_width);
 
-    SDL_Rect SrcR;
-    SrcR.y = 126;
-    SrcR.w = TEXTURE_SIZE;
-    SrcR.h = TEXTURE_SIZE;
-
+    srand(time(nullptr));
     for (unsigned i=0; i<m_height; ++i)
         for (unsigned j=0; j<m_width; ++j)
         {
             int id;
             fs >> id;
-            SrcR.x = 365 + TEXTURE_SIZE * id;
             //MapObject::Tile tile;
             switch(id)
             {
             case 0:
                 //tile = MapObject::EMPTY;
-                m_layout[i][j] = new MapObject(MapObject::EMPTY, m_texture, SrcR);
+                m_layout[i][j] = new MapObject(MapObject::EMPTY, m_texture, rand() % TEXTURE_MAP_EMPTY_KIND_COUNT);
                 break;
             case 1:
                 //tile = MapObject::DESTRUCTIBLE_WALL;
-                m_layout[i][j] = new DestructibleWall(m_texture, SrcR);
+                m_layout[i][j] = new DestructibleWall(m_texture, rand() % TEXTURE_MAP_DESTRUCTIBLE_KIND_COUNT);
                 break;
             case 2:
                 //tile = MapObject::INDESTRUCTIBLE_WALL;
-                m_layout[i][j] = new MapObject(MapObject::INDESTRUCTIBLE_WALL, m_texture, SrcR);
+                m_layout[i][j] = new MapObject(MapObject::INDESTRUCTIBLE_WALL, m_texture, rand() % TEXTURE_MAP_INDESTRUCTIBLE_KIND_COUNT);
                 break;
             default:
                 //tile = MapObject::EMPTY;
-                m_layout[i][j] = new MapObject(MapObject::EMPTY, m_texture, SrcR);
+                m_layout[i][j] = new MapObject(MapObject::EMPTY, m_texture);
                 break;
             }
         }
@@ -114,12 +109,7 @@ void Map::DestroyWall(unsigned int i, unsigned int j)
         if (wall->IsDestroyed())
         {
             delete m_layout[i][j];
-            SDL_Rect SrcR;
-            SrcR.x = 365 + TEXTURE_SIZE * MapObject::EMPTY;
-            SrcR.y = 126;
-            SrcR.w = TEXTURE_SIZE;
-            SrcR.h = TEXTURE_SIZE;
-            m_layout[i][j] = new MapObject(MapObject::EMPTY, m_texture, SrcR);
+            m_layout[i][j] = new MapObject(MapObject::EMPTY, m_texture);
             #ifdef DEBUG_OUTPUT_MAP
             std::cout << "MapObject at X:" << j << " Y:" << i << " is replaced with EMPTY." << std::endl;
             #endif // DEBUG_OUTPUT_MAP

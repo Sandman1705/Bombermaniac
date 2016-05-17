@@ -26,10 +26,10 @@ class DestructibleWall : public MapObject
          *  attributes.
          *  \param texture pointer to SDL_texture object from which the texture
          *         will be taken for method Draw()
-         *  \param SrcR location and size of texture on given SLD_Texture
          */
-        DestructibleWall(SDL_Texture *texture, SDL_Rect SrcR);
+        DestructibleWall(SDL_Texture *texture, unsigned int kind);
 
+        virtual ~DestructibleWall() { };
         /**
          *  \brief Tells if the wall is destroyed
          *
@@ -48,11 +48,18 @@ class DestructibleWall : public MapObject
          */
         void DecreaseIntegrity(int value);
 
+        virtual void Draw(SDL_Renderer* renderer, const SDL_Rect *DestR);
+
     protected:
 
     private:
         int                 m_integrity;
-        static const int    S_MAX_INTEGRITY = 100;
+        static const int    S_MAX_INTEGRITY = 100; /**< number represents percentage */
+
+        inline unsigned int min2(unsigned int a, unsigned int b)
+        {
+            return a*(a<b) + b*(a>=b);
+        }
 
 };
 
