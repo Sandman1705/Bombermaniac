@@ -11,20 +11,15 @@
 
 #include <list>
 #include "Bomb.h"
-#include "ExplosionManager.h"
-#include "Map.h"
-
-class EnemyManager;
-class PlayerManager;
+#include "Relay.h"
 
 /** \class BombManager
  *  \brief Class which is used for keeping track of all the bombs in the game.
- *  \details This class contains the list of all bomb which are placed by the
+ *  \details This class contains the list of all bombs which are placed by the
  *           player. Has appropriate methods for adding bombs and drawing them.
- *           Also has an update method in the form of BurnFuses() which calls
- *           the appropriate update method for all bombs. Also keeps reference
- *           to ExplosionManager to which it sends signal for making new an
- *           explosion when one or more bombs have burned out their fuses.
+ *           Also has an update method which calls the appropriate update method
+ *           for all bombs. Also keeps reference to Relay which it uses to
+ *           communicate to other game objects.
  */
 class BombManager
 {
@@ -39,13 +34,10 @@ class BombManager
          *  \param tile_size represents the size of one tile of the map in
          *         pixels (which is required for proper implementation of method
          *         Draw())
-         *  \param explosion_manager pointer to the explosion_manager of the
-         *         game (which is needed for sending signals to that object to
-         *         make new explosion)
-         *  \param level pointer to the Map object of the game (which is needed
-         *         for when the bombs destroy walls and make changes to the map)
+         *  \param relay pointer to the relay object which is used to
+         *         communicate to other game objects
          */
-        BombManager(SDL_Texture* texture, unsigned int tile_size, ExplosionManager* explosion_manager, Map* level);
+        BombManager(SDL_Texture* texture, unsigned int tile_size, Relay* relay);
         ~BombManager();
         //TODO Copy constructor
         //TODO Operator=
@@ -97,9 +89,6 @@ class BombManager
          */
         void Draw(SDL_Renderer* renderer) const;
 
-        void SetEnemyManager(EnemyManager* enemy_manager) { m_enemy_manager = enemy_manager;}
-        void SetPlayerManager(PlayerManager* player_manager) { m_player_manager = player_manager;}
-
     protected:
 
     private:
@@ -107,11 +96,9 @@ class BombManager
         SDL_Texture*            m_texture;
         SDL_Rect                m_SrcR;
         unsigned int            m_bomb_size;
-        ExplosionManager*       m_explosion_manager;
         Map*                    m_level;
         unsigned int            m_tile_size;
-        EnemyManager*           m_enemy_manager;
-        PlayerManager*          m_player_manager;
+        Relay*                  m_relay;
 };
 
 #endif // BOMBMANAGER_H

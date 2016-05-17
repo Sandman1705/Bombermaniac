@@ -2,7 +2,7 @@
 #define BOMB_H
 
 // in Bomb.h Bomb.cpp BombManager.h BombManager.cpp
-//#define DEBUG_OUTPUT
+//#define DEBUG_OUTPUT_BOMB
 
 /**
  *  \file Bomb.h
@@ -47,9 +47,9 @@ class Bomb
              unsigned int y,
              unsigned int bomb_size,
              double intensity = 1.0);
-        #ifdef DEBUG_OUTPUT
+        #ifdef DEBUG_OUTPUT_BOMB
         ~Bomb();
-        #endif // DEBUG_OUTPUT
+        #endif // DEBUG_OUTPUT_BOMB
 
         unsigned int GetX() const { return m_x; }
         unsigned int GetY() const { return m_y; }

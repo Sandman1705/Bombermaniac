@@ -5,13 +5,17 @@ class ExplosionManager;
 class BombManager;
 class PlayerManager;
 class EnemyManager;
+class Map;
 
 class Relay
 {
     public:
         Relay();
-        Relay(ExplosionManager *explosion_manager, BombManager *bomb_manager,
-              PlayerManager *player_manager, EnemyManager *enemy_manager);
+        Relay(ExplosionManager *explosion_manager,
+              BombManager *bomb_manager,
+              PlayerManager *player_manager,
+              EnemyManager *enemy_manager,
+              Map* map_level);
 
         ExplosionManager* GetExplosionManager() const;
         void SetExplosionManager(ExplosionManager* val);
@@ -25,6 +29,9 @@ class Relay
         EnemyManager* GetEnemyManager() const;
         void SetEnemyManager(EnemyManager* val);
 
+        Map* GetMap() const;
+        void SetMap(Map* val);
+
     protected:
 
     private:
@@ -32,6 +39,7 @@ class Relay
         BombManager*      m_bomb_manager;
         PlayerManager*    m_player_manager;
         EnemyManager*     m_enemy_manager;
+        Map*              m_map;
 
 };
 

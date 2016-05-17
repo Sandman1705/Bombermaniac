@@ -1,8 +1,8 @@
 #include "Bomb.h"
 
-#ifdef DEBUG_OUTPUT
+#ifdef DEBUG_OUTPUT_BOMB
 #include <iostream>
-#endif // DEBUG_OUTPUT
+#endif // DEBUG_OUTPUT_BOMB
 
 Bomb::Bomb(unsigned int fuse_duration,
            SDL_Texture* texture,
@@ -22,17 +22,17 @@ Bomb::Bomb(unsigned int fuse_duration,
         m_draw_size(bomb_size),
         m_intensity(intensity)
 {
-    #ifdef DEBUG_OUTPUT
+    #ifdef DEBUG_OUTPUT_BOMB
     std::cout << "Bomb placed: X:" << m_x << " Y:" << m_y << " fuse:" << m_fuse_duration << " intesity:" << m_intensity << std::endl;
-    #endif // DEBUG_OUTPUT
+    #endif // DEBUG_OUTPUT_BOMB
 }
 
-#ifdef DEBUG_OUTPUT
+#ifdef DEBUG_OUTPUT_BOMB
 Bomb::~Bomb()
 {
     std::cout << "Bomb destroyed: X:" << m_x << " Y:" << m_y << " fuse:" << m_fuse_duration << " intesity:" << m_intensity << std::endl;
 }
-#endif // DEBUG_OUTPUT
+#endif // DEBUG_OUTPUT_BOMB
 
 
 void Bomb::Update()
