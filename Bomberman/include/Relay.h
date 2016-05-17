@@ -13,17 +13,17 @@ class Relay
         Relay(ExplosionManager *explosion_manager, BombManager *bomb_manager,
               PlayerManager *player_manager, EnemyManager *enemy_manager);
 
-        ExplosionManager* Get_explosion_manager() const;
-        void Set_explosion_manager(ExplosionManager* val);
+        ExplosionManager* GetExplosionManager() const;
+        void SetExplosionManager(ExplosionManager* val);
 
-        BombManager* Get_bomb_manager() const;
-        void Set_bomb_manager(BombManager* val);
+        BombManager* GetBombManager() const;
+        void SetBombManager(BombManager* val);
 
-        PlayerManager* Get_player_manager() const;
-        void Set_player_manager(PlayerManager* val);
+        PlayerManager* GetPlayerManager() const;
+        void SetPlayerManager(PlayerManager* val);
 
-        EnemyManager* Get_enemy_manager() const;
-        void Set_enemy_manager(EnemyManager* val);
+        EnemyManager* GetEnemyManager() const;
+        void SetEnemyManager(EnemyManager* val);
 
     protected:
 

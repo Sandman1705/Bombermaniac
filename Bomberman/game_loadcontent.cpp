@@ -41,10 +41,10 @@ bool game::LoadContent()
     enemy_manager->MakeEnemy(10*tile_size);
     enemy_manager->MakeEnemy(8*tile_size, 8*tile_size);
 
-    relay->Set_explosion_manager(explosion_manager);
-    relay->Set_bomb_manager(bomb_manager);
-    relay->Set_player_manager(player_manager);
-    relay->Set_enemy_manager(enemy_manager);
+    relay->SetExplosionManager(explosion_manager);
+    relay->SetBombManager(bomb_manager);
+    relay->SetPlayerManager(player_manager);
+    relay->SetEnemyManager(enemy_manager);
 
     /* Game objects initializing - End */
 
