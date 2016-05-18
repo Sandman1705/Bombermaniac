@@ -77,6 +77,7 @@
 		<Unit filename="include/Constants/TextureMapObjectConstants.h" />
 		<Unit filename="include/DestructibleWall.h" />
 		<Unit filename="include/Display.h" />
+		<Unit filename="include/DisplayElement.h" />
 		<Unit filename="include/DisplayManager.h" />
 		<Unit filename="include/Enemy.h" />
 		<Unit filename="include/EnemyDestroyer.h" />
@@ -100,6 +101,7 @@
 		<Unit filename="src/BombManager.cpp" />
 		<Unit filename="src/DestructibleWall.cpp" />
 		<Unit filename="src/Display.cpp" />
+		<Unit filename="src/DisplayElement.cpp" />
 		<Unit filename="src/DisplayManager.cpp" />
 		<Unit filename="src/Enemy.cpp" />
 		<Unit filename="src/EnemyDestroyer.cpp" />

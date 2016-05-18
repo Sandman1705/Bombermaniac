@@ -1,7 +1,7 @@
 #include "ExplosionManager.h"
 
 ExplosionManager::ExplosionManager(SDL_Texture* texture, unsigned int tile_size)
-    : m_texture(texture), m_tile_size(tile_size)
+    : DisplayElement(texture), m_tile_size(tile_size)
 {
 }
 

@@ -12,7 +12,7 @@
 BombManager::BombManager(SDL_Texture* texture,
                          unsigned int tile_size,
                          Relay* relay)
-    : m_texture(texture),
+    : DisplayElement(texture),
       m_bomb_size(tile_size * 0.625),
       m_tile_size(tile_size),
       m_relay(relay)
