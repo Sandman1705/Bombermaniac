@@ -11,20 +11,37 @@ PlayerManager::PlayerManager(SDL_Texture* texture, unsigned int tile_size, Relay
     m_timer.ResetTimer();
 }
 
+PlayerManager::~PlayerManager()
+{
+    for(auto i = m_players.begin(); i != m_players.end(); ++i)
+    {
+        delete (*i);
+    }
+}
+
 void PlayerManager::MakePlayer(unsigned int x, unsigned int y)
 {
-    m_player = new Player(m_texture, m_tile_size, m_relay, m_keyboard_input, x, y);
+    Player *player = new Player(m_texture, m_tile_size, m_relay, m_keyboard_input, x, y);
+    m_players.push_back(player);
 }
 
 void PlayerManager::KillPlayer(unsigned int x, unsigned int y, double intensity)
 {
-    EnemyDestroyer::DestroyPlayer(m_player, x, y, m_tile_size, intensity);
+    for(auto i = m_players.begin(); i != m_players.end(); ++i)
+    {
+        EnemyDestroyer::DestroyPlayer(*i, x, y, m_tile_size, intensity);
+    }
+}
+
+void PlayerManager::AddPlayer(Player *player)
+{
+    m_players.push_back(player);
 }
 
 void PlayerManager::Draw(SDL_Renderer* renderer) const
 {
     //Draw number of lives--------------------------------
-    SDL_Rect SrcR;
+   /* SDL_Rect SrcR;
     SDL_Rect DestR;
 
     unsigned int SHAPE_SIZE_x = 12;
@@ -62,36 +79,42 @@ void PlayerManager::Draw(SDL_Renderer* renderer) const
     DestR.h = m_tile_size;
 
     SDL_RenderCopy(renderer, m_texture, &SrcR, &DestR);
+    */
     //----------------------------------------------------
+
     //main condition
-    if(m_alive != 0)
+    for(auto i = m_players.begin(); i != m_players.end(); ++i)
     {
-        m_player->Draw(renderer);
+        if((*i)->GetAlive() != 0)
+        {
+            (*i)->Draw(renderer);
+        }
     }
 }
 
 void PlayerManager::Update()
 {
-    if(m_player->GetHealth() == 0 && m_alive)
+    for(auto i = m_players.begin(); i != m_players.end(); ++i)
     {
-        m_alive = 0;
-        m_lives--;
-        m_timer.ResetTimer();
+        if((*i)->GetHealth() == 0 && (*i)->GetAlive())
+        {
+            (*i)->SetAlive(0);
+            int lives = (*i)->GetLives();
+            (*i)->SetLives(lives-1);
+            m_timer.ResetTimer();
+        }
 
-        if(m_lives < 0)
-            m_lives = 3;
+        if((*i)->GetAlive() == 0 && m_timer.GetTimeElapsed() >= 2000)
+        {
+            (*i)->SetAlive(1);
+            (*i)->SetHealth(100);
+        }
+
+        (*i)->Update();
     }
-
-    if(m_alive == 0 && m_timer.GetTimeElapsed() >= 2000)
-    {
-        m_alive = 1;
-        m_player->SetHealth(100);
-    }
-
-    m_player->Update();
 }
 
-Player* PlayerManager::GetPlayer() const
+std::list<Player*> PlayerManager::GetPlayers() const
 {
-    return m_player;
+    return m_players;
 }

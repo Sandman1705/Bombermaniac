@@ -54,13 +54,19 @@ class Player
         unsigned int GetSizeH() const;
 
         unsigned int GetStatus() const;
-        void SetStatus(int s);
+        void SetStatus(unsigned int s);
+
+        unsigned int GetAlive() const;
+        void SetAlive(unsigned int a);
+
+        unsigned int GetLives() const;
+        void SetLives(unsigned int l);
 
         unsigned int GetDirection() const;
         void SetDirection(int d);
 
         unsigned int GetHealth() const;
-        void SetHealth(int h);
+        void SetHealth(unsigned int h);
 
         void SetKeycodes(SDL_Keycode up, SDL_Keycode down, SDL_Keycode left, SDL_Keycode right);
 
@@ -123,6 +129,8 @@ class Player
         bool           m_bomb_ready = false;
         int            m_status;
         Timer          m_timer;
+        unsigned int   m_lives=3;
+        unsigned int   m_alive = 1;
         unsigned int   m_health = 100; //percent
         unsigned int   m_speed = 100;
         unsigned int   m_x;

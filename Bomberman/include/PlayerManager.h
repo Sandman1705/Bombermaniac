@@ -10,6 +10,7 @@
  */
 
 #include <SDL.h>
+#include <list>
 #include "DisplayElement.h"
 #include "Player.h"
 #include "Timer.h"
@@ -44,8 +45,9 @@ class PlayerManager : public DisplayElement
     public:
         PlayerManager(SDL_Texture* texture, unsigned int tile_size, Relay *relay,
                KeyboardInput *keyboard_input);
+        ~PlayerManager();
 
-        Player* GetPlayer() const;
+        std::list<Player*> GetPlayers() const;
 
          /**
          *  \brief Makes new Player according to given parameters.
@@ -83,18 +85,21 @@ class PlayerManager : public DisplayElement
          */
         void Update();
 
+        void AddPlayer(Player *player);
+
         void KillPlayer(unsigned int x, unsigned int y, double intensity);
     protected:
 
     private:
-    unsigned int    m_alive=1;
-    unsigned int    m_lives=3;
-    unsigned int    m_death_time;
-    Timer           m_timer;
-    Player*         m_player;
-    Relay*          m_relay;
-    KeyboardInput*  m_keyboard_input;
-    unsigned int    m_tile_size;
+    //unsigned int             m_alive=1;
+    //unsigned int             m_lives=3;
+    unsigned int             m_death_time;
+    Timer                    m_timer;
+    std::list<Player*>       m_players;
+    //Player*                  m_player;
+    Relay*                   m_relay;
+    KeyboardInput*           m_keyboard_input;
+    unsigned int             m_tile_size;
 };
 
 #endif // PLAYERMANAGER_H

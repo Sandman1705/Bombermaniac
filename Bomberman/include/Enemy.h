@@ -92,7 +92,7 @@ class Enemy
          *
          *  \return void
          */
-        void Update(Relay *relay, Player *player);
+        void Update(Relay *relay,Player *player);
 
          /**
          *  \brief Checks if enemy touched player.

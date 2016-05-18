@@ -67,6 +67,10 @@ void Player::Update()
                                  {
                                     this->PlayerMove(1, 0);
                                  }
+                                else
+                                {
+                                    this->SetStatus(0);
+                                }
     }
 
     while(m_timer.GetTimeElapsed()>m_speed)
@@ -256,7 +260,7 @@ unsigned int Player::GetStatus() const
     return m_status;
 }
 
-void Player::SetStatus(int s)
+void Player::SetStatus(unsigned int s)
 {
     m_status = s;
 }
@@ -292,7 +296,7 @@ unsigned int Player::GetHealth() const
     return m_health;
 }
 
-void Player::SetHealth(int h)
+void Player::SetHealth(unsigned int h)
 {
     m_health = h;
 }
@@ -305,3 +309,25 @@ void Player::SetKeycodes(SDL_Keycode up, SDL_Keycode down, SDL_Keycode left, SDL
     m_left = left;
 }
 
+
+unsigned int Player::GetAlive() const
+{
+    return m_alive;
+}
+
+void Player::SetAlive(unsigned int a)
+{
+    m_alive = a;
+}
+
+unsigned int Player::GetLives() const
+{
+    return m_lives;
+}
+
+void Player::SetLives(unsigned int l)
+{
+    m_lives = l;
+    if(m_lives < 0)
+        m_lives = 3;
+}
