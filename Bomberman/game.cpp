@@ -10,6 +10,7 @@ game::game()
     enemy_manager = nullptr;
     player_manager = nullptr;
     relay = nullptr;
+    keyboard_input = nullptr;
 }
 
 int game::OnExecute()

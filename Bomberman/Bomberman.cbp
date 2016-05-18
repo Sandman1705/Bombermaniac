@@ -93,6 +93,7 @@
 		<Unit filename="include/ScreenTimer.h" />
 		<Unit filename="include/Timer.h" />
 		<Unit filename="include/WallDestroyer.h" />
+		<Unit filename="include/WelcomeDisplay.h" />
 		<Unit filename="include/player.h" />
 		<Unit filename="includes.h" />
 		<Unit filename="resources/levels/level1.txt" />
@@ -118,6 +119,7 @@
 		<Unit filename="src/ScreenTimer.cpp" />
 		<Unit filename="src/Timer.cpp" />
 		<Unit filename="src/WallDestroyer.cpp" />
+		<Unit filename="src/WelcomeDisplay.cpp" />
 		<Unit filename="src/player.cpp" />
 		<Extensions>
 			<code_completion />

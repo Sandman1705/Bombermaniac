@@ -1,4 +1,5 @@
 #include "PlayerManager.h"
+#include "EnemyDestroyer.h"
 #include <iostream>
 PlayerManager::PlayerManager(SDL_Texture* texture, unsigned int tile_size, Relay *relay,
                KeyboardInput *keyboard_input)

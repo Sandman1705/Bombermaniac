@@ -12,9 +12,7 @@
 #include <SDL.h>
 #include "DisplayElement.h"
 #include "Player.h"
-#include "Map.h"
 #include "Timer.h"
-#include "EnemyDestroyer.h"
 #include "Relay.h"
 
 /** \class PlayerManager

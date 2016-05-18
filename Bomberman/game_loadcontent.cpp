@@ -1,6 +1,7 @@
 #include "game.h"
 #include "SDL_image.h"
 #include "GameDisplay.h"
+#include "WelcomeDisplay.h"
 
 bool game::LoadContent()
 {
@@ -25,34 +26,38 @@ bool game::LoadContent()
     /* Texture loading - End */
 
     /* Game objects initializing - Begin */
-    unsigned int tile_size = 44;
-    relay = new Relay();
     keyboard_input = new KeyboardInput();
 
-    GameDisplay* game_display = new GameDisplay(5);
-    level = new Map("resources\\levels\\level2.txt", texture, tile_size);
-    explosion_manager = new ExplosionManager(texture, tile_size);
-    bomb_manager = new BombManager(texture, tile_size, relay);
-    player_manager = new PlayerManager(texture, tile_size, relay, keyboard_input);
-    player_manager->MakePlayer();
-    enemy_manager = new EnemyManager(texture, tile_size, relay);
+    GameDisplay* game_display = new GameDisplay(texture,keyboard_input,5);
+    game_display->Init();
 
-    enemy_manager->MakeEnemy(5*tile_size);
-    enemy_manager->MakeEnemy(0, 10*tile_size);
-    enemy_manager->MakeEnemy(10*tile_size);
-    enemy_manager->MakeEnemy(8*tile_size, 8*tile_size);
+//    unsigned int tile_size = 44;
+//    relay = new Relay();
+//    level = new Map("resources\\levels\\level2.txt", texture, tile_size);
+//    explosion_manager = new ExplosionManager(texture, tile_size);
+//    bomb_manager = new BombManager(texture, tile_size, relay);
+//    player_manager = new PlayerManager(texture, tile_size, relay, keyboard_input);
+//    player_manager->MakePlayer();
+//    enemy_manager = new EnemyManager(texture, tile_size, relay);
+//
+//    enemy_manager->MakeEnemy(5*tile_size);
+//    enemy_manager->MakeEnemy(0, 10*tile_size);
+//    enemy_manager->MakeEnemy(10*tile_size);
+//    enemy_manager->MakeEnemy(8*tile_size, 8*tile_size);
+//
+//    relay->SetExplosionManager(explosion_manager);
+//    relay->SetBombManager(bomb_manager);
+//    relay->SetPlayerManager(player_manager);
+//    relay->SetEnemyManager(enemy_manager);
+//    relay->SetMap(level);
+//
+//    game_display->AddDisplayElement(level);
+//    game_display->AddDisplayElement(bomb_manager);
+//    game_display->AddDisplayElement(player_manager);
+//    game_display->AddDisplayElement(enemy_manager);
+//    game_display->AddDisplayElement(explosion_manager);
 
-    relay->SetExplosionManager(explosion_manager);
-    relay->SetBombManager(bomb_manager);
-    relay->SetPlayerManager(player_manager);
-    relay->SetEnemyManager(enemy_manager);
-    relay->SetMap(level);
-
-    game_display->AddDisplayElement(level);
-    game_display->AddDisplayElement(bomb_manager);
-    game_display->AddDisplayElement(player_manager);
-    game_display->AddDisplayElement(enemy_manager);
-    game_display->AddDisplayElement(explosion_manager);
+//    WelcomeDisplay* welcome_display = new WelcomeDisplay(texture,keyboard_input);
 
     display = game_display;
 

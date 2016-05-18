@@ -11,7 +11,7 @@ class DisplayManager
         ~DisplayManager();
 
         void EnterDisplay(Display* display);
-        void ExitDisplay();
+        void LeaveDisplay();
         Display* CurrentDisplay();
 
     protected:

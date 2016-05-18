@@ -16,7 +16,7 @@ void DisplayManager::EnterDisplay(Display* display)
     m_displays.push(display);
 }
 
-void DisplayManager::ExitDisplay()
+void DisplayManager::LeaveDisplay()
 {
     m_displays.pop();
     m_displays.top()->Enter();
