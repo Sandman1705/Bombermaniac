@@ -1,11 +1,9 @@
 #include"game.h"
 
-//#define DEBUG_OUTPUT
-
-#ifdef DEBUG_OUTPUT
+#ifdef DEBUG_OUTPUT_GAME
 #include<cstdio>
 void PrintKeyInfo( SDL_KeyboardEvent *key );
-#endif // DEBUG_OUTPUT
+#endif // DEBUG_OUTPUT_GAME
 
 void game::OnEvent(SDL_Event* Event)
 {
@@ -17,39 +15,40 @@ void game::OnEvent(SDL_Event* Event)
     switch( Event->type )
     {
 
-    case SDL_KEYDOWN:
-        keyboard_input->TurnKeyOn(Event->key.keysym.sym);
-        break;
+        case SDL_KEYDOWN:
+            keyboard_input->TurnKeyOn(Event->key.keysym.sym);
+            #ifdef DEBUG_OUTPUT_GAME
+            PrintKeyInfo( &(Event->key) );
+            #endif // DEBUG_OUTPUT_GAME
+            break;
 
-    case SDL_KEYUP:
-        keyboard_input->TurnKeyOff(Event->key.keysym.sym);
-        //player_manager->GetPlayer()->SetStatus(0);
-        #ifdef DEBUG_OUTPUT
-        PrintKeyInfo( &(Event->key) );
-        #endif // DEBUG_OUTPUT
-        switch( Event->key.keysym.sym )
-        {
-            case SDLK_f: // mostly for testing
-                //SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN);
-                break;
-            default:
-                break;
-        }
-        break;
+        case SDL_KEYUP:
+            keyboard_input->TurnKeyOff(Event->key.keysym.sym);
+            #ifdef DEBUG_OUTPUT_GAME
+            PrintKeyInfo( &(Event->key) );
+            #endif // DEBUG_OUTPUT_GAME
+            switch( Event->key.keysym.sym )
+            {
+                case SDLK_f: // mostly for testing
+                    //SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN);
+                    break;
+                default:
+                    break;
+            }
+            break;
 
-    /* SDL_QUIT event (window close) */
-    case SDL_QUIT:
-        Running = false;
-        break;
+        /* SDL_QUIT event (window close) */
+        case SDL_QUIT:
+            Running = false;
+            break;
 
-    default:
-        break;
+        default:
+            break;
     }
-
 
 }
 
-#ifdef DEBUG_OUTPUT
+#ifdef DEBUG_OUTPUT_GAME
 void PrintKeyInfo( SDL_KeyboardEvent *key )
 {
     /* Is it a release or a press? */
@@ -116,4 +115,4 @@ void PrintModifiers( Unit16 mod )
     printf( "\n" );
 }
 */
-#endif // DEBUG_OUTPUT
+#endif // DEBUG_OUTPUT_GAME

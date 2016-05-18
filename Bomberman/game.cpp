@@ -1,16 +1,14 @@
-#include"game.h"
+#include "game.h"
 
 game::game()
+    : Running(true),
+      window(nullptr),
+      renderer(nullptr),
+      Event(),
+      keyboard_input(nullptr),
+      texture(nullptr)
 {
-    window = NULL;
-    Running = true;
-    level = nullptr;
-    explosion_manager = nullptr;
-    bomb_manager = nullptr;
-    enemy_manager = nullptr;
-    player_manager = nullptr;
-    relay = nullptr;
-    keyboard_input = nullptr;
+
 }
 
 int game::OnExecute()

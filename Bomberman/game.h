@@ -1,6 +1,8 @@
 #ifndef GAME_H_INCLUDED
 #define GAME_H_INCLUDED
 
+//#define DEBUG_OUTPUT_GAME
+
 /**
  *  \file Bomb.h
  *
@@ -10,14 +12,6 @@
 
 #include "includes.h"
 #include "KeyboardInput.h"
-#include "Map.h"
-#include "ExplosionManager.h"
-#include "BombManager.h"
-#include "Player.h"
-#include "Enemy.h"
-#include "EnemyManager.h"
-#include "PlayerManager.h"
-#include "Relay.h"
 #include "Display.h"
 
 /** \class game
@@ -108,12 +102,6 @@ class game
         SDL_Renderer*       renderer;
         SDL_Event           Event;
         KeyboardInput*      keyboard_input;
-        Map*                level;
-        ExplosionManager*   explosion_manager;
-        BombManager*        bomb_manager;
-        PlayerManager*      player_manager;
-        EnemyManager*       enemy_manager;
-        Relay*              relay;
         SDL_Texture*        texture;
         Display*            display;
 
