@@ -10,9 +10,9 @@ class DisplayManager
         DisplayManager();
         ~DisplayManager();
 
-        void AddDisplay(Display* display);
-        void PopDisplay();
-        Display* TopDisplay();
+        void EnterDisplay(Display* display);
+        void ExitDisplay();
+        Display* CurrentDisplay();
 
     protected:
 

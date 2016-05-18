@@ -18,6 +18,7 @@
 #include "EnemyManager.h"
 #include "PlayerManager.h"
 #include "Relay.h"
+#include "Display.h"
 
 /** \class game
  *  \brief Class which represents the game
@@ -114,6 +115,7 @@ class game
         EnemyManager*       enemy_manager;
         Relay*              relay;
         SDL_Texture*        texture;
+        Display*            display;
 
 
 };

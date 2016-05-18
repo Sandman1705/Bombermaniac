@@ -10,19 +10,19 @@ DisplayManager::~DisplayManager()
     //dtor
 }
 
-void DisplayManager::AddDisplay(Display* display)
+void DisplayManager::EnterDisplay(Display* display)
 {
     m_displays.top()->Leave();
     m_displays.push(display);
 }
 
-void DisplayManager::PopDisplay()
+void DisplayManager::ExitDisplay()
 {
     m_displays.pop();
     m_displays.top()->Enter();
 }
 
-Display* DisplayManager::TopDisplay()
+Display* DisplayManager::CurrentDisplay()
 {
     return m_displays.top();
 }

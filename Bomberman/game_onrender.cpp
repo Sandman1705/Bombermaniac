@@ -6,12 +6,13 @@ void game::OnRender()
     SDL_RenderClear(renderer);
 
     //Draw
-    level->Draw(renderer);
-    bomb_manager->Draw(renderer);
-    if(player_manager->GetPlayer() != nullptr)
-        enemy_manager->Draw(renderer);
-    player_manager->Draw(renderer);
-    explosion_manager->Draw(renderer);
+//    level->Draw(renderer);
+//    bomb_manager->Draw(renderer);
+//    if(player_manager->GetPlayer() != nullptr)
+//        enemy_manager->Draw(renderer);
+//    player_manager->Draw(renderer);
+//    explosion_manager->Draw(renderer);
+    display->Draw(renderer);
 
     //Update the screen
     SDL_RenderPresent(renderer);

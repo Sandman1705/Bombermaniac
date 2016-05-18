@@ -1,5 +1,6 @@
-#include"game.h"
-#include"SDL_image.h"
+#include "game.h"
+#include "SDL_image.h"
+#include "GameDisplay.h"
 
 bool game::LoadContent()
 {
@@ -27,6 +28,8 @@ bool game::LoadContent()
     unsigned int tile_size = 44;
     relay = new Relay();
     keyboard_input = new KeyboardInput();
+
+    GameDisplay* game_display = new GameDisplay(5);
     level = new Map("resources\\levels\\level2.txt", texture, tile_size);
     explosion_manager = new ExplosionManager(texture, tile_size);
     bomb_manager = new BombManager(texture, tile_size, relay);
@@ -44,6 +47,14 @@ bool game::LoadContent()
     relay->SetPlayerManager(player_manager);
     relay->SetEnemyManager(enemy_manager);
     relay->SetMap(level);
+
+    game_display->AddDisplayElement(level);
+    game_display->AddDisplayElement(bomb_manager);
+    game_display->AddDisplayElement(player_manager);
+    game_display->AddDisplayElement(enemy_manager);
+    game_display->AddDisplayElement(explosion_manager);
+
+    display = game_display;
 
     /* Game objects initializing - End */
 
