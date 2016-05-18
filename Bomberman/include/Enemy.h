@@ -94,6 +94,17 @@ class Enemy
          */
         void Update(Relay *relay, Player *player);
 
+         /**
+         *  \brief Checks if enemy touched player.
+         *
+         *  Calculates if there was a collision between
+         *  enemy and player.
+         *
+         *  \param player_x x coordinate of the player
+         *  \param player_y y coordinate of the player
+         *
+         *  \return bool
+         */
         bool Touch(unsigned int player_x, unsigned int player_y);
 
     protected:
