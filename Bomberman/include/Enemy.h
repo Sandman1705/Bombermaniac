@@ -64,6 +64,8 @@ class Enemy
         *  Updates the position of enemy on the map according to
         *  method update().
         *
+        *  \param relay pointer to Relay object of the game
+        *
         *  \return void
         */
         void EnemyMove(Relay *relay);

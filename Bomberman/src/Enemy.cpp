@@ -47,7 +47,6 @@ bool Enemy::Touch(unsigned int player_x, unsigned int player_y)
 
 void Enemy::Update(Relay *relay, Player *player)
 {
-    unsigned int player_health = player->Get_health();
     unsigned int player_x = player->Get_x();
     unsigned int player_y = player->Get_y();
     unsigned int player_w = player->Get_size_w();

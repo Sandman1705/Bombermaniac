@@ -1,12 +1,11 @@
 #include "EnemyManager.h"
+#include "PlayerManager.h"
 
-EnemyManager::EnemyManager(SDL_Texture* texture, unsigned int tile_size, Relay *relay,
-                           Player* player)
+EnemyManager::EnemyManager(SDL_Texture* texture, unsigned int tile_size, Relay *relay)
 {
     m_texture = texture;
     m_tile_size = tile_size;
     m_relay = relay;
-    m_player = player;
 }
 
 EnemyManager::~EnemyManager()
@@ -55,6 +54,6 @@ void EnemyManager::Update()
 {
     for(auto i = m_enemies.begin(); i != m_enemies.end(); ++i)
     {
-        (*i)->Update(m_relay, m_player);
+        (*i)->Update(m_relay, m_relay->GetPlayerManager()->GetPlayer());
     }
 }

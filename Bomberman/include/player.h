@@ -34,10 +34,10 @@ class Player
          *  \param tex pointer to SDL_texture object from which the texture
          *         will be taken for method Draw()
          *  \param tile_size size of one tile on map
-         *  \param bomb_manager list of bombs with methods for management
+         *  \param relay for getting bomb_manager with list of bombs with
+         *         methods for management
          *  \param keyboard_input pointer to KeyboardInput object of the game
          *         (which is used to keep track of input given by the user)
-         *  \param level pointer to Map object of the game
          *  \param val_x coordinate of the player on the map
          *  \param val_y coordinate of the player on the map
          *

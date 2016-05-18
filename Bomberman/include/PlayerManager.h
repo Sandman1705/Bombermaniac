@@ -36,18 +36,17 @@ class PlayerManager
          *  \param tile_size represents the size of one tile of the map in
          *         pixels (which is required for proper implementation of method
          *         Draw())
-         *  \param bomb_manager pointer to the bomb_manager of the
-         *         game (which is needed for sending signals to that object to
-         *         make new bomb)
+         *  \param relay pointer to the relay of the
+         *         game (which is needed for getting bomb_manager for sending
+         *         signals to that object to make new bomb)
          *  \param keyboard_input pointer to KeyboardInput object of the game
          *         (which is used to keep track of input given by the user)
-         *  \param level pointer to the Map object of the game
          */
     public:
         PlayerManager(SDL_Texture* texture, unsigned int tile_size, Relay *relay,
                KeyboardInput *keyboard_input);
 
-        Player* Get_player() const;
+        Player* GetPlayer() const;
 
          /**
          *  \brief Makes new Player according to given parameters.

@@ -35,11 +35,9 @@ class EnemyManager
          *  \param tile_size represents the size of one tile of the map in
          *         pixels (which is required for proper implementation of method
          *         Draw())
-         *  \param level pointer to the Map object of the game
-         *  \param player pointer to the Player object of the game
+         *  \param relay pointer to the Relay object of the game
          */
-        EnemyManager(SDL_Texture* texture, unsigned int tile_size, Relay *relay,
-                     Player* player);
+        EnemyManager(SDL_Texture* texture, unsigned int tile_size, Relay *relay);
         virtual ~EnemyManager();
 
         /**
@@ -96,7 +94,6 @@ class EnemyManager
     std::list<Enemy*>       m_enemies;
     SDL_Texture*            m_texture;
     Relay*                  m_relay;
-    Player*                 m_player;
     unsigned int            m_tile_size;
 };
 

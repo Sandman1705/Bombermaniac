@@ -92,7 +92,7 @@ void PlayerManager::Update()
     m_player->Update();
 }
 
-Player* PlayerManager::Get_player() const
+Player* PlayerManager::GetPlayer() const
 {
     return m_player;
 }
