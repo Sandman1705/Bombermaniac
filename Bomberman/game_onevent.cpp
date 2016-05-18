@@ -23,7 +23,7 @@ void game::OnEvent(SDL_Event* Event)
 
     case SDL_KEYUP:
         keyboard_input->TurnKeyOff(Event->key.keysym.sym);
-        player_manager->GetPlayer()->Set_status(0);
+        player_manager->GetPlayer()->SetStatus(0);
         #ifdef DEBUG_OUTPUT
         PrintKeyInfo( &(Event->key) );
         #endif // DEBUG_OUTPUT

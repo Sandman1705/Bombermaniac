@@ -46,24 +46,24 @@ void Player::Update()
          {
              m_bomb_ready = true;
          }
-         else if(!m_keyboard_input->IsKeyOn(SDLK_SPACE) && m_bomb_ready)
+         else if(!m_keyboard_input->IsKeyOn(m_space) && m_bomb_ready)
              {
                  this->PlaceBomb();
                  m_bomb_ready = false;
              }
-             else if(m_keyboard_input->IsKeyOn(SDLK_UP))
+             else if(m_keyboard_input->IsKeyOn(m_up))
                     {
                         this->PlayerMove(0, -1);
                     }
-                    else if(m_keyboard_input->IsKeyOn(SDLK_DOWN))
+                    else if(m_keyboard_input->IsKeyOn(m_down))
                         {
                             this->PlayerMove(0, 1);
                         }
-                        else if(m_keyboard_input->IsKeyOn(SDLK_LEFT))
+                        else if(m_keyboard_input->IsKeyOn(m_left))
                             {
                                 this->PlayerMove(-1, 0);
                             }
-                            else if (m_keyboard_input->IsKeyOn(SDLK_RIGHT))
+                            else if (m_keyboard_input->IsKeyOn(m_right))
                                  {
                                     this->PlayerMove(1, 0);
                                  }
@@ -221,52 +221,52 @@ void Player::PlayerMove(int x, int y)
         m_status = 0;
 }
 
-unsigned int Player::Get_x() const
+unsigned int Player::GetX() const
 {
     return m_x;
 }
 
-void Player::Set_x(unsigned int val)
+void Player::SetX(unsigned int val)
 {
     m_x = val;
 }
 
-unsigned int Player::Get_y() const
+unsigned int Player::GetY() const
 {
     return m_y;
 }
 
-void Player::Set_y(unsigned int val)
+void Player::SetY(unsigned int val)
 {
     m_y = val;
 }
 
-unsigned int Player::Get_size_w() const
+unsigned int Player::GetSizeW() const
 {
     return m_player_size_w;
 }
 
-unsigned int Player::Get_size_h() const
+unsigned int Player::GetSizeH() const
 {
     return m_player_size_h;
 }
 
-unsigned int Player::Get_status() const
+unsigned int Player::GetStatus() const
 {
     return m_status;
 }
 
-void Player::Set_status(int s)
+void Player::SetStatus(int s)
 {
     m_status = s;
 }
 
-unsigned int Player::Get_direction() const
+unsigned int Player::GetDirection() const
 {
     return m_direction;
 }
 
-void Player::Set_direction(int d)
+void Player::SetDirection(int d)
 {
     switch(d)
     {
@@ -287,13 +287,21 @@ void Player::Set_direction(int d)
     }
 }
 
-unsigned int Player::Get_health() const
+unsigned int Player::GetHealth() const
 {
     return m_health;
 }
 
-void Player::Set_health(int h)
+void Player::SetHealth(int h)
 {
     m_health = h;
+}
+
+void Player::SetKeycodes(SDL_Keycode up, SDL_Keycode down, SDL_Keycode left, SDL_Keycode right)
+{
+    m_up = up;
+    m_down = down;
+    m_right = right;
+    m_left = left;
 }
 

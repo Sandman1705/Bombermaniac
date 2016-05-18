@@ -45,22 +45,24 @@ class Player
         Player(SDL_Texture* tex, unsigned int tile_size, Relay *relay,
                KeyboardInput *keyboard_input, unsigned int val_x = 0, unsigned int val_y = 0);
 
-        unsigned int Get_x() const;
-        void Set_x(unsigned int val);
-        unsigned int Get_y() const;
-        void Set_y(unsigned int val);
+        unsigned int GetX() const;
+        void SetX(unsigned int val);
+        unsigned int GetY() const;
+        void SetY(unsigned int val);
 
-        unsigned int Get_size_w() const;
-        unsigned int Get_size_h() const;
+        unsigned int GetSizeW() const;
+        unsigned int GetSizeH() const;
 
-        unsigned int Get_status() const;
-        void Set_status(int s);
+        unsigned int GetStatus() const;
+        void SetStatus(int s);
 
-        unsigned int Get_direction() const;
-        void Set_direction(int d);
+        unsigned int GetDirection() const;
+        void SetDirection(int d);
 
-        unsigned int Get_health() const;
-        void Set_health(int h);
+        unsigned int GetHealth() const;
+        void SetHealth(int h);
+
+        void SetKeycodes(SDL_Keycode up, SDL_Keycode down, SDL_Keycode left, SDL_Keycode right);
 
         /**
          *  \brief Function that implements movement for player.
@@ -132,6 +134,12 @@ class Player
         unsigned int   m_tile_size;
         Relay*         m_relay;
         KeyboardInput* m_keyboard_input;
+        SDL_Keycode    m_space = SDLK_SPACE;
+        SDL_Keycode    m_left = SDLK_LEFT;
+        SDL_Keycode    m_right = SDLK_RIGHT;
+        SDL_Keycode    m_up = SDLK_UP;
+        SDL_Keycode    m_down = SDLK_DOWN;
+
 };
 
 #endif // PLAYER_H

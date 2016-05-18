@@ -47,10 +47,10 @@ bool Enemy::Touch(unsigned int player_x, unsigned int player_y)
 
 void Enemy::Update(Relay *relay, Player *player)
 {
-    unsigned int player_x = player->Get_x();
-    unsigned int player_y = player->Get_y();
-    unsigned int player_w = player->Get_size_w();
-    unsigned int player_h = player->Get_size_h();
+    unsigned int player_x = player->GetX();
+    unsigned int player_y = player->GetY();
+    unsigned int player_w = player->GetSizeW();
+    unsigned int player_h = player->GetSizeH();
 
     //Setting coordinates for better collision
     player_x = player_x + m_tile_size/6;
@@ -61,19 +61,19 @@ void Enemy::Update(Relay *relay, Player *player)
 
     if(Touch(player_x, player_y))
     {
-        player->Set_health(0);
+        player->SetHealth(0);
     }
     else if(Touch(player_x+player_w, player_y))
         {
-            player->Set_health(0);
+            player->SetHealth(0);
         }
         else if(Touch(player_x, player_y+player_h))
             {
-                player->Set_health(0);
+                player->SetHealth(0);
             }
             else if(Touch(player_x+player_w, player_y+player_h))
                 {
-                    player->Set_health(0);
+                    player->SetHealth(0);
                 }
     int r;
 

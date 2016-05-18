@@ -20,25 +20,9 @@ void PlayerManager::KillPlayer(unsigned int x, unsigned int y, double intensity)
     EnemyDestroyer::DestroyPlayer(m_player, x, y, m_tile_size, intensity);
 }
 
-void PlayerManager::Draw(SDL_Renderer* renderer)
+void PlayerManager::Draw(SDL_Renderer* renderer) const
 {
-    if(m_player->Get_health() == 0 && m_alive)
-    {
-        m_alive = 0;
-        m_lives--;
-        m_timer.ResetTimer();
-
-        if(m_lives < 0)
-            m_lives = 3;
-    }
-
-    if(m_alive == 0 && m_timer.GetTimeElapsed() >= 2000)
-    {
-        m_alive = 1;
-        m_player->Set_health(100);
-    }
-
-    //Draw number of lives
+    //Draw number of lives--------------------------------
     SDL_Rect SrcR;
     SDL_Rect DestR;
 
@@ -47,8 +31,6 @@ void PlayerManager::Draw(SDL_Renderer* renderer)
 
     unsigned int source_x = 200;
     unsigned int source_y = 174;
-    //unsigned int source_const = 4;
-    //unsigned int texture_offset = source_const + SHAPE_SIZE_x + 2;
 
     SrcR.y = source_y;
     SrcR.w = SHAPE_SIZE_x;
@@ -79,7 +61,7 @@ void PlayerManager::Draw(SDL_Renderer* renderer)
     DestR.h = m_tile_size;
 
     SDL_RenderCopy(renderer, m_texture, &SrcR, &DestR);
-
+    //----------------------------------------------------
     //main condition
     if(m_alive != 0)
     {
@@ -89,6 +71,22 @@ void PlayerManager::Draw(SDL_Renderer* renderer)
 
 void PlayerManager::Update()
 {
+    if(m_player->GetHealth() == 0 && m_alive)
+    {
+        m_alive = 0;
+        m_lives--;
+        m_timer.ResetTimer();
+
+        if(m_lives < 0)
+            m_lives = 3;
+    }
+
+    if(m_alive == 0 && m_timer.GetTimeElapsed() >= 2000)
+    {
+        m_alive = 1;
+        m_player->SetHealth(100);
+    }
+
     m_player->Update();
 }
 

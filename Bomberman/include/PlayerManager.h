@@ -73,7 +73,7 @@ class PlayerManager
          *
          *  \return void
          */
-        void Draw(SDL_Renderer* renderer);
+        void Draw(SDL_Renderer* renderer) const;
 
         /**
          *  \brief Update function for class PlayerManager
