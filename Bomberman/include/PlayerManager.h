@@ -14,6 +14,7 @@
 #include "Map.h"
 #include "Timer.h"
 #include "EnemyDestroyer.h"
+#include "Relay.h"
 
 /** \class PlayerManager
  *  \brief Class which is used for keeping track of player in the game.
@@ -43,8 +44,8 @@ class PlayerManager
          *  \param level pointer to the Map object of the game
          */
     public:
-        PlayerManager(SDL_Texture* texture, unsigned int tile_size, BombManager *bomb_manager,
-               KeyboardInput *keyboard_input, Map *level);
+        PlayerManager(SDL_Texture* texture, unsigned int tile_size, Relay *relay,
+               KeyboardInput *keyboard_input);
 
         Player* Get_player() const;
 
@@ -94,8 +95,7 @@ class PlayerManager
     Timer           m_timer;
     Player*         m_player;
     SDL_Texture*    m_texture;
-    Map*            m_level;
-    BombManager*    m_bomb_manager;
+    Relay*          m_relay;
     KeyboardInput*  m_keyboard_input;
     unsigned int    m_tile_size;
 };

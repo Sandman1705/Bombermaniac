@@ -1,8 +1,9 @@
 #include "Player.h"
+#include "Map.h"
+#include "BombManager.h"
 
-
-Player::Player(SDL_Texture* tex, unsigned int tile_size, BombManager *bomb_manager,
-               KeyboardInput *keyboard_input, Map *level, unsigned int val_x, unsigned int val_y)
+Player::Player(SDL_Texture* tex, unsigned int tile_size, Relay *relay,
+               KeyboardInput *keyboard_input, unsigned int val_x, unsigned int val_y)
 {
     //default for x
     if(val_x == 0)
@@ -32,9 +33,8 @@ Player::Player(SDL_Texture* tex, unsigned int tile_size, BombManager *bomb_manag
     m_player_size_w = m_player_size_w *tile_size/32;
     m_player_size_h = m_player_size_h *tile_size/32; //size according to 32px tile size
     m_move_speed = m_move_speed *m_tile_size/32; //speed according to 32px tile size
-    m_bomb_manager = bomb_manager;
+    m_relay = relay;
     m_keyboard_input = keyboard_input;
-    m_level = level;
 }
 
 void Player::Update()
@@ -53,19 +53,19 @@ void Player::Update()
              }
              else if(m_keyboard_input->IsKeyOn(SDLK_UP))
                     {
-                        this->PlayerMove(0, -1, m_level);
+                        this->PlayerMove(0, -1);
                     }
                     else if(m_keyboard_input->IsKeyOn(SDLK_DOWN))
                         {
-                            this->PlayerMove(0, 1, m_level);
+                            this->PlayerMove(0, 1);
                         }
                         else if(m_keyboard_input->IsKeyOn(SDLK_LEFT))
                             {
-                                this->PlayerMove(-1, 0, m_level);
+                                this->PlayerMove(-1, 0);
                             }
                             else if (m_keyboard_input->IsKeyOn(SDLK_RIGHT))
                                  {
-                                    this->PlayerMove(1, 0, m_level);
+                                    this->PlayerMove(1, 0);
                                  }
     }
 
@@ -78,7 +78,7 @@ void Player::Update()
 
 void Player::PlaceBomb()
 {
-    m_bomb_manager->MakeBomb(5000,m_x+m_player_size_w/2,m_y+m_player_size_h/2,2.5); // TODO Fix testing values
+   m_relay->GetBombManager()->MakeBomb(5000,m_x+m_player_size_w/2,m_y+m_player_size_h/2,2.5); // TODO Fix testing values
 }
 
 void Player::Draw(SDL_Renderer *renderer)
@@ -176,15 +176,15 @@ void Player::Draw(SDL_Renderer *renderer)
     SDL_RenderCopy(renderer, m_tex, &SrcR, &DestR);
 }
 
-void Player::PlayerMove(int x, int y, Map *level)
+void Player::PlayerMove(int x, int y)
 {
     unsigned int field_size = m_tile_size;
 
     if(x == 1) // MOVE RIGHT ------------
     {
         m_direction = RIGHT;
-        if( level->Walkable( m_y/field_size, (m_x+m_player_size_w+m_move_speed)/field_size )
-                && level->Walkable( (m_y+m_player_size_h)/field_size, (m_x+m_player_size_w+m_move_speed)/field_size) )
+        if( m_relay->GetMap()->Walkable( m_y/field_size, (m_x+m_player_size_w+m_move_speed)/field_size )
+                && m_relay->GetMap()->Walkable( (m_y+m_player_size_h)/field_size, (m_x+m_player_size_w+m_move_speed)/field_size) )
         {
             m_x = m_x + m_move_speed;
         }
@@ -192,8 +192,8 @@ void Player::PlayerMove(int x, int y, Map *level)
     else if (x == -1) // MOVE LEFT ------------
         {
             m_direction = LEFT;
-            if(level->Walkable( m_y/field_size, (m_x-m_move_speed)/field_size )
-                    && level->Walkable( (m_y+m_player_size_h)/field_size, (m_x-m_move_speed)/field_size) )
+            if(m_relay->GetMap()->Walkable( m_y/field_size, (m_x-m_move_speed)/field_size )
+                    && m_relay->GetMap()->Walkable( (m_y+m_player_size_h)/field_size, (m_x-m_move_speed)/field_size) )
             {
                 m_x = m_x - m_move_speed;
             }
@@ -201,8 +201,8 @@ void Player::PlayerMove(int x, int y, Map *level)
         else if(y == 1) // MOVE DOWN ------------
             {
                 m_direction = DOWN;
-                if(level->Walkable( (m_y+m_player_size_h+m_move_speed)/field_size, m_x/field_size )
-                    && level->Walkable( (m_y+m_player_size_h+m_move_speed)/field_size, (m_x+m_player_size_w)/field_size ) )
+                if(m_relay->GetMap()->Walkable( (m_y+m_player_size_h+m_move_speed)/field_size, m_x/field_size )
+                    && m_relay->GetMap()->Walkable( (m_y+m_player_size_h+m_move_speed)/field_size, (m_x+m_player_size_w)/field_size ) )
                 {
                     m_y = m_y + m_move_speed;
                 }
@@ -210,8 +210,8 @@ void Player::PlayerMove(int x, int y, Map *level)
             else if(y == -1) // MOVE UP ------------
                 {
                     m_direction = UP;
-                    if(level->Walkable( (m_y - m_move_speed)/field_size, m_x/field_size )
-                        &&  level->Walkable( (m_y - m_move_speed)/field_size, (m_x+m_player_size_w)/field_size) )
+                    if(m_relay->GetMap()->Walkable( (m_y - m_move_speed)/field_size, m_x/field_size )
+                        &&  m_relay->GetMap()->Walkable( (m_y - m_move_speed)/field_size, (m_x+m_player_size_w)/field_size) )
                     {
                         m_y = m_y - m_move_speed;
                     }
