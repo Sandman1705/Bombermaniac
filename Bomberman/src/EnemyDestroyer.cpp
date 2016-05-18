@@ -12,12 +12,12 @@ void EnemyDestroyer::DestroyEnemy(Enemy* enemy,
                                   unsigned int tile_size,
                                   double intensity)
 {
-    unsigned int enemy_center_x = enemy->Get_x() + enemy->Get_size_w() / 2;
-    unsigned int enemy_center_y = enemy->Get_y() + enemy->Get_size_h() / 2;
+    unsigned int enemy_center_x = enemy->GetX() + enemy->GetSizeW() / 2;
+    unsigned int enemy_center_y = enemy->GetY() + enemy->GetSizeH() / 2;
     double distance = std::sqrt( Square(start_x-enemy_center_x) + Square(start_y-enemy_center_y) );
 
     if (distance < tile_size * intensity / 2)
-        enemy->Set_health(0);
+        enemy->SetHealth(0);
 }
 
 void EnemyDestroyer::DestroyPlayer(Player* player,

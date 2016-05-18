@@ -22,7 +22,7 @@ void EnemyManager::KillEnemies(unsigned int x, unsigned int y, double intensity)
     for(auto i = m_enemies.begin(); i != m_enemies.end();)
     {
         EnemyDestroyer::DestroyEnemy(*i, x, y, m_tile_size, intensity);
-        if((*i)->Get_health() == 0)
+        if((*i)->GetHealth() == 0)
         {
             delete (*i);
             i = m_enemies.erase(i);
