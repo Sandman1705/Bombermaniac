@@ -10,6 +10,7 @@
  */
 
 #include <list>
+#include "DisplayElement.h"
 #include "Relay.h"
 #include "Enemy.h"
 #include "Player.h"
@@ -22,7 +23,7 @@
  *           Also has an update method which calls the appropriate update
  *           method for all enemies.
  */
-class EnemyManager
+class EnemyManager : public DisplayElement
 {
     public:
         /**
@@ -92,7 +93,6 @@ class EnemyManager
 
     private:
     std::list<Enemy*>       m_enemies;
-    SDL_Texture*            m_texture;
     Relay*                  m_relay;
     unsigned int            m_tile_size;
 };

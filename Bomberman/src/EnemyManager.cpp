@@ -2,6 +2,7 @@
 #include "PlayerManager.h"
 
 EnemyManager::EnemyManager(SDL_Texture* texture, unsigned int tile_size, Relay *relay)
+    : DisplayElement(texture)
 {
     m_texture = texture;
     m_tile_size = tile_size;

@@ -10,6 +10,7 @@
  */
 
 #include <SDL.h>
+#include "DisplayElement.h"
 #include "Player.h"
 #include "Map.h"
 #include "Timer.h"
@@ -24,7 +25,7 @@
  *           to BombManager to which it sends signal for making a new bomb.
  */
 
-class PlayerManager
+class PlayerManager : public DisplayElement
 {
     /**
          *  \brief Constructor for PlayerManager
@@ -93,7 +94,6 @@ class PlayerManager
     unsigned int    m_death_time;
     Timer           m_timer;
     Player*         m_player;
-    SDL_Texture*    m_texture;
     Relay*          m_relay;
     KeyboardInput*  m_keyboard_input;
     unsigned int    m_tile_size;

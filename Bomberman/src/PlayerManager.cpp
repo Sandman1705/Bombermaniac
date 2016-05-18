@@ -2,8 +2,8 @@
 #include <iostream>
 PlayerManager::PlayerManager(SDL_Texture* texture, unsigned int tile_size, Relay *relay,
                KeyboardInput *keyboard_input)
+    : DisplayElement(texture)
 {
-    m_texture = texture;
     m_tile_size = tile_size;
     m_relay = relay;
     m_keyboard_input = keyboard_input;
