@@ -105,7 +105,7 @@ void Map::DestroyWall(unsigned int i, unsigned int j)
     if (m_layout[i][j]->GetId() == MapObject::DESTRUCTIBLE_WALL)
     {
         DestructibleWall* wall = (DestructibleWall*)m_layout[i][j];
-        wall->DecreaseIntegrity(50);
+        wall->DecreaseIntegrity(25);
         if (wall->IsDestroyed())
         {
             delete m_layout[i][j];
