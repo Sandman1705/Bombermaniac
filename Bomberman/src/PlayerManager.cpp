@@ -75,7 +75,7 @@ void PlayerManager::Draw(SDL_Renderer* renderer) const
             break;
         }
 
-        DestR.x = 0;
+        DestR.x = 0 + (*i)->GetID()*2*m_tile_size;
         DestR.y = 0;
         DestR.w = m_tile_size;
         DestR.h = m_tile_size;
