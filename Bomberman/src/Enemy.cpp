@@ -194,52 +194,52 @@ void Enemy::EnemyMove(Relay *relay)
         m_status = 0;
 }
 
-unsigned int Enemy::Get_x() const
+unsigned int Enemy::GetX() const
 {
     return m_x;
 }
 
-void Enemy::Set_x(unsigned int val)
+void Enemy::SetX(unsigned int val)
 {
     m_x = val;
 }
 
-unsigned int Enemy::Get_y() const
+unsigned int Enemy::GetY() const
 {
     return m_y;
 }
 
-void Enemy::Set_y(unsigned int val)
+void Enemy::SetY(unsigned int val)
 {
     m_y = val;
 }
 
-unsigned int Enemy::Get_size_w() const
+unsigned int Enemy::GetSizeW() const
 {
     return m_enemy_size_w;
 }
 
-unsigned int Enemy::Get_size_h() const
+unsigned int Enemy::GetSizeH() const
 {
     return m_enemy_size_h;
 }
 
-unsigned int Enemy::Get_status() const
+unsigned int Enemy::GetStatus() const
 {
     return m_status;
 }
 
-void Enemy::Set_status(int s)
+void Enemy::SetStatus(int s)
 {
     m_status = s;
 }
 
-unsigned int Enemy::Get_health() const
+unsigned int Enemy::GetHealth() const
 {
     return m_health;
 }
 
-void Enemy::Set_health(int h)
+void Enemy::SetHealth(int h)
 {
     m_health = h;
 }

@@ -41,22 +41,22 @@ class Enemy
          */
         Enemy(SDL_Texture* tex, unsigned int tile_size, unsigned int val_x = 0, unsigned int val_y = 0);
 
-        unsigned int Get_x() const;
-        void Set_x(unsigned int val);
-        unsigned int Get_y() const;
-        void Set_y(unsigned int val);
+        unsigned int GetX() const;
+        void SetX(unsigned int val);
+        unsigned int GetY() const;
+        void SetY(unsigned int val);
 
-        unsigned int Get_size_w() const;
-        unsigned int Get_size_h() const;
+        unsigned int GetSizeW() const;
+        unsigned int GetSizeH() const;
 
-        unsigned int Get_status() const;
-        void Set_status(int s);
+        unsigned int GetStatus() const;
+        void SetStatus(int s);
 
-        unsigned int Get_direction() const;
-        void Set_direction(int d);
+        unsigned int GetDirection() const;
+        void SetDirection(int d);
 
-        unsigned int Get_health() const;
-        void Set_health(int h);
+        unsigned int GetHealth() const;
+        void SetHealth(int h);
 
         /**
         *  \brief Function that implements movement for enemy.
