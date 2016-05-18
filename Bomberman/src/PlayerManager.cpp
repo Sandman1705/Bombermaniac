@@ -1,19 +1,18 @@
 #include "PlayerManager.h"
 #include <iostream>
-PlayerManager::PlayerManager(SDL_Texture* texture, unsigned int tile_size, BombManager *bomb_manager,
-               KeyboardInput *keyboard_input, Map *level)
+PlayerManager::PlayerManager(SDL_Texture* texture, unsigned int tile_size, Relay *relay,
+               KeyboardInput *keyboard_input)
 {
     m_texture = texture;
     m_tile_size = tile_size;
-    m_bomb_manager = bomb_manager;
+    m_relay = relay;
     m_keyboard_input = keyboard_input;
-    m_level = level;
     m_timer.ResetTimer();
 }
 
 void PlayerManager::MakePlayer(unsigned int x, unsigned int y)
 {
-    m_player = new Player(m_texture, m_tile_size, m_bomb_manager, m_keyboard_input, m_level, x, y);
+    m_player = new Player(m_texture, m_tile_size, m_relay, m_keyboard_input, x, y);
 }
 
 void PlayerManager::KillPlayer(unsigned int x, unsigned int y, double intensity)

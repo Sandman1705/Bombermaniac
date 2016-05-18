@@ -56,7 +56,7 @@ void Enemy::Update(Map *level, Player *player)
     player_x = player_x + m_tile_size/6;
     player_y = player_y + m_tile_size/6;
     player_w = player_w - m_tile_size/3;
-    player_h = player_h - m_tile_size/3;
+    player_h = player_h - m_tile_size/4;
     //----------------------------------------
 
     if(Touch(player_x, player_y))

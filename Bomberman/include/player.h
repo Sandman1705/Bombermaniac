@@ -9,8 +9,7 @@
  */
 
 #include <SDL.h>
-#include "Map.h"
-#include "BombManager.h"
+#include "Relay.h"
 #include "KeyboardInput.h"
 #include "Timer.h"
 
@@ -43,8 +42,8 @@ class Player
          *  \param val_y coordinate of the player on the map
          *
          */
-        Player(SDL_Texture* tex, unsigned int tile_size, BombManager *bomb_manager,
-               KeyboardInput *keyboard_input, Map *level,  unsigned int val_x = 0, unsigned int val_y = 0);
+        Player(SDL_Texture* tex, unsigned int tile_size, Relay *relay,
+               KeyboardInput *keyboard_input, unsigned int val_x = 0, unsigned int val_y = 0);
 
         unsigned int Get_x() const;
         void Set_x(unsigned int val);
@@ -76,7 +75,7 @@ class Player
          *
          *  \return void
          */
-        void PlayerMove(int x, int y, Map *level);
+        void PlayerMove(int x, int y);
 
         /**
          *  \brief Draws the player on given SDL_Renderer.
@@ -131,9 +130,8 @@ class Player
         unsigned int   m_player_size_h = 23;
         SDL_Texture*   m_tex;
         unsigned int   m_tile_size;
-        BombManager*   m_bomb_manager;
+        Relay*         m_relay;
         KeyboardInput* m_keyboard_input;
-        Map*           m_level;
 };
 
 #endif // PLAYER_H
