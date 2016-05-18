@@ -55,13 +55,13 @@ class PlayerManager : public DisplayElement
          *  Uses the given parameters and makes a new Player object.
          *  The player will be periodically updated and destroyed when runs
          *  out of lives.
-         *
+         *  \param player_id ID of the player
          *  \param x top left x coordinate of the player on the map
          *  \param y top left y coordinate of the player on the map
          *
          *  \return void
          */
-        void MakePlayer(unsigned int x = 0, unsigned int y = 0);
+        void MakePlayer(unsigned int player_id = 0, unsigned int x = 0, unsigned int y = 0);
 
         /**
          *  \brief Draw the player it keeps track of on given SLD_Renderer
@@ -91,12 +91,9 @@ class PlayerManager : public DisplayElement
     protected:
 
     private:
-    //unsigned int             m_alive=1;
-    //unsigned int             m_lives=3;
     unsigned int             m_death_time;
     Timer                    m_timer;
     std::list<Player*>       m_players;
-    //Player*                  m_player;
     Relay*                   m_relay;
     KeyboardInput*           m_keyboard_input;
     unsigned int             m_tile_size;

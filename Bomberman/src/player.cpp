@@ -3,7 +3,7 @@
 #include "BombManager.h"
 
 Player::Player(SDL_Texture* tex, unsigned int tile_size, Relay *relay,
-               KeyboardInput *keyboard_input, unsigned int val_x, unsigned int val_y)
+               KeyboardInput *keyboard_input, unsigned int player_id, unsigned int val_x, unsigned int val_y)
 {
     //default for x
     if(val_x == 0)
@@ -35,6 +35,7 @@ Player::Player(SDL_Texture* tex, unsigned int tile_size, Relay *relay,
     m_move_speed = m_move_speed *m_tile_size/32; //speed according to 32px tile size
     m_relay = relay;
     m_keyboard_input = keyboard_input;
+    m_player_id = player_id;
 }
 
 void Player::Update()
@@ -42,7 +43,7 @@ void Player::Update()
     if(m_timer.GetTimeElapsed()>m_speed)
     {
         //Key Input
-        if(m_keyboard_input->IsKeyOn(SDLK_SPACE))
+        if(m_keyboard_input->IsKeyOn(m_space))
          {
              m_bomb_ready = true;
          }
@@ -90,17 +91,27 @@ void Player::Draw(SDL_Renderer *renderer)
     SDL_Rect SrcR;
     SDL_Rect DestR;
 
-    unsigned int SHAPE_SIZE_x = 18;
-    unsigned int SHAPE_SIZE_y = 32;
+    unsigned int SHAPE_SIZE_x;
+    unsigned int SHAPE_SIZE_y;
 
-    unsigned int source_x = 3;
-    unsigned int source_y = 4;
-    unsigned int source_const = 4;
-    unsigned int texture_offset = source_const + SHAPE_SIZE_x + 2;
+    unsigned int source_x;
+    unsigned int source_y;
+    unsigned int source_const;
+    unsigned int texture_offset;
+    unsigned int main_offset = 568;
+    //----------------------
+    SHAPE_SIZE_x = 18;
+    SHAPE_SIZE_y = 32;
+
+    source_x = m_player_id*main_offset+3; //Calculates second set of images
+    source_y = 4;
+    source_const = 4;
+    texture_offset = source_const + SHAPE_SIZE_x + 2;
 
     SrcR.y = source_y;
     SrcR.w = SHAPE_SIZE_x;
     SrcR.h = SHAPE_SIZE_y;
+    //----------------------
 
     switch(m_direction)
     {
@@ -301,12 +312,13 @@ void Player::SetHealth(unsigned int h)
     m_health = h;
 }
 
-void Player::SetKeycodes(SDL_Keycode up, SDL_Keycode down, SDL_Keycode left, SDL_Keycode right)
+void Player::SetKeycodes(SDL_Keycode up, SDL_Keycode down, SDL_Keycode left, SDL_Keycode right, SDL_Keycode space)
 {
     m_up = up;
     m_down = down;
-    m_right = right;
     m_left = left;
+    m_right = right;
+    m_space = space;
 }
 
 
@@ -327,7 +339,13 @@ unsigned int Player::GetLives() const
 
 void Player::SetLives(unsigned int l)
 {
-    m_lives = l;
-    if(m_lives < 0)
+    if(l < 0)
         m_lives = 3;
+    else
+        m_lives = l;
+}
+
+unsigned int Player::GetID() const
+{
+    return m_player_id;
 }

@@ -43,7 +43,7 @@ class Player
          *
          */
         Player(SDL_Texture* tex, unsigned int tile_size, Relay *relay,
-               KeyboardInput *keyboard_input, unsigned int val_x = 0, unsigned int val_y = 0);
+               KeyboardInput *keyboard_input, unsigned int player_id = 0, unsigned int val_x = 0, unsigned int val_y = 0);
 
         unsigned int GetX() const;
         void SetX(unsigned int val);
@@ -68,7 +68,9 @@ class Player
         unsigned int GetHealth() const;
         void SetHealth(unsigned int h);
 
-        void SetKeycodes(SDL_Keycode up, SDL_Keycode down, SDL_Keycode left, SDL_Keycode right);
+        unsigned int GetID() const;
+
+        void SetKeycodes(SDL_Keycode up, SDL_Keycode down, SDL_Keycode left, SDL_Keycode right, SDL_Keycode space);
 
         /**
          *  \brief Function that implements movement for player.
@@ -130,6 +132,7 @@ class Player
         int            m_status;
         Timer          m_timer;
         unsigned int   m_lives=3;
+        unsigned int   m_player_id;
         unsigned int   m_alive = 1;
         unsigned int   m_health = 100; //percent
         unsigned int   m_speed = 100;
