@@ -14,7 +14,7 @@ class Display
         virtual void Leave();
 
         virtual void Update() = 0;
-        virtual void Draw(SDL_Renderer* renderer) = 0;
+        virtual void Draw(SDL_Renderer* renderer) const = 0;
 
     protected:
 

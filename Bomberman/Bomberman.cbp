@@ -84,6 +84,7 @@
 		<Unit filename="include/EnemyManager.h" />
 		<Unit filename="include/Explosion.h" />
 		<Unit filename="include/ExplosionManager.h" />
+		<Unit filename="include/GameDisplay.h" />
 		<Unit filename="include/KeyboardInput.h" />
 		<Unit filename="include/Map.h" />
 		<Unit filename="include/MapObject.h" />
@@ -108,6 +109,7 @@
 		<Unit filename="src/EnemyManager.cpp" />
 		<Unit filename="src/Explosion.cpp" />
 		<Unit filename="src/ExplosionManager.cpp" />
+		<Unit filename="src/GameDisplay.cpp" />
 		<Unit filename="src/KeyboardInput.cpp" />
 		<Unit filename="src/Map.cpp" />
 		<Unit filename="src/MapObject.cpp" />

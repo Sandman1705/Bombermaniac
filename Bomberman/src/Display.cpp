@@ -4,6 +4,10 @@ Display::Display()
 {
 }
 
+Display::~Display()
+{
+}
+
 void Display::Enter()
 {
 }
