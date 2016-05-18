@@ -9,7 +9,7 @@
 #endif // DEBUG_OUTPUT_MAP
 
 Map::Map(std::string path_to_file, SDL_Texture* texture, unsigned int tile_size)
-    : m_tile_size(tile_size), m_texture(texture)
+    : DisplayElement(texture), m_tile_size(tile_size)
 {
     std::fstream fs;
     fs.open (path_to_file, std::fstream::in);

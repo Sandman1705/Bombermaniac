@@ -11,6 +11,7 @@
 #include <vector>
 #include <string>
 #include <SDL.h>
+#include "DisplayElement.h"
 #include "MapObject.h"
 #include "DestructibleWall.h"
 
@@ -21,7 +22,7 @@
  *           renderer as well make changes to itself by destroying wall that are
  *           specified as destructible.
  */
-class Map
+class Map : public DisplayElement
 {
     public:
         /**
@@ -95,6 +96,7 @@ class Map
          */
         MapObject::Tile GetTileType(unsigned int i, unsigned int j) const;
 
+        void Update() {}
 
     protected:
 
@@ -103,7 +105,6 @@ class Map
         unsigned int                            m_width;
         std::vector<std::vector<MapObject*>>    m_layout;
         const int                               m_tile_size;
-        SDL_Texture*                            m_texture;
 
         static const unsigned int               TEXTURE_SIZE = 64;
 };

@@ -10,6 +10,7 @@
  */
 
 #include <list>
+#include "DisplayElement.h"
 #include "Bomb.h"
 #include "Relay.h"
 
@@ -21,7 +22,7 @@
  *           for all bombs. Also keeps reference to Relay which it uses to
  *           communicate to other game objects.
  */
-class BombManager
+class BombManager : public DisplayElement
 {
     public:
         /**
@@ -93,7 +94,6 @@ class BombManager
 
     private:
         std::list<Bomb*>        m_bombs;
-        SDL_Texture*            m_texture;
         unsigned int            m_bomb_size;
         Map*                    m_level;
         unsigned int            m_tile_size;

@@ -10,6 +10,7 @@
  */
 
 #include <list>
+#include "DisplayElement.h"
 #include "Explosion.h"
 
 /** \class ExplosionManager
@@ -21,7 +22,7 @@
  *           in the form of Update() which calls the appropriate update method
  *           for all explosions it keeps track off.
  */
-class ExplosionManager
+class ExplosionManager : public DisplayElement
 {
     public:
         /**
@@ -97,7 +98,6 @@ class ExplosionManager
 
     private:
         std::list<Explosion*>   m_explosions;
-        SDL_Texture*            m_texture;
         unsigned int            m_tile_size;
 };
 
