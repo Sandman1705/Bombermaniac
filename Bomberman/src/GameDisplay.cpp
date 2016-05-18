@@ -10,7 +10,7 @@
 
 GameDisplay::GameDisplay(SDL_Texture* texture,
                          KeyboardInput* keyboard_input,
-                         unsigned int number_of_screen_elements = 1)
+                         unsigned int number_of_screen_elements)
     : Display(keyboard_input), m_texture(texture)
 {
     m_display_elements.reserve(number_of_screen_elements);
@@ -61,6 +61,8 @@ void GameDisplay::Init()
 
 void GameDisplay::Enter()
 {
+    m_leave_previous = false;
+    m_leave_next = false;
     ScreenTimer::Instance()->Unpause();
 }
 
@@ -71,11 +73,16 @@ void GameDisplay::Leave()
 
 void GameDisplay::Destroy()
 {
-
+    for (auto i = m_display_elements.begin(); i != m_display_elements.end(); ++i)
+    {
+        delete (*i);
+    }
 }
 
 void GameDisplay::Update()
 {
+    if (m_keyboard_input->IsKeyOn(SDLK_ESCAPE))
+        m_leave_previous = true;
     for (auto i = m_display_elements.begin(); i != m_display_elements.end(); ++i)
     {
         (*i)->Update();

@@ -10,6 +10,8 @@ class WelcomeDisplay : public Display
         WelcomeDisplay(SDL_Texture* texture, KeyboardInput* keyboard_input = nullptr);
         virtual ~WelcomeDisplay();
 
+        void Enter();
+
         void Update();
         void Draw(SDL_Renderer* renderer) const;
 
@@ -17,6 +19,9 @@ class WelcomeDisplay : public Display
 
     private:
         SDL_Texture*    m_texture;
+
+        bool            m_pressed_next;
+        bool            m_pressed_previous;
 };
 
 #endif // WELCOMEDISPLAY_H

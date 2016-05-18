@@ -19,13 +19,13 @@ class Display
         virtual void Update() = 0;
         virtual void Draw(SDL_Renderer* renderer) const = 0;
 
-        bool ShouldEnter() { return m_enter; }
-        bool ShouldLeave() { return m_leave; }
+        bool ShouldLeaveToPrevious() { return m_leave_previous; }
+        bool ShouldLeaveToNext() { return m_leave_next; }
         Display* NextDisplay() { return m_next_display; }
 
     protected:
-        bool            m_enter;
-        bool            m_leave;
+        bool            m_leave_previous;
+        bool            m_leave_next;
         Display*        m_next_display;
         KeyboardInput*  m_keyboard_input;
 

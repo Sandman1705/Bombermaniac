@@ -1,7 +1,6 @@
 #include "game.h"
 #include "SDL_image.h"
-#include "GameDisplay.h"
-#include "WelcomeDisplay.h"
+#include "DisplayManager.h"
 
 #ifdef DEBUG_OUTPUT_GAME
 #include <iostream>
@@ -37,12 +36,15 @@ bool game::LoadContent()
     /* Game objects initializing - Begin */
     keyboard_input = new KeyboardInput();
 
-    GameDisplay* game_display = new GameDisplay(texture,keyboard_input,5);
-    game_display->Init();
+    display_manager = new DisplayManager(texture,keyboard_input,&Running);
+
+    //GameDisplay* game_display = new GameDisplay(texture,keyboard_input);
+    //game_display->Init();
 
 //    WelcomeDisplay* welcome_display = new WelcomeDisplay(texture,keyboard_input);
+//    ExitDisplay* exit_display = new ExitDisplay(&Running);
 
-    display = game_display;
+    //display = game_display;
     /* Game objects initializing - End */
 
     return true;

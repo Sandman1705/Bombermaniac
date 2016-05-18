@@ -2,5 +2,5 @@
 
 void game::OnLoop()
 {
-    display->Update();
+    display_manager->Update();
 }

@@ -2,17 +2,22 @@
 #define DISPLAYMANAGER_H
 
 #include "Display.h"
+#include "SDL.h"
+#include "KeyboardInput.h"
 #include <stack>
 
 class DisplayManager
 {
     public:
-        DisplayManager();
+        DisplayManager(SDL_Texture* texture, KeyboardInput* keyboard_input, bool* running);
         ~DisplayManager();
 
         void EnterDisplay(Display* display);
         void LeaveDisplay();
         Display* CurrentDisplay();
+
+        void Update();
+        void Draw(SDL_Renderer* renderer);
 
     protected:
 

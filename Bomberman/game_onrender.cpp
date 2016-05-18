@@ -6,7 +6,7 @@ void game::OnRender()
     SDL_RenderClear(renderer);
 
     //Draw
-    display->Draw(renderer);
+    display_manager->Draw(renderer);
 
     //Update the screen
     SDL_RenderPresent(renderer);

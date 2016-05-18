@@ -12,6 +12,7 @@
 
 #include "includes.h"
 #include "KeyboardInput.h"
+#include "DisplayManager.h"
 #include "Display.h"
 
 /** \class game
@@ -104,7 +105,7 @@ class game
         KeyboardInput*      keyboard_input;
         SDL_Texture*        texture;
         Display*            display;
-
+        DisplayManager*     display_manager;
 
 };
 #endif // GAME_H_INCLUDED
