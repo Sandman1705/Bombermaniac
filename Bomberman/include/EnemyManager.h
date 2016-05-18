@@ -10,7 +10,7 @@
  */
 
 #include <list>
-#include "Map.h"
+#include "Relay.h"
 #include "Enemy.h"
 #include "Player.h"
 #include "EnemyDestroyer.h"
@@ -38,7 +38,7 @@ class EnemyManager
          *  \param level pointer to the Map object of the game
          *  \param player pointer to the Player object of the game
          */
-        EnemyManager(SDL_Texture* texture, unsigned int tile_size, Map* level,
+        EnemyManager(SDL_Texture* texture, unsigned int tile_size, Relay *relay,
                      Player* player);
         virtual ~EnemyManager();
 
@@ -95,7 +95,7 @@ class EnemyManager
     private:
     std::list<Enemy*>       m_enemies;
     SDL_Texture*            m_texture;
-    Map*                    m_level;
+    Relay*                  m_relay;
     Player*                 m_player;
     unsigned int            m_tile_size;
 };

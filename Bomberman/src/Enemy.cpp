@@ -1,4 +1,5 @@
 #include "Enemy.h"
+#include "Map.h"
 #include <iostream>
 Enemy::Enemy(SDL_Texture* tex, unsigned int tile_size, unsigned int val_x, unsigned int val_y)
 {
@@ -44,7 +45,7 @@ bool Enemy::Touch(unsigned int player_x, unsigned int player_y)
     return false;
 }
 
-void Enemy::Update(Map *level, Player *player)
+void Enemy::Update(Relay *relay, Player *player)
 {
     unsigned int player_health = player->Get_health();
     unsigned int player_x = player->Get_x();
@@ -104,7 +105,7 @@ void Enemy::Update(Map *level, Player *player)
     if(m_timer.GetTimeElapsed() > m_speed)
     {
         m_walk_len--;
-        this->EnemyMove(level);
+        this->EnemyMove(relay);
         m_timer.ResetTimer();
     }
 }
@@ -150,23 +151,23 @@ void Enemy::Draw(SDL_Renderer *renderer)
     SDL_RenderCopy(renderer, m_tex, &SrcR, &DestR);
 }
 
-void Enemy::EnemyMove(Map *level)
+void Enemy::EnemyMove(Relay *relay)
 {
     unsigned int field_size = m_tile_size;
 
     if(m_direction == RIGHT) // MOVE RIGHT ------------
     {
 
-        if( level->Walkable( m_y/field_size, (m_x+m_enemy_size_w+m_move_speed)/field_size )
-                && level->Walkable( (m_y+m_enemy_size_h)/field_size, (m_x+m_enemy_size_w+m_move_speed)/field_size) )
+        if( relay->GetMap()->Walkable( m_y/field_size, (m_x+m_enemy_size_w+m_move_speed)/field_size )
+                && relay->GetMap()->Walkable( (m_y+m_enemy_size_h)/field_size, (m_x+m_enemy_size_w+m_move_speed)/field_size) )
         {
             m_x = m_x + m_move_speed;
         }
     }
     else if (m_direction == LEFT) // MOVE LEFT ------------
         {
-            if(level->Walkable( m_y/field_size, (m_x-m_move_speed)/field_size )
-                    && level->Walkable( (m_y+m_enemy_size_h)/field_size, (m_x-m_move_speed)/field_size) )
+            if(relay->GetMap()->Walkable( m_y/field_size, (m_x-m_move_speed)/field_size )
+                    && relay->GetMap()->Walkable( (m_y+m_enemy_size_h)/field_size, (m_x-m_move_speed)/field_size) )
             {
                 m_x = m_x - m_move_speed;
             }
@@ -174,8 +175,8 @@ void Enemy::EnemyMove(Map *level)
         else if(m_direction == DOWN) // MOVE DOWN ------------
             {
 
-                if(level->Walkable( (m_y+m_enemy_size_h+m_move_speed)/field_size, m_x/field_size )
-                    && level->Walkable( (m_y+m_enemy_size_h+m_move_speed)/field_size, (m_x+m_enemy_size_w)/field_size ) )
+                if(relay->GetMap()->Walkable( (m_y+m_enemy_size_h+m_move_speed)/field_size, m_x/field_size )
+                    && relay->GetMap()->Walkable( (m_y+m_enemy_size_h+m_move_speed)/field_size, (m_x+m_enemy_size_w)/field_size ) )
                 {
                     m_y = m_y + m_move_speed;
                 }
@@ -183,8 +184,8 @@ void Enemy::EnemyMove(Map *level)
             else if(m_direction == UP) // MOVE UP ------------
                 {
 
-                    if(level->Walkable( (m_y - m_move_speed)/field_size, m_x/field_size )
-                        &&  level->Walkable( (m_y - m_move_speed)/field_size, (m_x+m_enemy_size_w)/field_size) )
+                    if(relay->GetMap()->Walkable( (m_y - m_move_speed)/field_size, m_x/field_size )
+                        &&  relay->GetMap()->Walkable( (m_y - m_move_speed)/field_size, (m_x+m_enemy_size_w)/field_size) )
                     {
                         m_y = m_y - m_move_speed;
                     }

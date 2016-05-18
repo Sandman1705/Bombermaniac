@@ -28,7 +28,7 @@ void PlayerManager::Draw(SDL_Renderer* renderer)
         m_lives--;
         m_timer.ResetTimer();
 
-        if(m_lives == -1)
+        if(m_lives < 0)
             m_lives = 3;
     }
 

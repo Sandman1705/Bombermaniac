@@ -11,7 +11,7 @@
 #include <SDL.h>
 #include <cstdlib>
 #include <ctime>
-#include "Map.h"
+#include "Relay.h"
 #include "Timer.h"
 #include "Player.h"
 
@@ -63,11 +63,10 @@ class Enemy
         *
         *  Updates the position of enemy on the map according to
         *  method update().
-        *  \param level pointer to Map object of the game
         *
         *  \return void
         */
-        void EnemyMove(Map *level);
+        void EnemyMove(Relay *relay);
 
         /**
          *  \brief Draws the enemy on given SDL_Renderer.
@@ -86,12 +85,12 @@ class Enemy
          *  Calculates where enemy should go and updates enemy's position
          *  on map accordingly and calls appropriate actions.
          *
-         *  \param level pointer to Map object of the game
+         *  \param relay pointer to Relay object of the game
          *  \param player pointer to Player object of the game
          *
          *  \return void
          */
-        void Update(Map *level, Player *player);
+        void Update(Relay *relay, Player *player);
 
         bool Touch(unsigned int player_x, unsigned int player_y);
 
