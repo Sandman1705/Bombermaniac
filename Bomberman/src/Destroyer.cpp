@@ -1,12 +1,12 @@
-#include "EnemyDestroyer.h"
+#include "Destroyer.h"
 #include <cmath>
 
-EnemyDestroyer::EnemyDestroyer()
+Destroyer::Destroyer()
 {
 }
 
 
-void EnemyDestroyer::DestroyEnemy(Enemy* enemy,
+void Destroyer::DestroyEnemy(Enemy* enemy,
                                   unsigned int start_x,
                                   unsigned int start_y,
                                   unsigned int tile_size,
@@ -20,7 +20,7 @@ void EnemyDestroyer::DestroyEnemy(Enemy* enemy,
         enemy->SetHealth(0);
 }
 
-void EnemyDestroyer::DestroyPlayer(Player* player,
+void Destroyer::DestroyPlayer(Player* player,
                                   unsigned int start_x,
                                   unsigned int start_y,
                                   unsigned int tile_size,

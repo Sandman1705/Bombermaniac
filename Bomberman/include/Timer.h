@@ -1,7 +1,7 @@
 #ifndef TIMER_H
 #define TIMER_H
 
-#include "ScreenTimer.h"
+#include "SystemTimer.h"
 
 /**
  *  \file Timer.h
@@ -13,7 +13,7 @@
  *  \brief class for measuring time
  *  \details This is an utility class for measuring time which can be used for
  *           properly timing events. It measures time from singleton class
- *           ScreenTimer.
+ *           SystemTimer.
  */
 class Timer
 {
@@ -29,11 +29,11 @@ class Timer
          *  \brief Make new timer and set it to 0.
          *
          *  Constructor which makes new Timer object and sets it's value to 0.
-         *  Requires ScreenTimer from which it will calculate time.
-         *  \param screen_timer Represents the ScreenTimer it will use to
+         *  Requires SystemTimer from which it will calculate time.
+         *  \param system_timer Represents the SystemTimer it will use to
          *         measure time
          */
-        Timer(ScreenTimer* screen_timer);
+        Timer(SystemTimer* system_timer);
         /**
          *  \brief Resets the timer
          *
@@ -87,7 +87,7 @@ class Timer
     protected:
 
     private:
-        ScreenTimer*     m_screen_timer;
+        SystemTimer*     m_system_timer;
         unsigned long    m_past_ticks;
         unsigned long    m_paused_ticks;
         bool             m_paused;

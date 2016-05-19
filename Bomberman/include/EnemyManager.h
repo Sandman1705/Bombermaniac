@@ -14,7 +14,7 @@
 #include "Relay.h"
 #include "Enemy.h"
 #include "Player.h"
-#include "EnemyDestroyer.h"
+#include "Destroyer.h"
 
 /** \class EnemyManager
  *  \brief Class which is used for keeping track of all the enemies in the game.

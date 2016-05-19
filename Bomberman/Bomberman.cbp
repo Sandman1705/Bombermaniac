@@ -75,12 +75,12 @@
 		<Unit filename="include/Constants/TextureBombConstants.h" />
 		<Unit filename="include/Constants/TextureExplosionConstants.h" />
 		<Unit filename="include/Constants/TextureMapObjectConstants.h" />
+		<Unit filename="include/Destroyer.h" />
 		<Unit filename="include/DestructibleWall.h" />
 		<Unit filename="include/Display.h" />
 		<Unit filename="include/DisplayElement.h" />
 		<Unit filename="include/DisplayManager.h" />
 		<Unit filename="include/Enemy.h" />
-		<Unit filename="include/EnemyDestroyer.h" />
 		<Unit filename="include/EnemyManager.h" />
 		<Unit filename="include/ExitDisplay.h" />
 		<Unit filename="include/Explosion.h" />
@@ -89,25 +89,25 @@
 		<Unit filename="include/KeyboardInput.h" />
 		<Unit filename="include/Map.h" />
 		<Unit filename="include/MapObject.h" />
+		<Unit filename="include/Player.h" />
 		<Unit filename="include/PlayerManager.h" />
 		<Unit filename="include/Relay.h" />
-		<Unit filename="include/ScreenTimer.h" />
+		<Unit filename="include/SystemTimer.h" />
 		<Unit filename="include/Timer.h" />
 		<Unit filename="include/WallDestroyer.h" />
 		<Unit filename="include/WelcomeDisplay.h" />
-		<Unit filename="include/player.h" />
 		<Unit filename="includes.h" />
 		<Unit filename="resources/levels/level1.txt" />
 		<Unit filename="resources/levels/level2.txt" />
 		<Unit filename="resources/textures.bmp" />
 		<Unit filename="src/Bomb.cpp" />
 		<Unit filename="src/BombManager.cpp" />
+		<Unit filename="src/Destroyer.cpp" />
 		<Unit filename="src/DestructibleWall.cpp" />
 		<Unit filename="src/Display.cpp" />
 		<Unit filename="src/DisplayElement.cpp" />
 		<Unit filename="src/DisplayManager.cpp" />
 		<Unit filename="src/Enemy.cpp" />
-		<Unit filename="src/EnemyDestroyer.cpp" />
 		<Unit filename="src/EnemyManager.cpp" />
 		<Unit filename="src/ExitDisplay.cpp" />
 		<Unit filename="src/Explosion.cpp" />
@@ -116,13 +116,13 @@
 		<Unit filename="src/KeyboardInput.cpp" />
 		<Unit filename="src/Map.cpp" />
 		<Unit filename="src/MapObject.cpp" />
+		<Unit filename="src/Player.cpp" />
 		<Unit filename="src/PlayerManager.cpp" />
 		<Unit filename="src/Relay.cpp" />
-		<Unit filename="src/ScreenTimer.cpp" />
+		<Unit filename="src/SystemTimer.cpp" />
 		<Unit filename="src/Timer.cpp" />
 		<Unit filename="src/WallDestroyer.cpp" />
 		<Unit filename="src/WelcomeDisplay.cpp" />
-		<Unit filename="src/player.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

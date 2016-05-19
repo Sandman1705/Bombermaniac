@@ -1,5 +1,5 @@
 #include "GameDisplay.h"
-#include "ScreenTimer.h"
+#include "SystemTimer.h"
 
 #include "Relay.h"
 #include "Map.h"
@@ -65,12 +65,12 @@ void GameDisplay::Enter()
 {
     m_leave_previous = false;
     m_leave_next = false;
-    ScreenTimer::Instance()->Unpause();
+    SystemTimer::Instance()->Unpause();
 }
 
 void GameDisplay::Leave()
 {
-    ScreenTimer::Instance()->Pause();
+    SystemTimer::Instance()->Pause();
 }
 
 void GameDisplay::Destroy()

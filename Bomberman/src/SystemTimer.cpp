@@ -1,34 +1,34 @@
-#include "ScreenTimer.h"
+#include "SystemTimer.h"
 #include <SDL.h>
 
-ScreenTimer* ScreenTimer::s_instance;
+SystemTimer* SystemTimer::s_instance;
 
-ScreenTimer::ScreenTimer()
+SystemTimer::SystemTimer()
     : m_past_ticks(SDL_GetTicks()),
       m_paused_ticks(m_past_ticks),
       m_paused(false)
 {
 }
 
-ScreenTimer* ScreenTimer::Instance()
+SystemTimer* SystemTimer::Instance()
 {
     if (s_instance == 0) {
-        s_instance = new ScreenTimer();
+        s_instance = new SystemTimer();
     }
     return s_instance;
 }
 
-void ScreenTimer::ResetTimer()
+void SystemTimer::ResetTimer()
 {
     m_past_ticks = SDL_GetTicks();
 }
 
-void ScreenTimer::DecreaseTimer(unsigned long interval)
+void SystemTimer::DecreaseTimer(unsigned long interval)
 {
     m_past_ticks += interval;
 }
 
-unsigned long ScreenTimer::GetTimeElapsed() const
+unsigned long SystemTimer::GetTimeElapsed() const
 {
     if (m_paused)
         return m_paused_ticks - m_past_ticks;
@@ -36,7 +36,7 @@ unsigned long ScreenTimer::GetTimeElapsed() const
         return SDL_GetTicks() - m_past_ticks;
 }
 
-void ScreenTimer::Pause()
+void SystemTimer::Pause()
 {
     if (!m_paused)
     {
@@ -45,7 +45,7 @@ void ScreenTimer::Pause()
     }
 }
 
-void ScreenTimer::Unpause()
+void SystemTimer::Unpause()
 {
     if (m_paused)
     {
@@ -54,7 +54,7 @@ void ScreenTimer::Unpause()
     }
 }
 
-bool ScreenTimer::IsPaused() const
+bool SystemTimer::IsPaused() const
 {
     return m_paused;
 }

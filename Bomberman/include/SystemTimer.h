@@ -1,8 +1,8 @@
-#ifndef SCREENTIMER_H
-#define SCREENTIMER_H
+#ifndef SYSTEMTIMER_H
+#define SYSTEMTIMER_H
 
 /**
- *  \file ScreenTimer.h
+ *  \file SystemTimer.h
  *
  *  Defines class ScreenTimer which is used with SDL.h to calculate elapsed time
  */
@@ -13,17 +13,17 @@
  *           properly timing events. This class is singleton which means there
  *           can only be one instance of this class.
  */
-class ScreenTimer
+class SystemTimer
 {
     public:
 
         /** \brief Method to be used instead of constructor
          *
-         * Returns pointer to object ScreenTimer which is of singleton class so
+         * Returns pointer to object SystemTimer which is of singleton class so
          * it will always return pointer to the same object.
-         * \return pointer to singleton ScreenTimer
+         * \return pointer to singleton SystemTimer
          */
-        static ScreenTimer* Instance();
+        static SystemTimer* Instance();
 
         /**
          *  \brief Gives time elapsed in milliseconds
@@ -61,19 +61,19 @@ class ScreenTimer
     protected:
 
         /**
-         *  \brief Make new ScreenTimer and set it to 0.
+         *  \brief Make new SystemTimer and set it to 0.
          *
-         *  Basic constructor which makes new ScreenTimer object and sets it's
+         *  Basic constructor which makes new SystemTimer object and sets it's
          *  value to 0.
          */
-        ScreenTimer();
+        SystemTimer();
 
     private:
         unsigned long       m_past_ticks;
         unsigned long       m_paused_ticks;
         bool                m_paused;
 
-        static ScreenTimer* s_instance;
+        static SystemTimer* s_instance;
 
         void ResetTimer();
         void DecreaseTimer(unsigned long interval);

@@ -1,23 +1,23 @@
-#ifndef ENEMYDESTROYER_H
-#define ENEMYDESTROYER_H
+#ifndef DESTROYER_H
+#define DESTROYER_H
 
 /**
- *  \file EnemyDestroyer.h
+ *  \file Destroyer.h
  *
  *  Defines class EnemyDestroyer which is used to calculate the effects of
- *  Bomb's explosion on an Enemy.
+ *  Bomb's explosion on an Enemy or Player.
  *
  */
 
 #include "Enemy.h"
 #include "Player.h"
 
-/** \class EnemyDestroyer
- *  \brief class for killing enemies
+/** \class Destroyer
+ *  \brief class for killing enemies and players
  *  \details This class is used to calculate the effects of Bomb's explosion on
- *           an Enemy and decreases it's health if necessary.
+ *           an Enemy or Player and decreases their health if necessary.
  */
-class EnemyDestroyer
+class Destroyer
 {
     public:
 
@@ -46,7 +46,7 @@ class EnemyDestroyer
          * According to given parameters which represent center point of bomb's
          * explosion and intensity determines whether it should damage the
          * Player
-         * \param enemy pointer to Player for which the effect is calculated
+         * \param player pointer to Player for which the effect is calculated
          * \param start_x x coordinate of explosion's point of origin
          * \param start_y y coordinate of explosion's point of origin
          * \param tile_size represents the size of one tile of the map in
@@ -68,7 +68,7 @@ class EnemyDestroyer
 
     private:
 
-        EnemyDestroyer();
+        Destroyer();
 };
 
 #endif // ENEMYDESTROYER_H

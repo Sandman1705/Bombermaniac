@@ -1,5 +1,5 @@
 #include "PlayerManager.h"
-#include "EnemyDestroyer.h"
+#include "Destroyer.h"
 #include <iostream>
 PlayerManager::PlayerManager(SDL_Texture* texture, unsigned int tile_size, Relay *relay,
                KeyboardInput *keyboard_input)
@@ -29,7 +29,7 @@ void PlayerManager::KillPlayer(unsigned int x, unsigned int y, double intensity)
 {
     for(auto i = m_players.begin(); i != m_players.end(); ++i)
     {
-        EnemyDestroyer::DestroyPlayer(*i, x, y, m_tile_size, intensity);
+        Destroyer::DestroyPlayer(*i, x, y, m_tile_size, intensity);
     }
 }
 
