@@ -116,7 +116,7 @@ void PlayerManager::Update()
     }
 }
 
-std::list<Player*> PlayerManager::GetPlayers() const
+std::list<Player*>* PlayerManager::GetPlayers()
 {
-    return m_players;
+    return &m_players;
 }

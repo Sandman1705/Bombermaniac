@@ -13,7 +13,6 @@
 #include "includes.h"
 #include "KeyboardInput.h"
 #include "DisplayManager.h"
-#include "Display.h"
 
 /** \class game
  *  \brief Class which represents the game
@@ -104,7 +103,6 @@ class game
         SDL_Event           Event;
         KeyboardInput*      keyboard_input;
         SDL_Texture*        texture;
-        Display*            display;
         DisplayManager*     display_manager;
 
 };

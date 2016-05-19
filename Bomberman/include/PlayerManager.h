@@ -47,7 +47,7 @@ class PlayerManager : public DisplayElement
                KeyboardInput *keyboard_input);
         ~PlayerManager();
 
-        std::list<Player*> GetPlayers() const;
+        std::list<Player*>* GetPlayers();
 
          /**
          *  \brief Makes new Player according to given parameters.

@@ -55,7 +55,7 @@ void EnemyManager::Update()
 {
     for(auto i = m_enemies.begin(); i != m_enemies.end(); ++i)
     {
-        for(auto j = m_relay->GetPlayerManager()->GetPlayers().begin(); j != m_relay->GetPlayerManager()->GetPlayers().end(); ++j)
+        for(auto j = m_relay->GetPlayerManager()->GetPlayers()->begin(); j != m_relay->GetPlayerManager()->GetPlayers()->end(); ++j)
         (*i)->Update(m_relay, *j);
     }
 }
