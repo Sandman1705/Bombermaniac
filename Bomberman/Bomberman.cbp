@@ -62,6 +62,7 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="Makefile" />
 		<Unit filename="game.cpp" />
 		<Unit filename="game.h" />
 		<Unit filename="game_cleanup.cpp" />

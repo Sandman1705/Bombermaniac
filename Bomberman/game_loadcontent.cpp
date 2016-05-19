@@ -9,7 +9,11 @@
 bool game::LoadContent()
 {
     /* Texture loading - Begin */
+    #ifdef _WIN32
     std::string resourcesPath = "resources\\textures.bmp";
+    #else // LINUX
+    std::string resourcesPath = "resources/textures.bmp";
+    #endif
     SDL_Surface *bmp = SDL_LoadBMP(resourcesPath.c_str());
 
     if (bmp == nullptr)

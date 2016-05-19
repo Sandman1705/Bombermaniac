@@ -33,8 +33,11 @@ void GameDisplay::Init()
 {
     unsigned int tile_size = 44;
     m_relay = new Relay();
-
+#ifdef _WIN32
     Map* level = new Map("resources\\levels\\level2.txt", m_texture, tile_size);
+#else // LINUX
+    Map* level = new Map("resources/levels/level2.txt", m_texture, tile_size);
+#endif
     ExplosionManager* explosion_manager = new ExplosionManager(m_texture, tile_size);
     BombManager* bomb_manager = new BombManager(m_texture, tile_size, m_relay);
     PlayerManager* player_manager = new PlayerManager(m_texture, tile_size, m_relay, m_keyboard_input);
