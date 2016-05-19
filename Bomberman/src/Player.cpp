@@ -43,11 +43,11 @@ void Player::Update()
     if(m_timer.GetTimeElapsed()>m_speed)
     {
         //Key Input
-        if(m_keyboard_input->IsKeyOn(m_space))
+        if(m_keyboard_input->IsKeyOn(m_bomb_button))
          {
              m_bomb_ready = true;
          }
-         else if(!m_keyboard_input->IsKeyOn(m_space) && m_bomb_ready)
+         else if(!m_keyboard_input->IsKeyOn(m_bomb_button) && m_bomb_ready)
              {
                  this->PlaceBomb();
                  m_bomb_ready = false;
@@ -312,13 +312,13 @@ void Player::SetHealth(unsigned int h)
     m_health = h;
 }
 
-void Player::SetKeycodes(SDL_Keycode up, SDL_Keycode down, SDL_Keycode left, SDL_Keycode right, SDL_Keycode space)
+void Player::SetKeycodes(SDL_Keycode up, SDL_Keycode down, SDL_Keycode left, SDL_Keycode right, SDL_Keycode bomb_button)
 {
     m_up = up;
     m_down = down;
     m_left = left;
     m_right = right;
-    m_space = space;
+    m_bomb_button = bomb_button;
 }
 
 
