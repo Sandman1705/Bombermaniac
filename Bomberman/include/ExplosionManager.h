@@ -37,6 +37,11 @@ class ExplosionManager : public DisplayElement
          *         Draw())
          */
         ExplosionManager(SDL_Texture* texture, unsigned int tile_size);
+        /**
+         *  \brief Destructor for ExplosionManager
+         *
+         *  Deletes all objects of Explosion it keeps track off.
+         */
         ~ExplosionManager();
         //TODO Copy Constructor
         //TODO Operator =

@@ -28,7 +28,11 @@ class DestructibleWall : public MapObject
          *         will be taken for method Draw()
          */
         DestructibleWall(SDL_Texture *texture, unsigned int kind);
-
+        /**
+         *  \brief Destructor for DestructibleWall.
+         *
+         *  Basic destructor for DestructibleWall.
+         */
         virtual ~DestructibleWall() { };
         /**
          *  \brief Tells if the wall is destroyed
@@ -47,7 +51,17 @@ class DestructibleWall : public MapObject
          *  \return void
          */
         void DecreaseIntegrity(int value);
-
+        /**
+         *  \brief Draws a DestructibleWall tile on given SDL_Renderer.
+         *
+         *  Draws a tile on the map according to it's coordinates.
+         *  \param renderer represents SDL_Renderer on which a tile will be
+         *         drawn on
+         *  \param DestR location and size of renderer where should texture be
+         *         drawn
+         *
+         *  \return void
+         */
         virtual void Draw(SDL_Renderer* renderer, const SDL_Rect *DestR);
 
     protected:

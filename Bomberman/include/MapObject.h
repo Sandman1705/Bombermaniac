@@ -40,23 +40,28 @@ class MapObject
          *
          */
         MapObject(Tile id, SDL_Texture *texture, unsigned int kind = 0);
+         /**
+         *  \brief Destructor for MapObject
+         *
+         *  Basic destructor for MapObject. Destructor is virtual so that the
+         *  inherited classes from this can be destroyed via this destructor.
+         */
+        virtual ~MapObject() { };
         /** \brief Returns id of the tile
          *
          * Value returned is of type MapObject::Tile and represents id of this
          * tile
          * \return value of type MapObject::Tile of this tile
          */
-        virtual ~MapObject() { };
-
         Tile GetId() const { return m_id; }
         /**
          *  \brief Draws a tile on given SDL_Renderer.
          *
          *  Draws a tile on the map according to it's coordinates.
-         *  \param renderer represents SDL_Renderer on which a tile
-         *  will be drawn on
-         *  \param DestR location and size of renderer where should texture be drawn
-         *
+         *  \param renderer represents SDL_Renderer on which a tile will be
+         *         drawn on
+         *  \param DestR location and size of renderer where should texture be
+         *         drawn
          *  \return void
          */
         virtual void Draw(SDL_Renderer* renderer, const SDL_Rect *DestR);

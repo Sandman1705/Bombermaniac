@@ -95,7 +95,13 @@ class Map : public DisplayElement
          *  \return MapObject::Tile which represents the type of object
          */
         MapObject::Tile GetTileType(unsigned int i, unsigned int j) const;
-
+        /**
+         *  \brief Update method for Map
+         *
+         *  Empty method since there are no periodical changes on the map.
+         *
+         *  \return void
+         */
         void Update() {}
 
     protected:
