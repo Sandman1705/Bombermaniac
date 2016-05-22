@@ -53,4 +53,3 @@ bool game::LoadContent()
 
     return true;
 }
-

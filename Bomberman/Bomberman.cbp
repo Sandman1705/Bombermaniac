@@ -96,6 +96,7 @@
 		<Unit filename="include/PlayerManager.h" />
 		<Unit filename="include/Relay.h" />
 		<Unit filename="include/SystemTimer.h" />
+		<Unit filename="include/TextRenderer.h" />
 		<Unit filename="include/Timer.h" />
 		<Unit filename="include/WallDestroyer.h" />
 		<Unit filename="include/WelcomeDisplay.h" />
@@ -125,6 +126,7 @@
 		<Unit filename="src/PlayerManager.cpp" />
 		<Unit filename="src/Relay.cpp" />
 		<Unit filename="src/SystemTimer.cpp" />
+		<Unit filename="src/TextRenderer.cpp" />
 		<Unit filename="src/Timer.cpp" />
 		<Unit filename="src/WallDestroyer.cpp" />
 		<Unit filename="src/WelcomeDisplay.cpp" />

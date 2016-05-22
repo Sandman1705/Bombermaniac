@@ -1,5 +1,7 @@
 #include "game.h"
 
+#define DEBUG_OUTPUT_GAME
+
 #ifdef DEBUG_OUTPUT_GAME
 #include <iostream>
 #endif // DEBUG_OUTPUT_GAME
@@ -13,6 +15,14 @@ bool game::OnInit()
         #endif // DEBUG_OUTPUT_GAME
         return false;
     }
+    /* TTF Init */
+    if (TTF_Init() != 0){
+        #ifdef DEBUG_OUTPUT_GAME
+		std::cout << "TTF_Init Error: " << SDL_GetError() << std::endl;
+        #endif // DEBUG_OUTPUT_GAME
+		SDL_Quit();
+		return 1;
+	}
     /* SDL Window */
     if((window = SDL_CreateWindow("SUPER ULTRA MEGA BOMBERMAN (now with 30\% more BOOM)",100,100,1000,600, SDL_WINDOW_SHOWN)) == NULL)
     {
