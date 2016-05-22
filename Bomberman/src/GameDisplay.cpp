@@ -48,8 +48,8 @@ void GameDisplay::Init()
 
     enemy_manager->MakeEnemyOne(5*tile_size);
     enemy_manager->MakeEnemyOne(0, 10*tile_size);
-    enemy_manager->MakeEnemyOne(10*tile_size);
-    enemy_manager->MakeEnemyOne(8*tile_size, 8*tile_size);
+    enemy_manager->MakeEnemyTwo(10*tile_size);
+    enemy_manager->MakeEnemyTwo(8*tile_size, 8*tile_size);
 
     m_relay->SetExplosionManager(explosion_manager);
     m_relay->SetBombManager(bomb_manager);
