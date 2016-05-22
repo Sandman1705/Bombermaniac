@@ -120,6 +120,7 @@ class Enemy
         int          m_walk_len = 0;
         Timer        m_timer;
         unsigned int m_speed;
+        unsigned int m_rotation_const;
         unsigned int m_status = 0;
         unsigned int m_health = 100; //percent
         unsigned int m_x;

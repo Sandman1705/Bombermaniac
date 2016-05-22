@@ -17,6 +17,7 @@
 #include "Destroyer.h"
 #include "EnemyOne.h"
 #include "EnemyTwo.h"
+#include "EnemyThree.h"
 
 /** \class EnemyManager
  *  \brief Class which is used for keeping track of all the enemies in the game.
@@ -73,6 +74,8 @@ class EnemyManager : public DisplayElement
         void MakeEnemyOne(unsigned int x = 1, unsigned int y = 1);
 
         void MakeEnemyTwo(unsigned int x = 1, unsigned int y = 1);
+
+        void MakeEnemyThree(unsigned int x = 1, unsigned int y = 1);
 
          /**
          *  \brief Draw all the enemies it keeps track of on given SLD_Renderer

@@ -40,7 +40,7 @@ class EnemyOne : public Enemy
          *  \param val_y coordinate of the enemy on the map
          *
          */
-        EnemyOne(SDL_Texture* tex, unsigned int tile_size, unsigned int val_x = 0, unsigned int val_y = 0);
+        EnemyOne(SDL_Texture* tex, unsigned int tile_size, unsigned int val_x = 1, unsigned int val_y = 1);
 
         void Draw(SDL_Renderer* renderer);
 

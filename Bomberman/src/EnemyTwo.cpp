@@ -7,6 +7,7 @@ EnemyTwo::EnemyTwo(SDL_Texture* tex, unsigned int tile_size, unsigned int val_x,
     m_speed = 74; //timer speed
     m_move_speed = m_move_speed *m_tile_size/32; //speed according to 32px tile size
 
+    m_rotation_const = 2;
     m_enemy_size_w = 17;
     m_enemy_size_h = 23;
     m_enemy_size_w = m_enemy_size_w *tile_size/32;
@@ -30,15 +31,15 @@ void EnemyTwo::Draw(SDL_Renderer *renderer)
     SrcR.h = SHAPE_SIZE_y;
 
 
-    if(m_status % 3 == 0)
+    if(m_status % m_rotation_const == 0)
     {
         SrcR.x = source_x;
     }
-    if(m_status % 3 == 1)
+    if(m_status % m_rotation_const == 1)
     {
         SrcR.x = source_x + texture_offset;
     }
-    if(m_status % 3 == 2)
+    if(m_status % m_rotation_const == 2)
     {
         SrcR.x = source_x + 2*texture_offset;
     }

@@ -34,7 +34,7 @@ EnemyManager::EnemyManager(std::string path_to_file, SDL_Texture* texture, unsig
                 MakeEnemyTwo(x, y);
                 break;
             case 3:
-                MakeEnemy(x, y);
+                MakeEnemyThree(x, y);
                 break;
             default:
                 break;
@@ -87,6 +87,12 @@ void EnemyManager::MakeEnemyOne(unsigned int x, unsigned int y)
 void EnemyManager::MakeEnemyTwo(unsigned int x, unsigned int y)
 {
     Enemy* e = new EnemyTwo(m_texture, m_tile_size, x, y);
+    AddEnemy(e);
+}
+
+void EnemyManager::MakeEnemyThree(unsigned int x, unsigned int y)
+{
+    Enemy* e = new EnemyThree(m_texture, m_tile_size,x, y);
     AddEnemy(e);
 }
 
