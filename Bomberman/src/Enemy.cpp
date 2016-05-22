@@ -29,6 +29,11 @@ Enemy::Enemy(SDL_Texture* tex, unsigned int tile_size, unsigned int val_x, unsig
     this->m_direction = RIGHT;
 }
 
+Enemy::~Enemy()
+{
+
+}
+
 bool Enemy::Touch(unsigned int player_x, unsigned int player_y)
 {
     if(player_x >= m_x && player_y >= m_y && player_x <= m_x+m_enemy_size_w

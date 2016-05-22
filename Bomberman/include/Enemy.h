@@ -40,6 +40,7 @@ class Enemy
          *
          */
         Enemy(SDL_Texture* tex, unsigned int tile_size, unsigned int val_x = 0, unsigned int val_y = 0);
+        virtual ~Enemy();
 
         unsigned int GetX() const;
         void SetX(unsigned int val);

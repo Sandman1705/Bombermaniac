@@ -23,7 +23,6 @@ void EnemyTwo::Draw(SDL_Renderer *renderer)
 
     unsigned int source_x = 0;
     unsigned int source_y = 159;
-    unsigned int source_const = 5;
     unsigned int texture_offset = SHAPE_SIZE_x;
 
     SrcR.y = source_y;
