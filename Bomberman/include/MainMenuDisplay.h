@@ -7,7 +7,11 @@
 class MainMenuDisplay : public Display
 {
     public:
-        MainMenuDisplay(SDL_Texture* texture, SDL_Renderer* renderer, KeyboardInput* keyboard_input = nullptr);
+        MainMenuDisplay(SDL_Texture* texture,
+                        SDL_Renderer* renderer,
+                        unsigned int window_width,
+                        unsigned int window_height,
+                        KeyboardInput* keyboard_input = nullptr);
         ~MainMenuDisplay();
 
         void Init();
@@ -32,6 +36,8 @@ class MainMenuDisplay : public Display
         bool                        m_button_pressed_down;
         bool                        m_button_pressed_up;
         bool                        m_button_pressed_enter;
+        unsigned int                m_window_width;
+        unsigned int                m_window_height;
 
 };
 

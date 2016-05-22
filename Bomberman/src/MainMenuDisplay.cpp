@@ -8,10 +8,23 @@
 #include <iostream>
 #endif // DEBUG_OUTPUT_MAIN_MENU_DISPAY
 
-MainMenuDisplay::MainMenuDisplay(SDL_Texture* texture, SDL_Renderer* renderer, KeyboardInput* keyboard_input)
-    : Display(keyboard_input), m_texture(texture), m_arrow(0), m_button_pressed_down(false), m_button_pressed_up(false)
+MainMenuDisplay::MainMenuDisplay(SDL_Texture* texture,
+                                 SDL_Renderer* renderer,
+                                 unsigned int window_width,
+                                 unsigned int window_height,
+                                 KeyboardInput* keyboard_input)
+    : Display(keyboard_input),
+      m_texture(texture), m_arrow(0),
+      m_button_pressed_down(false),
+      m_button_pressed_up(false),
+      m_window_width(window_width),
+      m_window_height(window_height)
 {
+    #ifdef _WIN32
     TextRenderer text_renderer("resources\\Zabdilus.ttf",64);
+    #else //LINUX
+    TextRenderer text_renderer("resources/Zabdilus.ttf",64);
+    #endif
     SDL_Color color = {255, 0, 0, 255};
     SDL_Rect SrcR = { 0, 0, 0, 0 };
     SDL_Rect DestR = { 0, 0, 0, 0 };
@@ -19,8 +32,8 @@ MainMenuDisplay::MainMenuDisplay(SDL_Texture* texture, SDL_Renderer* renderer, K
 
     image = text_renderer.RenderText("NEW GAME", color, renderer);
     SDL_QueryTexture(image, NULL, NULL, &(SrcR.w), &(SrcR.h));
-    DestR.x = 1000 / 2 -  SrcR.w / 2;
-    DestR.y = 600 / 2 - SrcR.h / 2 - SrcR.h;
+    DestR.x = window_width / 2 -  SrcR.w / 2;
+    DestR.y = window_height / 2 - SrcR.h / 2 - SrcR.h;
     DestR.h = SrcR.h;
     DestR.w = SrcR.w;
     m_options_textures.push_back(image);
@@ -29,7 +42,6 @@ MainMenuDisplay::MainMenuDisplay(SDL_Texture* texture, SDL_Renderer* renderer, K
 
     image = text_renderer.RenderText("OPTIONS", color, renderer);
     SDL_QueryTexture(image, NULL, NULL, &(SrcR.w), &(SrcR.h));
-    //DestR.x = 1000 / 2 -  SrcR.w / 2;
     DestR.y += SrcR.h;
     DestR.h = SrcR.h;
     DestR.w = SrcR.w;
@@ -39,7 +51,6 @@ MainMenuDisplay::MainMenuDisplay(SDL_Texture* texture, SDL_Renderer* renderer, K
 
     image = text_renderer.RenderText("EXIT", color, renderer);
     SDL_QueryTexture(image, NULL, NULL, &(SrcR.w), &(SrcR.h));
-    //DestR.x = 1000 / 2 -  SrcR.w / 2;
     DestR.y += SrcR.h;
     DestR.h = SrcR.h;
     DestR.w = SrcR.w;
@@ -95,7 +106,7 @@ void MainMenuDisplay::Update()
     {
         m_button_pressed_down = false;
         ++m_arrow;
-        if (m_arrow >= m_options_textures.size())
+        if (m_arrow >= (int)m_options_textures.size())
             m_arrow = 0;
     }
     if (m_button_pressed_up && m_keyboard_input->IsKeyOn(SDLK_UP))

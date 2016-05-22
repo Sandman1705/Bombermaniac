@@ -3,11 +3,16 @@
 
 #include "Display.h"
 #include "SDL.h"
+#include <vector>
 
 class WelcomeDisplay : public Display
 {
     public:
-        WelcomeDisplay(SDL_Texture* texture, SDL_Renderer* renderer, KeyboardInput* keyboard_input = nullptr);
+        WelcomeDisplay(SDL_Texture* texture,
+                       SDL_Renderer* renderer,
+                       unsigned int m_window_width,
+                       unsigned int m_window_height,
+                       KeyboardInput* keyboard_input = nullptr);
         virtual ~WelcomeDisplay();
 
         void Enter();
@@ -18,11 +23,16 @@ class WelcomeDisplay : public Display
     protected:
 
     private:
-        SDL_Texture*    m_texture;
-        SDL_Renderer*   m_renderer;
+        SDL_Texture*                m_texture;
+        SDL_Renderer*               m_renderer;
+        std::vector<SDL_Texture*>   m_textures;
+        std::vector<SDL_Rect>       m_textures_draw_src;
+        std::vector<SDL_Rect>       m_textures_draw_dest;
 
-        bool            m_pressed_next;
-        bool            m_pressed_previous;
+        bool                        m_pressed_next;
+        bool                        m_pressed_previous;
+        unsigned int                m_window_width;
+        unsigned int                m_window_height;
 };
 
 #endif // WELCOMEDISPLAY_H

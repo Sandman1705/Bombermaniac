@@ -9,7 +9,12 @@
 class DisplayManager
 {
     public:
-        DisplayManager(SDL_Texture* texture, SDL_Renderer* renderer, KeyboardInput* keyboard_input, bool* running);
+        DisplayManager(SDL_Texture* texture,
+                       SDL_Renderer* renderer,
+                       KeyboardInput* keyboard_input,
+                       bool* running,
+                       unsigned int window_width,
+                       unsigned int window_height);
         ~DisplayManager();
 
         void EnterDisplay(Display* display);
@@ -24,6 +29,9 @@ class DisplayManager
     private:
         std::stack<Display*> m_displays;
         SDL_Renderer*        m_renderer;
+
+        unsigned int         m_window_width;
+        unsigned int         m_window_height;
 };
 
 #endif // DISPLAYMANAGER_H
