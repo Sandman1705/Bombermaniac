@@ -1,10 +1,10 @@
 #include "WelcomeDisplay.h"
-#include "GameDisplay.h"
+#include "MainMenuDisplay.h"
 #include <SDL.h>
 #include "TextRenderer.h"
 
-WelcomeDisplay::WelcomeDisplay(SDL_Texture* texture, KeyboardInput* keyboard_input)
-    : Display(keyboard_input), m_texture(texture), m_pressed_next(false), m_pressed_previous(false)
+WelcomeDisplay::WelcomeDisplay(SDL_Texture* texture, SDL_Renderer* renderer, KeyboardInput* keyboard_input)
+    : Display(keyboard_input), m_texture(texture), m_renderer(renderer), m_pressed_next(false), m_pressed_previous(false)
 {
 }
 
@@ -14,10 +14,10 @@ WelcomeDisplay::~WelcomeDisplay()
 
 void WelcomeDisplay::Enter()
 {
-    m_leave_previous = false;
+    m_leave_previous = true;
     m_leave_next = false;
-    m_pressed_next = false;
-    m_pressed_previous = false;
+//    m_pressed_next = false;
+//    m_pressed_previous = false;
 }
 
 void WelcomeDisplay::Update()
@@ -25,7 +25,7 @@ void WelcomeDisplay::Update()
     if (m_pressed_next && m_keyboard_input->IsKeyOn(SDLK_RETURN))
     {
         m_pressed_next = false;
-        m_next_display = new GameDisplay(m_texture,m_keyboard_input);
+        m_next_display = new MainMenuDisplay(m_texture,m_renderer,m_keyboard_input);
         m_leave_next = true;
     }
     if (m_pressed_previous && m_keyboard_input->IsKeyOn(SDLK_ESCAPE))

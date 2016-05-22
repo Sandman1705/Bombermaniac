@@ -90,6 +90,7 @@
 		<Unit filename="include/ExplosionManager.h" />
 		<Unit filename="include/GameDisplay.h" />
 		<Unit filename="include/KeyboardInput.h" />
+		<Unit filename="include/MainMenuDisplay.h" />
 		<Unit filename="include/Map.h" />
 		<Unit filename="include/MapObject.h" />
 		<Unit filename="include/Player.h" />
@@ -120,6 +121,7 @@
 		<Unit filename="src/ExplosionManager.cpp" />
 		<Unit filename="src/GameDisplay.cpp" />
 		<Unit filename="src/KeyboardInput.cpp" />
+		<Unit filename="src/MainMenuDisplay.cpp" />
 		<Unit filename="src/Map.cpp" />
 		<Unit filename="src/MapObject.cpp" />
 		<Unit filename="src/Player.cpp" />

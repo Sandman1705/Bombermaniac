@@ -2,11 +2,14 @@
 
 #include "ExitDisplay.h"
 #include "WelcomeDisplay.h"
+#include "MainMenuDisplay.h"
 
-DisplayManager::DisplayManager(SDL_Texture* texture, KeyboardInput* keyboard_input, bool* running)
+DisplayManager::DisplayManager(SDL_Texture* texture, SDL_Renderer* renderer, KeyboardInput* keyboard_input, bool* running)
+    : m_renderer(renderer)
 {
     m_displays.push(new ExitDisplay(running));
-    m_displays.push(new WelcomeDisplay(texture,keyboard_input));
+    m_displays.push(new WelcomeDisplay(texture,renderer,keyboard_input));
+    //m_displays.push(new MainMenuDisplay(texture,renderer,keyboard_input));
 }
 
 DisplayManager::~DisplayManager()
@@ -37,7 +40,10 @@ void DisplayManager::Update()
     if (CurrentDisplay()->ShouldLeaveToNext())
         EnterDisplay(CurrentDisplay()->NextDisplay());
     else if (CurrentDisplay()->ShouldLeaveToPrevious())
+    {
         LeaveDisplay();
+        Update();
+    }
     else
         CurrentDisplay()->Update();
 }

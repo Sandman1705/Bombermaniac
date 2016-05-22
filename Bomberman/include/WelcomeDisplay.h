@@ -7,7 +7,7 @@
 class WelcomeDisplay : public Display
 {
     public:
-        WelcomeDisplay(SDL_Texture* texture, KeyboardInput* keyboard_input = nullptr);
+        WelcomeDisplay(SDL_Texture* texture, SDL_Renderer* renderer, KeyboardInput* keyboard_input = nullptr);
         virtual ~WelcomeDisplay();
 
         void Enter();
@@ -19,6 +19,7 @@ class WelcomeDisplay : public Display
 
     private:
         SDL_Texture*    m_texture;
+        SDL_Renderer*   m_renderer;
 
         bool            m_pressed_next;
         bool            m_pressed_previous;

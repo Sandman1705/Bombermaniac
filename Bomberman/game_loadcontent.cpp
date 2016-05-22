@@ -40,7 +40,7 @@ bool game::LoadContent()
     /* Game objects initializing - Begin */
     keyboard_input = new KeyboardInput();
 
-    display_manager = new DisplayManager(texture,keyboard_input,&Running);
+    display_manager = new DisplayManager(texture,renderer,keyboard_input,&Running);
 
     //GameDisplay* game_display = new GameDisplay(texture,keyboard_input);
     //game_display->Init();
