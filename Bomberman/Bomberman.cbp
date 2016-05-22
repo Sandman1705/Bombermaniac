@@ -83,6 +83,7 @@
 		<Unit filename="include/DisplayManager.h" />
 		<Unit filename="include/Enemy.h" />
 		<Unit filename="include/EnemyManager.h" />
+		<Unit filename="include/EnemyOne.h" />
 		<Unit filename="include/ExitDisplay.h" />
 		<Unit filename="include/Explosion.h" />
 		<Unit filename="include/ExplosionManager.h" />
@@ -110,6 +111,7 @@
 		<Unit filename="src/DisplayManager.cpp" />
 		<Unit filename="src/Enemy.cpp" />
 		<Unit filename="src/EnemyManager.cpp" />
+		<Unit filename="src/EnemyOne.cpp" />
 		<Unit filename="src/ExitDisplay.cpp" />
 		<Unit filename="src/Explosion.cpp" />
 		<Unit filename="src/ExplosionManager.cpp" />
