@@ -1,7 +1,7 @@
 #include "PlayerManager.h"
 #include "Destroyer.h"
-#include <iostream>
-PlayerManager::PlayerManager(SDL_Texture* texture, unsigned int tile_size, Relay *relay,
+#include <fstream>
+PlayerManager::PlayerManager(std::string path_to_file, SDL_Texture* texture, unsigned int tile_size, Relay *relay,
                KeyboardInput *keyboard_input)
     : DisplayElement(texture)
 {
@@ -9,6 +9,25 @@ PlayerManager::PlayerManager(SDL_Texture* texture, unsigned int tile_size, Relay
     m_relay = relay;
     m_keyboard_input = keyboard_input;
     m_timer.ResetTimer();
+
+    std::fstream fs;
+    fs.open (path_to_file, std::fstream::in);
+
+    if (!fs.is_open())
+    {
+        exit(EXIT_FAILURE);
+    }
+
+    fs >> m_players_numb;
+
+    for (unsigned i=0; i<m_players_numb; ++i)
+    {
+        unsigned int id, x=0, y=0;
+        fs >> id >> x >> y;
+        MakePlayer(id, x, y);
+    }
+
+    fs.close();
 }
 
 PlayerManager::~PlayerManager()
