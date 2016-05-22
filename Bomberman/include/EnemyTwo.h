@@ -24,7 +24,7 @@ class EnemyTwo : public Enemy
          *  \param val_y coordinate of the enemy on the map
          *
          */
-        EnemyTwo(SDL_Texture* tex, unsigned int tile_size, unsigned int val_x = 0, unsigned int val_y = 0);
+        EnemyTwo(SDL_Texture* tex, unsigned int tile_size, unsigned int val_x = 1, unsigned int val_y = 1);
 
         void Draw(SDL_Renderer* renderer);
 

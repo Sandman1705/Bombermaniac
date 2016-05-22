@@ -17,6 +17,7 @@
 #include "Destroyer.h"
 #include "EnemyOne.h"
 #include "EnemyTwo.h"
+#include "EnemyThree.h"
 
 /** \class EnemyManager
  *  \brief Class which is used for keeping track of all the enemies in the game.
@@ -40,7 +41,7 @@ class EnemyManager : public DisplayElement
          *         Draw())
          *  \param relay pointer to the Relay object of the game
          */
-        EnemyManager(SDL_Texture* texture, unsigned int tile_size, Relay *relay);
+        EnemyManager(std::string path_to_file,SDL_Texture* texture, unsigned int tile_size, Relay *relay);
         virtual ~EnemyManager();
 
         /**
@@ -68,11 +69,13 @@ class EnemyManager : public DisplayElement
          *
          *  \return void
          */
-        void MakeEnemy(unsigned int x = 0, unsigned int y = 0);
+        void MakeEnemy(unsigned int x = 1, unsigned int y = 1);
 
-        void MakeEnemyOne(unsigned int x = 0, unsigned int y = 0);
+        void MakeEnemyOne(unsigned int x = 1, unsigned int y = 1);
 
-        void MakeEnemyTwo(unsigned int x = 0, unsigned int y = 0);
+        void MakeEnemyTwo(unsigned int x = 1, unsigned int y = 1);
+
+        void MakeEnemyThree(unsigned int x = 1, unsigned int y = 1);
 
          /**
          *  \brief Draw all the enemies it keeps track of on given SLD_Renderer
@@ -100,6 +103,7 @@ class EnemyManager : public DisplayElement
     protected:
 
     private:
+    unsigned int            m_enemies_numb;
     std::list<Enemy*>       m_enemies;
     Relay*                  m_relay;
     unsigned int            m_tile_size;

@@ -3,24 +3,8 @@
 #include <iostream>
 Enemy::Enemy(SDL_Texture* tex, unsigned int tile_size, unsigned int val_x, unsigned int val_y)
 {
-    //default for x
-    if(val_x == 0)
-    {
-        this->m_x = tile_size;
-    }
-    else
-    {
-        this->m_x = val_x;
-    }
-    //default for y
-    if(val_y == 0)
-    {
-        this->m_y = tile_size;
-    }
-    else
-    {
-        this->m_y = val_y;
-    }
+    this->m_x = val_x*tile_size;
+    this->m_y = val_y*tile_size;
 
     srand(time(NULL));
     m_timer.ResetTimer();
@@ -108,47 +92,6 @@ void Enemy::Update(Relay *relay, Player *player)
     }
 }
 
-void Enemy::Draw(SDL_Renderer *renderer)
-{
-    SDL_Rect SrcR;
-    SDL_Rect DestR;
-
-    unsigned int SHAPE_SIZE_x = 20;
-    unsigned int SHAPE_SIZE_y = 25;
-
-    unsigned int source_x = 1;
-    unsigned int source_y = 183;
-    unsigned int source_const = 5;
-    unsigned int texture_offset = source_const + SHAPE_SIZE_x;
-
-    SrcR.y = source_y;
-    SrcR.w = SHAPE_SIZE_x;
-    SrcR.h = SHAPE_SIZE_y;
-
-
-    if(m_status % 3 == 0)
-    {
-        SrcR.x = source_x;
-    }
-    if(m_status % 3 == 1)
-    {
-        SrcR.x = source_x + texture_offset;
-    }
-    if(m_status % 3 == 2)
-    {
-        SrcR.x = source_x + 2*texture_offset;
-    }
-
-    //----------------------
-    DestR.x = m_x;
-    DestR.y = m_y;
-    DestR.w = m_enemy_size_w;
-    DestR.h = m_enemy_size_h;
-    //----------------------
-
-    SDL_RenderCopy(renderer, m_tex, &SrcR, &DestR);
-}
-
 void Enemy::EnemyMove(Relay *relay)
 {
     unsigned int field_size = m_tile_size;
@@ -189,7 +132,7 @@ void Enemy::EnemyMove(Relay *relay)
                     }
                 }
     m_status++;
-    if(m_status > 2)
+    if(m_status > m_rotation_const)
         m_status = 0;
 }
 

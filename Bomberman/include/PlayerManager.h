@@ -43,7 +43,7 @@ class PlayerManager : public DisplayElement
          *         (which is used to keep track of input given by the user)
          */
     public:
-        PlayerManager(SDL_Texture* texture, unsigned int tile_size, Relay *relay,
+        PlayerManager(std::string path_to_file, SDL_Texture* texture, unsigned int tile_size, Relay *relay,
                KeyboardInput *keyboard_input);
         ~PlayerManager();
 
@@ -61,7 +61,7 @@ class PlayerManager : public DisplayElement
          *
          *  \return void
          */
-        void MakePlayer(unsigned int player_id = 0, unsigned int x = 0, unsigned int y = 0);
+        void MakePlayer(unsigned int player_id = 0, unsigned int x = 1, unsigned int y = 1);
 
         /**
          *  \brief Draw the player it keeps track of on given SLD_Renderer
@@ -92,6 +92,7 @@ class PlayerManager : public DisplayElement
 
     private:
     unsigned int             m_death_time;
+    unsigned int             m_players_numb;
     Timer                    m_timer;
     std::list<Player*>       m_players;
     Relay*                   m_relay;

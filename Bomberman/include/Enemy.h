@@ -39,7 +39,7 @@ class Enemy
          *  \param val_y coordinate of the enemy on the map
          *
          */
-        Enemy(SDL_Texture* tex, unsigned int tile_size, unsigned int val_x = 0, unsigned int val_y = 0);
+        Enemy(SDL_Texture* tex, unsigned int tile_size, unsigned int val_x = 1, unsigned int val_y = 1);
         virtual ~Enemy();
 
         unsigned int GetX() const;
@@ -80,7 +80,7 @@ class Enemy
          *
          *  \return void
          */
-        virtual void Draw(SDL_Renderer* renderer);
+        virtual void Draw(SDL_Renderer* renderer) = 0;
 
         /**
          *  \brief Updates enemy's position on map.
@@ -120,6 +120,7 @@ class Enemy
         int          m_walk_len = 0;
         Timer        m_timer;
         unsigned int m_speed;
+        unsigned int m_rotation_const;
         unsigned int m_status = 0;
         unsigned int m_health = 100; //percent
         unsigned int m_x;
