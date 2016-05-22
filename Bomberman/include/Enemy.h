@@ -79,7 +79,7 @@ class Enemy
          *
          *  \return void
          */
-        void Draw(SDL_Renderer* renderer);
+        virtual void Draw(SDL_Renderer* renderer);
 
         /**
          *  \brief Updates enemy's position on map.
@@ -108,8 +108,6 @@ class Enemy
         bool Touch(unsigned int player_x, unsigned int player_y);
 
     protected:
-
-    private:
         enum Direction
         {
               LEFT = 0,
@@ -120,16 +118,18 @@ class Enemy
         Direction    m_direction;
         int          m_walk_len = 0;
         Timer        m_timer;
-        unsigned int m_speed = 100;
-        unsigned int m_status;
+        unsigned int m_speed;
+        unsigned int m_status = 0;
         unsigned int m_health = 100; //percent
         unsigned int m_x;
         unsigned int m_y;
         unsigned int m_move_speed = 4;
-        unsigned int m_enemy_size_w = 17;
-        unsigned int m_enemy_size_h = 23;
+        unsigned int m_enemy_size_w;
+        unsigned int m_enemy_size_h;
         SDL_Texture* m_tex;
         unsigned int m_tile_size;
+    private:
+
 };
 
 #endif // ENEMY_H
