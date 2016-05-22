@@ -3,24 +3,8 @@
 #include <iostream>
 Enemy::Enemy(SDL_Texture* tex, unsigned int tile_size, unsigned int val_x, unsigned int val_y)
 {
-    //default for x
-    if(val_x == 0)
-    {
-        this->m_x = tile_size;
-    }
-    else
-    {
-        this->m_x = val_x;
-    }
-    //default for y
-    if(val_y == 0)
-    {
-        this->m_y = tile_size;
-    }
-    else
-    {
-        this->m_y = val_y;
-    }
+    this->m_x = val_x*tile_size;
+    this->m_y = val_y*tile_size;
 
     srand(time(NULL));
     m_timer.ResetTimer();

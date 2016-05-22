@@ -41,15 +41,10 @@ void GameDisplay::Init()
     ExplosionManager* explosion_manager = new ExplosionManager(m_texture, tile_size);
     BombManager* bomb_manager = new BombManager(m_texture, tile_size, m_relay);
     PlayerManager* player_manager = new PlayerManager(m_texture, tile_size, m_relay, m_keyboard_input);
-    player_manager->MakePlayer();
-    player_manager->MakePlayer(1,2*tile_size,0);
+    player_manager->MakePlayer(0,1,1);
+    player_manager->MakePlayer(1,2,1);
     player_manager->GetPlayers()->back()->SetKeycodes(SDLK_w, SDLK_s, SDLK_a, SDLK_d, SDLK_g);
-    EnemyManager* enemy_manager = new EnemyManager(m_texture, tile_size, m_relay);
-
-    enemy_manager->MakeEnemyOne(5*tile_size);
-    enemy_manager->MakeEnemyOne(0, 10*tile_size);
-    enemy_manager->MakeEnemyTwo(10*tile_size);
-    enemy_manager->MakeEnemyTwo(8*tile_size, 8*tile_size);
+    EnemyManager* enemy_manager = new EnemyManager("resources/levels/enemy2.txt", m_texture, tile_size, m_relay);
 
     m_relay->SetExplosionManager(explosion_manager);
     m_relay->SetBombManager(bomb_manager);

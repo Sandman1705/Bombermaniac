@@ -61,7 +61,7 @@ class PlayerManager : public DisplayElement
          *
          *  \return void
          */
-        void MakePlayer(unsigned int player_id = 0, unsigned int x = 0, unsigned int y = 0);
+        void MakePlayer(unsigned int player_id = 0, unsigned int x = 1, unsigned int y = 1);
 
         /**
          *  \brief Draw the player it keeps track of on given SLD_Renderer
