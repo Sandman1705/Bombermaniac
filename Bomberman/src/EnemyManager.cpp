@@ -72,12 +72,6 @@ void EnemyManager::AddEnemy(Enemy *enemy)
     m_enemies.push_back(enemy);
 }
 
-void EnemyManager::MakeEnemy(unsigned int x, unsigned int y)
-{
-    Enemy* e = new Enemy(m_texture, m_tile_size, x, y);
-    AddEnemy(e);
-}
-
 void EnemyManager::MakeEnemyOne(unsigned int x, unsigned int y)
 {
     Enemy* e = new EnemyOne(m_texture, m_tile_size,x, y);

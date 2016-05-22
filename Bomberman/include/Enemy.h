@@ -80,7 +80,7 @@ class Enemy
          *
          *  \return void
          */
-        virtual void Draw(SDL_Renderer* renderer);
+        virtual void Draw(SDL_Renderer* renderer) = 0;
 
         /**
          *  \brief Updates enemy's position on map.
