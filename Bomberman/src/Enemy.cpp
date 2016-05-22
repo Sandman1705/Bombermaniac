@@ -22,17 +22,16 @@ Enemy::Enemy(SDL_Texture* tex, unsigned int tile_size, unsigned int val_x, unsig
         this->m_y = val_y;
     }
 
+    srand(time(NULL));
+    m_timer.ResetTimer();
     this->m_tex = tex;
-    this->m_status = 0;
     this->m_tile_size = tile_size;
     this->m_direction = RIGHT;
+}
 
-    srand(time(NULL));
+Enemy::~Enemy()
+{
 
-    m_timer.ResetTimer();
-    m_enemy_size_w = m_enemy_size_w *tile_size/32;
-    m_enemy_size_h = m_enemy_size_h *tile_size/32; //size according to 32px tile size
-    m_move_speed = m_move_speed *m_tile_size/32; //speed according to 32px tile size
 }
 
 bool Enemy::Touch(unsigned int player_x, unsigned int player_y)

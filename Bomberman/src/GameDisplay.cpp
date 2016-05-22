@@ -46,10 +46,10 @@ void GameDisplay::Init()
     player_manager->GetPlayers()->back()->SetKeycodes(SDLK_w, SDLK_s, SDLK_a, SDLK_d, SDLK_g);
     EnemyManager* enemy_manager = new EnemyManager(m_texture, tile_size, m_relay);
 
-    enemy_manager->MakeEnemy(5*tile_size);
-    enemy_manager->MakeEnemy(0, 10*tile_size);
-    enemy_manager->MakeEnemy(10*tile_size);
-    enemy_manager->MakeEnemy(8*tile_size, 8*tile_size);
+    enemy_manager->MakeEnemyOne(5*tile_size);
+    enemy_manager->MakeEnemyOne(0, 10*tile_size);
+    enemy_manager->MakeEnemyTwo(10*tile_size);
+    enemy_manager->MakeEnemyTwo(8*tile_size, 8*tile_size);
 
     m_relay->SetExplosionManager(explosion_manager);
     m_relay->SetBombManager(bomb_manager);

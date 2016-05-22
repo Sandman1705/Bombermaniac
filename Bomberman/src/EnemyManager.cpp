@@ -43,6 +43,18 @@ void EnemyManager::MakeEnemy(unsigned int x, unsigned int y)
     AddEnemy(e);
 }
 
+void EnemyManager::MakeEnemyOne(unsigned int x, unsigned int y)
+{
+    Enemy* e = new EnemyOne(m_texture, m_tile_size, x, y);
+    AddEnemy(e);
+}
+
+void EnemyManager::MakeEnemyTwo(unsigned int x, unsigned int y)
+{
+    Enemy* e = new EnemyTwo(m_texture, m_tile_size, x, y);
+    AddEnemy(e);
+}
+
 void EnemyManager::Draw(SDL_Renderer* renderer) const
 {
     for(auto i = m_enemies.begin(); i != m_enemies.end(); ++i)

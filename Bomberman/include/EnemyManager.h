@@ -15,6 +15,8 @@
 #include "Enemy.h"
 #include "Player.h"
 #include "Destroyer.h"
+#include "EnemyOne.h"
+#include "EnemyTwo.h"
 
 /** \class EnemyManager
  *  \brief Class which is used for keeping track of all the enemies in the game.
@@ -67,6 +69,11 @@ class EnemyManager : public DisplayElement
          *  \return void
          */
         void MakeEnemy(unsigned int x = 0, unsigned int y = 0);
+
+        void MakeEnemyOne(unsigned int x = 0, unsigned int y = 0);
+
+        void MakeEnemyTwo(unsigned int x = 0, unsigned int y = 0);
+
          /**
          *  \brief Draw all the enemies it keeps track of on given SLD_Renderer
          *
@@ -78,6 +85,7 @@ class EnemyManager : public DisplayElement
          *  \return void
          */
         void Draw(SDL_Renderer* renderer) const;
+
         /**
          *  \brief Update function for class EnemyManager
          *
