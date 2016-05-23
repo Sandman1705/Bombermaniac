@@ -70,6 +70,9 @@ MainMenuDisplay::~MainMenuDisplay()
         SDL_DestroyTexture(*i);
     }
     SDL_DestroyTexture(m_arrow_texture);
+    m_options_textures.clear();
+    m_options_draw_dest.clear();
+    m_options_draw_src.clear();
 }
 
 void MainMenuDisplay::Init()
@@ -98,6 +101,9 @@ void MainMenuDisplay::Destroy()
         SDL_DestroyTexture(*i);
     }
     SDL_DestroyTexture(m_arrow_texture);
+    m_options_textures.clear();
+    m_options_draw_dest.clear();
+    m_options_draw_src.clear();
 }
 
 void MainMenuDisplay::Update()

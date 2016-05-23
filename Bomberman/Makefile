@@ -30,17 +30,22 @@ DisplayElement.o \
 DisplayManager.o \
 Enemy.o \
 EnemyManager.o \
+EnemyOne.o \
+EnemyThree.o \
+EnemyTwo.o \
 ExitDisplay.o \
 Explosion.o \
 ExplosionManager.o \
 GameDisplay.o \
 KeyboardInput.o \
+MainMenuDisplay.o \
 Map.o \
 MapObject.o \
 Player.o \
 PlayerManager.o \
 Relay.o \
 SystemTimer.o \
+TextRenderer.o \
 Timer.o \
 WallDestroyer.o \
 WelcomeDisplay.o
@@ -59,15 +64,15 @@ debug: all
 release: CFLAGS += -O2
 #release: DIR_BIN := bin/release
 #release: DIR_OBJ := obj/release
-#release: DIR_OBJ_SRC := obj/release/src: 
+#release: DIR_OBJ_SRC := obj/release/src:
 #release: OBJS := $(addprefix $(DIR_OBJ)/,$(OBJ_BASE)) $(addprefix $(DIR_OBJ_SRC)/,$(OBJ_BASE_SRC))
 release: all
 
 $(DIR_OBJ)/%.o	: %.cpp
-	$(CC) $(CFLAGS) -c -I $(SDL_INCLUDE) -I $(INCLUDE) -o $@ $< 
+	$(CC) $(CFLAGS) -c -I $(SDL_INCLUDE) -I $(INCLUDE) -o $@ $<
 
 Bomberman.exe : $(OBJS)
-	$(CC) $(CFLAGS) -L $(SDL_LIB) -o $(DIR_BIN)/Bomberman.exe $(OBJS) $(SDL_FLAGS) 
+	$(CC) $(CFLAGS) -L $(SDL_LIB) -o $(DIR_BIN)/Bomberman.exe $(OBJS) $(SDL_FLAGS)
 
 $(OBJS): | $(DIR_OBJ)
 
@@ -80,6 +85,3 @@ clean:
 	rm -rf *~ obj/ bin/
 
 
-
-
-		

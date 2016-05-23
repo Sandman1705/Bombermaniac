@@ -32,6 +32,7 @@ void DisplayManager::EnterDisplay(Display* display)
 void DisplayManager::LeaveDisplay()
 {
     m_displays.top()->Destroy();
+    delete m_displays.top();
     m_displays.pop();
     m_displays.top()->Enter();
 }

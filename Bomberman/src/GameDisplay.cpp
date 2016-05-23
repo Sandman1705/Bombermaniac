@@ -22,6 +22,7 @@ GameDisplay::~GameDisplay()
     {
         delete (*i);
     }
+    m_display_elements.clear();
 }
 
 void GameDisplay::AddDisplayElement(DisplayElement* display_element)
@@ -75,6 +76,7 @@ void GameDisplay::Destroy()
     {
         delete (*i);
     }
+    m_display_elements.clear();
 }
 
 void GameDisplay::Update()
