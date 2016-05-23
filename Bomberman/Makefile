@@ -7,9 +7,17 @@ SDL_FLAGS = -lSDL2main -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf
 
 INCLUDE = include
 
-DIR_BIN := bin/default
-DIR_OBJ := obj/default
-DIR_OBJ_SRC := obj/default/src
+DIR_BIN := bin
+DIR_OBJ := obj
+DIR_OBJ_SRC := obj/src
+
+DIR_OBJ_SRC_OTHER := \
+obj/src/Destroyer \
+obj/src/Display \
+obj/src/Entity \
+obj/src/Manager \
+obj/src/System \
+obj/src/Utility \
 
 OBJ_BASE := \
 game.o \
@@ -21,34 +29,34 @@ game_onloop.o \
 game_onrender.o
 
 OBJ_BASE_SRC := \
-Bomb.o \
-BombManager.o \
-Destroyer.o \
-DestructibleWall.o \
-Display.o \
-DisplayElement.o \
-DisplayManager.o \
-Enemy.o \
-EnemyManager.o \
-EnemyOne.o \
-EnemyThree.o \
-EnemyTwo.o \
-ExitDisplay.o \
-Explosion.o \
-ExplosionManager.o \
-GameDisplay.o \
-KeyboardInput.o \
-MainMenuDisplay.o \
-Map.o \
-MapObject.o \
-Player.o \
-PlayerManager.o \
-Relay.o \
-SystemTimer.o \
-TextRenderer.o \
-Timer.o \
-WallDestroyer.o \
-WelcomeDisplay.o
+Destroyer/Destroyer.o \
+Destroyer/WallDestroyer.o \
+Display/Display.o \
+Display/DisplayElement.o \
+Display/DisplayManager.o \
+Display/ExitDisplay.o \
+Display/GameDisplay.o \
+Display/MainMenuDisplay.o \
+Display/WelcomeDisplay.o \
+Entity/Bomb.o \
+Entity/DestructibleWall.o \
+Entity/Enemy.o \
+Entity/EnemyOne.o \
+Entity/EnemyThree.o \
+Entity/EnemyTwo.o \
+Entity/Explosion.o \
+Entity/MapObject.o \
+Entity/Player.o \
+Manager/BombManager.o \
+Manager/EnemyManager.o \
+Manager/ExplosionManager.o \
+Manager/PlayerManager.o \
+Manager/Map.o \
+System/KeyboardInput.o \
+System/SystemTimer.o \
+System/TextRenderer.o \
+Utility/Relay.o \
+Utility/Timer.o
 
 OBJS := $(addprefix $(DIR_OBJ)/,$(OBJ_BASE)) $(addprefix $(DIR_OBJ_SRC)/,$(OBJ_BASE_SRC))
 
@@ -77,11 +85,9 @@ Bomberman.exe : $(OBJS)
 $(OBJS): | $(DIR_OBJ)
 
 $(DIR_OBJ):
-	mkdir $(DIR_OBJ) $(DIR_OBJ_SRC) $(DIR_BIN) -p
+	mkdir $(DIR_OBJ) $(DIR_OBJ_SRC) $(DIR_OBJ_SRC_OTHER) $(DIR_BIN) -p
 
 .PHONY: clean all
 
 clean:
 	rm -rf *~ obj/ bin/
-
-

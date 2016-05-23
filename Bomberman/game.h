@@ -11,8 +11,8 @@
  */
 
 #include "includes.h"
-#include "KeyboardInput.h"
-#include "DisplayManager.h"
+#include "System/KeyboardInput.h"
+#include "Display/DisplayManager.h"
 
 /** \class game
  *  \brief Class which represents the game

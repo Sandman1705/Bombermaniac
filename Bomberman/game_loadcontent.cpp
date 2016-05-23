@@ -1,6 +1,6 @@
 #include "game.h"
 #include "SDL_image.h"
-#include "DisplayManager.h"
+#include "Display/DisplayManager.h"
 
 #ifdef DEBUG_OUTPUT_GAME
 #include <iostream>

@@ -1,5 +1,5 @@
-# rs16-14 
-Bomberman(iac) -- o(X_X)o -- for Windows and Linux 
+# rs16-14 -- o(X_X)o --
+## Bomberman(iac) - for Windows and Linux 
 
 Project name: Bomberman
 
