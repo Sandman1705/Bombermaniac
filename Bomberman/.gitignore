@@ -1,5 +1,6 @@
 *.exe
 *.o
+*.dll
 Thumbs.db
 Bomberman.depend
 Bomberman.layout
