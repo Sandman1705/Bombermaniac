@@ -7,7 +7,7 @@ EnemyOne::EnemyOne(SDL_Texture* tex, unsigned int tile_size, unsigned int val_x,
     m_speed = 100; //timer speed
     m_move_speed = m_move_speed *m_tile_size/32; //speed according to 32px tile size
 
-    m_rotation_const = 2;
+    m_rotation_const = 3;
     m_enemy_size_w = 17;
     m_enemy_size_h = 23;
     m_enemy_size_w = m_enemy_size_w *tile_size/32;
