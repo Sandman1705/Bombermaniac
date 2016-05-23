@@ -21,18 +21,21 @@
  *           button is being held, false otherwise.
  *           Also has methods for changing the boolean values according for each
  *           key.
+ *           This class is singleton which means there can only be one instance
+ *           of this class.
  *           This class is meant to be used with SDL_Event class.
  */
 class KeyboardInput
 {
     public:
-        /**
-         *  \brief Constructor for KeyboardInput
+
+        /** \brief Method to be used instead of constructor
          *
-         *  Makes an object of class KeyboardInput. Will return false values for
-         *  every key at start.
+         * Returns pointer to object KeyboardInput which is of singleton class
+         * so it will always return pointer to the same object.
+         * \return pointer to singleton KeyboardInput
          */
-        KeyboardInput();
+        static KeyboardInput* Instance();
 
         /**
          *  \brief Tells the object which button is pressed
@@ -66,8 +69,18 @@ class KeyboardInput
 
     protected:
 
+        /**
+         *  \brief Constructor for KeyboardInput
+         *
+         *  Makes an object of class KeyboardInput. Will return false values for
+         *  every key at start.
+         */
+        KeyboardInput();
+
     private:
         std::map<SDL_Keycode,bool> m_keys_pressed;
+
+        static KeyboardInput* s_instance;
 };
 
 #endif // KEYBOARDINPUT_H

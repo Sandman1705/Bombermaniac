@@ -6,8 +6,18 @@
 #include<iostream>
 #endif // DEBUG_OUTPUT
 
+KeyboardInput* KeyboardInput::s_instance;
+
 KeyboardInput::KeyboardInput()
 {
+}
+
+KeyboardInput* KeyboardInput::Instance()
+{
+    if (s_instance == 0) {
+        s_instance = new KeyboardInput();
+    }
+    return s_instance;
 }
 
 void KeyboardInput::TurnKeyOn(SDL_Keycode key)
@@ -28,6 +38,7 @@ void KeyboardInput::TurnKeyOn(SDL_Keycode key)
 void KeyboardInput::TurnKeyOff(SDL_Keycode key)
 {
     m_keys_pressed[key] = false;
+    //m_keys_pressed.erase(key);
     #ifdef DEBUG_OUTPUT
     std::cout << key << " is released" << std::endl;
     #endif // DEBUG_OUTPUT
