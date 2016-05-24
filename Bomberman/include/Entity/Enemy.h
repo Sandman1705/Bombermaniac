@@ -19,9 +19,9 @@
  *  \brief class which represents an enemy
  *  \details This class contains all properties of an enemy like its
  *           coordinates on a map, its size, direction where its going
- *           as well as its speed. Also contains a method Draw()
- *           which draws him on a proper place on map, method enemy_move()
- *           for moving around the map and update() for
+ *           as well as its speed. Also contains a method Draw() which is
+ *           abstract and draws Enemy on a proper place on map,
+ *           method EnemyMove() for moving around the map and Update() for
  *           refreshing its position.
  */
 
@@ -35,8 +35,8 @@ class Enemy
          *  \param tex pointer to SDL_texture object from which the texture
          *         will be taken for method Draw()
          *  \param tile_size size of one tile on map
-         *  \param val_x coordinate of the enemy on the map
-         *  \param val_y coordinate of the enemy on the map
+         *  \param val_x x coordinate of the enemy on the map
+         *  \param val_y y coordinate of the enemy on the map
          *
          */
         Enemy(SDL_Texture* tex, unsigned int tile_size, unsigned int val_x = 1, unsigned int val_y = 1);
@@ -63,7 +63,7 @@ class Enemy
         *  \brief Function that implements movement for enemy.
         *
         *  Updates the position of enemy on the map according to
-        *  method update().
+        *  method Update().
         *
         *  \param relay pointer to Relay object of the game
         *

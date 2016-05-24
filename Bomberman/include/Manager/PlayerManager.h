@@ -50,6 +50,18 @@ class PlayerManager : public DisplayElement
         std::list<Player*>* GetPlayers();
 
          /**
+         *  \brief Adds new Player to the list of players.
+         *
+         *  Adds new Player to the list of players so that it will be periodically
+         *  updated and destroyed when the enemy kills them.
+         *
+         *  \param player pointer to object Player which will be added to the list
+         *
+         *  \return void
+         */
+        void AddPlayer(Player *player);
+
+         /**
          *  \brief Makes new Player according to given parameters.
          *
          *  Uses the given parameters and makes a new Player object.
@@ -64,7 +76,7 @@ class PlayerManager : public DisplayElement
         void MakePlayer(unsigned int player_id = 0, unsigned int x = 1, unsigned int y = 1);
 
         /**
-         *  \brief Draw the player it keeps track of on given SLD_Renderer
+         *  \brief Draw the player it keeps track of on given SLD_Renderer.
          *
          *  Calls Player::Draw() method for the player it keeps track of with
          *  the given SLD_Renderer so it will draw them on that same renderer.
@@ -77,7 +89,7 @@ class PlayerManager : public DisplayElement
         void Draw(SDL_Renderer* renderer) const;
 
         /**
-         *  \brief Update function for class PlayerManager
+         *  \brief Update function for class PlayerManager.
          *
          *  Calls the update method of player it keeps track of.
          *
@@ -85,9 +97,20 @@ class PlayerManager : public DisplayElement
          */
         void Update();
 
-        void AddPlayer(Player *player);
-
+        /**
+         *  \brief Kills the player if bomb is near enough.
+         *
+         *  Calls Destroyer::DestroyPlayer() method that for every player it keeps track of
+         *  decreases health if player is near the bomb.
+         *
+         *  \param x x coordinate of the center of the bomb on the map
+         *  \param y y coordinate of the center of the bomb on the map
+         *  \param intensity intensity of the bomb
+         *
+         *  \return void
+         */
         void KillPlayer(unsigned int x, unsigned int y, double intensity);
+
     protected:
 
     private:
