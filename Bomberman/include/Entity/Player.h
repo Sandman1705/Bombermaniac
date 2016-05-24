@@ -43,7 +43,7 @@ class Player
          *
          */
         Player(SDL_Texture* tex, unsigned int tile_size, Relay *relay,
-               KeyboardInput *keyboard_input, unsigned int player_id = 0, unsigned int val_x = 1, unsigned int val_y = 1);
+                unsigned int player_id = 0, unsigned int val_x = 1, unsigned int val_y = 1);
 
         unsigned int GetX() const;
         void SetX(unsigned int val);

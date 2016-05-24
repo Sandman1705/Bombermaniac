@@ -18,7 +18,7 @@ PauseDisplay::PauseDisplay(SDL_Renderer* renderer,
     #else //LINUX
     TextRenderer text_renderer("resources/Zabdilus.ttf",64);
     #endif
-    SDL_Color color = {255, 255, 0, 255};
+    SDL_Color color = {255, 255, 255, 255};
     SDL_Rect SrcR = { 0, 0, 0, 0 };
     SDL_Rect DestR = { 0, 0, 0, 0 };
     SDL_Texture* image;

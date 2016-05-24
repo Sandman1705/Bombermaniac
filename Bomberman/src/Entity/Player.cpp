@@ -3,8 +3,8 @@
 #include "Manager/BombManager.h"
 #include "Constants/TexturePlayerConstants.h"
 
-Player::Player(SDL_Texture* tex, unsigned int tile_size, Relay *relay,
-               KeyboardInput *keyboard_input, unsigned int player_id, unsigned int val_x, unsigned int val_y)
+Player::Player(SDL_Texture* tex, unsigned int tile_size, Relay *relay, unsigned int player_id, unsigned int val_x, unsigned int val_y)
+                    :m_keyboard_input(KeyboardInput::Instance())
 {
     this->m_x = val_x*tile_size;
     this->m_y = val_y*tile_size;
@@ -19,7 +19,6 @@ Player::Player(SDL_Texture* tex, unsigned int tile_size, Relay *relay,
     m_player_size_h = TEXTURE_PLAYER_SIZE_H *tile_size/32; //size according to 32px tile size
     m_move_speed = m_move_speed *m_tile_size/32; //speed according to 32px tile size
     m_relay = relay;
-    m_keyboard_input = keyboard_input;
     m_player_id = player_id;
 }
 
@@ -307,10 +306,7 @@ unsigned int Player::GetLives() const
 
 void Player::SetLives(unsigned int l)
 {
-    if(l < 0)
-        m_lives = 3;
-    else
-        m_lives = l;
+    m_lives = l;
 }
 
 unsigned int Player::GetID() const

@@ -43,11 +43,13 @@ class PlayerManager : public DisplayElement
          *         (which is used to keep track of input given by the user)
          */
     public:
-        PlayerManager(std::string path_to_file, SDL_Texture* texture, unsigned int tile_size, Relay *relay,
-               KeyboardInput *keyboard_input);
+        PlayerManager(std::string path_to_file, SDL_Texture* texture, unsigned int tile_size, Relay *relay);
         ~PlayerManager();
 
         std::list<Player*>* GetPlayers();
+
+        bool GetAllDead() const;
+        void SetAllDead(bool val);
 
          /**
          *  \brief Adds new Player to the list of players.
@@ -116,12 +118,12 @@ class PlayerManager : public DisplayElement
     protected:
 
     private:
+    bool                     m_all_dead;
     unsigned int             m_death_time;
     unsigned int             m_players_numb;
     Timer                    m_timer;
     std::list<Player*>       m_players;
     Relay*                   m_relay;
-    KeyboardInput*           m_keyboard_input;
     unsigned int             m_tile_size;
 };
 

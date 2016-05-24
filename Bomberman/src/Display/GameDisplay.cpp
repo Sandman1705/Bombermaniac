@@ -51,7 +51,7 @@ void GameDisplay::Init()
 #endif
     ExplosionManager* explosion_manager = new ExplosionManager(m_texture, tile_size);
     BombManager* bomb_manager = new BombManager(m_texture, tile_size, m_relay);
-    PlayerManager* player_manager = new PlayerManager("resources/levels/player2.txt", m_texture, tile_size, m_relay, m_keyboard_input);
+    PlayerManager* player_manager = new PlayerManager("resources/levels/player2.txt", m_texture, tile_size, m_relay);
     player_manager->GetPlayers()->back()->SetKeycodes(SDLK_w, SDLK_s, SDLK_a, SDLK_d, SDLK_g);
     EnemyManager* enemy_manager = new EnemyManager("resources/levels/enemy2.txt", m_texture, tile_size, m_relay);
 
@@ -97,7 +97,7 @@ int GameDisplay::Destroy()
     if (m_level_completed)
         return ++m_current_level;
     else
-        return 0;
+       return 0;
 }
 
 void GameDisplay::Update()
@@ -105,7 +105,7 @@ void GameDisplay::Update()
     if (m_keyboard_input->IsKeyOn(SDLK_ESCAPE))
     {
         m_leave_next = true;
-        m_next_display = new PauseDisplay(m_renderer, m_window_width, m_window_height, this);
+        m_next_display = new PauseDisplay(m_renderer, m_window_width, m_window_height);
     }
     else
     {

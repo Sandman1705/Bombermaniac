@@ -3,14 +3,13 @@
 #include "Constants/TextureScoreConstants.h"
 #include <fstream>
 
-PlayerManager::PlayerManager(std::string path_to_file, SDL_Texture* texture, unsigned int tile_size, Relay *relay,
-               KeyboardInput *keyboard_input)
+PlayerManager::PlayerManager(std::string path_to_file, SDL_Texture* texture, unsigned int tile_size, Relay *relay)
     : DisplayElement(texture)
 {
     m_tile_size = tile_size;
     m_relay = relay;
-    m_keyboard_input = keyboard_input;
     m_timer.ResetTimer();
+    m_all_dead = false;
 
     std::fstream fs;
     fs.open (path_to_file, std::fstream::in);
@@ -42,7 +41,7 @@ PlayerManager::~PlayerManager()
 
 void PlayerManager::MakePlayer(unsigned int player_id, unsigned int x, unsigned int y)
 {
-    Player *player = new Player(m_texture, m_tile_size, m_relay, m_keyboard_input, player_id, x, y);
+    Player *player = new Player(m_texture, m_tile_size, m_relay, player_id, x, y);
     m_players.push_back(player);
 }
 
@@ -113,21 +112,23 @@ void PlayerManager::Update()
 {
     for(auto i = m_players.begin(); i != m_players.end(); ++i)
     {
-        if((*i)->GetHealth() == 0 && (*i)->GetAlive())
+        if((*i)->GetHealth() == 0)
         {
             (*i)->SetAlive(0);
             int lives = (*i)->GetLives();
             if(--lives < 0)
-                lives = 3;
+                lives = 0;
             (*i)->SetLives(lives);
-            m_timer.ResetTimer();
         }
 
-        if((*i)->GetAlive() == 0 && m_timer.GetTimeElapsed() >= 2000)
-        {
-            (*i)->SetAlive(1);
-            (*i)->SetHealth(100);
-        }
+        if((*i)->GetAlive() == 0)
+       {
+           m_players_numb--;
+           (*i)->SetHealth(100);
+       }
+
+        if(m_players_numb == 0)
+            m_all_dead = true;
 
         (*i)->Update();
     }
@@ -136,4 +137,14 @@ void PlayerManager::Update()
 std::list<Player*>* PlayerManager::GetPlayers()
 {
     return &m_players;
+}
+
+bool PlayerManager::GetAllDead() const
+{
+    return m_all_dead;
+}
+
+void PlayerManager::SetAllDead(bool val)
+{
+    m_all_dead = val;
 }
