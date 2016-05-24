@@ -16,7 +16,7 @@ void Display::Init()
 {
 }
 
-void Display::Enter()
+void Display::Enter(int mode)
 {
     m_leave_previous = false;
     m_leave_next = false;
@@ -26,6 +26,7 @@ void Display::Leave()
 {
 }
 
-void Display::Destroy()
+int Display::Destroy()
 {
+    return 0;
 }

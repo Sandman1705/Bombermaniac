@@ -1,6 +1,7 @@
 #include "Display/MainMenuDisplay.h"
 #include "System/TextRenderer.h"
 #include "Display/GameDisplay.h"
+#include "Display/LoadingDisplay.h"
 
 //#define DEBUG_OUTPUT_MAIN_MENU_DISPAY
 
@@ -13,9 +14,12 @@ MainMenuDisplay::MainMenuDisplay(SDL_Texture* texture,
                                  unsigned int window_width,
                                  unsigned int window_height)
     : Display(),
-      m_texture(texture), m_arrow(0),
+      m_texture(texture),
+      m_renderer(renderer),
+      m_arrow(0),
       m_button_pressed_down(false),
       m_button_pressed_up(false),
+      m_button_pressed_enter(false),
       m_window_width(window_width),
       m_window_height(window_height)
 {
@@ -79,7 +83,7 @@ void MainMenuDisplay::Init()
     Enter();
 }
 
-void MainMenuDisplay::Enter()
+void MainMenuDisplay::Enter(int mode)
 {
     m_leave_next = false;
     m_leave_previous = false;
@@ -93,7 +97,7 @@ void MainMenuDisplay::Leave()
 {
 }
 
-void MainMenuDisplay::Destroy()
+int MainMenuDisplay::Destroy()
 {
     for (auto i = m_options_textures.begin(); i != m_options_textures.end(); ++i)
     {
@@ -103,6 +107,7 @@ void MainMenuDisplay::Destroy()
     m_options_textures.clear();
     m_options_draw_dest.clear();
     m_options_draw_src.clear();
+    return 0;
 }
 
 void MainMenuDisplay::Update()
@@ -126,7 +131,7 @@ void MainMenuDisplay::Update()
         switch(m_arrow)
         {
         case 0:
-            m_next_display = new GameDisplay(m_texture);
+            m_next_display = new LoadingDisplay(m_texture,m_renderer,m_window_width,m_window_height,10);//GameDisplay(m_texture,1);
             m_leave_next = true;
             break;
         case 1:

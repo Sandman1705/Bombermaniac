@@ -53,10 +53,11 @@ class Display
          *  display becomes active. Every class that inherits display should
          *  redefine this method if it has elements that need to be reset or
          *  or reinitialized when the display comes back into use.
+         *  \param mode represents id of mode the display should run
          *
          *  \return void
          */
-        virtual void Enter();
+        virtual void Enter(int mode = 0);
         /**
          *  \brief Pauses the display. Stops background elements.
          *
@@ -79,9 +80,10 @@ class Display
          *  redefine this method if it has elements that need to freed or
          *  destroyed after the display is no longer needed.
          *
-         *  \return void
+         *  \return integer which represents mode the previous screen should
+         *          run; default return value is 0
          */
-        virtual void Destroy();
+        virtual int Destroy();
 
         /**
          *  \brief Updates the display
@@ -89,14 +91,15 @@ class Display
          *  Abstract method. This method should be redefined so that a display
          *  acts according to user input or makes changes that need to be done
          *  periodically, whatever the display needs. Also when the display
-         *  needs to be changed because either user input of some other reason
-         *  changes its internal state specifically values m_leave_previous and
-         *  m_leave_next so that methods ShouldLeaveToPrevious() or
-         *  ShouldLeaveToNext() return true if the game should go the previous
-         *  or next Display respectively. In the case of ShouldLeaveToNext()
-         *  it should make an object of appropriate class that inherits Display
-         *  and place its pointer into m_next_display so that the next call of
-         *  method NextDisplay() returns pointer to it.
+         *  needs to be changed either because of user input of some other
+         *  reason changes its internal state specifically values
+         *  m_leave_previous and m_leave_next so that methods
+         *  ShouldLeaveToPrevious() or ShouldLeaveToNext() return true if the
+         *  game should go the previous or next Display respectively. In the
+         *  case of ShouldLeaveToNext() it should make an object of appropriate
+         *  class that inherits Display and place its pointer into
+         *  m_next_display so that the next call of method NextDisplay() returns
+         *  pointer to it.
          *
          *  \return void
          */

@@ -4,10 +4,10 @@
 /**
  *  \file SystemTimer.h
  *
- *  Defines class ScreenTimer which is used with SDL.h to calculate elapsed time
+ *  Defines class SystemTimer which is used with SDL.h to calculate elapsed time
  */
 
-/** \class ScreenTimer
+/** \class SystemTimer
  *  \brief class for measuring time
  *  \details This is an utility class for measuring time which can be used for
  *           properly timing events. This class is singleton which means there

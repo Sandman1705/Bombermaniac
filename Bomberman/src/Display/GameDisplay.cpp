@@ -9,8 +9,12 @@
 #include "Manager/EnemyManager.h"
 
 GameDisplay::GameDisplay(SDL_Texture* texture,
+                         unsigned int current_level,
                          unsigned int number_of_screen_elements)
-    : Display(), m_texture(texture)
+    : Display(),
+      m_texture(texture),
+      m_current_level(current_level),
+      m_level_completed(false)
 {
     m_display_elements.reserve(number_of_screen_elements);
 }
@@ -57,7 +61,7 @@ void GameDisplay::Init()
     AddDisplayElement(explosion_manager);
 }
 
-void GameDisplay::Enter()
+void GameDisplay::Enter(int mode)
 {
     m_leave_previous = false;
     m_leave_next = false;
@@ -69,13 +73,17 @@ void GameDisplay::Leave()
     SystemTimer::Instance()->Pause();
 }
 
-void GameDisplay::Destroy()
+int GameDisplay::Destroy()
 {
     for (auto i = m_display_elements.begin(); i != m_display_elements.end(); ++i)
     {
         delete (*i);
     }
     m_display_elements.clear();
+    if (m_level_completed)
+        return ++m_current_level;
+    else
+        return 0;
 }
 
 void GameDisplay::Update()

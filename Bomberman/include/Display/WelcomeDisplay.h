@@ -14,7 +14,7 @@ class WelcomeDisplay : public Display
                        unsigned int m_window_height);
         virtual ~WelcomeDisplay();
 
-        void Enter();
+        void Enter(int mode = 0);
 
         void Update();
         void Draw(SDL_Renderer* renderer) const;

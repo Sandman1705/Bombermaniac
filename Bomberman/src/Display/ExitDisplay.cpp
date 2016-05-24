@@ -9,7 +9,7 @@ ExitDisplay::~ExitDisplay()
 {
 }
 
-void ExitDisplay::Enter()
+void ExitDisplay::Enter(int mode)
 {
     if (m_running == nullptr)
         SDL_Quit();
