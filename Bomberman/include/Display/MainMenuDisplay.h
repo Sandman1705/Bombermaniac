@@ -14,9 +14,9 @@ class MainMenuDisplay : public Display
         ~MainMenuDisplay();
 
         void Init();
-        void Enter();
+        void Enter(int mode = 0);
         void Leave();
-        void Destroy();
+        int Destroy();
 
         void Update();
         void Draw(SDL_Renderer* renderer) const;
@@ -25,6 +25,7 @@ class MainMenuDisplay : public Display
 
     private:
         SDL_Texture*                m_texture;
+        SDL_Renderer*               m_renderer;
         std::vector<SDL_Texture*>   m_options_textures;
         std::vector<SDL_Rect>       m_options_draw_src;
         std::vector<SDL_Rect>       m_options_draw_dest;

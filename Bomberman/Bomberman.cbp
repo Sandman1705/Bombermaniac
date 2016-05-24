@@ -82,6 +82,7 @@
 		<Unit filename="include/Display/DisplayManager.h" />
 		<Unit filename="include/Display/ExitDisplay.h" />
 		<Unit filename="include/Display/GameDisplay.h" />
+		<Unit filename="include/Display/LoadingDisplay.h" />
 		<Unit filename="include/Display/MainMenuDisplay.h" />
 		<Unit filename="include/Display/WelcomeDisplay.h" />
 		<Unit filename="include/Entity/Bomb.h" />
@@ -116,6 +117,7 @@
 		<Unit filename="src/Display/DisplayManager.cpp" />
 		<Unit filename="src/Display/ExitDisplay.cpp" />
 		<Unit filename="src/Display/GameDisplay.cpp" />
+		<Unit filename="src/Display/LoadingDisplay.cpp" />
 		<Unit filename="src/Display/MainMenuDisplay.cpp" />
 		<Unit filename="src/Display/WelcomeDisplay.cpp" />
 		<Unit filename="src/Entity/Bomb.cpp" />

@@ -9,7 +9,7 @@ class ExitDisplay : public Display
         ExitDisplay(bool* running = nullptr);
         ~ExitDisplay();
 
-        void Enter();
+        void Enter(int mode = 0);
 
         void Update();
         void Draw(SDL_Renderer* renderer) const;

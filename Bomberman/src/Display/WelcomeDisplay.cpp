@@ -50,9 +50,16 @@ WelcomeDisplay::WelcomeDisplay(SDL_Texture* texture,
 
 WelcomeDisplay::~WelcomeDisplay()
 {
+    for (auto i = m_textures.begin(); i != m_textures.end(); ++i)
+    {
+        SDL_DestroyTexture(*i);
+    }
+    m_textures.clear();
+    m_textures_draw_src.clear();
+    m_textures_draw_dest.clear();
 }
 
-void WelcomeDisplay::Enter()
+void WelcomeDisplay::Enter(int mode)
 {
     m_leave_previous = true;
     m_leave_next = false;
@@ -60,11 +67,6 @@ void WelcomeDisplay::Enter()
 
 void WelcomeDisplay::Update()
 {
-//    std::cout << "Welcome update " << std::endl;
-//    if (m_keyboard_input == nullptr)
-//        std::cout << "m_keyboard_input == nullptr" << std::endl;
-//    else
-//        std::cout << "m_keyboard_input != nullptr" << std::endl;
     if (m_pressed_next && m_keyboard_input->IsKeyOn(SDLK_RETURN))
     {
         m_pressed_next = false;
