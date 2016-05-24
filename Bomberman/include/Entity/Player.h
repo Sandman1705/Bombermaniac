@@ -129,7 +129,7 @@ class Player
         };
         Direction      m_direction;
         bool           m_bomb_ready = false;
-        int            m_status;
+        unsigned int   m_status;
         Timer          m_timer;
         unsigned int   m_lives=3;
         unsigned int   m_player_id;

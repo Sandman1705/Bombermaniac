@@ -88,6 +88,8 @@ class PlayerManager : public DisplayElement
          */
         void Draw(SDL_Renderer* renderer) const;
 
+        void DrawScore(SDL_Renderer* renderer, unsigned int player_id, unsigned int lives) const;
+
         /**
          *  \brief Update function for class PlayerManager.
          *

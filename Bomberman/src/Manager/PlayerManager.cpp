@@ -1,6 +1,8 @@
 #include "Manager/PlayerManager.h"
 #include "Destroyer/Destroyer.h"
+#include "Constants/TextureScoreConstants.h"
 #include <fstream>
+
 PlayerManager::PlayerManager(std::string path_to_file, SDL_Texture* texture, unsigned int tile_size, Relay *relay,
                KeyboardInput *keyboard_input)
     : DisplayElement(texture)
@@ -57,53 +59,49 @@ void PlayerManager::AddPlayer(Player *player)
     m_players.push_back(player);
 }
 
+void PlayerManager::DrawScore(SDL_Renderer* renderer, unsigned int player_id, unsigned int lives) const
+{
+    SDL_Rect SrcR;
+    SDL_Rect DestR;
+
+    SrcR.y = TEXTURE_NUMB_Y;
+    SrcR.w = TEXTURE_NUMB_SOURCE_W;
+    SrcR.h = TEXTURE_NUMB_SOURCE_H;
+
+    switch(lives)
+    {
+        case 0:
+            SrcR.x = lives*TEXTURE_NUMB_SOURCE_W + TEXTURE_NUMB_X;
+        break;
+
+        case 1:
+            SrcR.x = lives*TEXTURE_NUMB_SOURCE_W + TEXTURE_NUMB_X;
+        break;
+
+        case 2:
+            SrcR.x = lives*TEXTURE_NUMB_SOURCE_W + TEXTURE_NUMB_X;
+        break;
+
+        case 3:
+            SrcR.x = lives*TEXTURE_NUMB_SOURCE_W + TEXTURE_NUMB_X;
+        break;
+    }
+
+    DestR.x = 0 + player_id*2*m_tile_size;
+    DestR.y = 0;
+    DestR.w = m_tile_size;
+    DestR.h = m_tile_size;
+
+    SDL_RenderCopy(renderer, m_texture, &SrcR, &DestR);
+
+}
+
 void PlayerManager::Draw(SDL_Renderer* renderer) const
 {
     for(auto i = m_players.begin(); i != m_players.end(); ++i)
     {
-        //Draw number of lives--------------------------------
-        SDL_Rect SrcR;
-        SDL_Rect DestR;
+        DrawScore(renderer, (*i)->GetID(), (*i)->GetLives());
 
-        unsigned int SHAPE_SIZE_x = 12;
-        unsigned int SHAPE_SIZE_y = 17;
-
-        unsigned int source_x = 200;
-        unsigned int source_y = 174;
-
-        SrcR.y = source_y;
-        SrcR.w = SHAPE_SIZE_x;
-        SrcR.h = SHAPE_SIZE_y;
-
-        switch((*i)->GetLives())
-        {
-            case 0:
-                SrcR.x = ((*i)->GetLives())*SHAPE_SIZE_x + source_x;
-            break;
-
-            case 1:
-                SrcR.x = ((*i)->GetLives())*SHAPE_SIZE_x + source_x;
-            break;
-
-            case 2:
-                SrcR.x = ((*i)->GetLives())*SHAPE_SIZE_x + source_x;
-            break;
-
-            case 3:
-                SrcR.x = ((*i)->GetLives())*SHAPE_SIZE_x + source_x;
-            break;
-        }
-
-        DestR.x = 0 + (*i)->GetID()*2*m_tile_size;
-        DestR.y = 0;
-        DestR.w = m_tile_size;
-        DestR.h = m_tile_size;
-
-        SDL_RenderCopy(renderer, m_texture, &SrcR, &DestR);
-
-        //----------------------------------------------------
-
-        //main condition
         if((*i)->GetAlive() != 0)
         {
             (*i)->Draw(renderer);

@@ -76,6 +76,7 @@
 		<Unit filename="include/Constants/TextureExplosionConstants.h" />
 		<Unit filename="include/Constants/TextureMapObjectConstants.h" />
 		<Unit filename="include/Constants/TexturePlayerConstants.h" />
+		<Unit filename="include/Constants/TextureScoreConstants.h" />
 		<Unit filename="include/Destroyer/Destroyer.h" />
 		<Unit filename="include/Destroyer/WallDestroyer.h" />
 		<Unit filename="include/Display/Display.h" />
