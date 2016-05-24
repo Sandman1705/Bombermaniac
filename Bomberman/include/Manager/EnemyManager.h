@@ -57,10 +57,10 @@ class EnemyManager : public DisplayElement
         void AddEnemy(Enemy *enemy);
 
         /**
-         *  \brief Makes new Enemy according to given parameters and adds it to
+         *  \brief Makes new EnemyOne according to given parameters and adds it to
          *         the list of enemies.
          *
-         *  Uses the given parameters and makes a new Enemy object and adds it
+         *  Uses the given parameters and makes a new EnemyOne object and adds it
          *  to the list of enemies same as method AddEnemy(). The enemy will
          *  be periodically updated and destroyed.
          *
@@ -69,12 +69,36 @@ class EnemyManager : public DisplayElement
          *
          *  \return void
          */
-        void MakeEnemy(unsigned int x = 1, unsigned int y = 1);
-
         void MakeEnemyOne(unsigned int x = 1, unsigned int y = 1);
 
+        /**
+         *  \brief Makes new EnemyTwo according to given parameters and adds it to
+         *         the list of enemies.
+         *
+         *  Uses the given parameters and makes a new EnemyTwo object and adds it
+         *  to the list of enemies same as method AddEnemy(). The enemy will
+         *  be periodically updated and destroyed.
+         *
+         *  \param x top left x coordinate of the enemy on the map
+         *  \param y top left y coordinate of the enemy on the map
+         *
+         *  \return void
+         */
         void MakeEnemyTwo(unsigned int x = 1, unsigned int y = 1);
 
+        /**
+         *  \brief Makes new EnemyThree according to given parameters and adds it to
+         *         the list of enemies.
+         *
+         *  Uses the given parameters and makes a new EnemyThree object and adds it
+         *  to the list of enemies same as method AddEnemy(). The enemy will
+         *  be periodically updated and destroyed.
+         *
+         *  \param x top left x coordinate of the enemy on the map
+         *  \param y top left y coordinate of the enemy on the map
+         *
+         *  \return void
+         */
         void MakeEnemyThree(unsigned int x = 1, unsigned int y = 1);
 
          /**
@@ -98,6 +122,18 @@ class EnemyManager : public DisplayElement
          */
         void Update();
 
+        /**
+         *  \brief Kills the enemy if bomb is near enough.
+         *
+         *  Calls Destroyer::DestroyEnemy() method that for every enemy it keeps track of
+         *  decreases health if enemy is near the bomb.
+         *
+         *  \param x x coordinate of the center of the bomb on the map
+         *  \param y y coordinate of the center of the bomb on the map
+         *  \param intensity intensity of the bomb
+         *
+         *  \return void
+         */
         void KillEnemies(unsigned int x, unsigned int y, double intensity);
 
     protected:

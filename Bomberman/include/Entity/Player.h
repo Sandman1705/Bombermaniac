@@ -139,8 +139,9 @@ class Player
         unsigned int   m_x;
         unsigned int   m_y;
         unsigned int   m_move_speed = 4;
-        unsigned int   m_player_size_w = 17;
-        unsigned int   m_player_size_h = 23;
+        unsigned int   m_rotation_const = 3;
+        unsigned int   m_player_size_w;
+        unsigned int   m_player_size_h;
         SDL_Texture*   m_tex;
         unsigned int   m_tile_size;
         Relay*         m_relay;
