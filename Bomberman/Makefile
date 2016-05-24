@@ -36,6 +36,7 @@ Display/DisplayElement.o \
 Display/DisplayManager.o \
 Display/ExitDisplay.o \
 Display/GameDisplay.o \
+Display/LoadingDisplay.o \
 Display/MainMenuDisplay.o \
 Display/WelcomeDisplay.o \
 Entity/Bomb.o \

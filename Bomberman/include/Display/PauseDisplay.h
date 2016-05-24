@@ -1,17 +1,18 @@
-#ifndef MAINMENUDISPLAY_H
-#define MAINMENUDISPLAY_H
+#ifndef PAUSEDISPLAY_H
+#define PAUSEDISPLAY_H
 
 #include "Display/Display.h"
+#include <SDL.h>
 #include <vector>
 
-class MainMenuDisplay : public Display
+class PauseDisplay : public Display
 {
     public:
-        MainMenuDisplay(SDL_Texture* texture,
-                        SDL_Renderer* renderer,
-                        unsigned int window_width,
-                        unsigned int window_height);
-        ~MainMenuDisplay();
+        PauseDisplay(SDL_Renderer* renderer,
+                     unsigned int window_width,
+                     unsigned int window_height,
+                     Display* previous_display = nullptr);
+        virtual ~PauseDisplay();
 
         void Init();
         void Enter(int mode = 0);
@@ -24,14 +25,10 @@ class MainMenuDisplay : public Display
     protected:
 
     private:
-        SDL_Texture*                m_texture;
         SDL_Renderer*               m_renderer;
         std::vector<SDL_Texture*>   m_textures;
         std::vector<SDL_Rect>       m_textures_draw_src;
         std::vector<SDL_Rect>       m_textures_draw_dest;
-//        std::vector<SDL_Texture*>   m_options_textures;
-//        std::vector<SDL_Rect>       m_options_draw_src;
-//        std::vector<SDL_Rect>       m_options_draw_dest;
         SDL_Texture*                m_arrow_texture;
         int                         m_arrow_height;
         int                         m_arrow_width;
@@ -41,7 +38,9 @@ class MainMenuDisplay : public Display
         bool                        m_button_pressed_enter;
         unsigned int                m_window_width;
         unsigned int                m_window_height;
+        bool                        m_quit;
+        Display*                    m_previous_display;
 
 };
 
-#endif // MAINMENUDISPLAY_H
+#endif // PAUSEDISPLAY_H

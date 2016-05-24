@@ -1,39 +1,29 @@
-#include "Display/MainMenuDisplay.h"
+#include "Display/PauseDisplay.h"
 #include "System/TextRenderer.h"
-#include "Display/GameDisplay.h"
-#include "Display/LoadingDisplay.h"
 
-//#define DEBUG_OUTPUT_MAIN_MENU_DISPAY
-
-#ifdef DEBUG_OUTPUT_MAIN_MENU_DISPAY
-#include <iostream>
-#endif // DEBUG_OUTPUT_MAIN_MENU_DISPAY
-
-MainMenuDisplay::MainMenuDisplay(SDL_Texture* texture,
-                                 SDL_Renderer* renderer,
-                                 unsigned int window_width,
-                                 unsigned int window_height)
+PauseDisplay::PauseDisplay(SDL_Renderer* renderer,
+                           unsigned int window_width,
+                           unsigned int window_height,
+                           Display* previous_display)
     : Display(),
-      m_texture(texture),
       m_renderer(renderer),
       m_arrow(0),
-      m_button_pressed_down(false),
-      m_button_pressed_up(false),
-      m_button_pressed_enter(false),
       m_window_width(window_width),
-      m_window_height(window_height)
+      m_window_height(window_height),
+      m_quit(false),
+      m_previous_display(previous_display)
 {
     #ifdef _WIN32
     TextRenderer text_renderer("resources\\Zabdilus.ttf",64);
     #else //LINUX
     TextRenderer text_renderer("resources/Zabdilus.ttf",64);
     #endif
-    SDL_Color color = {255, 0, 0, 255};
+    SDL_Color color = {255, 255, 0, 255};
     SDL_Rect SrcR = { 0, 0, 0, 0 };
     SDL_Rect DestR = { 0, 0, 0, 0 };
     SDL_Texture* image;
 
-    image = text_renderer.RenderText("NEW GAME", color, renderer);
+    image = text_renderer.RenderText("RESUME", color, renderer);
     SDL_QueryTexture(image, NULL, NULL, &(SrcR.w), &(SrcR.h));
     DestR.x = window_width / 2 -  SrcR.w / 2;
     DestR.y = window_height / 2 - SrcR.h / 2 - SrcR.h;
@@ -52,7 +42,7 @@ MainMenuDisplay::MainMenuDisplay(SDL_Texture* texture,
     m_textures_draw_src.push_back(SrcR);
     m_textures_draw_dest.push_back(DestR);
 
-    image = text_renderer.RenderText("EXIT", color, renderer);
+    image = text_renderer.RenderText("QUIT", color, renderer);
     SDL_QueryTexture(image, NULL, NULL, &(SrcR.w), &(SrcR.h));
     DestR.y += SrcR.h;
     DestR.h = SrcR.h;
@@ -63,10 +53,9 @@ MainMenuDisplay::MainMenuDisplay(SDL_Texture* texture,
 
     m_arrow_texture = text_renderer.RenderText(">", color, renderer);
     SDL_QueryTexture(m_arrow_texture, NULL, NULL, &m_arrow_width, &m_arrow_height);
-
 }
 
-MainMenuDisplay::~MainMenuDisplay()
+PauseDisplay::~PauseDisplay()
 {
     for (auto i = m_textures.begin(); i != m_textures.end(); ++i)
     {
@@ -78,26 +67,26 @@ MainMenuDisplay::~MainMenuDisplay()
     m_textures_draw_src.clear();
 }
 
-void MainMenuDisplay::Init()
+void PauseDisplay::Init()
 {
-    Enter();
+    Enter(0);
 }
 
-void MainMenuDisplay::Enter(int mode)
+void PauseDisplay::Enter(int mode)
 {
     m_leave_next = false;
     m_leave_previous = false;
-    m_arrow = 0;
     m_button_pressed_down = false;
     m_button_pressed_up = false;
     m_button_pressed_enter = false;
 }
 
-void MainMenuDisplay::Leave()
+void PauseDisplay::Leave()
 {
+
 }
 
-int MainMenuDisplay::Destroy()
+int PauseDisplay::Destroy()
 {
     for (auto i = m_textures.begin(); i != m_textures.end(); ++i)
     {
@@ -107,10 +96,12 @@ int MainMenuDisplay::Destroy()
     m_textures.clear();
     m_textures_draw_dest.clear();
     m_textures_draw_src.clear();
-    return 0;
+    if (m_quit)
+        return 0;
+    return 1;
 }
 
-void MainMenuDisplay::Update()
+void PauseDisplay::Update()
 {
     if (m_button_pressed_down && m_keyboard_input->IsKeyOn(SDLK_DOWN))
     {
@@ -131,12 +122,13 @@ void MainMenuDisplay::Update()
         switch(m_arrow)
         {
         case 0:
-            m_next_display = new LoadingDisplay(m_texture,m_renderer,m_window_width,m_window_height,10);//GameDisplay(m_texture,1);
-            m_leave_next = true;
+            m_quit = false;
+            m_leave_previous = true;
             break;
         case 1:
             break;
         case 2:
+            m_quit = true;
             m_leave_previous = true;
             break;
         default:
@@ -152,11 +144,10 @@ void MainMenuDisplay::Update()
         m_button_pressed_enter = true;
 }
 
-void MainMenuDisplay::Draw(SDL_Renderer* renderer) const
+void PauseDisplay::Draw(SDL_Renderer* renderer) const
 {
-    #ifdef DEBUG_OUTPUT_MAIN_MENU_DISPAY
-    std::cout << "MainMenuDisplay arror: " << m_arrow << std::endl;
-    #endif // DEBUG_OUTPUT_MAIN_MENU_DISPAY
+    if (m_previous_display != nullptr)
+        m_previous_display->Draw(renderer);
     for (unsigned int i=0; i<m_textures.size(); ++i)
     {
         SDL_RenderCopy(renderer,m_textures[i],&m_textures_draw_src[i],&m_textures_draw_dest[i]);
@@ -173,4 +164,3 @@ void MainMenuDisplay::Draw(SDL_Renderer* renderer) const
     DestR.y = m_textures_draw_dest[m_arrow].y;
     SDL_RenderCopy(renderer,m_arrow_texture,&SrcR,&DestR);
 }
-

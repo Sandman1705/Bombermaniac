@@ -68,7 +68,7 @@ void LoadingDisplay::Update()
     if (m_timer.GetTimeElapsed() > 1000 && !m_leave_next)
     {
         m_leave_next = true;
-        m_next_display = new GameDisplay(m_texture,m_current_level);
+        m_next_display = new GameDisplay(m_texture,m_renderer,m_window_width,m_window_height,m_current_level);
     }
 }
 
@@ -89,7 +89,7 @@ void LoadingDisplay::MakeTexture()
     #else //LINUX
     TextRenderer text_renderer("resources/Zabdilus.ttf",96);
     #endif
-    SDL_Color color = {255, 242, 0, 255};
+    SDL_Color color = {0, 0, 200, 255};
     SDL_Rect SrcR = { 0, 0, 0, 0 };
     SDL_Rect DestR = { 0, 0, 0, 0 };
     SDL_Texture* image;

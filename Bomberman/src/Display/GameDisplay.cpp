@@ -1,4 +1,5 @@
 #include "Display/GameDisplay.h"
+#include "Display/PauseDisplay.h"
 #include "System/SystemTimer.h"
 
 #include "Utility/Relay.h"
@@ -9,10 +10,16 @@
 #include "Manager/EnemyManager.h"
 
 GameDisplay::GameDisplay(SDL_Texture* texture,
+                         SDL_Renderer* renderer,
+                         unsigned int window_width,
+                         unsigned int window_height,
                          unsigned int current_level,
                          unsigned int number_of_screen_elements)
     : Display(),
       m_texture(texture),
+      m_renderer(renderer),
+      m_window_width(window_width),
+      m_window_height(window_height),
       m_current_level(current_level),
       m_level_completed(false)
 {
@@ -63,9 +70,16 @@ void GameDisplay::Init()
 
 void GameDisplay::Enter(int mode)
 {
-    m_leave_previous = false;
-    m_leave_next = false;
     SystemTimer::Instance()->Unpause();
+    m_leave_next = false;
+    if (mode == 0)
+    {
+        m_leave_previous = true;
+    }
+    else
+    {
+        m_leave_previous = false;
+    }
 }
 
 void GameDisplay::Leave()
@@ -89,10 +103,16 @@ int GameDisplay::Destroy()
 void GameDisplay::Update()
 {
     if (m_keyboard_input->IsKeyOn(SDLK_ESCAPE))
-        m_leave_previous = true;
-    for (auto i = m_display_elements.begin(); i != m_display_elements.end(); ++i)
     {
-        (*i)->Update();
+        m_leave_next = true;
+        m_next_display = new PauseDisplay(m_renderer, m_window_width, m_window_height, this);
+    }
+    else
+    {
+        for (auto i = m_display_elements.begin(); i != m_display_elements.end(); ++i)
+        {
+            (*i)->Update();
+        }
     }
 }
 
