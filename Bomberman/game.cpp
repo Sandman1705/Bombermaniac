@@ -5,7 +5,7 @@ game::game()
       window(nullptr),
       renderer(nullptr),
       Event(),
-      keyboard_input(nullptr),
+      keyboard_input(KeyboardInput::Instance()),
       texture(nullptr)
 {
 

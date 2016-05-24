@@ -1,7 +1,7 @@
 #include "Display/ExitDisplay.h"
 
 ExitDisplay::ExitDisplay(bool* running)
-    : m_running(running)
+    : Display(), m_running(running)
 {
 }
 

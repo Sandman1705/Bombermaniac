@@ -9,9 +9,8 @@
 #include "Manager/EnemyManager.h"
 
 GameDisplay::GameDisplay(SDL_Texture* texture,
-                         KeyboardInput* keyboard_input,
                          unsigned int number_of_screen_elements)
-    : Display(keyboard_input), m_texture(texture)
+    : Display(), m_texture(texture)
 {
     m_display_elements.reserve(number_of_screen_elements);
 }

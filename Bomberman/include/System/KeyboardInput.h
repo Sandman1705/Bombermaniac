@@ -78,9 +78,9 @@ class KeyboardInput
         KeyboardInput();
 
     private:
-        std::map<SDL_Keycode,bool> m_keys_pressed;
+        std::map<SDL_Keycode,bool>  m_keys_pressed;
 
-        static KeyboardInput* s_instance;
+        static KeyboardInput*       s_instance;
 };
 
 #endif // KEYBOARDINPUT_H

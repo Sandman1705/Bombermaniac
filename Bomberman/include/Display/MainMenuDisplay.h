@@ -10,8 +10,7 @@ class MainMenuDisplay : public Display
         MainMenuDisplay(SDL_Texture* texture,
                         SDL_Renderer* renderer,
                         unsigned int window_width,
-                        unsigned int window_height,
-                        KeyboardInput* keyboard_input = nullptr);
+                        unsigned int window_height);
         ~MainMenuDisplay();
 
         void Init();

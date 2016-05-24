@@ -11,8 +11,7 @@ class WelcomeDisplay : public Display
         WelcomeDisplay(SDL_Texture* texture,
                        SDL_Renderer* renderer,
                        unsigned int m_window_width,
-                       unsigned int m_window_height,
-                       KeyboardInput* keyboard_input = nullptr);
+                       unsigned int m_window_height);
         virtual ~WelcomeDisplay();
 
         void Enter();

@@ -3,18 +3,19 @@
 #include <SDL.h>
 #include "System/TextRenderer.h"
 
+#include <iostream>
+
 WelcomeDisplay::WelcomeDisplay(SDL_Texture* texture,
                                SDL_Renderer* renderer,
                                unsigned int window_width,
-                               unsigned int window_height,
-                               KeyboardInput* keyboard_input)
-    : Display(keyboard_input),
-    m_texture(texture),
-    m_renderer(renderer),
-    m_pressed_next(false),
-    m_pressed_previous(false),
-    m_window_width(window_width),
-    m_window_height(window_height)
+                               unsigned int window_height)
+    : Display(),
+      m_texture(texture),
+      m_renderer(renderer),
+      m_pressed_next(false),
+      m_pressed_previous(false),
+      m_window_width(window_width),
+      m_window_height(window_height)
 {
     #ifdef _WIN32
     TextRenderer text_renderer("resources\\Zabdilus.ttf",96);
@@ -59,10 +60,15 @@ void WelcomeDisplay::Enter()
 
 void WelcomeDisplay::Update()
 {
+//    std::cout << "Welcome update " << std::endl;
+//    if (m_keyboard_input == nullptr)
+//        std::cout << "m_keyboard_input == nullptr" << std::endl;
+//    else
+//        std::cout << "m_keyboard_input != nullptr" << std::endl;
     if (m_pressed_next && m_keyboard_input->IsKeyOn(SDLK_RETURN))
     {
         m_pressed_next = false;
-        m_next_display = new MainMenuDisplay(m_texture,m_renderer,m_window_width,m_window_height,m_keyboard_input);
+        m_next_display = new MainMenuDisplay(m_texture,m_renderer,m_window_width,m_window_height);
         m_leave_next = true;
     }
     if (m_pressed_previous && m_keyboard_input->IsKeyOn(SDLK_ESCAPE))

@@ -11,9 +11,8 @@
 MainMenuDisplay::MainMenuDisplay(SDL_Texture* texture,
                                  SDL_Renderer* renderer,
                                  unsigned int window_width,
-                                 unsigned int window_height,
-                                 KeyboardInput* keyboard_input)
-    : Display(keyboard_input),
+                                 unsigned int window_height)
+    : Display(),
       m_texture(texture), m_arrow(0),
       m_button_pressed_down(false),
       m_button_pressed_up(false),
@@ -127,7 +126,7 @@ void MainMenuDisplay::Update()
         switch(m_arrow)
         {
         case 0:
-            m_next_display = new GameDisplay(m_texture, m_keyboard_input);
+            m_next_display = new GameDisplay(m_texture);
             m_leave_next = true;
             break;
         case 1:

@@ -38,9 +38,9 @@ bool game::LoadContent()
     /* Texture loading - End */
 
     /* Game objects initializing - Begin */
-    keyboard_input = KeyboardInput::Instance();
+    //keyboard_input = KeyboardInput::Instance();
 
-    display_manager = new DisplayManager(texture,renderer,keyboard_input,&Running,window_width,window_height);
+    display_manager = new DisplayManager(texture,renderer,&Running,window_width,window_height);
 
     //GameDisplay* game_display = new GameDisplay(texture,keyboard_input);
     //game_display->Init();

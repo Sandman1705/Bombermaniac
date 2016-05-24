@@ -3,7 +3,6 @@
 
 #include "Display/Display.h"
 #include "SDL.h"
-#include "System/KeyboardInput.h"
 #include <stack>
 
 class DisplayManager
@@ -11,7 +10,6 @@ class DisplayManager
     public:
         DisplayManager(SDL_Texture* texture,
                        SDL_Renderer* renderer,
-                       KeyboardInput* keyboard_input,
                        bool* running,
                        unsigned int window_width,
                        unsigned int window_height);

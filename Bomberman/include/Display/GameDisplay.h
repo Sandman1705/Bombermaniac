@@ -3,7 +3,6 @@
 
 #include "Display/Display.h"
 #include "Display/DisplayElement.h"
-#include "System/KeyboardInput.h"
 #include "Utility/Relay.h"
 #include <vector>
 
@@ -11,7 +10,6 @@ class GameDisplay : public Display
 {
     public:
         GameDisplay(SDL_Texture* texture,
-                    KeyboardInput* keyboard_input,
                     unsigned int number_of_screen_elements = 5);
         ~GameDisplay();
 

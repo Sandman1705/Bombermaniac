@@ -5,7 +5,6 @@
 
 DisplayManager::DisplayManager(SDL_Texture* texture,
                                SDL_Renderer* renderer,
-                               KeyboardInput* keyboard_input,
                                bool* running,
                                unsigned int window_width,
                                unsigned int window_height)
@@ -14,7 +13,7 @@ DisplayManager::DisplayManager(SDL_Texture* texture,
       m_window_height(window_height)
 {
     m_displays.push(new ExitDisplay(running));
-    m_displays.push(new WelcomeDisplay(texture,renderer,window_width,window_height,keyboard_input));
+    m_displays.push(new WelcomeDisplay(texture,renderer,window_width,window_height));
 }
 
 DisplayManager::~DisplayManager()
