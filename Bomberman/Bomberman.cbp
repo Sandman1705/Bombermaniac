@@ -72,6 +72,7 @@
 		<Unit filename="game_onloop.cpp" />
 		<Unit filename="game_onrender.cpp" />
 		<Unit filename="include/Constants/TextureBombConstants.h" />
+		<Unit filename="include/Constants/TextureEnemyConstants.h" />
 		<Unit filename="include/Constants/TextureExplosionConstants.h" />
 		<Unit filename="include/Constants/TextureMapObjectConstants.h" />
 		<Unit filename="include/Destroyer/Destroyer.h" />
