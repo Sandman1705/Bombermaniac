@@ -1,6 +1,7 @@
 #include "Entity/Player.h"
 #include "Manager/Map.h"
 #include "Manager/BombManager.h"
+#include "Constants/TexturePlayerConstants.h"
 
 Player::Player(SDL_Texture* tex, unsigned int tile_size, Relay *relay,
                KeyboardInput *keyboard_input, unsigned int player_id, unsigned int val_x, unsigned int val_y)
@@ -14,8 +15,8 @@ Player::Player(SDL_Texture* tex, unsigned int tile_size, Relay *relay,
     this->m_tile_size = tile_size;
 
     m_timer.ResetTimer();
-    m_player_size_w = m_player_size_w *tile_size/32;
-    m_player_size_h = m_player_size_h *tile_size/32; //size according to 32px tile size
+    m_player_size_w = TEXTURE_PLAYER_SIZE_W *tile_size/32;
+    m_player_size_h = TEXTURE_PLAYER_SIZE_H *tile_size/32; //size according to 32px tile size
     m_move_speed = m_move_speed *m_tile_size/32; //speed according to 32px tile size
     m_relay = relay;
     m_keyboard_input = keyboard_input;
@@ -75,102 +76,85 @@ void Player::Draw(SDL_Renderer *renderer)
     SDL_Rect SrcR;
     SDL_Rect DestR;
 
-    unsigned int SHAPE_SIZE_x;
-    unsigned int SHAPE_SIZE_y;
+    SrcR.y = TEXTURE_PLAYER_Y;
+    SrcR.w = TEXTURE_PLAYER_SOURCE_W;
+    SrcR.h = TEXTURE_PLAYER_SOURCE_H;
 
-    unsigned int source_x;
-    unsigned int source_y;
-    unsigned int source_const;
-    unsigned int texture_offset;
-    unsigned int main_offset = 568;
-    //----------------------
-    SHAPE_SIZE_x = 18;
-    SHAPE_SIZE_y = 32;
-
-    source_x = m_player_id*main_offset+3; //Calculates second set of images
-    source_y = 4;
-    source_const = 4;
-    texture_offset = source_const + SHAPE_SIZE_x + 2;
-
-    SrcR.y = source_y;
-    SrcR.w = SHAPE_SIZE_x;
-    SrcR.h = SHAPE_SIZE_y;
-    //----------------------
+    unsigned int source_texture_x = m_player_id * TEXTURE_PLAYER_MAIN_SOURCE_OFFSET
+                                                    + TEXTURE_PLAYER_MINI_SOURCE_OFFSET; //Calculates which set of images
 
     switch(m_direction)
     {
     case UP:
         //POSTION OF BOMBERMAN
-        if(m_status % 3 == 0)
+        if(m_status % m_rotation_const == 0)
         {
-            SrcR.x = source_x + 3*texture_offset;
+            SrcR.x = source_texture_x + 3*TEXTURE_PLAYER_TEXTURE_OFFSET;
         }
-        if(m_status % 3 == 1)
+        if(m_status % m_rotation_const == 1)
         {
-            SrcR.x = source_x + 4*texture_offset;
+            SrcR.x = source_texture_x + 4*TEXTURE_PLAYER_TEXTURE_OFFSET;
         }
-        if(m_status % 3 == 2)
+        if(m_status % m_rotation_const == 2)
         {
-            SrcR.x = source_x + 5*texture_offset;
+            SrcR.x = source_texture_x + 5*TEXTURE_PLAYER_TEXTURE_OFFSET;
         }
         break;
 
     case DOWN:
         //POSTION OF BOMBERMAN
-        if(m_status % 3 == 0)
+        if(m_status % m_rotation_const == 0)
         {
-            SrcR.x = source_x;
+            SrcR.x = source_texture_x;
 
         }
-        if(m_status % 3 == 1)
+        if(m_status % m_rotation_const == 1)
         {
-            SrcR.x = source_x + texture_offset;
+            SrcR.x = source_texture_x + TEXTURE_PLAYER_TEXTURE_OFFSET;
         }
-        if(m_status % 3 == 2)
+        if(m_status % m_rotation_const == 2)
         {
-            SrcR.x = source_x + 2*texture_offset;
+            SrcR.x = source_texture_x + 2*TEXTURE_PLAYER_TEXTURE_OFFSET;
         }
         break;
 
     case LEFT:
         //POSTION OF BOMBERMAN
-        if(m_status % 3 == 0)
+        if(m_status % m_rotation_const == 0)
         {
-            SrcR.x = source_x + 6*texture_offset;
+            SrcR.x = source_texture_x + 6*TEXTURE_PLAYER_TEXTURE_OFFSET;
         }
-        if(m_status % 3 == 1)
+        if(m_status % m_rotation_const == 1)
         {
-            SrcR.x = source_x + 7*texture_offset;
+            SrcR.x = source_texture_x + 7*TEXTURE_PLAYER_TEXTURE_OFFSET;
         }
-        if(m_status % 3 == 2)
+        if(m_status % m_rotation_const == 2)
         {
-            SrcR.x = source_x + 8*texture_offset;
+            SrcR.x = source_texture_x + 8*TEXTURE_PLAYER_TEXTURE_OFFSET;
         }
         break;
 
     case RIGHT:
         //POSTION OF BOMBERMAN
-        if(m_status % 3 == 0) //POSTION OF BOMBERMAN
+        if(m_status % m_rotation_const == 0)
         {
-            SrcR.x = source_x + 9*texture_offset;
+            SrcR.x = source_texture_x + 9*TEXTURE_PLAYER_TEXTURE_OFFSET;
         }
-        if(m_status % 3 == 1)
+        if(m_status % m_rotation_const == 1)
         {
-            SrcR.x = source_x + 10*texture_offset;
+            SrcR.x = source_texture_x + 10*TEXTURE_PLAYER_TEXTURE_OFFSET;
         }
-        if(m_status % 3 == 2)
+        if(m_status % m_rotation_const == 2)
         {
-            SrcR.x = source_x + 11*texture_offset;
+            SrcR.x = source_texture_x + 11*TEXTURE_PLAYER_TEXTURE_OFFSET;
         }
         break;
     }
 
-    //----------------------
     DestR.x = m_x;
     DestR.y = m_y;
     DestR.w = m_player_size_w;
     DestR.h = m_player_size_h;
-    //----------------------
 
     SDL_RenderCopy(renderer, m_tex, &SrcR, &DestR);
 }
@@ -216,7 +200,7 @@ void Player::PlayerMove(int x, int y)
                     }
                 }
     m_status++;
-    if(m_status > 2)
+    if(m_status >= m_rotation_const)
         m_status = 0;
 }
 

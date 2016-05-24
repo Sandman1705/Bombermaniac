@@ -132,7 +132,7 @@ void Enemy::EnemyMove(Relay *relay)
                     }
                 }
     m_status++;
-    if(m_status > m_rotation_const)
+    if(m_status >= m_rotation_const)
         m_status = 0;
 }
 
