@@ -38,6 +38,7 @@ Display/ExitDisplay.o \
 Display/GameDisplay.o \
 Display/LoadingDisplay.o \
 Display/MainMenuDisplay.o \
+Display/PauseDisplay.o \
 Display/WelcomeDisplay.o \
 Entity/Bomb.o \
 Entity/DestructibleWall.o \
@@ -47,11 +48,13 @@ Entity/EnemyThree.o \
 Entity/EnemyTwo.o \
 Entity/Explosion.o \
 Entity/MapObject.o \
+Entity/PickUp.o \
 Entity/Player.o \
 Manager/BombManager.o \
 Manager/EnemyManager.o \
 Manager/ExplosionManager.o \
 Manager/PlayerManager.o \
+Manager/PickUpManager.o \
 Manager/Map.o \
 System/KeyboardInput.o \
 System/SystemTimer.o \

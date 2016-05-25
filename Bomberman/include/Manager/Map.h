@@ -12,6 +12,7 @@
 #include <string>
 #include <SDL.h>
 #include "Display/DisplayElement.h"
+#include "Utility/Relay.h"
 #include "Entity/MapObject.h"
 #include "Entity/DestructibleWall.h"
 
@@ -37,7 +38,7 @@ class Map : public DisplayElement
          *  \param tile_size pixel size of one tile which will be used for
          *         method Draw()
          */
-        Map(std::string path_to_file, SDL_Texture* texture, unsigned int tile_size);
+        Map(std::string path_to_file, SDL_Texture* texture, unsigned int tile_size, Relay* relay);
         /**
          *  \brief Destructor for Map
          *
@@ -106,11 +107,16 @@ class Map : public DisplayElement
 
     protected:
 
+        void PlaceExit(unsigned int i, unsigned int j);
+        void TryPlacePickUp(unsigned int i, unsigned int j);
+
     private:
         unsigned int                            m_height;
         unsigned int                            m_width;
         std::vector<std::vector<MapObject*>>    m_layout;
         const int                               m_tile_size;
+        Relay*                                  m_relay;
+        unsigned int                            m_wall_count;
 
         static const unsigned int               TEXTURE_SIZE = 64;
 };

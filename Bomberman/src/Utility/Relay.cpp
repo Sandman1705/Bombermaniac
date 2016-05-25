@@ -10,7 +10,8 @@ Relay::Relay()
       m_bomb_manager(nullptr),
       m_player_manager(nullptr),
       m_enemy_manager(nullptr),
-      m_map(nullptr)
+      m_map(nullptr),
+      m_pickup_manager(nullptr)
 {
 }
 
@@ -18,12 +19,14 @@ Relay::Relay(ExplosionManager *explosion_manager,
              BombManager *bomb_manager,
              PlayerManager *player_manager,
              EnemyManager *enemy_manager,
-             Map* map_level)
+             Map* map_level,
+             PickUpManager* pickup_manager)
     : m_explosion_manager(explosion_manager),
       m_bomb_manager(bomb_manager),
       m_player_manager(player_manager),
       m_enemy_manager(enemy_manager),
-      m_map(map_level)
+      m_map(map_level),
+      m_pickup_manager(pickup_manager)
 {
 }
 
@@ -75,4 +78,14 @@ Map* Relay::GetMap() const
 void Relay::SetMap(Map* val)
 {
     m_map = val;
+}
+
+PickUpManager* Relay::GetPickUpManager() const
+{
+    return m_pickup_manager;
+}
+
+void Relay::SetPickUpManager(PickUpManager* val)
+{
+    m_pickup_manager = val;
 }

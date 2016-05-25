@@ -14,7 +14,7 @@ class GameDisplay : public Display
                     unsigned int window_width,
                     unsigned int window_height,
                     unsigned int current_level,
-                    unsigned int number_of_screen_elements = 5);
+                    unsigned int number_of_screen_elements = 6);
         ~GameDisplay();
 
         void AddDisplayElement(DisplayElement* display_element);
