@@ -1,5 +1,8 @@
 #include "Entity/EnemyThree.h"
 #include "Constants/TextureEnemyConstants.h"
+#include "Manager/PlayerManager.h"
+#include "cmath"
+#include <iostream>
 
 EnemyThree::EnemyThree(SDL_Texture* tex, unsigned int tile_size, unsigned int val_x, unsigned int val_y)
 : Enemy(tex, tile_size, val_x, val_y)
@@ -57,3 +60,127 @@ void EnemyThree::Draw(SDL_Renderer* renderer)
 
     SDL_RenderCopy(renderer, m_tex, &SrcR, &DestR);
 }
+
+void EnemyThree::Update(Relay *relay, Player *player)
+{
+    unsigned int player_x = player->GetX();
+    unsigned int player_y = player->GetY();
+    unsigned int player_w = player->GetSizeW();
+    unsigned int player_h = player->GetSizeH();
+
+    //Setting coordinates for better collision
+    player_x = player_x + m_tile_size/6;
+    player_y = player_y + m_tile_size/6;
+    player_w = player_w - m_tile_size/3;
+    player_h = player_h - m_tile_size/4;
+    //----------------------------------------
+
+    if(Touch(player_x, player_y))
+    {
+        player->SetHealth(0);
+    }
+    else if(Touch(player_x+player_w, player_y))
+        {
+            player->SetHealth(0);
+        }
+        else if(Touch(player_x, player_y+player_h))
+            {
+                player->SetHealth(0);
+            }
+            else if(Touch(player_x+player_w, player_y+player_h))
+                {
+                    player->SetHealth(0);
+                }
+
+    EnemyThreeDirection(relay);
+    std::cout<< "UPDATE!!!"<< std::endl;
+}
+
+void EnemyThree::EnemyThreeDirection(Relay *relay)
+{
+    unsigned int player_min = UINT_MAX; // closest player
+    Player * p = nullptr;
+    int x, y;
+
+    for(auto it = relay->GetPlayerManager()->GetPlayers()->begin(); it != relay->GetPlayerManager()->GetPlayers()->end(); it++)
+    {
+        x = m_x - (*it)->GetX();
+        y = m_y - (*it)->GetY();
+        if(player_min > sqrt(x*x + y*y))
+        {
+            player_min = sqrt(x*x + y*y);//abs(m_x - (*it)->GetX() ) + abs(m_y - (*it)->GetY() );
+            p = *it;
+        }
+    }
+
+    if(player_min <= 2*m_tile_size)
+        m_chase = true;
+    else
+        m_chase = false;
+
+    if(m_chase)
+    {
+        ChasePlayer(p);
+    }
+    else
+    {
+        std::cout<< "Usao u Random!!!"<< std::endl;
+        int r;
+
+        if(m_walk_len <= 0)
+        {
+
+            m_walk_len = rand()%5 + 10;
+            r = rand()%4;
+            switch(r)
+            {
+                case 0:
+                    m_direction = LEFT;
+                    break;
+                case 1:
+                    m_direction = RIGHT;
+                    break;
+                case 2:
+                    m_direction = UP;
+                    break;
+                case 3:
+                    m_direction = DOWN;
+                    break;
+                default:
+                    m_direction = DOWN;
+            }
+        }
+    }
+    if(m_timer.GetTimeElapsed() > m_speed)
+    {
+        m_walk_len--;
+        this->EnemyMove(relay);
+        m_timer.ResetTimer();
+    }
+}
+
+void EnemyThree::ChasePlayer(Player * player)
+{
+    std::cout<< "Usao u ChasePlayer!!!"<< std::endl;
+    if( abs((int)m_x - (int)player->GetX()) > abs((int)m_y - (int)player->GetY()) )
+    {
+        std::cout << m_x - player->GetX() << std::endl;
+        if(m_x > player->GetX())
+            {m_direction = LEFT;std::cout<< "Usao u LEFT!!!"<< std::endl;}
+        else
+            {m_direction = RIGHT;std::cout<< "Usao u RIGH!!!"<< std::endl;}
+    }
+    else
+    {
+        std::cout << m_y - player->GetY() << std::endl;
+        if(m_y > player->GetY())
+            {m_direction = UP; std::cout<< "Usao u UP!!!"<< std::endl;}
+        else
+            {m_direction = DOWN;std::cout<< "Usao u DOWN!!!"<< std::endl;}
+    }
+
+}
+
+
+
+

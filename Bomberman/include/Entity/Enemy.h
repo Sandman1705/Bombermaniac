@@ -11,7 +11,6 @@
 #include <SDL.h>
 #include <cstdlib>
 #include <ctime>
-#include "Utility/Relay.h"
 #include "Utility/Timer.h"
 #include "Entity/Player.h"
 
@@ -93,7 +92,7 @@ class Enemy
          *
          *  \return void
          */
-        void Update(Relay *relay,Player *player);
+        virtual void Update(Relay *relay,Player *player);
 
          /**
          *  \brief Checks if enemy touched player.

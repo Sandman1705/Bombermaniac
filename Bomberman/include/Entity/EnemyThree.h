@@ -52,9 +52,14 @@ class EnemyThree : public Enemy
          *  \return void
          */
         void Draw(SDL_Renderer* renderer);
+
+        void Update(Relay *relay,Player *player);
+        void EnemyThreeDirection(Relay *relay);
+        void ChasePlayer(Player * player);
     protected:
 
     private:
+        bool m_chase = false;
 };
 
 #endif // ENEMYTHREE_H
