@@ -13,6 +13,7 @@ class BombManager;
 class PlayerManager;
 class EnemyManager;
 class Map;
+class PickUpManager;
 
 class Relay
 {
@@ -35,13 +36,15 @@ class Relay
          *  \param player_manager pointer to PlayerManager object of the game
          *  \param enemy_manager pointer to EnemyManager object of the game
          *  \param map_level pointer to Map object of the game
+         *  \param pickup_manager pointer to PickUpManager object of the game
          *
          */
         Relay(ExplosionManager *explosion_manager,
               BombManager *bomb_manager,
               PlayerManager *player_manager,
               EnemyManager *enemy_manager,
-              Map* map_level);
+              Map* map_level,
+              PickUpManager* pickup_manager);
 
         ExplosionManager* GetExplosionManager() const;
         void SetExplosionManager(ExplosionManager* val);
@@ -58,6 +61,9 @@ class Relay
         Map* GetMap() const;
         void SetMap(Map* val);
 
+        PickUpManager* GetPickUpManager() const;
+        void SetPickUpManager(PickUpManager* val);
+
     protected:
 
     private:
@@ -66,6 +72,7 @@ class Relay
         PlayerManager*    m_player_manager;
         EnemyManager*     m_enemy_manager;
         Map*              m_map;
+        PickUpManager*    m_pickup_manager;
 
 };
 

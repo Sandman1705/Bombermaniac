@@ -24,6 +24,9 @@ class PickUp
         PickUpType GetType() const { return m_type; }
         int GetValue() const { return m_value; }
 
+        bool IsUsed();
+        void Use();
+
         void Draw(SDL_Renderer* renderer) const;
 
     protected:
@@ -35,6 +38,7 @@ class PickUp
         unsigned int    m_x;
         unsigned int    m_y;
         unsigned int    m_draw_size;
+        bool            m_used;
 
 };
 

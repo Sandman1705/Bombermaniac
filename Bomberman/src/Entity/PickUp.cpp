@@ -1,4 +1,4 @@
-#include "Entity\PickUp.h"
+#include "Entity/PickUp.h"
 #include "Constants/TexturePickUpConstants.h"
 
 PickUp::PickUp(SDL_Texture* texture,
@@ -12,8 +12,19 @@ PickUp::PickUp(SDL_Texture* texture,
       m_value(value),
       m_x(x),
       m_y(y),
-      m_draw_size(draw_size)
+      m_draw_size(draw_size),
+      m_used(false)
 {
+}
+
+bool PickUp::IsUsed()
+{
+    return m_used;
+}
+
+void PickUp::Use()
+{
+    m_used = true;
 }
 
 void PickUp::Draw(SDL_Renderer* renderer) const

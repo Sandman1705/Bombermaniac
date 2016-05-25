@@ -3,13 +3,15 @@
 #include <time.h>       /* time */
 #include <fstream>      /* fstream open close */
 #include "Constants/TextureMapObjectConstants.h"
+#include "Entity/PickUp.h"
+#include "Manager/PickUpManager.h"
 
 #ifdef DEBUG_OUTPUT_MAP
 #include <iostream>
 #endif // DEBUG_OUTPUT_MAP
 
-Map::Map(std::string path_to_file, SDL_Texture* texture, unsigned int tile_size)
-    : DisplayElement(texture), m_tile_size(tile_size)
+Map::Map(std::string path_to_file, SDL_Texture* texture, unsigned int tile_size, Relay* relay)
+    : DisplayElement(texture), m_tile_size(tile_size), m_relay(relay)
 {
     std::fstream fs;
     fs.open (path_to_file, std::fstream::in);
@@ -113,6 +115,7 @@ void Map::DestroyWall(unsigned int i, unsigned int j)
             #ifdef DEBUG_OUTPUT_MAP
             std::cout << "MapObject at X:" << j << " Y:" << i << " is replaced with EMPTY." << std::endl;
             #endif // DEBUG_OUTPUT_MAP
+            //m_relay->GetPickUpManager()->MakePickUp(PickUp::BOMB,1,j*m_tile_size+m_tile_size/2,i*m_tile_size+m_tile_size/2);
         }
     }
     #ifdef DEBUG_OUTPUT_MAP
