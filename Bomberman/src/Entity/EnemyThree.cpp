@@ -160,44 +160,50 @@ void EnemyThree::EnemyThreeDirection(Relay *relay)
 
 void EnemyThree::ChasePlayer(Player * player, Relay *relay)
 {
-    if( abs((int)m_x - (int)player->GetX()) > abs((int)m_y - (int)player->GetY()) )
+    int i = 1;
+    int j = 1;
+    Direction direction1, direction2;
+
+    if(m_x > player->GetX())
     {
-    first:
-        if(m_x > player->GetX())
-        {
-            if(DirectionCheck(LEFT, relay))
-                m_direction = LEFT;
-            else
-                goto second;
-        }
+        if(DirectionCheck(LEFT, relay))
+            direction1 = LEFT;
         else
-        {
-            if(DirectionCheck(RIGHT, relay) )
-                m_direction = RIGHT;
-            else
-                goto second;
-        }
+            i = 0;
     }
     else
     {
-    second:
-        if(m_y > player->GetY())
-        {
-            if(DirectionCheck(UP, relay))
-                m_direction = UP;
-            else
-                goto first;
-
-        }
+        if(DirectionCheck(RIGHT, relay) )
+            direction1 = RIGHT;
         else
-        {
-            if(DirectionCheck(DOWN, relay))
-                m_direction = DOWN;
-            else
-                goto first;
-        }
+            i = 0;
     }
+    //----------------
+    if(m_y > player->GetY())
+    {
+        if(DirectionCheck(UP, relay))
+            direction2 = UP;
+        else
+            j=0;
 
+    }
+    else
+    {
+        if(DirectionCheck(DOWN, relay))
+            direction2 = DOWN;
+        else
+            j=0;
+    }
+    //----------------
+    if( (abs((int)m_x - (int)player->GetX()) > abs((int)m_y - (int)player->GetY())) && i!=0)
+        m_direction = direction1;
+    else
+    {
+        if(j!=0)
+            m_direction = direction2;
+        else
+            m_direction = direction1;
+    }
 }
 
 bool EnemyThree::DirectionCheck(Direction d, Relay *relay)
