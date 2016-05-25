@@ -55,7 +55,8 @@ class EnemyThree : public Enemy
 
         void Update(Relay *relay,Player *player);
         void EnemyThreeDirection(Relay *relay);
-        void ChasePlayer(Player * player);
+        void ChasePlayer(Player * player, Relay *relay);
+        bool DirectionCheck(Direction d, Relay *relay);
     protected:
 
     private:

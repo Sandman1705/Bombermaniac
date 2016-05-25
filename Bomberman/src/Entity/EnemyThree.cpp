@@ -2,6 +2,7 @@
 #include "Constants/TextureEnemyConstants.h"
 #include "Manager/PlayerManager.h"
 #include "cmath"
+#include "Manager/Map.h"
 #include <iostream>
 
 EnemyThree::EnemyThree(SDL_Texture* tex, unsigned int tile_size, unsigned int val_x, unsigned int val_y)
@@ -93,7 +94,6 @@ void EnemyThree::Update(Relay *relay, Player *player)
                 }
 
     EnemyThreeDirection(relay);
-    std::cout<< "UPDATE!!!"<< std::endl;
 }
 
 void EnemyThree::EnemyThreeDirection(Relay *relay)
@@ -120,11 +120,10 @@ void EnemyThree::EnemyThreeDirection(Relay *relay)
 
     if(m_chase)
     {
-        ChasePlayer(p);
+        ChasePlayer(p, relay);
     }
     else
     {
-        std::cout<< "Usao u Random!!!"<< std::endl;
         int r;
 
         if(m_walk_len <= 0)
@@ -159,28 +158,89 @@ void EnemyThree::EnemyThreeDirection(Relay *relay)
     }
 }
 
-void EnemyThree::ChasePlayer(Player * player)
+void EnemyThree::ChasePlayer(Player * player, Relay *relay)
 {
-    std::cout<< "Usao u ChasePlayer!!!"<< std::endl;
     if( abs((int)m_x - (int)player->GetX()) > abs((int)m_y - (int)player->GetY()) )
     {
-        std::cout << m_x - player->GetX() << std::endl;
+    first:
         if(m_x > player->GetX())
-            {m_direction = LEFT;std::cout<< "Usao u LEFT!!!"<< std::endl;}
+        {
+            if(DirectionCheck(LEFT, relay))
+                m_direction = LEFT;
+            else
+                goto second;
+        }
         else
-            {m_direction = RIGHT;std::cout<< "Usao u RIGH!!!"<< std::endl;}
+        {
+            if(DirectionCheck(RIGHT, relay) )
+                m_direction = RIGHT;
+            else
+                goto second;
+        }
     }
     else
     {
-        std::cout << m_y - player->GetY() << std::endl;
+    second:
         if(m_y > player->GetY())
-            {m_direction = UP; std::cout<< "Usao u UP!!!"<< std::endl;}
+        {
+            if(DirectionCheck(UP, relay))
+                m_direction = UP;
+            else
+                goto first;
+
+        }
         else
-            {m_direction = DOWN;std::cout<< "Usao u DOWN!!!"<< std::endl;}
+        {
+            if(DirectionCheck(DOWN, relay))
+                m_direction = DOWN;
+            else
+                goto first;
+        }
     }
 
 }
 
+bool EnemyThree::DirectionCheck(Direction d, Relay *relay)
+{
+    unsigned int field_size = m_tile_size;
+
+    if(d == RIGHT) // MOVE RIGHT ------------
+    {
+
+        if( relay->GetMap()->Walkable( m_y/field_size, (m_x+m_enemy_size_w+m_move_speed)/field_size )
+                && relay->GetMap()->Walkable( (m_y+m_enemy_size_h)/field_size, (m_x+m_enemy_size_w+m_move_speed)/field_size) )
+        {
+            return true;
+        }
+    }
+    else if (d == LEFT) // MOVE LEFT ------------
+        {
+            if(relay->GetMap()->Walkable( m_y/field_size, (m_x-m_move_speed)/field_size )
+                    && relay->GetMap()->Walkable( (m_y+m_enemy_size_h)/field_size, (m_x-m_move_speed)/field_size) )
+            {
+                return true;
+            }
+        }
+        else if(d == DOWN) // MOVE DOWN ------------
+            {
+
+                if(relay->GetMap()->Walkable( (m_y+m_enemy_size_h+m_move_speed)/field_size, m_x/field_size )
+                    && relay->GetMap()->Walkable( (m_y+m_enemy_size_h+m_move_speed)/field_size, (m_x+m_enemy_size_w)/field_size ) )
+                {
+                    return true;
+                }
+            }
+            else if(d == UP) // MOVE UP ------------
+                {
+
+                    if(relay->GetMap()->Walkable( (m_y - m_move_speed)/field_size, m_x/field_size )
+                        &&  relay->GetMap()->Walkable( (m_y - m_move_speed)/field_size, (m_x+m_enemy_size_w)/field_size) )
+                    {
+                        return true;
+                    }
+                }
+    return false;
+}
 
 
 
