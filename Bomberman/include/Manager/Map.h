@@ -107,12 +107,16 @@ class Map : public DisplayElement
 
     protected:
 
+        void PlaceExit(unsigned int i, unsigned int j);
+        void TryPlacePickUp(unsigned int i, unsigned int j);
+
     private:
         unsigned int                            m_height;
         unsigned int                            m_width;
         std::vector<std::vector<MapObject*>>    m_layout;
         const int                               m_tile_size;
         Relay*                                  m_relay;
+        unsigned int                            m_wall_count;
 
         static const unsigned int               TEXTURE_SIZE = 64;
 };

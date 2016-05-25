@@ -13,7 +13,7 @@ class PickUpManager : public DisplayElement
         ~PickUpManager();
 
         void AddPickUp(PickUp* pickup);
-        void MakePickUp(PickUp::PickUpType type, int value, int x, int y);
+        void MakePickUp(PickUp::PickUpType type, int x, int y, int value = 0);
 
         virtual void Update();
         virtual void Draw(SDL_Renderer* renderer) const;

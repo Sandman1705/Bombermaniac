@@ -1,6 +1,6 @@
 #include "Manager\PickUpManager.h"
 
-#define DEBUG_OUTPUT_PICKUP_MANAGER
+//#define DEBUG_OUTPUT_PICKUP_MANAGER
 
 #ifdef DEBUG_OUTPUT_PICKUP_MANAGER
 #include <iostream>
@@ -32,8 +32,11 @@ void PickUpManager::AddPickUp(PickUp* pickup)
     m_pickups.push_back(pickup);
 }
 
-void PickUpManager::MakePickUp(PickUp::PickUpType type, int value, int x, int y)
+void PickUpManager::MakePickUp(PickUp::PickUpType type, int x, int y, int value)
 {
+    #ifdef DEBUG_OUTPUT_PICKUP_MANAGER
+    std::cout << "Making pickup with value" << value << std::endl;
+    #endif // DEBUG_OUTPUT_PICKUP_MANAGER
     PickUp* pickup = new PickUp(m_texture,type,value,x,y,m_draw_size);
     AddPickUp(pickup);
 }
