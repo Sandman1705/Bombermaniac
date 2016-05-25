@@ -75,6 +75,7 @@
 		<Unit filename="include/Constants/TextureEnemyConstants.h" />
 		<Unit filename="include/Constants/TextureExplosionConstants.h" />
 		<Unit filename="include/Constants/TextureMapObjectConstants.h" />
+		<Unit filename="include/Constants/TexturePickUpConstants.h" />
 		<Unit filename="include/Constants/TexturePlayerConstants.h" />
 		<Unit filename="include/Constants/TextureScoreConstants.h" />
 		<Unit filename="include/Destroyer/Destroyer.h" />
@@ -96,6 +97,7 @@
 		<Unit filename="include/Entity/EnemyTwo.h" />
 		<Unit filename="include/Entity/Explosion.h" />
 		<Unit filename="include/Entity/MapObject.h" />
+		<Unit filename="include/Entity/PickUp.h" />
 		<Unit filename="include/Entity/Player.h" />
 		<Unit filename="include/Manager/BombManager.h" />
 		<Unit filename="include/Manager/EnemyManager.h" />
@@ -132,6 +134,7 @@
 		<Unit filename="src/Entity/EnemyTwo.cpp" />
 		<Unit filename="src/Entity/Explosion.cpp" />
 		<Unit filename="src/Entity/MapObject.cpp" />
+		<Unit filename="src/Entity/PickUp.cpp" />
 		<Unit filename="src/Entity/Player.cpp" />
 		<Unit filename="src/Manager/BombManager.cpp" />
 		<Unit filename="src/Manager/EnemyManager.cpp" />
