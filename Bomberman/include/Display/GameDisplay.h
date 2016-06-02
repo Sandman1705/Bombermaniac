@@ -38,6 +38,8 @@ class GameDisplay : public Display
         unsigned int                    m_window_height;
         unsigned int                    m_current_level;
         bool                            m_level_completed;
+        bool                            m_play_music = true;
+        Mix_Music*                      m_music = NULL;
 };
 
 #endif // GAMEDISPLAY_H

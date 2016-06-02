@@ -8,6 +8,22 @@
 
 bool game::OnInit()
 {
+    if(SDL_Init(SDL_INIT_AUDIO) < 0)
+    {
+        #ifdef DEBUG_OUTPUT_GAME
+        std::cout << "SDL_Init Error: " << SDL_GetError() << std::endl;
+        #endif // DEBUG_OUTPUT_GAME
+        return false;
+    }
+
+    if(Mix_OpenAudio( 22050, MIX_DEFAULT_FORMAT, 2, 4096) == -1)
+    {
+        #ifdef DEBUG_OUTPUT_GAME
+        std::cout << "SDL_Init Error: " << SDL_GetError() << std::endl;
+        #endif // DEBUG_OUTPUT_GAME
+        return false;
+    }
+
     if(SDL_Init(SDL_INIT_VIDEO) < 0)
     {
         #ifdef DEBUG_OUTPUT_GAME
