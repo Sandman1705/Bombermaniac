@@ -10,8 +10,6 @@
 #include "Manager/EnemyManager.h"
 #include "Manager/PickUpManager.h"
 
-#include <iostream>
-
 GameDisplay::GameDisplay(SDL_Texture* texture,
                          SDL_Renderer* renderer,
                          unsigned int window_width,
@@ -59,8 +57,7 @@ void GameDisplay::Init()
     EnemyManager* enemy_manager = new EnemyManager("resources/levels/enemy2.txt", m_texture, tile_size, m_relay);
     PickUpManager* pickup_manager = new PickUpManager(m_texture,tile_size,m_relay);
 
-    m_music = Mix_LoadMUS("resources/bomberman_w.wav");
-
+    m_music = Mix_LoadMUS("resources/bomberman.mp3");
     Mix_PlayMusic(m_music, -1);
 
     m_relay->SetExplosionManager(explosion_manager);
@@ -80,6 +77,7 @@ void GameDisplay::Init()
 
 void GameDisplay::Enter(int mode)
 {
+    Mix_ResumeMusic();
     SystemTimer::Instance()->Unpause();
     m_leave_next = false;
     if (mode == 0)
@@ -94,15 +92,13 @@ void GameDisplay::Enter(int mode)
 
 void GameDisplay::Leave()
 {
+    Mix_PauseMusic();
     SystemTimer::Instance()->Pause();
 }
 
 int GameDisplay::Destroy()
 {
-    //Music-------------------
     Mix_FreeMusic(m_music);
-    Mix_CloseAudio();
-    //------------------------
 
     for (auto i = m_display_elements.begin(); i != m_display_elements.end(); ++i)
     {

@@ -2,6 +2,7 @@
 
 void game::Cleanup()
 {
+    Mix_CloseAudio();
     SDL_DestroyTexture(texture);
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);

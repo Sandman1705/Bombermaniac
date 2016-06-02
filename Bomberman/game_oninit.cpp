@@ -8,11 +8,19 @@
 
 bool game::OnInit()
 {
-    if(SDL_Init(SDL_INIT_AUDIO) < 0)
+    if(SDL_Init(SDL_INIT_EVERYTHING) < 0)
     {
         #ifdef DEBUG_OUTPUT_GAME
         std::cout << "SDL_Init Error: " << SDL_GetError() << std::endl;
         #endif // DEBUG_OUTPUT_GAME
+        return false;
+    }
+    int result = 0;
+    int flags = MIX_INIT_MP3;
+    if (flags != (result = Mix_Init(flags)))
+    {
+        std::cout<<"Could not initialize mixer "<<result<< std::endl;
+        std::cout<<"Mix_Init: "<<Mix_GetError()<< std::endl;
         return false;
     }
 
@@ -24,13 +32,6 @@ bool game::OnInit()
         return false;
     }
 
-    if(SDL_Init(SDL_INIT_VIDEO) < 0)
-    {
-        #ifdef DEBUG_OUTPUT_GAME
-        std::cout << "SDL_Init Error: " << SDL_GetError() << std::endl;
-        #endif // DEBUG_OUTPUT_GAME
-        return false;
-    }
     /* TTF Init */
     if (TTF_Init() != 0){
         #ifdef DEBUG_OUTPUT_GAME
