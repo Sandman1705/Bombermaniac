@@ -79,11 +79,17 @@ MainMenuDisplay::~MainMenuDisplay()
 
 void MainMenuDisplay::Init()
 {
+    std::string path_music = RESOURCES_BASE_PATH + RESOURCES_MUSIC_MENU;
+    m_music = Mix_LoadMUS(path_music.c_str());
+    Mix_PlayMusic(m_music, -1);
+
     Enter();
 }
 
 void MainMenuDisplay::Enter(int mode)
 {
+    Mix_ResumeMusic();
+
     m_leave_next = false;
     m_leave_previous = false;
     m_arrow = 0;
@@ -94,10 +100,14 @@ void MainMenuDisplay::Enter(int mode)
 
 void MainMenuDisplay::Leave()
 {
+    Mix_PauseMusic();
 }
 
 int MainMenuDisplay::Destroy()
 {
+    Mix_PauseMusic();
+    Mix_FreeMusic(m_music);
+
     for (auto i = m_textures.begin(); i != m_textures.end(); ++i)
     {
         SDL_DestroyTexture(*i);

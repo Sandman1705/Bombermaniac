@@ -34,9 +34,15 @@ LoadingDisplay::~LoadingDisplay()
     m_textures_draw_src.clear();
     m_textures_draw_dest.clear();
 }
-
+void LoadingDisplay::Init()
+{
+    std::string path_music = RESOURCES_BASE_PATH + RESOURCES_MUSIC_LOAD;
+    m_music = Mix_LoadMUS(path_music.c_str());
+    Mix_PlayMusic(m_music, -1);
+}
 void LoadingDisplay::Enter(int mode)
 {
+    Mix_PlayMusic(m_music, -1);
     if (mode == 0)
     {
         m_leave_previous = false;
@@ -67,7 +73,21 @@ void LoadingDisplay::Enter(int mode)
     }
 }
 
+void LoadingDisplay::Leave()
+{
+    Mix_HaltMusic();
+}
+
 int LoadingDisplay::Destroy()
+{
+    Mix_HaltMusic();
+    Mix_FreeMusic(m_music);
+
+    DestroyTextures();
+    return 0;
+}
+
+void LoadingDisplay::DestroyTextures()
 {
     for (auto i = m_textures.begin(); i != m_textures.end(); ++i)
     {
@@ -76,12 +96,11 @@ int LoadingDisplay::Destroy()
     m_textures.clear();
     m_textures_draw_src.clear();
     m_textures_draw_dest.clear();
-    return 0;
 }
 
 void LoadingDisplay::Update()
 {
-    if (m_timer.GetTimeElapsed() > 1000)
+    if (m_timer.GetTimeElapsed() > 3100)
     {
         if (m_game_over)
         {
@@ -105,7 +124,7 @@ void LoadingDisplay::Draw(SDL_Renderer* renderer) const
 
 void LoadingDisplay::MakeTexture(std::string text)
 {
-    Destroy();
+    DestroyTextures();
     m_timer.ResetTimer();
 
     std::string path_font = RESOURCES_BASE_PATH + RESOURCES_FONT;
