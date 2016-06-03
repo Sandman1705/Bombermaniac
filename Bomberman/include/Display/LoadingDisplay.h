@@ -35,8 +35,9 @@ class LoadingDisplay : public Display
         unsigned int                m_current_level;
         const unsigned int          m_max_level;
         Timer                       m_timer;
+        bool                        m_game_over;
 
-        void MakeTexture();
+        void MakeTexture(std::string text);
 
 };
 

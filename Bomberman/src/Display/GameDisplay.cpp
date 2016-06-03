@@ -10,6 +10,11 @@
 #include "Manager/EnemyManager.h"
 #include "Manager/PickUpManager.h"
 
+#include "Constants/ResourcesConstants.h"
+
+#include <string>
+#include <sstream>
+
 GameDisplay::GameDisplay(SDL_Texture* texture,
                          SDL_Renderer* renderer,
                          unsigned int window_width,
@@ -45,19 +50,26 @@ void GameDisplay::Init()
 {
     unsigned int tile_size = 44;
     m_relay = new Relay();
-#ifdef _WIN32
-    Map* level = new Map("resources\\levels\\level1.txt", m_texture, tile_size, m_relay);
-#else // LINUX
-    Map* level = new Map("resources/levels/level1.txt", m_texture, tile_size, m_relay);
-#endif
+
+    std::string level_num;
+    std::stringstream convert;
+    convert << m_current_level;
+    level_num = convert.str();
+
+    std::string path_level = RESOURCES_LEVELS_PATH + RESOURCES_LEVEL_MAP + level_num + RESOURCES_LEVEL_MAP_EXT;
+    std::string path_player = RESOURCES_LEVELS_PATH + RESOURCES_LEVEL_PLAYER + level_num + RESOURCES_LEVEL_PLAYER_EXT;
+    std::string path_enemy = RESOURCES_LEVELS_PATH + RESOURCES_LEVEL_ENEMY + level_num + RESOURCES_LEVEL_ENEMY_EXT;
+
+    Map* level = new Map(path_level, m_texture, tile_size, m_relay);
     ExplosionManager* explosion_manager = new ExplosionManager(m_texture, tile_size);
     BombManager* bomb_manager = new BombManager(m_texture, tile_size, m_relay);
-    PlayerManager* player_manager = new PlayerManager("resources/levels/player1.txt", m_texture, tile_size, m_relay);
+    PlayerManager* player_manager = new PlayerManager(path_player, m_texture, tile_size, m_relay);
     player_manager->GetPlayers()->back()->SetKeycodes(SDLK_w, SDLK_s, SDLK_a, SDLK_d, SDLK_g);
-    EnemyManager* enemy_manager = new EnemyManager("resources/levels/enemy1.txt", m_texture, tile_size, m_relay);
+    EnemyManager* enemy_manager = new EnemyManager(path_enemy, m_texture, tile_size, m_relay);
     PickUpManager* pickup_manager = new PickUpManager(m_texture,tile_size,m_relay);
 
-    m_music = Mix_LoadMUS("resources/bomberman.mp3");
+    std::string path_music = RESOURCES_BASE_PATH + RESOURCES_MUSIC;
+    m_music = Mix_LoadMUS(path_music.c_str());
     Mix_PlayMusic(m_music, -1);
 
     m_relay->SetExplosionManager(explosion_manager);
