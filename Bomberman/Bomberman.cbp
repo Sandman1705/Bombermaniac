@@ -112,9 +112,13 @@
 		<Unit filename="include/Utility/Relay.h" />
 		<Unit filename="include/Utility/Timer.h" />
 		<Unit filename="includes.h" />
+		<Unit filename="resources/Zabdilus.ttf" />
+		<Unit filename="resources/bomberman.mp3" />
+		<Unit filename="resources/levels/enemy1.txt" />
 		<Unit filename="resources/levels/enemy2.txt" />
 		<Unit filename="resources/levels/level1.txt" />
 		<Unit filename="resources/levels/level2.txt" />
+		<Unit filename="resources/levels/player1.txt" />
 		<Unit filename="resources/levels/player2.txt" />
 		<Unit filename="resources/textures.bmp" />
 		<Unit filename="src/Destroyer/Destroyer.cpp" />

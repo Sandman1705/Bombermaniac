@@ -7,14 +7,14 @@
 #include "Entity/PickUp.h"
 #include "Manager/PickUpManager.h"
 
-#define DEBUG_OUTPUT_MAP
+//#define DEBUG_OUTPUT_MAP
 
 #ifdef DEBUG_OUTPUT_MAP
 #include <iostream>
 #endif // DEBUG_OUTPUT_MAP
 
 Map::Map(std::string path_to_file, SDL_Texture* texture, unsigned int tile_size, Relay* relay)
-    : DisplayElement(texture), m_tile_size(tile_size), m_relay(relay)
+    : DisplayElement(texture), m_tile_size(tile_size), m_relay(relay), m_wall_count(0)
 {
     std::fstream fs;
     fs.open (path_to_file, std::fstream::in);
@@ -27,7 +27,7 @@ Map::Map(std::string path_to_file, SDL_Texture* texture, unsigned int tile_size,
         exit(EXIT_FAILURE);
     }
 
-    fs >> m_height >> m_width >> m_wall_count;
+    fs >> m_height >> m_width;
 
     m_layout.resize(m_height);
     for (unsigned i=0; i<m_height; ++i)
@@ -49,6 +49,7 @@ Map::Map(std::string path_to_file, SDL_Texture* texture, unsigned int tile_size,
             case 1:
                 //tile = MapObject::DESTRUCTIBLE_WALL;
                 m_layout[i][j] = new DestructibleWall(m_texture, rand() % TEXTURE_MAP_DESTRUCTIBLE_KIND_COUNT);
+                ++m_wall_count;
                 break;
             case 2:
                 //tile = MapObject::INDESTRUCTIBLE_WALL;
@@ -60,7 +61,9 @@ Map::Map(std::string path_to_file, SDL_Texture* texture, unsigned int tile_size,
                 break;
             }
         }
-
+    #ifdef DEBUG_OUTPUT_MAP
+    std::cout << "WALL COUNT: " << m_wall_count << std::endl;
+    #endif // DEBUG_OUTPUT_MAP
     fs.close();
     srand(time(NULL));
 }
