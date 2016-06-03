@@ -35,9 +35,14 @@ void BombManager::AddBomb(Bomb *bomb)
     m_bombs.push_back(bomb);
 }
 
-void BombManager::MakeBomb(unsigned int fuse_duration, unsigned int x, unsigned int y, double intensity)
+void BombManager::MakeBomb(unsigned int fuse_duration,
+                           unsigned int x,
+                           unsigned int y,
+                           unsigned int player_id,
+                           double intensity,
+                           unsigned int damage)
 {
-    Bomb* b = new Bomb(fuse_duration,m_texture,x,y,m_bomb_size,intensity);
+    Bomb* b = new Bomb(fuse_duration,m_texture,x,y,m_bomb_size,player_id,intensity,damage);
     AddBomb(b);
 }
 
@@ -49,9 +54,10 @@ void BombManager::Update()
         if((*i)->Explode())
         {
             m_relay->GetExplosionManager()->MakeExplosion(1000, (*i)->GetX(), (*i)->GetY(), (*i)->GetIntensity());
-            WallDestroyer wd(m_relay->GetMap(), (*i)->GetX(), (*i)->GetY(), m_tile_size, (*i)->GetIntensity());
+            WallDestroyer wd(m_relay->GetMap(), (*i)->GetX(), (*i)->GetY(), m_tile_size, (*i)->GetIntensity(), (*i)->GetDamage());
             m_relay->GetEnemyManager()->KillEnemies((*i)->GetX(), (*i)->GetY(), (*i)->GetIntensity());
             m_relay->GetPlayerManager()->KillPlayer((*i)->GetX(), (*i)->GetY(), (*i)->GetIntensity());
+            //m_relay->GetPlayerManager()->GetPlayerById((*i)->GetPlayerId())->BombFree();
             delete (*i);
             i = m_bombs.erase(i);
         }

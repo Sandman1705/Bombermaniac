@@ -140,7 +140,7 @@ void Player::Update()
 
 void Player::PlaceBomb()
 {
-   m_relay->GetBombManager()->MakeBomb(5000,m_x+m_player_size_w/2,m_y+m_player_size_h/2,2.5); // TODO Fix testing values
+   m_relay->GetBombManager()->MakeBomb(5000,m_x+m_player_size_w/2,m_y+m_player_size_h/2,m_player_id,2.5,50); // TODO Fix testing values
 }
 
 void Player::Draw(SDL_Renderer *renderer)

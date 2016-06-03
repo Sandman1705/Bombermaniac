@@ -65,11 +65,18 @@ class BombManager : public DisplayElement
          *  \param fuse_duration duration of bombs fuse in millisecond
          *  \param x top left x coordinate of the bomb on the map
          *  \param y top left y coordinate of the bomb on the map
+         *  \param player_id id of the player that placed the bomb
          *  \param intensity real value which represents the intensity of the
          *         bombs explosion after it's fuses burns out
+         *  \param damage value in percents that the bomb will do to a wall
          *  \return void
          */
-        void MakeBomb(unsigned int fuse_duration, unsigned int x, unsigned int y, double intensity = 1.0);
+        void MakeBomb(unsigned int fuse_duration,
+                      unsigned int x,
+                      unsigned int y,
+                      unsigned int player_id,
+                      double intensity = 1.0,
+                      unsigned int damage = 25);
         /**
          *  \brief Update function for class BombManager
          *

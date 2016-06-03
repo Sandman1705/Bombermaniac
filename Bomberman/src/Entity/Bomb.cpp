@@ -10,8 +10,9 @@ Bomb::Bomb(unsigned int fuse_duration,
            unsigned int x,
            unsigned int y,
            unsigned int bomb_size,
-           double intensity
-          )
+           unsigned int player_id,
+           double intensity,
+           unsigned int damage)
     :   m_timer(),
         m_fuse_duration(fuse_duration),
         m_texture(texture),
@@ -19,7 +20,9 @@ Bomb::Bomb(unsigned int fuse_duration,
         m_x(x),
         m_y(y),
         m_draw_size(bomb_size),
+        m_player_id(player_id),
         m_intensity(intensity),
+        m_damage(damage),
         m_phase_number(0)
 {
     #ifdef DEBUG_OUTPUT_BOMB

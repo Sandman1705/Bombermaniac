@@ -81,10 +81,11 @@ class Map : public DisplayElement
          *  MapObject::EMPTY
          *  \param i row coordinate of the map
          *  \param j column coordinate of the map
+         *  \param damage value in percent that the bomb should do to a wall
          *
          *  \return void
          */
-        void DestroyWall(unsigned int i, unsigned int j);
+        void DestroyWall(unsigned int i, unsigned int j, unsigned int damage);
         /**
          *  \brief Checks the type of MapObject on given coordinates
          *

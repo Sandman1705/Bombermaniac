@@ -35,8 +35,10 @@ class Bomb
          *  \param x coordinate of the bomb on the map
          *  \param bomb_size drawing size of the bomb according to 32 pixel tile
          *         size of the map
+         *  \param player_id id of the player that placed the bomb
          *  \param intensity real value of bomb's blast radius (1.0 is radius of
          *         one tile size of the map
+         *  \param damage damage in percent that a bomb does to a wall
          *
          */
         Bomb(unsigned int fuse_duration,
@@ -44,7 +46,9 @@ class Bomb
              unsigned int x,
              unsigned int y,
              unsigned int bomb_size,
-             double intensity = 1.0);
+             unsigned int player_id,
+             double intensity = 1.0,
+             unsigned int damage = 25);
         #ifdef DEBUG_OUTPUT_BOMB
         ~Bomb();
         #endif // DEBUG_OUTPUT_BOMB
@@ -53,6 +57,8 @@ class Bomb
         unsigned int GetY() const { return m_y; }
         unsigned int GetBombSize () const { return m_draw_size; }
         double GetIntensity () const { return m_intensity; }
+        unsigned int GetPlayerId() const { return m_player_id; }
+        unsigned int GetDamage() const { return m_damage; }
 
         /**
          *  \brief Update function for class Bomb
@@ -95,7 +101,9 @@ class Bomb
         unsigned int    m_x;
         unsigned int    m_y;
         unsigned int    m_draw_size;
+        unsigned int    m_player_id;
         double          m_intensity;
+        unsigned int    m_damage;
         unsigned int    m_phase_number;
 };
 

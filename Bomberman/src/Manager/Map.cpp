@@ -106,12 +106,12 @@ void Map::Draw(SDL_Renderer* renderer) const
     }
 }
 
-void Map::DestroyWall(unsigned int i, unsigned int j)
+void Map::DestroyWall(unsigned int i, unsigned int j, unsigned int damage)
 {
     if (m_layout[i][j]->GetId() == MapObject::DESTRUCTIBLE_WALL)
     {
         DestructibleWall* wall = (DestructibleWall*)m_layout[i][j];
-        wall->DecreaseIntegrity(25);
+        wall->DecreaseIntegrity(damage);
         if (wall->IsDestroyed())
         {
             delete m_layout[i][j];

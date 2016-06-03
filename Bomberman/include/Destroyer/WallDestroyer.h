@@ -30,12 +30,14 @@ class WallDestroyer
          *  \param tile_size pixel size of one tile on the map
          *  \param intensity real value of explosion's size and effect it will
          *         make (1.0 is radius of one tile size of the map)
+         *  \param damage value in percent that the bomb will do to a wall
          */
         WallDestroyer(Map* level,
                       unsigned int start_x,
                       unsigned int start_y,
                       unsigned int tile_size,
-                      double intensity);
+                      double intensity,
+                      unsigned int damage);
 
     protected:
 
@@ -104,6 +106,7 @@ class WallDestroyer
         unsigned int    m_start_y;
         unsigned int    m_tile_size;
         double          m_intensity;
+        unsigned int    m_damage;
 
 };
 

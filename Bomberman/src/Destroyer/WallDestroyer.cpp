@@ -12,12 +12,14 @@ WallDestroyer::WallDestroyer(Map* level,
                              unsigned int start_x,
                              unsigned int start_y,
                              unsigned int tile_size,
-                             double intensity)
+                             double intensity,
+                             unsigned int damage)
     :   m_level(level),
         m_start_x(start_x),
         m_start_y(start_y),
         m_tile_size(tile_size),
-        m_intensity(intensity/2)
+        m_intensity(intensity/2),
+        m_damage(damage)
 {
     int i = m_start_y / tile_size; // row number
     int j = m_start_x / tile_size; // column number
@@ -58,7 +60,7 @@ void WallDestroyer::Destroy(int row, int col) const
         #ifdef DEBUG_OUTPUT_WALLDESTROYER
         std::cout << "WallDestroyer Destroying wall: (i,j)=" << row << "," << col << std::endl;
         #endif // DEBUG_OUTPUT_WALLDESTROYER
-        m_level->DestroyWall(row,col);
+        m_level->DestroyWall(row,col,m_damage);
     }
 }
 
