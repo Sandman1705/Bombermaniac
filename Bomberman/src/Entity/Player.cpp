@@ -67,27 +67,38 @@ void Player::Update()
                     if(!(*j)->IsUsed())
                     {
                         m_speed -= (*j)->GetValue();
+                        if(m_speed < TEXTURE_PLAYER_MAX_SPEED) //It's reversed because it's in milisec
+                            m_speed = TEXTURE_PLAYER_MAX_SPEED;
+
                         (*j)->Use();
                     }
                     break;
                 case PickUp::BOMB:
                     if(!(*j)->IsUsed())
                     {
-                       // m_speed -= (*j)->GetValue();
+                        m_bomb_num += (*j)->GetValue();
+                        if(m_bomb_num > TEXTURE_PLAYER_MAX_BOMBS)
+                            m_speed = TEXTURE_PLAYER_MAX_BOMBS;
+
                         (*j)->Use();
                     }
                     break;
                 case PickUp::DAMAGE:
                     if(!(*j)->IsUsed())
                     {
-                       // m_speed -= (*j)->GetValue();
+                        m_bomb_intensity += (*j)->GetValue();
+                        if(m_bomb_intensity > TEXTURE_PLAYER_MAX_BOMB_INTENSITY)
+                            m_bomb_intensity = TEXTURE_PLAYER_MAX_BOMB_INTENSITY;
+
                         (*j)->Use();
                     }
                     break;
                 case PickUp::LIFE:
                     if(!(*j)->IsUsed())
                     {
-                        //m_speed -= (*j)->GetValue();
+                        m_lives += (*j)->GetValue();
+                        if(m_lives > TEXTURE_PLAYER_MAX_LIVES)
+                            m_lives = TEXTURE_PLAYER_MAX_LIVES;
                         (*j)->Use();
                     }
                     break;
@@ -140,7 +151,16 @@ void Player::Update()
 
 void Player::PlaceBomb()
 {
-   m_relay->GetBombManager()->MakeBomb(5000,m_x+m_player_size_w/2,m_y+m_player_size_h/2,m_player_id,2.5,50); // TODO Fix testing values
+    if(m_bomb_temp_num <= m_bomb_num)
+    {
+		m_relay->GetBombManager()->MakeBomb(5000,m_x+m_player_size_w/2,m_y+m_player_size_h/2,m_player_id,m_bomb_intensity,50); // TODO Fix testing values
+        //m_bomb_temp_num++;
+    }
+}
+
+void Player::DecreaseTmpBombNumb()
+{
+    m_bomb_temp_num--;
 }
 
 void Player::Draw(SDL_Renderer *renderer)
