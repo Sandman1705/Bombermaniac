@@ -132,7 +132,12 @@ void PlayerManager::Update()
     }
 }
 
-std::list<Player*>* PlayerManager::GetPlayers()
+Player* PlayerManager::GetPlayerById(int id)
+{
+    return m_players[id];
+}
+
+std::vector<Player*>* PlayerManager::GetPlayers()
 {
     return &m_players;
 }

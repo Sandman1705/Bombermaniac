@@ -10,7 +10,7 @@
  */
 
 #include <SDL.h>
-#include <list>
+#include <vector>
 #include "Display/DisplayElement.h"
 #include "Entity/Player.h"
 #include "Utility/Timer.h"
@@ -46,7 +46,8 @@ class PlayerManager : public DisplayElement
         PlayerManager(std::string path_to_file, SDL_Texture* texture, unsigned int tile_size, Relay *relay);
         ~PlayerManager();
 
-        std::list<Player*>* GetPlayers();
+        std::vector<Player*>* GetPlayers();
+        Player* GetPlayerById(int id);
 
         bool AreAllDead() const;
         bool AreAllCompleted() const;
@@ -121,7 +122,7 @@ class PlayerManager : public DisplayElement
     unsigned int             m_death_time;
     unsigned int             m_players_numb;
     Timer                    m_timer;
-    std::list<Player*>       m_players;
+    std::vector<Player*>       m_players;
     Relay*                   m_relay;
     unsigned int             m_tile_size;
 };

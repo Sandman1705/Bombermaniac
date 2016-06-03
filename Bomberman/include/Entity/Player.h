@@ -146,6 +146,8 @@ class Player
         bool           m_level_completed = false;
         unsigned int   m_status;
         Timer          m_timer;
+        unsigned int   m_bomb_num = 4;
+        unsigned int   m_bomb_intensity = 2.5;
         unsigned int   m_input_y;
         unsigned int   m_input_x;
         unsigned int   m_lives=3;
