@@ -29,6 +29,10 @@ class PickUp
 
         void Draw(SDL_Renderer* renderer) const;
 
+        unsigned int GetX() const { return m_x; }
+        unsigned int GetY() const { return m_y; }
+        unsigned int GetSize() const { return m_draw_size; }
+
     protected:
 
     private:

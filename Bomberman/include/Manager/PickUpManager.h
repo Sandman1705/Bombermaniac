@@ -17,6 +17,9 @@ class PickUpManager : public DisplayElement
 
         virtual void Update();
         virtual void Draw(SDL_Renderer* renderer) const;
+
+        std::list<PickUp*>* GetPickUps();
+
     protected:
 
     private:

@@ -62,3 +62,8 @@ void PickUpManager::Draw(SDL_Renderer* renderer) const
         (*i)->Draw(renderer);
     }
 }
+
+std::list<PickUp*>* PickUpManager::GetPickUps()
+{
+    return &m_pickups;
+}

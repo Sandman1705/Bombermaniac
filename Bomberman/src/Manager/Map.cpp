@@ -169,7 +169,7 @@ void Map::TryPlacePickUp(unsigned int i, unsigned int j)
             break;
         case 1:
             if (chance < CHANCE_PICKUP_SPEED)
-                m_relay->GetPickUpManager()->MakePickUp(PickUp::SPEED,x,y,5);
+                m_relay->GetPickUpManager()->MakePickUp(PickUp::SPEED,x,y,15);
             break;
         case 2:
             if (chance < CHANCE_PICKUP_BOMB)
