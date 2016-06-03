@@ -7,7 +7,7 @@
 #include "Entity/PickUp.h"
 #include "Manager/PickUpManager.h"
 
-//#define DEBUG_OUTPUT_MAP
+#define DEBUG_OUTPUT_MAP
 
 #ifdef DEBUG_OUTPUT_MAP
 #include <iostream>
@@ -157,7 +157,7 @@ void Map::TryPlacePickUp(unsigned int i, unsigned int j)
     std::cout << "Map::TryPlacePickUp at: (i,j)=(" << i << "," << j << ") (x,y)=(" << x << "," << y << ")" << std::endl;
     #endif // DEBUG_OUTPUT_MAP
     unsigned int chance = rand() % 100;
-    unsigned int type = rand() % 5;
+    unsigned int type = rand() % NUMBER_OF_PICKUPS;
     #ifdef DEBUG_OUTPUT_MAP
     std::cout << "Chance: " << chance << ", Type:" << type << std::endl;
     #endif // DEBUG_OUTPUT_MAP
@@ -182,6 +182,18 @@ void Map::TryPlacePickUp(unsigned int i, unsigned int j)
         case 4:
             if (chance < CHANCE_PICKUP_LIFE)
                 m_relay->GetPickUpManager()->MakePickUp(PickUp::LIFE,x,y,VALUE_PICKUP_LIFE);
+            break;
+        case 5:
+            if (chance < CHANCE_PICKUP_SPEED_DECREASE)
+                m_relay->GetPickUpManager()->MakePickUp(PickUp::SPEED_DECREASE,x,y,VALUE_PICKUP_SPEED_DECREASE);
+            break;
+        case 6:
+            if (chance < CHANCE_PICKUP_BOMB_DECREASE)
+                m_relay->GetPickUpManager()->MakePickUp(PickUp::BOMB_DECREASE,x,y,VALUE_PICKUP_BOMB_DECREASE);
+            break;
+        case 7:
+            if (chance < CHANCE_PICKUP_DAMAGE_DECREASE)
+                m_relay->GetPickUpManager()->MakePickUp(PickUp::DAMAGE_DECREASE,x,y,VALUE_PICKUP_DAMAGE_DECREASE);
             break;
         default:
             break;

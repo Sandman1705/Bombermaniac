@@ -62,6 +62,24 @@ void PickUp::Draw(SDL_Renderer* renderer) const
             SrcR.x = TEXTURE_PICKUP_LIFE_X;
             SrcR.y = TEXTURE_PICKUP_LIFE_Y;
             break;
+        case SPEED_DECREASE:
+            SrcR.h = TEXTURE_PICKUP_SPEED_DECREASE_H;
+            SrcR.w = TEXTURE_PICKUP_SPEED_DECREASE_W;
+            SrcR.x = TEXTURE_PICKUP_SPEED_DECREASE_X;
+            SrcR.y = TEXTURE_PICKUP_SPEED_DECREASE_Y;
+            break;
+        case BOMB_DECREASE:
+            SrcR.h = TEXTURE_PICKUP_BOMB_DECREASE_H;
+            SrcR.w = TEXTURE_PICKUP_BOMB_DECREASE_W;
+            SrcR.x = TEXTURE_PICKUP_BOMB_DECREASE_X;
+            SrcR.y = TEXTURE_PICKUP_BOMB_DECREASE_Y;
+            break;
+        case DAMAGE_DECREASE:
+            SrcR.h = TEXTURE_PICKUP_DAMAGE_DECREASE_H;
+            SrcR.w = TEXTURE_PICKUP_DAMAGE_DECREASE_W;
+            SrcR.x = TEXTURE_PICKUP_DAMAGE_DECREASE_X;
+            SrcR.y = TEXTURE_PICKUP_DAMAGE_DECREASE_Y;
+            break;
         default:
             break;
     }

@@ -12,7 +12,10 @@ class PickUp
             SPEED,
             BOMB,
             DAMAGE,
-            LIFE
+            LIFE,
+            SPEED_DECREASE,
+            BOMB_DECREASE,
+            DAMAGE_DECREASE
         };
         PickUp(SDL_Texture* texture,
                PickUpType type,
