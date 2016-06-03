@@ -23,6 +23,6 @@ static const std::string RESOURCES_LEVEL_ENEMY      = "enemy";
 static const std::string RESOURCES_LEVEL_ENEMY_EXT  = ".txt";
 static const std::string RESOURCES_LEVEL_PLAYER     = "player";
 static const std::string RESOURCES_LEVEL_PLAYER_EXT = ".txt";
-static const unsigned int RESOURCES_LEVEL_COUNT     = 2;
+static const unsigned int RESOURCES_LEVEL_COUNT     = 10;
 
 #endif // RESOURCESCONSTANTS_H_INCLUDED
