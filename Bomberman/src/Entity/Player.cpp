@@ -44,25 +44,13 @@ void Player::Update()
     {
         unsigned int pick_up_x = (*j)->GetX();
         unsigned int pick_up_y = (*j)->GetY();
-        unsigned int pick_up_size = (*j)->GetSize() / 2;
         bool picked_up_pick_up = false;
 
-        if(Touch(pick_up_x-pick_up_size, pick_up_y-pick_up_size)) //UP-LEFT side of pick_up
+        if(Touch(pick_up_x, pick_up_y))
         {
             picked_up_pick_up = true;
         }
-        else if(Touch(pick_up_x-pick_up_size, pick_up_y+pick_up_size)) //DOWN-LEFT side of pick_up
-            {
-                picked_up_pick_up = true;
-            }
-            else if(Touch(pick_up_x+pick_up_size, pick_up_y+pick_up_size)) //DOWN-RIGHT side of pick_up
-                {
-                    picked_up_pick_up = true;
-                }
-                else if(Touch(pick_up_x+pick_up_size, pick_up_y-pick_up_size)) //UP-RIGHT side of pick_up
-                    {
-                        picked_up_pick_up = true;
-                    }
+
         if(picked_up_pick_up)
         {
             switch((*j)->GetType())
