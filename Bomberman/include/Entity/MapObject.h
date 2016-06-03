@@ -22,12 +22,12 @@
 class MapObject
 {
     public:
-        typedef enum Tile
+        enum Tile
         {
               EMPTY = 0,
               DESTRUCTIBLE_WALL = 1,
               INDESTRUCTIBLE_WALL = 2
-        } Tile;
+        };
 
         /**
          *  \brief Constructor for MapObject.

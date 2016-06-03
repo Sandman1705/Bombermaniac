@@ -169,19 +169,19 @@ void Map::TryPlacePickUp(unsigned int i, unsigned int j)
             break;
         case 1:
             if (chance < CHANCE_PICKUP_SPEED)
-                m_relay->GetPickUpManager()->MakePickUp(PickUp::SPEED,x,y,15);
+                m_relay->GetPickUpManager()->MakePickUp(PickUp::SPEED,x,y,VALUE_PICKUP_SPEED);
             break;
         case 2:
             if (chance < CHANCE_PICKUP_BOMB)
-                m_relay->GetPickUpManager()->MakePickUp(PickUp::BOMB,x,y,1);
+                m_relay->GetPickUpManager()->MakePickUp(PickUp::BOMB,x,y,VALUE_PICKUP_BOMB);
             break;
         case 3:
             if (chance < CHANCE_PICKUP_DAMAGE)
-                m_relay->GetPickUpManager()->MakePickUp(PickUp::DAMAGE,x,y,25);
+                m_relay->GetPickUpManager()->MakePickUp(PickUp::DAMAGE,x,y,VALUE_PICKUP_DAMAGE);
             break;
         case 4:
             if (chance < CHANCE_PICKUP_LIFE)
-                m_relay->GetPickUpManager()->MakePickUp(PickUp::LIFE,x,y,1);
+                m_relay->GetPickUpManager()->MakePickUp(PickUp::LIFE,x,y,VALUE_PICKUP_LIFE);
             break;
         default:
             break;
