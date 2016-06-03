@@ -151,7 +151,16 @@ void Player::Update()
 
 void Player::PlaceBomb()
 {
-   m_relay->GetBombManager()->MakeBomb(5000,m_x+m_player_size_w/2,m_y+m_player_size_h/2, m_bomb_intensity); // TODO Fix testing values
+    if(m_bomb_temp_num <= m_bomb_num)
+    {
+        m_relay->GetBombManager()->MakeBomb(5000,m_x+m_player_size_w/2,m_y+m_player_size_h/2, m_bomb_intensity); // TODO Fix testing values
+        //m_bomb_temp_num++;
+    }
+}
+
+void Player::DecreaseTmpBombNumb()
+{
+    m_bomb_temp_num--;
 }
 
 void Player::Draw(SDL_Renderer *renderer)

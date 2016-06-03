@@ -129,6 +129,7 @@ class Player
          */
         void Update(); //DOCUMENTATION !!!
 
+        void DecreaseTmpBombNumb();
         bool Touch(unsigned int pick_up_x, unsigned int pick_up_y);
 
     protected:
@@ -147,6 +148,7 @@ class Player
         unsigned int   m_status;
         Timer          m_timer;
         unsigned int   m_bomb_num = 4;
+        unsigned int   m_bomb_temp_num = 0;
         unsigned int   m_bomb_intensity = 2.5;
         unsigned int   m_input_y;
         unsigned int   m_input_x;
