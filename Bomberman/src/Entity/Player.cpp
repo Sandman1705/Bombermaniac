@@ -151,14 +151,14 @@ void Player::Update()
 
 void Player::PlaceBomb()
 {
-    if(m_bomb_temp_num <= m_bomb_num)
+    if(m_bomb_temp_num < m_bomb_num)
     {
 		m_relay->GetBombManager()->MakeBomb(5000,m_x+m_player_size_w/2,m_y+m_player_size_h/2,m_player_id,m_bomb_intensity,50); // TODO Fix testing values
-        //m_bomb_temp_num++;
+        m_bomb_temp_num++;
     }
 }
 
-void Player::DecreaseTmpBombNumb()
+void Player::DecreaseTempBombNumber()
 {
     m_bomb_temp_num--;
 }

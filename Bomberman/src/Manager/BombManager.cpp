@@ -57,7 +57,7 @@ void BombManager::Update()
             WallDestroyer wd(m_relay->GetMap(), (*i)->GetX(), (*i)->GetY(), m_tile_size, (*i)->GetIntensity(), (*i)->GetDamage());
             m_relay->GetEnemyManager()->KillEnemies((*i)->GetX(), (*i)->GetY(), (*i)->GetIntensity());
             m_relay->GetPlayerManager()->KillPlayer((*i)->GetX(), (*i)->GetY(), (*i)->GetIntensity());
-            //m_relay->GetPlayerManager()->GetPlayerById((*i)->GetPlayerId())->BombFree();
+            m_relay->GetPlayerManager()->GetPlayerById((*i)->GetPlayerId())->DecreaseTempBombNumber();
             delete (*i);
             i = m_bombs.erase(i);
         }

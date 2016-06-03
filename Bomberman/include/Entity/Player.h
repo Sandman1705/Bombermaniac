@@ -121,7 +121,7 @@ class Player
          */
         void Update(); //DOCUMENTATION !!!
 
-        void DecreaseTmpBombNumb();
+        void DecreaseTempBombNumber();
         bool Touch(unsigned int pick_up_x, unsigned int pick_up_y);
 
     protected:
