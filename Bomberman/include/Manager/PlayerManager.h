@@ -49,6 +49,7 @@ class PlayerManager : public DisplayElement
         std::list<Player*>* GetPlayers();
 
         bool AreAllDead() const;
+        bool AreAllCompleted() const;
 
          /**
          *  \brief Adds new Player to the list of players.

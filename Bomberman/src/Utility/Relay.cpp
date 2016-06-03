@@ -98,5 +98,8 @@ bool Relay::PlayersDead() const
 
 bool Relay::LevelCompleted() const
 {
+    if(GetPlayerManager()->AreAllCompleted())
+        return true;
+
     return false;
 }

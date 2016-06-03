@@ -139,7 +139,7 @@ std::list<Player*>* PlayerManager::GetPlayers()
 
 bool PlayerManager::AreAllDead() const
 {
-     for(auto i = m_players.begin(); i != m_players.end(); ++i)
+    for(auto i = m_players.begin(); i != m_players.end(); ++i)
     {
         if((*i)->GetLives() != 0)
         {
@@ -147,5 +147,22 @@ bool PlayerManager::AreAllDead() const
         }
     }
     return true;
+}
+
+bool PlayerManager::AreAllCompleted() const
+{
+    bool finished = false;
+    for(auto i = m_players.begin(); i != m_players.end(); ++i)
+    {
+        if(!(*i)->IsLevelCompleted() && (*i)->GetLives() != 0)
+        {
+            return false;
+        }
+        else
+        if((*i)->IsLevelCompleted())
+            finished = true;
+    }
+    return finished;
+
 }
 
