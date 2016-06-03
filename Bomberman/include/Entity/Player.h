@@ -12,6 +12,7 @@
 #include "Utility/Relay.h"
 #include "System/KeyboardInput.h"
 #include "Utility/Timer.h"
+#include "Entity/PickUp.h"
 
 /** \class Player
  *  \brief class which represents a player
@@ -27,6 +28,14 @@
 class Player
 {
     public:
+       /* enum PickUpType
+        {
+            EXIT,
+            SPEED,
+            BOMB,
+            DAMAGE,
+            LIFE
+        };*/
         /**
          *  \brief Constructor for Player.
          *
@@ -115,7 +124,9 @@ class Player
          *
          *  \return void
          */
-        void Update();
+        void Update(); //DOCUMENTATION !!!
+
+        bool Touch(unsigned int pick_up_x, unsigned int pick_up_y);
 
     protected:
 
