@@ -8,6 +8,8 @@ static const unsigned int TEXTURE_PLAYER_MIN_SPEED = 200;
 static const unsigned int TEXTURE_PLAYER_MAX_BOMBS = 10;
 static const unsigned int TEXTURE_PLAYER_MIN_BOMBS = 1;
 static const unsigned int TEXTURE_PLAYER_MAX_BOMB_INTENSITY = 4;
+static const unsigned int TEXTURE_PLAYER_MAX_BOMB_DAMAGE = 100;
+static const unsigned int TEXTURE_PLAYER_MIN_BOMB_DAMAGE = 25;
 
 static const unsigned int TEXTURE_PLAYER_SIZE_W = 17;
 static const unsigned int TEXTURE_PLAYER_SIZE_H = 23;
