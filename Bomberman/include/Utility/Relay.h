@@ -64,6 +64,9 @@ class Relay
         PickUpManager* GetPickUpManager() const;
         void SetPickUpManager(PickUpManager* val);
 
+        bool PlayersDead() const;
+        bool LevelCompleted() const;
+
     protected:
 
     private:

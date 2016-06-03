@@ -1,9 +1,10 @@
 #include "Utility/Relay.h"
-//#include "ExplosionManager.h"
-//#include "BombManager.h"
-//#include "PlayerManager.h"
-//#include "EnemyManager.h"
-//#include "Map.h"
+//#include "Manager/ExplosionManager.h"
+//#include "Manager/BombManager.h"
+#include "Manager/PlayerManager.h"
+//#include "Manager/EnemyManager.h"
+//#include "Manager/Map.h"
+//#include "Manager/PickUpManager.h"
 
 Relay::Relay()
     : m_explosion_manager(nullptr),
@@ -88,4 +89,14 @@ PickUpManager* Relay::GetPickUpManager() const
 void Relay::SetPickUpManager(PickUpManager* val)
 {
     m_pickup_manager = val;
+}
+
+bool Relay::PlayersDead() const
+{
+    return m_player_manager->GetAllDead();
+}
+
+bool Relay::LevelCompleted() const
+{
+    return false;
 }
