@@ -1,5 +1,6 @@
 #include "Display/PauseDisplay.h"
 #include "System/TextRenderer.h"
+#include "Constants/ResourcesConstants.h"
 
 PauseDisplay::PauseDisplay(SDL_Renderer* renderer,
                            unsigned int window_width,
@@ -13,11 +14,9 @@ PauseDisplay::PauseDisplay(SDL_Renderer* renderer,
       m_quit(false),
       m_previous_display(previous_display)
 {
-    #ifdef _WIN32
-    TextRenderer text_renderer("resources\\Zabdilus.ttf",64);
-    #else //LINUX
-    TextRenderer text_renderer("resources/Zabdilus.ttf",64);
-    #endif
+    std::string path_font = RESOURCES_BASE_PATH + RESOURCES_FONT;
+    TextRenderer text_renderer(path_font,64);
+
     SDL_Color color = {255, 255, 255, 255};
     SDL_Rect SrcR = { 0, 0, 0, 0 };
     SDL_Rect DestR = { 0, 0, 0, 0 };

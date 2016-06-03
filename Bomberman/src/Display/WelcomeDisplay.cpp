@@ -2,6 +2,7 @@
 #include "Display/MainMenuDisplay.h"
 #include <SDL.h>
 #include "System/TextRenderer.h"
+#include "Constants/ResourcesConstants.h"
 
 #include <iostream>
 
@@ -17,11 +18,8 @@ WelcomeDisplay::WelcomeDisplay(SDL_Texture* texture,
       m_window_width(window_width),
       m_window_height(window_height)
 {
-    #ifdef _WIN32
-    TextRenderer text_renderer("resources\\Zabdilus.ttf",96);
-    #else //LINUX
-    TextRenderer text_renderer("resources/Zabdilus.ttf",96);
-    #endif
+    std::string path_font = RESOURCES_BASE_PATH + RESOURCES_FONT;
+    TextRenderer text_renderer(path_font,96);
     SDL_Color color = {0, 255, 0, 255};
     SDL_Rect SrcR = { 0, 0, 0, 0 };
     SDL_Rect DestR = { 0, 0, 0, 0 };

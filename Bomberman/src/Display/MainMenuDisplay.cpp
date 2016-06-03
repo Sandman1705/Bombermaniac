@@ -2,6 +2,7 @@
 #include "System/TextRenderer.h"
 #include "Display/GameDisplay.h"
 #include "Display/LoadingDisplay.h"
+#include "Constants/ResourcesConstants.h"
 
 //#define DEBUG_OUTPUT_MAIN_MENU_DISPAY
 
@@ -23,11 +24,9 @@ MainMenuDisplay::MainMenuDisplay(SDL_Texture* texture,
       m_window_width(window_width),
       m_window_height(window_height)
 {
-    #ifdef _WIN32
-    TextRenderer text_renderer("resources\\Zabdilus.ttf",64);
-    #else //LINUX
-    TextRenderer text_renderer("resources/Zabdilus.ttf",64);
-    #endif
+    std::string path_font = RESOURCES_BASE_PATH + RESOURCES_FONT;
+    TextRenderer text_renderer(path_font,64);
+
     SDL_Color color = {255, 0, 0, 255};
     SDL_Rect SrcR = { 0, 0, 0, 0 };
     SDL_Rect DestR = { 0, 0, 0, 0 };
@@ -131,7 +130,7 @@ void MainMenuDisplay::Update()
         switch(m_arrow)
         {
         case 0:
-            m_next_display = new LoadingDisplay(m_texture,m_renderer,m_window_width,m_window_height,10);//GameDisplay(m_texture,1);
+            m_next_display = new LoadingDisplay(m_texture,m_renderer,m_window_width,m_window_height,RESOURCES_LEVEL_COUNT);
             m_leave_next = true;
             break;
         case 1:

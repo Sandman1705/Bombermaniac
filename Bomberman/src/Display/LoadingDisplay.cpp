@@ -1,6 +1,7 @@
 #include "Display\LoadingDisplay.h"
 #include "System\TextRenderer.h"
 #include "Display/GameDisplay.h"
+#include "Constants/ResourcesConstants.h"
 #include <string>
 #include <sstream>
 
@@ -15,9 +16,12 @@ LoadingDisplay::LoadingDisplay(SDL_Texture* texture,
       m_window_width(window_width),
       m_window_height(window_height),
       m_current_level(1),
-      m_max_level(max_level)
+      m_max_level(max_level),
+      m_game_over(false)
 {
-    MakeTexture();
+    std::stringstream sstm;
+    sstm << "STAGE " << m_current_level;
+    MakeTexture(sstm.str());
 }
 
 LoadingDisplay::~LoadingDisplay()
@@ -35,10 +39,12 @@ void LoadingDisplay::Enter(int mode)
 {
     if (mode == 0)
     {
-        m_leave_previous = true;
+        m_leave_previous = false;
         m_leave_next = false;
-        m_timer.Pause();
+        m_timer.Unpause();
         m_timer.ResetTimer();
+        m_game_over = true;
+        MakeTexture("GAME OVER");
     }
     else
     {
@@ -47,7 +53,17 @@ void LoadingDisplay::Enter(int mode)
         m_current_level = mode;
         m_leave_next = false;
         m_leave_previous = false;
-        MakeTexture();
+        if (m_current_level <= RESOURCES_LEVEL_COUNT)
+        {
+            std::stringstream sstm;
+            sstm << "STAGE " << m_current_level;
+            MakeTexture(sstm.str());
+        }
+        else // GAME COMPLETED / ALL LEVEL FINISHED
+        {
+            MakeTexture("GAME COMPLETED");
+            m_game_over = true;
+        }
     }
 }
 
@@ -65,10 +81,17 @@ int LoadingDisplay::Destroy()
 
 void LoadingDisplay::Update()
 {
-    if (m_timer.GetTimeElapsed() > 1000 && !m_leave_next)
+    if (m_timer.GetTimeElapsed() > 1000)
     {
-        m_leave_next = true;
-        m_next_display = new GameDisplay(m_texture,m_renderer,m_window_width,m_window_height,m_current_level);
+        if (m_game_over)
+        {
+            m_leave_previous = true;
+        }
+        else // (!m_leave_next)
+        {
+            m_leave_next = true;
+            m_next_display = new GameDisplay(m_texture,m_renderer,m_window_width,m_window_height,m_current_level);
+        }
     }
 }
 
@@ -80,25 +103,20 @@ void LoadingDisplay::Draw(SDL_Renderer* renderer) const
     }
 }
 
-void LoadingDisplay::MakeTexture()
+void LoadingDisplay::MakeTexture(std::string text)
 {
     Destroy();
     m_timer.ResetTimer();
-    #ifdef _WIN32
-    TextRenderer text_renderer("resources\\Zabdilus.ttf",96);
-    #else //LINUX
-    TextRenderer text_renderer("resources/Zabdilus.ttf",96);
-    #endif
+
+    std::string path_font = RESOURCES_BASE_PATH + RESOURCES_FONT;
+    TextRenderer text_renderer(path_font,96);
+
     SDL_Color color = {0, 0, 200, 255};
     SDL_Rect SrcR = { 0, 0, 0, 0 };
     SDL_Rect DestR = { 0, 0, 0, 0 };
     SDL_Texture* image;
 
-    std::stringstream sstm;
-    sstm << "STAGE " << m_current_level;
-    std::string curr_lvl = sstm.str();
-
-    image = text_renderer.RenderText(curr_lvl, color, m_renderer);
+    image = text_renderer.RenderText(text, color, m_renderer);
     SDL_QueryTexture(image, NULL, NULL, &(SrcR.w), &(SrcR.h));
     DestR.x = m_window_width / 2 -  SrcR.w / 2;
     DestR.y = m_window_height / 2 - SrcR.h / 2;
