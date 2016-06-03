@@ -2,6 +2,8 @@
 #include "Manager/Map.h"
 #include "Manager/BombManager.h"
 #include "Constants/TexturePlayerConstants.h"
+#include "Manager/PickUpManager.h"
+#include <iostream>
 
 Player::Player(SDL_Texture* tex, unsigned int tile_size, Relay *relay, unsigned int player_id, unsigned int val_x, unsigned int val_y)
                     :m_keyboard_input(KeyboardInput::Instance())
@@ -22,8 +24,89 @@ Player::Player(SDL_Texture* tex, unsigned int tile_size, Relay *relay, unsigned 
     m_player_id = player_id;
 }
 
+bool Player::Touch(unsigned int pick_up_x, unsigned int pick_up_y)
+{
+    if(pick_up_x >= m_x && pick_up_y >= m_y && pick_up_x <= m_x+m_player_size_w
+       && pick_up_y <= m_y+m_player_size_h)
+    {
+        return true;
+    }
+    return false;
+}
+
 void Player::Update()
 {
+    //TOUCH with pick_up (*j)
+    for(auto j = m_relay->GetPickUpManager()->GetPickUps()->begin(); j != m_relay->GetPickUpManager()->GetPickUps()->end(); ++j)
+    {
+        unsigned int pick_up_x = (*j)->GetX();
+        unsigned int pick_up_y = (*j)->GetY();
+        unsigned int pick_up_size = (*j)->GetSize() / 2;
+        bool picked_up_pick_up = false;
+
+        if(Touch(pick_up_x-pick_up_size, pick_up_y-pick_up_size)) //UP-LEFT side of pick_up
+        {
+            picked_up_pick_up = true;
+        }
+        else if(Touch(pick_up_x-pick_up_size, pick_up_y+pick_up_size)) //DOWN-LEFT side of pick_up
+            {
+                picked_up_pick_up = true;
+            }
+            else if(Touch(pick_up_x+pick_up_size, pick_up_y+pick_up_size)) //DOWN-RIGHT side of pick_up
+                {
+                    picked_up_pick_up = true;
+                }
+                else if(Touch(pick_up_x+pick_up_size, pick_up_y-pick_up_size)) //UP-RIGHT side of pick_up
+                    {
+                        picked_up_pick_up = true;
+                    }
+        if(picked_up_pick_up)
+        {
+            switch((*j)->GetType())
+            {
+                case 0:
+                    if(!(*j)->IsUsed())
+                    {
+                       // m_speed -= (*j)->GetValue();
+                        (*j)->Use();
+                    }
+                    break;
+                case 1: // SPEED
+                    if(!(*j)->IsUsed())
+                    {
+                        std::cout<<"SPEED1: " <<m_speed << std::endl;
+                        m_speed -= (*j)->GetValue();
+                        (*j)->Use();
+                        std::cout<<"SPEED2: " <<m_speed << std::endl;
+                    }
+                    break;
+                case 2:
+                    if(!(*j)->IsUsed())
+                    {
+                       // m_speed -= (*j)->GetValue();
+                        (*j)->Use();
+                    }
+                    break;
+                case 3:
+                    if(!(*j)->IsUsed())
+                    {
+                       // m_speed -= (*j)->GetValue();
+                        (*j)->Use();
+                    }
+                    break;
+                case 4:
+                    if(!(*j)->IsUsed())
+                    {
+                        //m_speed -= (*j)->GetValue();
+                        (*j)->Use();
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
     if(m_timer.GetTimeElapsed()>m_speed)
     {
         //Key Input
@@ -58,7 +141,7 @@ void Player::Update()
                                 }
     }
 
-    while(m_timer.GetTimeElapsed()>m_speed)
+    if(m_timer.GetTimeElapsed()>m_speed)
     {
         m_timer.DecreaseTimer(m_speed);
     }

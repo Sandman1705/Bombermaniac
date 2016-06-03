@@ -130,6 +130,7 @@ void PlayerManager::Update()
         if(m_players_numb == 0)
             m_all_dead = true;
 
+
         (*i)->Update();
     }
 }
