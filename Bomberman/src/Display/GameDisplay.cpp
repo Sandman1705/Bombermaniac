@@ -68,7 +68,7 @@ void GameDisplay::Init()
     EnemyManager* enemy_manager = new EnemyManager(path_enemy, m_texture, tile_size, m_relay);
     PickUpManager* pickup_manager = new PickUpManager(m_texture,tile_size,m_relay);
 
-    std::string path_music = RESOURCES_BASE_PATH + RESOURCES_MUSIC;
+    std::string path_music = RESOURCES_BASE_PATH + RESOURCES_MUSIC_GAME;
     m_music = Mix_LoadMUS(path_music.c_str());
     Mix_PlayMusic(m_music, -1);
 
@@ -110,6 +110,7 @@ void GameDisplay::Leave()
 
 int GameDisplay::Destroy()
 {
+    Mix_PauseMusic();
     Mix_FreeMusic(m_music);
 
     for (auto i = m_display_elements.begin(); i != m_display_elements.end(); ++i)

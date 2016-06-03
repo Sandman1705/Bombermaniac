@@ -16,7 +16,9 @@ class LoadingDisplay : public Display
                        unsigned int max_level);
         virtual ~LoadingDisplay();
 
+        void Init();
         void Enter(int mode);
+        void Leave();
         int Destroy();
 
         void Update();
@@ -36,8 +38,10 @@ class LoadingDisplay : public Display
         const unsigned int          m_max_level;
         Timer                       m_timer;
         bool                        m_game_over;
+        Mix_Music*                  m_music = NULL;
 
         void MakeTexture(std::string text);
+        void DestroyTextures();
 
 };
 
