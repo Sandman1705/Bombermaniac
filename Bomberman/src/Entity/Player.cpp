@@ -132,6 +132,61 @@ void Player::Update()
                         }
                     }
                     break;
+                case PickUp::SPEED_DECREASE:
+                    if(!(*j)->IsUsed())
+                    {
+                        if(m_speed < TEXTURE_PLAYER_MIN_SPEED) //It's reversed because it's in milisec
+                        {
+                            m_speed += (*j)->GetValue();
+                            (*j)->Use();
+                        }
+                        else
+                        {
+                            m_speed = TEXTURE_PLAYER_MIN_SPEED;
+                        }
+                    }
+                    break;
+                case PickUp::BOMB_DECREASE:
+                    if(!(*j)->IsUsed())
+                    {
+                        if(m_bomb_num > TEXTURE_PLAYER_MIN_BOMBS)
+                        {
+                            m_bomb_num -= (*j)->GetValue();
+                            (*j)->Use();
+                        }
+                        else
+                        {
+                            m_bomb_num = TEXTURE_PLAYER_MIN_BOMBS;
+                        }
+                    }
+                    break;
+                case PickUp::DAMAGE_DECREASE:
+                    if(!(*j)->IsUsed())
+                    {
+                        bool t = false;
+                        //Damage
+                        if(m_bomb_damage > TEXTURE_PLAYER_MIN_BOMB_DAMAGE)
+                        {
+                            m_bomb_damage -= (*j)->GetValue();
+                            (*j)->Use();
+                            t = true;
+                        }
+                        else
+                        {
+                            m_bomb_damage = TEXTURE_PLAYER_MIN_BOMB_DAMAGE;
+                        }
+
+                        //Intensity
+                        if(m_bomb_intensity > TEXTURE_PLAYER_MIN_BOMB_INTENSITY && t)
+                        {
+                            m_bomb_intensity -= (*j)->GetValue()/100.0;
+                        }
+                        else
+                        {
+                            m_bomb_intensity = TEXTURE_PLAYER_MIN_BOMB_INTENSITY;
+                        }
+                    }
+                    break;
                 default:
                     break;
             }

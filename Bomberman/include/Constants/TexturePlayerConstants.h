@@ -1,16 +1,18 @@
 #ifndef TEXTUREPLAYERCONSTANTS_H_INCLUDED
 #define TEXTUREPLAYERCONSTANTS_H_INCLUDED
 
-/* Player Textures */
+/* Player PickUps */
+static const double TEXTURE_PLAYER_MAX_BOMB_INTENSITY = 4;
+static const double TEXTURE_PLAYER_MIN_BOMB_INTENSITY = 2.5;
 static const unsigned int TEXTURE_PLAYER_MAX_LIVES = 9;
 static const unsigned int TEXTURE_PLAYER_MAX_SPEED = 20;
 static const unsigned int TEXTURE_PLAYER_MIN_SPEED = 200;
 static const unsigned int TEXTURE_PLAYER_MAX_BOMBS = 10;
 static const unsigned int TEXTURE_PLAYER_MIN_BOMBS = 1;
-static const unsigned int TEXTURE_PLAYER_MAX_BOMB_INTENSITY = 4;
 static const unsigned int TEXTURE_PLAYER_MAX_BOMB_DAMAGE = 100;
 static const unsigned int TEXTURE_PLAYER_MIN_BOMB_DAMAGE = 25;
 
+/* Player Textures */
 static const unsigned int TEXTURE_PLAYER_SIZE_W = 17;
 static const unsigned int TEXTURE_PLAYER_SIZE_H = 23;
 static const unsigned int TEXTURE_PLAYER_SOURCE_W = 18;
