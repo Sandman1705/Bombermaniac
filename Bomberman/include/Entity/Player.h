@@ -142,6 +142,7 @@ class Player
         unsigned int   m_bomb_num = 4;
         unsigned int   m_bomb_temp_num = 0;
         double         m_bomb_intensity = 2.5;
+        unsigned int   m_bomb_damage = 25;
         unsigned int   m_input_y;
         unsigned int   m_input_x;
         unsigned int   m_lives=3;

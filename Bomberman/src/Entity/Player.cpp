@@ -66,40 +66,70 @@ void Player::Update()
                 case PickUp::SPEED: // SPEED
                     if(!(*j)->IsUsed())
                     {
-                        m_speed -= (*j)->GetValue();
-                        if(m_speed < TEXTURE_PLAYER_MAX_SPEED) //It's reversed because it's in milisec
+                        if(m_speed > TEXTURE_PLAYER_MAX_SPEED) //It's reversed because it's in milisec
+                        {
+                            m_speed -= (*j)->GetValue();
+                            (*j)->Use();
+                        }
+                        else
+                        {
                             m_speed = TEXTURE_PLAYER_MAX_SPEED;
-
-                        (*j)->Use();
+                        }
                     }
                     break;
                 case PickUp::BOMB:
                     if(!(*j)->IsUsed())
                     {
-                        m_bomb_num += (*j)->GetValue();
-                        if(m_bomb_num > TEXTURE_PLAYER_MAX_BOMBS)
-                            m_speed = TEXTURE_PLAYER_MAX_BOMBS;
-
-                        (*j)->Use();
+                        if(m_bomb_num < TEXTURE_PLAYER_MAX_BOMBS)
+                        {
+                            m_bomb_num += (*j)->GetValue();
+                            (*j)->Use();
+                        }
+                        else
+                        {
+                            m_bomb_num = TEXTURE_PLAYER_MAX_BOMBS;
+                        }
                     }
                     break;
                 case PickUp::DAMAGE:
                     if(!(*j)->IsUsed())
                     {
-                        m_bomb_intensity += (*j)->GetValue();
-                        if(m_bomb_intensity > TEXTURE_PLAYER_MAX_BOMB_INTENSITY)
-                            m_bomb_intensity = TEXTURE_PLAYER_MAX_BOMB_INTENSITY;
+                        bool t = false;
+                        //Damage
+                        if(m_bomb_damage < TEXTURE_PLAYER_MAX_BOMB_DAMAGE)
+                        {
+                            m_bomb_damage += (*j)->GetValue();
+                            (*j)->Use();
+                            t = true;
+                        }
+                        else
+                        {
+                            m_bomb_damage = TEXTURE_PLAYER_MAX_BOMB_DAMAGE;
+                        }
 
-                        (*j)->Use();
+                        //Intensity
+                        if(m_bomb_intensity < TEXTURE_PLAYER_MAX_BOMB_INTENSITY && t)
+                        {
+                            m_bomb_intensity += (*j)->GetValue()/100.0;
+                        }
+                        else
+                        {
+                            m_bomb_intensity = TEXTURE_PLAYER_MAX_BOMB_INTENSITY;
+                        }
                     }
                     break;
                 case PickUp::LIFE:
                     if(!(*j)->IsUsed())
                     {
-                        m_lives += (*j)->GetValue();
-                        if(m_lives > TEXTURE_PLAYER_MAX_LIVES)
+                        if(m_lives < TEXTURE_PLAYER_MAX_LIVES)
+                        {
+                            m_lives += (*j)->GetValue();
+                            (*j)->Use();
+                        }
+                        else
+                        {
                             m_lives = TEXTURE_PLAYER_MAX_LIVES;
-                        (*j)->Use();
+                        }
                     }
                     break;
                 default:
@@ -155,7 +185,8 @@ void Player::PlaceBomb()
 {
     if(m_bomb_temp_num < m_bomb_num)
     {
-		m_relay->GetBombManager()->MakeBomb(5000,m_x+m_player_size_w/2,m_y+m_player_size_h/2,m_player_id,m_bomb_intensity,50); // TODO Fix testing values
+		m_relay->GetBombManager()->MakeBomb(5000,m_x+m_player_size_w/2,m_y+m_player_size_h/2,
+                                      m_player_id,m_bomb_intensity, m_bomb_damage);
         m_bomb_temp_num++;
     }
 }
