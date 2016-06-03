@@ -93,7 +93,7 @@ void Relay::SetPickUpManager(PickUpManager* val)
 
 bool Relay::PlayersDead() const
 {
-    return m_player_manager->GetAllDead();
+    return m_player_manager->AreAllDead();
 }
 
 bool Relay::LevelCompleted() const

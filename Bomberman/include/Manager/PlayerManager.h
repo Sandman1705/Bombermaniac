@@ -48,8 +48,7 @@ class PlayerManager : public DisplayElement
 
         std::list<Player*>* GetPlayers();
 
-        bool GetAllDead() const;
-        void SetAllDead(bool val);
+        bool AreAllDead() const;
 
          /**
          *  \brief Adds new Player to the list of players.
@@ -118,7 +117,6 @@ class PlayerManager : public DisplayElement
     protected:
 
     private:
-    bool                     m_all_dead;
     unsigned int             m_death_time;
     unsigned int             m_players_numb;
     Timer                    m_timer;

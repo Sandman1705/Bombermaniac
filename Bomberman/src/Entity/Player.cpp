@@ -3,6 +3,7 @@
 #include "Manager/BombManager.h"
 #include "Constants/TexturePlayerConstants.h"
 #include "Manager/PickUpManager.h"
+#include "Entity/PickUp.h"
 #include <iostream>
 
 Player::Player(SDL_Texture* tex, unsigned int tile_size, Relay *relay, unsigned int player_id, unsigned int val_x, unsigned int val_y)
@@ -10,6 +11,8 @@ Player::Player(SDL_Texture* tex, unsigned int tile_size, Relay *relay, unsigned 
 {
     this->m_x = val_x*tile_size;
     this->m_y = val_y*tile_size;
+    this->m_input_x = m_x;
+    this->m_input_y = m_y;
 
     this->m_tex = tex;
     this->m_direction = DOWN;
@@ -64,37 +67,36 @@ void Player::Update()
         {
             switch((*j)->GetType())
             {
-                case 0:
+                case PickUp::EXIT: // EXIT
                     if(!(*j)->IsUsed())
                     {
-                       // m_speed -= (*j)->GetValue();
-                        (*j)->Use();
+                        m_level_completed = true;
+                        m_x = 0;
+                        m_y = 0;
                     }
                     break;
-                case 1: // SPEED
+                case PickUp::SPEED: // SPEED
                     if(!(*j)->IsUsed())
                     {
-                        std::cout<<"SPEED1: " <<m_speed << std::endl;
                         m_speed -= (*j)->GetValue();
                         (*j)->Use();
-                        std::cout<<"SPEED2: " <<m_speed << std::endl;
                     }
                     break;
-                case 2:
+                case PickUp::BOMB:
                     if(!(*j)->IsUsed())
                     {
                        // m_speed -= (*j)->GetValue();
                         (*j)->Use();
                     }
                     break;
-                case 3:
+                case PickUp::DAMAGE:
                     if(!(*j)->IsUsed())
                     {
                        // m_speed -= (*j)->GetValue();
                         (*j)->Use();
                     }
                     break;
-                case 4:
+                case PickUp::LIFE:
                     if(!(*j)->IsUsed())
                     {
                         //m_speed -= (*j)->GetValue();
@@ -291,9 +293,12 @@ unsigned int Player::GetX() const
     return m_x;
 }
 
-void Player::SetX(unsigned int val)
+void Player::SetX(int val)
 {
-    m_x = val;
+    if(val != -1)
+        m_x = val;
+    else
+        m_x = m_input_x;
 }
 
 unsigned int Player::GetY() const
@@ -301,9 +306,12 @@ unsigned int Player::GetY() const
     return m_y;
 }
 
-void Player::SetY(unsigned int val)
+void Player::SetY(int val)
 {
-    m_y = val;
+    if(val != -1)
+        m_y = val;
+    else
+        m_y = m_input_y;
 }
 
 unsigned int Player::GetSizeW() const
@@ -395,4 +403,17 @@ void Player::SetLives(unsigned int l)
 unsigned int Player::GetID() const
 {
     return m_player_id;
+}
+
+bool Player::IsLevelCompleted() const
+{
+    return m_level_completed;
+}
+
+bool Player::IsAlive() const
+{
+    if(m_alive == 1)
+        return true;
+    else
+        return false;
 }

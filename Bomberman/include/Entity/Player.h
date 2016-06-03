@@ -55,27 +55,30 @@ class Player
                 unsigned int player_id = 0, unsigned int val_x = 1, unsigned int val_y = 1);
 
         unsigned int GetX() const;
-        void SetX(unsigned int val);
+        void SetX(int val);
         unsigned int GetY() const;
-        void SetY(unsigned int val);
+        void SetY(int val);
 
         unsigned int GetSizeW() const;
         unsigned int GetSizeH() const;
 
         unsigned int GetStatus() const;
-        void SetStatus(unsigned int s);
+        void SetStatus(unsigned int val);
 
         unsigned int GetAlive() const;
-        void SetAlive(unsigned int a);
+        void SetAlive(unsigned int val);
 
         unsigned int GetLives() const;
-        void SetLives(unsigned int l);
+        void SetLives(unsigned int val);
 
         unsigned int GetDirection() const;
-        void SetDirection(int d);
+        void SetDirection(int val);
 
         unsigned int GetHealth() const;
-        void SetHealth(unsigned int h);
+        void SetHealth(unsigned int val);
+
+        bool IsLevelCompleted() const;
+        bool IsAlive() const;
 
         unsigned int GetID() const;
 
@@ -140,8 +143,11 @@ class Player
         };
         Direction      m_direction;
         bool           m_bomb_ready = false;
+        bool           m_level_completed = false;
         unsigned int   m_status;
         Timer          m_timer;
+        unsigned int   m_input_y;
+        unsigned int   m_input_x;
         unsigned int   m_lives=3;
         unsigned int   m_player_id;
         unsigned int   m_alive = 1;

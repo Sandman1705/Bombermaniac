@@ -9,7 +9,6 @@ PlayerManager::PlayerManager(std::string path_to_file, SDL_Texture* texture, uns
     m_tile_size = tile_size;
     m_relay = relay;
     m_timer.ResetTimer();
-    m_all_dead = false;
 
     std::fstream fs;
     fs.open (path_to_file, std::fstream::in);
@@ -101,10 +100,8 @@ void PlayerManager::Draw(SDL_Renderer* renderer) const
     {
         DrawScore(renderer, (*i)->GetID(), (*i)->GetLives());
 
-        if((*i)->GetAlive() != 0)
-        {
+        if( ((*i)->GetLives() != 0) && !((*i)->IsLevelCompleted()) )
             (*i)->Draw(renderer);
-        }
     }
 }
 
@@ -122,16 +119,16 @@ void PlayerManager::Update()
         }
 
         if((*i)->GetAlive() == 0)
-       {
-           m_players_numb--;
-           (*i)->SetHealth(100);
-       }
+        {
+            (*i)->SetX(-1);
+            (*i)->SetY(-1);
 
-        if(m_players_numb == 0)
-            m_all_dead = true;
+            (*i)->SetHealth(100);
+            (*i)->SetAlive(1);
+        }
 
-
-        (*i)->Update();
+        if( ((*i)->GetLives() != 0) && !((*i)->IsLevelCompleted()) )
+            (*i)->Update();
     }
 }
 
@@ -140,12 +137,15 @@ std::list<Player*>* PlayerManager::GetPlayers()
     return &m_players;
 }
 
-bool PlayerManager::GetAllDead() const
+bool PlayerManager::AreAllDead() const
 {
-    return m_all_dead;
+     for(auto i = m_players.begin(); i != m_players.end(); ++i)
+    {
+        if((*i)->GetLives() != 0)
+        {
+            return false;
+        }
+    }
+    return true;
 }
 
-void PlayerManager::SetAllDead(bool val)
-{
-    m_all_dead = val;
-}
