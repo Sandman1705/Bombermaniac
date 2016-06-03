@@ -66,24 +66,7 @@ void PlayerManager::DrawScore(SDL_Renderer* renderer, unsigned int player_id, un
     SrcR.w = TEXTURE_NUMB_SOURCE_W;
     SrcR.h = TEXTURE_NUMB_SOURCE_H;
 
-    switch(lives)
-    {
-        case 0:
-            SrcR.x = lives*TEXTURE_NUMB_SOURCE_W + TEXTURE_NUMB_X;
-        break;
-
-        case 1:
-            SrcR.x = lives*TEXTURE_NUMB_SOURCE_W + TEXTURE_NUMB_X;
-        break;
-
-        case 2:
-            SrcR.x = lives*TEXTURE_NUMB_SOURCE_W + TEXTURE_NUMB_X;
-        break;
-
-        case 3:
-            SrcR.x = lives*TEXTURE_NUMB_SOURCE_W + TEXTURE_NUMB_X;
-        break;
-    }
+    SrcR.x = lives*TEXTURE_NUMB_SOURCE_W + TEXTURE_NUMB_X;
 
     DestR.x = 0 + player_id*2*m_tile_size;
     DestR.y = 0;

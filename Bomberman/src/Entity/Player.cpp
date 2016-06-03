@@ -108,19 +108,21 @@ void Player::Update()
         }
     }
 
+    //Place bomb
+    if(m_keyboard_input->IsKeyOn(m_bomb_button))
+    {
+        m_bomb_ready = true;
+    }
+    else
+        if(!m_keyboard_input->IsKeyOn(m_bomb_button) && m_bomb_ready)
+         {
+             this->PlaceBomb();
+             m_bomb_ready = false;
+         }
     if(m_timer.GetTimeElapsed()>m_speed)
     {
         //Key Input
-        if(m_keyboard_input->IsKeyOn(m_bomb_button))
-         {
-             m_bomb_ready = true;
-         }
-         else if(!m_keyboard_input->IsKeyOn(m_bomb_button) && m_bomb_ready)
-             {
-                 this->PlaceBomb();
-                 m_bomb_ready = false;
-             }
-             else if(m_keyboard_input->IsKeyOn(m_up))
+         if(m_keyboard_input->IsKeyOn(m_up))
                     {
                         this->PlayerMove(0, -1);
                     }
