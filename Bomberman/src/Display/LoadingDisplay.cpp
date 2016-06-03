@@ -15,7 +15,7 @@ LoadingDisplay::LoadingDisplay(SDL_Texture* texture,
       m_renderer(renderer),
       m_window_width(window_width),
       m_window_height(window_height),
-      m_current_level(2),
+      m_current_level(1),
       m_max_level(max_level),
       m_game_over(false)
 {
