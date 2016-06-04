@@ -27,7 +27,7 @@ class Bomb
         /**
          *  \brief Constructor for Bomb
          *
-         *  Makes an object of class Bomb according to given attributes
+         *  Makes an object of class Bomb according to given parameters
          *  \param fuse_duration the length of bomb's fuse.
          *  \param texture pointer to SDL_texture object from which the texture
          *         will be taken for method Draw()

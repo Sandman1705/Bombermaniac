@@ -1,6 +1,9 @@
 #include "Entity/Enemy.h"
 #include "Manager/Map.h"
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
+
 Enemy::Enemy(SDL_Texture* tex, unsigned int tile_size, unsigned int val_x, unsigned int val_y)
 {
     this->m_x = val_x*tile_size;

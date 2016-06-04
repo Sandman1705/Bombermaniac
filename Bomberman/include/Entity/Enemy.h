@@ -9,8 +9,6 @@
  */
 
 #include <SDL.h>
-#include <cstdlib>
-#include <ctime>
 #include "Utility/Timer.h"
 #include "Entity/Player.h"
 
@@ -30,7 +28,7 @@ class Enemy
         /**
          *  \brief Constructor for Enemy.
          *
-         *  Makes an object of class Enemy according to given attributes.
+         *  Makes an object of class Enemy according to given parameters.
          *  \param tex pointer to SDL_texture object from which the texture
          *         will be taken for method Draw()
          *  \param tile_size size of one tile on map

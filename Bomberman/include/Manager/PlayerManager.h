@@ -31,7 +31,7 @@ class PlayerManager : public DisplayElement
          *  \brief Constructor for PlayerManager
          *
          *  Makes an object of class PlayerManager according to given
-         *  attributes
+         *  parameters
          *
          *  \param path_to_file string path to file in which are
          *         coordinates for players

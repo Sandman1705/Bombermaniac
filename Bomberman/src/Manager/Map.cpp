@@ -6,6 +6,7 @@
 #include "Constants/TexturePickUpConstants.h"
 #include "Entity/PickUp.h"
 #include "Manager/PickUpManager.h"
+#include "Entity/DestructibleWall.h"
 
 //#define DEBUG_OUTPUT_MAP
 

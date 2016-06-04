@@ -2,6 +2,7 @@
 #include "Destroyer/Destroyer.h"
 #include "Constants/TextureScoreConstants.h"
 #include <fstream>
+#include <cstdlib>
 
 PlayerManager::PlayerManager(std::string path_to_file, SDL_Texture* texture, unsigned int tile_size, Relay *relay)
     : DisplayElement(texture)

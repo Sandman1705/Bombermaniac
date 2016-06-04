@@ -23,7 +23,7 @@ class DestructibleWall : public MapObject
          *  \brief Constructor for DestructibleWall.
          *
          *  Makes an object of class DestructibleWall according to given
-         *  attributes.
+         *  parameters.
          *  \param texture pointer to SDL_texture object from which the texture
          *         will be taken for method Draw()
          *  \param kind represents kind of texture that will be used for Draw()

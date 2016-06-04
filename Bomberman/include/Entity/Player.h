@@ -12,7 +12,6 @@
 #include "Utility/Relay.h"
 #include "System/KeyboardInput.h"
 #include "Utility/Timer.h"
-#include "Entity/PickUp.h"
 
 /** \class Player
  *  \brief class which represents a player
@@ -31,7 +30,7 @@ class Player
         /**
          *  \brief Constructor for Player.
          *
-         *  Makes an object of class Player according to given attributes.
+         *  Makes an object of class Player according to given parameters.
          *  \param tex pointer to SDL_texture object from which the texture
          *         will be taken for method Draw()
          *  \param tile_size size of one tile on map

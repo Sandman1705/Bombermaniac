@@ -35,7 +35,7 @@ class Explosion
          *  \brief Constructor for Explosion
          *
          *  Makes an object of class Explosion according to given
-         *  attributes
+         *  parameters
          *  \param duration duration of the explosion in milliseconds
          *  \param x_center x coordinate of the center of explosion on the map
          *  \param y_center y coordinate of the center of explosion on the map

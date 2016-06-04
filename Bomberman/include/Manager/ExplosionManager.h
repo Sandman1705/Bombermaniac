@@ -29,7 +29,7 @@ class ExplosionManager : public DisplayElement
          *  \brief Constructor for ExplosionManager
          *
          *  Makes an object of class ExplosionManager according to given
-         *  attributes
+         *  parameters
          *  \param texture pointer to SDL_texture object from which the texture
          *         will be taken for method Draw()
          *  \param tile_size represents the size of one tile of the map in

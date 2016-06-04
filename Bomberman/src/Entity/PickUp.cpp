@@ -17,7 +17,7 @@ PickUp::PickUp(SDL_Texture* texture,
 {
 }
 
-bool PickUp::IsUsed()
+bool PickUp::IsUsed() const
 {
     return m_used;
 }

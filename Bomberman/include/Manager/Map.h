@@ -14,7 +14,6 @@
 #include "Display/DisplayElement.h"
 #include "Utility/Relay.h"
 #include "Entity/MapObject.h"
-#include "Entity/DestructibleWall.h"
 
 /** \class Map
  *  \brief Class which represents one level of the game.
@@ -29,7 +28,7 @@ class Map : public DisplayElement
         /**
          *  \brief Constructor for Map
          *
-         *  Makes an object of class Map according to given attributes
+         *  Makes an object of class Map according to given parameters
          *  \param path_to_file string which represent relative path to .txt
          *         map's properties needed for making a layout, such as height,
          *         width and layout of MapObjects
@@ -50,9 +49,9 @@ class Map : public DisplayElement
         Map(const Map& other) = delete; /**< \brief Default copy constructor is disabled */
         Map& operator=(const Map&) = delete; /**< \brief Default operator = is disabled */
 
-        unsigned int GetHeight() const { return m_height; }
-        unsigned int GetWidth() const { return m_width; }
-        unsigned int GetTileSize() const { return m_tile_size; }
+        unsigned int GetHeight() const { return m_height; } /**< \brief Gives height of map in tiles */
+        unsigned int GetWidth() const { return m_width; } /**< \brief Gives width of map in tiles */
+        unsigned int GetTileSize() const { return m_tile_size; } /**< \brief Gives size of a tile in pixels */
 
         /**
          *  \brief Tells if the tile at given coordinates is walkable on

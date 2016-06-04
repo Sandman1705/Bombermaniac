@@ -32,7 +32,7 @@ class EnemyThree : public Enemy
         /**
          *  \brief Constructor for EnemyThree.
          *
-         *  Makes an object of class EnemyThree according to given attributes.
+         *  Makes an object of class EnemyThree according to given parameters.
          *  \param tex pointer to SDL_texture object from which the texture
          *         will be taken for method Draw()
          *  \param tile_size size of one tile on map
