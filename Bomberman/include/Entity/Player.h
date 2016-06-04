@@ -37,8 +37,7 @@ class Player
          *  \param tile_size size of one tile on map
          *  \param relay for getting bomb_manager with list of bombs with
          *         methods for management
-         *  \param keyboard_input pointer to KeyboardInput object of the game
-         *         (which is used to keep track of input given by the user)
+         *  \param player_id ID of the player
          *  \param val_x coordinate of the player on the map
          *  \param val_y coordinate of the player on the map
          *
@@ -85,7 +84,6 @@ class Player
          *  relative to its current position on x axis
          *  \param y value that represents where player wishes to go
          *  relative to its current position on y axis
-         *  \param level pointer to Map object of the game
          *
          *  \return void
          */
@@ -119,9 +117,31 @@ class Player
          *
          *  \return void
          */
-        void Update(); //DOCUMENTATION !!!
+        void Update();
 
+        /**
+         *  \brief Decreases temporary number of bombs that
+         *  are on field.
+         *
+         *  Method which is used by bomb manager to
+         *  to decrease number of bombs on field and make them
+         *  available to player.
+         *
+         *  \return void
+         */
         void DecreaseTempBombNumber();
+
+        /**
+         *  \brief Checks if player touched pickup.
+         *
+         *  Calculates if there was a collision between
+         *  player and pickup.
+         *
+         *  \param pickup_x x coordinate of center of the pickup
+         *  \param pickup_y y coordinate of center of the pickup
+         *
+         *  \return bool
+         */
         bool Touch(unsigned int pick_up_x, unsigned int pick_up_y);
 
     protected:

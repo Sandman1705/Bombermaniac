@@ -15,7 +15,7 @@
 #include "Entity/Player.h"
 
 /** \class Enemy
- *  \brief class which represents an enemy
+ *  \brief Abstract class which represents an enemy.
  *  \details This class contains all properties of an enemy like its
  *           coordinates on a map, its size, direction where its going
  *           as well as its speed. Also contains a method Draw() which is
@@ -74,6 +74,7 @@ class Enemy
          *  \brief Draws the enemy on given SDL_Renderer.
          *
          *  Draws the enemy on the map according to its coordinates.
+         *
          *  \param renderer represents SDL_Renderer on which the enemy
          *  will be drawn on
          *

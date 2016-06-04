@@ -108,7 +108,7 @@ void EnemyThree::EnemyThreeDirection(Relay *relay)
         y = m_y - (*it)->GetY();
         if(player_min > sqrt(x*x + y*y))
         {
-            player_min = sqrt(x*x + y*y);//abs(m_x - (*it)->GetX() ) + abs(m_y - (*it)->GetY() );
+            player_min = sqrt(x*x + y*y);
             p = *it;
         }
     }

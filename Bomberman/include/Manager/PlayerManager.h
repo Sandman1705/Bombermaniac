@@ -26,7 +26,8 @@
 
 class PlayerManager : public DisplayElement
 {
-    /**
+    public:
+        /**
          *  \brief Constructor for PlayerManager
          *
          *  Makes an object of class PlayerManager according to given
@@ -42,7 +43,6 @@ class PlayerManager : public DisplayElement
          *  \param keyboard_input pointer to KeyboardInput object of the game
          *         (which is used to keep track of input given by the user)
          */
-    public:
         PlayerManager(std::string path_to_file, SDL_Texture* texture, unsigned int tile_size, Relay *relay);
         ~PlayerManager();
 
