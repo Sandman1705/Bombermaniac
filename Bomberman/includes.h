@@ -25,7 +25,7 @@
  *
  * \subsection step1 Step 1: Setting up SDL2
  *
- *
+ * ...
  *
  * \subsection step2 Step 2: Compiling using g++
  *

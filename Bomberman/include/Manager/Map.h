@@ -37,6 +37,8 @@ class Map : public DisplayElement
          *         will be taken for method Draw()
          *  \param tile_size pixel size of one tile which will be used for
          *         method Draw()
+         *  \param relay pointer to the relay object which is used to
+         *         communicate with other game objects
          */
         Map(std::string path_to_file, SDL_Texture* texture, unsigned int tile_size, Relay* relay);
         /**
@@ -45,8 +47,8 @@ class Map : public DisplayElement
          *  Destroys all MapObjects on the map before deleting itself.
          */
         ~Map();
-        //TODO Copy constructor
-        //TODO Operator=
+        Map(const Map& other) = delete; /**< \brief Default copy constructor is disabled */
+        Map& operator=(const Map&) = delete; /**< \brief Default operator = is disabled */
 
         unsigned int GetHeight() const { return m_height; }
         unsigned int GetWidth() const { return m_width; }

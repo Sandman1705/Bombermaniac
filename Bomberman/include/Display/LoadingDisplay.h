@@ -14,7 +14,9 @@ class LoadingDisplay : public Display
                        unsigned int window_width,
                        unsigned int window_height,
                        unsigned int max_level);
-        virtual ~LoadingDisplay();
+        ~LoadingDisplay();
+        LoadingDisplay(const LoadingDisplay& other) = delete; /**< \brief Default copy constructor is disabled */
+        LoadingDisplay& operator=(const LoadingDisplay&) = delete; /**< \brief Default operator = is disabled */
 
         void Init();
         void Enter(int mode);

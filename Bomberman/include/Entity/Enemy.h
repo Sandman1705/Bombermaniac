@@ -40,6 +40,8 @@ class Enemy
          */
         Enemy(SDL_Texture* tex, unsigned int tile_size, unsigned int val_x = 1, unsigned int val_y = 1);
         virtual ~Enemy();
+        Enemy(const Enemy& other) = delete; /**< \brief Default copy constructor is disabled */
+        Enemy& operator=(const Enemy&) = delete; /**< \brief Default operator = is disabled */
 
         unsigned int GetX() const;
         void SetX(unsigned int val);

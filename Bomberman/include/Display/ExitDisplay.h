@@ -8,6 +8,8 @@ class ExitDisplay : public Display
     public:
         ExitDisplay(bool* running = nullptr);
         ~ExitDisplay();
+        ExitDisplay(const ExitDisplay& other) = delete; /**< \brief Default copy constructor is disabled */
+        ExitDisplay& operator=(const ExitDisplay&) = delete; /**< \brief Default operator = is disabled */
 
         void Enter(int mode = 0);
 

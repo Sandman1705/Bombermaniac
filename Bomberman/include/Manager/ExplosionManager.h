@@ -43,8 +43,8 @@ class ExplosionManager : public DisplayElement
          *  Deletes all objects of Explosion it keeps track off.
          */
         ~ExplosionManager();
-        //TODO Copy Constructor
-        //TODO Operator =
+        ExplosionManager(const ExplosionManager& other) = delete; /**< \brief Default copy constructor is disabled */
+        ExplosionManager& operator=(const ExplosionManager&) = delete; /**< \brief Default operator = is disabled */
 
         /**
          *  \brief Adds new Explosion to the list of explosions.

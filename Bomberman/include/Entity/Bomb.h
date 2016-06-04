@@ -32,7 +32,7 @@ class Bomb
          *  \param texture pointer to SDL_texture object from which the texture
          *         will be taken for method Draw()
          *  \param x coordinate of the bomb on the map
-         *  \param x coordinate of the bomb on the map
+         *  \param y coordinate of the bomb on the map
          *  \param bomb_size drawing size of the bomb according to 32 pixel tile
          *         size of the map
          *  \param player_id id of the player that placed the bomb

@@ -12,7 +12,9 @@ class PauseDisplay : public Display
                      unsigned int window_width,
                      unsigned int window_height,
                      Display* previous_display = nullptr);
-        virtual ~PauseDisplay();
+        ~PauseDisplay();
+        PauseDisplay(const PauseDisplay& other) = delete; /**< \brief Default copy constructor is disabled */
+        PauseDisplay& operator=(const PauseDisplay&) = delete; /**< \brief Default operator = is disabled */
 
         void Init();
         void Enter(int mode = 0);

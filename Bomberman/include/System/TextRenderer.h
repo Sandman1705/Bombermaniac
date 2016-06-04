@@ -38,6 +38,8 @@ class TextRenderer
          * Closes opened TTF font.
          */
         ~TextRenderer();
+        TextRenderer(const TextRenderer& other) = delete; /**< \brief Default copy constructor is disabled */
+        TextRenderer& operator=(const TextRenderer&) = delete; /**< \brief Default operator = is disabled */
 
         /** \brief Returns pointer to SDL_Texture which is an image of given
          *         string in given color

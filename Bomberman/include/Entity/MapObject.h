@@ -47,6 +47,8 @@ class MapObject
          *  inherited classes from this can be destroyed via this destructor.
          */
         virtual ~MapObject() { };
+        MapObject(const MapObject& other) = delete; /**< \brief Default copy constructor is disabled */
+        MapObject& operator=(const MapObject&) = delete; /**< \brief Default operator = is disabled */
         /** \brief Returns id of the tile
          *
          * Value returned is of type MapObject::Tile and represents id of this

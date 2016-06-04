@@ -12,7 +12,9 @@ class WelcomeDisplay : public Display
                        SDL_Renderer* renderer,
                        unsigned int m_window_width,
                        unsigned int m_window_height);
-        virtual ~WelcomeDisplay();
+        ~WelcomeDisplay();
+        WelcomeDisplay(const WelcomeDisplay& other) = delete; /**< \brief Default copy constructor is disabled */
+        WelcomeDisplay& operator=(const WelcomeDisplay&) = delete; /**< \brief Default operator = is disabled */
 
         void Enter(int mode = 0);
 

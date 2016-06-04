@@ -11,6 +11,8 @@ class PickUpManager : public DisplayElement
     public:
         PickUpManager(SDL_Texture* texture, unsigned int tile_size, Relay* relay);
         ~PickUpManager();
+        PickUpManager(const PickUpManager& other) = delete; /**< \brief Default copy constructor is disabled */
+        PickUpManager& operator=(const PickUpManager&) = delete; /**< \brief Default operator = is disabled */
 
         void AddPickUp(PickUp* pickup);
         void MakePickUp(PickUp::PickUpType type, int x, int y, int value = 0);

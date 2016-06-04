@@ -46,6 +46,8 @@ class EnemyManager : public DisplayElement
          */
         EnemyManager(std::string path_to_file,SDL_Texture* texture, unsigned int tile_size, Relay *relay);
         virtual ~EnemyManager();
+        EnemyManager(const EnemyManager& other) = delete; /**< \brief Default copy constructor is disabled */
+        EnemyManager& operator=(const EnemyManager&) = delete; /**< \brief Default operator = is disabled */
 
         /**
          *  \brief Adds new Enemy to the list of enemies.

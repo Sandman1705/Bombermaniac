@@ -36,12 +36,12 @@ class BombManager : public DisplayElement
          *         pixels (which is required for proper implementation of method
          *         Draw())
          *  \param relay pointer to the relay object which is used to
-         *         communicate to other game objects
+         *         communicate with other game objects
          */
         BombManager(SDL_Texture* texture, unsigned int tile_size, Relay* relay);
         ~BombManager();
-        //TODO Copy constructor
-        //TODO Operator=
+        BombManager(const BombManager& other) = delete; /**< \brief Default copy constructor is disabled */
+        BombManager& operator=(const BombManager&) = delete; /**< \brief Default operator = is disabled */
 
         /**
          *  \brief Adds new Bomb to the list of bombs.
