@@ -1,4 +1,4 @@
-#include "Manager\PickUpManager.h"
+#include "Manager/PickUpManager.h"
 
 //#define DEBUG_OUTPUT_PICKUP_MANAGER
 

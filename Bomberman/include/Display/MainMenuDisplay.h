@@ -41,7 +41,7 @@ class MainMenuDisplay : public Display
         bool                        m_button_pressed_enter;
         unsigned int                m_window_width;
         unsigned int                m_window_height;
-        Mix_Music*                  m_music = NULL;
+        Mix_Music*                  m_music;
 
 };
 

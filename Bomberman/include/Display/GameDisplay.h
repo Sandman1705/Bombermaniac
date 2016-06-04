@@ -39,7 +39,7 @@ class GameDisplay : public Display
         unsigned int                    m_current_level;
         bool                            m_level_completed;
         bool                            m_play_music = true;
-        Mix_Music*                      m_music = NULL;
+        Mix_Music*                      m_music;
 };
 
 #endif // GAMEDISPLAY_H

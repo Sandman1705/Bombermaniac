@@ -27,7 +27,8 @@ GameDisplay::GameDisplay(SDL_Texture* texture,
       m_window_width(window_width),
       m_window_height(window_height),
       m_current_level(current_level),
-      m_level_completed(false)
+      m_level_completed(false),
+      m_music(nullptr)
 {
     m_display_elements.reserve(number_of_screen_elements);
 }

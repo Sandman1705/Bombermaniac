@@ -1,7 +1,7 @@
 #include "Entity/EnemyThree.h"
 #include "Constants/TextureEnemyConstants.h"
 #include "Manager/PlayerManager.h"
-#include "cmath"
+#include <cmath>
 #include "Manager/Map.h"
 #include <iostream>
 
@@ -98,7 +98,7 @@ void EnemyThree::Update(Relay *relay, Player *player)
 
 void EnemyThree::EnemyThreeDirection(Relay *relay)
 {
-    unsigned int player_min = UINT_MAX; // closest player
+    unsigned int player_min = unsigned(-1); // closest player
     Player * p = nullptr;
     int x, y;
 
