@@ -13,11 +13,6 @@
 #include "Display/DisplayElement.h"
 #include "Utility/Relay.h"
 #include "Entity/Enemy.h"
-#include "Entity/Player.h"
-#include "Destroyer/Destroyer.h"
-#include "Entity/EnemyOne.h"
-#include "Entity/EnemyTwo.h"
-#include "Entity/EnemyThree.h"
 
 /** \class EnemyManager
  *  \brief Class which is used for keeping track of all the enemies in the game.
@@ -33,7 +28,7 @@ class EnemyManager : public DisplayElement
          *  \brief Constructor for EnemyManager
          *
          *  Makes an object of class EnemyManager according to given
-         *  attributes
+         *  parameters
          *
          *  \param path_to_file string path to file in which are
          *         coordinates for enemies
@@ -45,7 +40,9 @@ class EnemyManager : public DisplayElement
          *  \param relay pointer to the Relay object of the game
          */
         EnemyManager(std::string path_to_file,SDL_Texture* texture, unsigned int tile_size, Relay *relay);
-        virtual ~EnemyManager();
+        ~EnemyManager();
+        EnemyManager(const EnemyManager& other) = delete; /**< \brief Default copy constructor is disabled */
+        EnemyManager& operator=(const EnemyManager&) = delete; /**< \brief Default operator = is disabled */
 
         /**
          *  \brief Adds new Enemy to the list of enemies.

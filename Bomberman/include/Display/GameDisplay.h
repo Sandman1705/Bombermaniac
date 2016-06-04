@@ -16,6 +16,8 @@ class GameDisplay : public Display
                     unsigned int current_level,
                     unsigned int number_of_screen_elements = 6);
         ~GameDisplay();
+        GameDisplay(const GameDisplay& other) = delete; /**< \brief Default copy constructor is disabled */
+        GameDisplay& operator=(const GameDisplay&) = delete; /**< \brief Default operator = is disabled */
 
         void AddDisplayElement(DisplayElement* display_element);
 

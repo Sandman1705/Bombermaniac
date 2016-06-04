@@ -14,6 +14,8 @@ class DisplayManager
                        unsigned int window_width,
                        unsigned int window_height);
         ~DisplayManager();
+        DisplayManager(const DisplayManager& other) = delete; /**< \brief Default copy constructor is disabled */
+        DisplayManager& operator=(const DisplayManager&) = delete; /**< \brief Default operator = is disabled */
 
         void EnterDisplay(Display* display);
         void LeaveDisplay();

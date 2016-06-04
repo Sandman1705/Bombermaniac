@@ -31,7 +31,7 @@ class PlayerManager : public DisplayElement
          *  \brief Constructor for PlayerManager
          *
          *  Makes an object of class PlayerManager according to given
-         *  attributes
+         *  parameters
          *
          *  \param path_to_file string path to file in which are
          *         coordinates for players
@@ -46,6 +46,8 @@ class PlayerManager : public DisplayElement
          */
         PlayerManager(std::string path_to_file, SDL_Texture* texture, unsigned int tile_size, Relay *relay);
         ~PlayerManager();
+        PlayerManager(const PlayerManager& other) = delete; /**< \brief Default copy constructor is disabled */
+        PlayerManager& operator=(const PlayerManager&) = delete; /**< \brief Default operator = is disabled */
 
         std::vector<Player*>* GetPlayers();
         Player* GetPlayerById(int id);

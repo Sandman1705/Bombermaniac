@@ -79,8 +79,9 @@ class WallDestroyer
         /**
          *  \brief Return squared value of given integer value
          *
+         *  Squares the given integer. Multiplies it by itself.
          *  \param x number which will be squared
-         *  \return void
+         *  \return values that is squared
          */
         int Square(int x) const { return x*x; }
         /**

@@ -12,6 +12,8 @@ class MainMenuDisplay : public Display
                         unsigned int window_width,
                         unsigned int window_height);
         ~MainMenuDisplay();
+        MainMenuDisplay(const MainMenuDisplay& other) = delete; /**< \brief Default copy constructor is disabled */
+        MainMenuDisplay& operator=(const MainMenuDisplay&) = delete; /**< \brief Default operator = is disabled */
 
         void Init();
         void Enter(int mode = 0);

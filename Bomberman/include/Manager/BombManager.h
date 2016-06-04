@@ -16,7 +16,7 @@
 #include "Utility/Relay.h"
 
 /** \class BombManager
- *  \brief Class which is used for keeping track of all the bombs in the game.
+ *  \brief Class which is used for keeping track of all bombs in the game.
  *  \details This class contains the list of all bombs which are placed by the
  *           player. Has appropriate methods for adding bombs and drawing them.
  *           Also has an update method which calls the appropriate update method
@@ -30,19 +30,24 @@ class BombManager : public DisplayElement
          *  \brief Constructor for BombManager
          *
          *  Makes an object of class BombManager according to given
-         *  attributes
+         *  parameters
          *  \param texture pointer to SDL_texture object from which the texture
          *         will be taken for method Draw()
          *  \param tile_size represents the size of one tile of the map in
          *         pixels (which is required for proper implementation of method
          *         Draw())
          *  \param relay pointer to the relay object which is used to
-         *         communicate to other game objects
+         *         communicate with other game objects
          */
         BombManager(SDL_Texture* texture, unsigned int tile_size, Relay* relay);
+        /**
+         *  \brief Destructor for BombManager
+         *
+         *  Destroys all bombs it keeps track of before deleting itself.
+         */
         ~BombManager();
-        //TODO Copy constructor
-        //TODO Operator=
+        BombManager(const BombManager& other) = delete; /**< \brief Default copy constructor is disabled */
+        BombManager& operator=(const BombManager&) = delete; /**< \brief Default operator = is disabled */
 
         /**
          *  \brief Adds new Bomb to the list of bombs.
@@ -89,8 +94,9 @@ class BombManager : public DisplayElement
         /**
          *  \brief Draw all the bombs it keeps track of on given SLD_Renderer
          *
-         *  Calls Bomb::Draw() methods for all the bombs it keeps track of with
-         *  the given SLD_Renderer so it will draw them on that same renderer.
+         *  Calls Bomb::Draw() method for all the bombs it keeps track of with
+         *  the given SLD_Renderer as parameter so it will draw them on that
+         *  same renderer.
          *  \param renderer represents the SDL_Renderer on which the bombs
          *         will be drawn on.
          *

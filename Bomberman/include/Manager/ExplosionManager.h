@@ -29,7 +29,7 @@ class ExplosionManager : public DisplayElement
          *  \brief Constructor for ExplosionManager
          *
          *  Makes an object of class ExplosionManager according to given
-         *  attributes
+         *  parameters
          *  \param texture pointer to SDL_texture object from which the texture
          *         will be taken for method Draw()
          *  \param tile_size represents the size of one tile of the map in
@@ -43,8 +43,8 @@ class ExplosionManager : public DisplayElement
          *  Deletes all objects of Explosion it keeps track off.
          */
         ~ExplosionManager();
-        //TODO Copy Constructor
-        //TODO Operator =
+        ExplosionManager(const ExplosionManager& other) = delete; /**< \brief Default copy constructor is disabled */
+        ExplosionManager& operator=(const ExplosionManager&) = delete; /**< \brief Default operator = is disabled */
 
         /**
          *  \brief Adds new Explosion to the list of explosions.

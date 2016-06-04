@@ -64,6 +64,13 @@ class Destroyer
 
     protected:
 
+        /**
+         *  \brief Return squared value of given integer value
+         *
+         *  Squares the given integer. Multiplies it by itself.
+         *  \param x number which will be squared
+         *  \return values that is squared
+         */
         static int Square(int x) { return x*x; }
 
     private:

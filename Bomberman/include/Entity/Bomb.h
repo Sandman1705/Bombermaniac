@@ -27,12 +27,12 @@ class Bomb
         /**
          *  \brief Constructor for Bomb
          *
-         *  Makes an object of class Bomb according to given attributes
+         *  Makes an object of class Bomb according to given parameters
          *  \param fuse_duration the length of bomb's fuse.
          *  \param texture pointer to SDL_texture object from which the texture
          *         will be taken for method Draw()
          *  \param x coordinate of the bomb on the map
-         *  \param x coordinate of the bomb on the map
+         *  \param y coordinate of the bomb on the map
          *  \param bomb_size drawing size of the bomb according to 32 pixel tile
          *         size of the map
          *  \param player_id id of the player that placed the bomb

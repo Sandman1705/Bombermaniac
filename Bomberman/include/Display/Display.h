@@ -34,7 +34,9 @@ class Display
          *
          */
         Display();
-        virtual ~Display() = 0;
+        virtual ~Display() = 0; /**< \brief Default destructor */
+        Display(const Display& other) = delete; /**< \brief Default copy constructor is disabled */
+        Display& operator=(const Display&) = delete; /**< \brief Default operator = is disabled */
 
         /**
          *  \brief Initializes elements of display

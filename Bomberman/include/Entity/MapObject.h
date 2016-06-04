@@ -22,17 +22,20 @@
 class MapObject
 {
     public:
+        /**
+         * \brief Enum for representing different types of tiles on the map
+         */
         enum Tile
         {
-              EMPTY = 0,
-              DESTRUCTIBLE_WALL = 1,
-              INDESTRUCTIBLE_WALL = 2
+              EMPTY = 0, /**< Empty space on which the players and enemies can walk */
+              DESTRUCTIBLE_WALL = 1, /**< Wall that can be destroyed with a bomb */
+              INDESTRUCTIBLE_WALL = 2/**< Wall that cannot be destroyed by any means */
         };
 
         /**
          *  \brief Constructor for MapObject.
          *
-         *  Makes an object of class MapObject according to given attributes.
+         *  Makes an object of class MapObject according to given parameters.
          *  \param id describes type of tile on map
          *  \param texture pointer to SDL_texture object from which the texture
          *         will be taken for method Draw()
@@ -47,6 +50,8 @@ class MapObject
          *  inherited classes from this can be destroyed via this destructor.
          */
         virtual ~MapObject() { };
+        MapObject(const MapObject& other) = delete; /**< \brief Default copy constructor is disabled */
+        MapObject& operator=(const MapObject&) = delete; /**< \brief Default operator = is disabled */
         /** \brief Returns id of the tile
          *
          * Value returned is of type MapObject::Tile and represents id of this

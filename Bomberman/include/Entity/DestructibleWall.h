@@ -23,9 +23,10 @@ class DestructibleWall : public MapObject
          *  \brief Constructor for DestructibleWall.
          *
          *  Makes an object of class DestructibleWall according to given
-         *  attributes.
+         *  parameters.
          *  \param texture pointer to SDL_texture object from which the texture
          *         will be taken for method Draw()
+         *  \param kind represents kind of texture that will be used for Draw()
          */
         DestructibleWall(SDL_Texture *texture, unsigned int kind);
         /**
@@ -34,6 +35,8 @@ class DestructibleWall : public MapObject
          *  Basic destructor for DestructibleWall.
          */
         virtual ~DestructibleWall() { };
+        DestructibleWall(const DestructibleWall& other) = delete; /**< \brief Default copy constructor is disabled */
+        DestructibleWall& operator=(const DestructibleWall&) = delete; /**< \brief Default operator = is disabled */
         /**
          *  \brief Tells if the wall is destroyed
          *

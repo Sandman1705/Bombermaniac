@@ -2,6 +2,11 @@
 #include "Manager/PlayerManager.h"
 #include <fstream>
 #include <iostream>
+#include "Entity/Player.h"
+#include "Destroyer/Destroyer.h"
+#include "Entity/EnemyOne.h"
+#include "Entity/EnemyTwo.h"
+#include "Entity/EnemyThree.h"
 
 EnemyManager::EnemyManager(std::string path_to_file, SDL_Texture* texture, unsigned int tile_size, Relay *relay)
     : DisplayElement(texture)
