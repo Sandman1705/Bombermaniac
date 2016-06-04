@@ -34,6 +34,9 @@ class EnemyManager : public DisplayElement
          *
          *  Makes an object of class EnemyManager according to given
          *  attributes
+         *
+         *  \param path_to_file string path to file in which are
+         *         coordinates for enemies
          *  \param texture pointer to SDL_texture object from which the texture
          *         will be taken for method Draw()
          *  \param tile_size represents the size of one tile of the map in

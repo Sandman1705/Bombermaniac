@@ -32,6 +32,9 @@ class PlayerManager : public DisplayElement
          *
          *  Makes an object of class PlayerManager according to given
          *  attributes
+         *
+         *  \param path_to_file string path to file in which are
+         *         coordinates for players
          *  \param texture pointer to SDL_texture object from which the texture
          *         will be taken for method Draw()
          *  \param tile_size represents the size of one tile of the map in
@@ -40,8 +43,6 @@ class PlayerManager : public DisplayElement
          *  \param relay pointer to the relay of the
          *         game (which is needed for getting bomb_manager for sending
          *         signals to that object to make new bomb)
-         *  \param keyboard_input pointer to KeyboardInput object of the game
-         *         (which is used to keep track of input given by the user)
          */
         PlayerManager(std::string path_to_file, SDL_Texture* texture, unsigned int tile_size, Relay *relay);
         ~PlayerManager();
@@ -49,7 +50,25 @@ class PlayerManager : public DisplayElement
         std::vector<Player*>* GetPlayers();
         Player* GetPlayerById(int id);
 
+        /**
+         *  \brief Check if all players are dead.
+         *
+         *  Checks for each player if it's alive and returns true
+         *  if they are all alive.
+         *
+         *  \return bool
+         */
         bool AreAllDead() const;
+
+        /**
+         *  \brief Check if level is completed by players.
+         *
+         *  Checks if level is completed. Level is completed if
+         *  all players completed the level or if at least one is
+         *  and others are dead.
+         *
+         *  \return bool
+         */
         bool AreAllCompleted() const;
 
          /**
@@ -91,6 +110,19 @@ class PlayerManager : public DisplayElement
          */
         void Draw(SDL_Renderer* renderer) const;
 
+        /**
+         *  \brief Draws the life board it keeps track of on given SLD_Renderer.
+         *
+         *  Draws lives of the player on the given SLD_Renderer so it
+         *  will draw them on that same renderer.
+         *
+         *  \param renderer represents the SDL_Renderer on which the player
+         *         will be drawn on.
+         *  \param player_id represents the ID of the player
+         *  \param lives represents number of lives that are going to be drawn
+         *
+         *  \return void
+         */
         void DrawScore(SDL_Renderer* renderer, unsigned int player_id, unsigned int lives) const;
 
         /**
