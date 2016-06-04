@@ -53,9 +53,57 @@ class EnemyThree : public Enemy
          */
         void Draw(SDL_Renderer* renderer);
 
+        /**
+         *  \brief Updates enemy's position on map.
+         *
+         *  Calculates where enemy should go with EnemyThreeDirection() method
+         *  and checks for collision with player and updates enemy's position
+         *  on map accordingly and calls appropriate actions.
+         *
+         *  \param relay pointer to Relay object of the game
+         *  \param player pointer to Player object of the game
+         *
+         *  \return void
+         */
         void Update(Relay *relay,Player *player);
+
+        /**
+         *  \brief Calculate if there is a player nearby.
+         *
+         *  Calculates if there is a player nearby for enemy
+         *  to chase and which one is closest, then calls
+         *  ChasePlayer() to setup a direction where enemy should go.
+         *
+         *  \param relay pointer to Relay object of the game
+         *
+         *  \return void
+         */
         void EnemyThreeDirection(Relay *relay);
+
+        /**
+         *  \brief Calculate in what direction enemy should go.
+         *
+         *  Calculates in what direction enemy should go to chase player,
+         *  checks with DirectionCheck() method if direction is available
+         *  and sends enemy in that direction.
+         *
+         *  \param player pointer to Player object of the game
+         *  \param relay pointer to Relay object of the game
+         *
+         *  \return void
+         */
         void ChasePlayer(Player * player, Relay *relay);
+
+        /**
+         *  \brief Checks if given direction is available.
+         *
+         *  Calculates if given direction is available on map.
+         *
+         *  \param d direction that needs to be checked
+         *  \param relay pointer to Relay object of the game
+         *
+         *  \return bool
+         */
         bool DirectionCheck(Direction d, Relay *relay);
     protected:
 
