@@ -8,6 +8,7 @@
 #include "Manager/ExplosionManager.h"
 #include "Manager/EnemyManager.h"
 #include "Manager/PlayerManager.h"
+#include "Constants/ResourcesConstants.h"
 
 BombManager::BombManager(SDL_Texture* texture,
                          unsigned int tile_size,
@@ -17,10 +18,14 @@ BombManager::BombManager(SDL_Texture* texture,
       m_tile_size(tile_size),
       m_relay(relay)
 {
+    std::string path_music = RESOURCES_BASE_PATH + "explosion.wav";
+    m_bomb_sound_effect = Mix_LoadWAV(path_music.c_str());
 }
 
 BombManager::~BombManager()
 {
+    Mix_FreeChunk(m_bomb_sound_effect);
+
     for(auto i = m_bombs.begin(); i != m_bombs.end(); ++i)
     {
         delete (*i);
@@ -53,6 +58,7 @@ void BombManager::Update()
         (*i)->Update();
         if((*i)->Explode())
         {
+            Mix_PlayChannel(-1, m_bomb_sound_effect, 0);
             m_relay->GetExplosionManager()->MakeExplosion(1000, (*i)->GetX(), (*i)->GetY(), (*i)->GetIntensity());
             WallDestroyer wd(m_relay->GetMap(), (*i)->GetX(), (*i)->GetY(), m_tile_size, (*i)->GetIntensity(), (*i)->GetDamage());
             m_relay->GetEnemyManager()->KillEnemies((*i)->GetX(), (*i)->GetY(), (*i)->GetIntensity());
