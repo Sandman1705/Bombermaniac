@@ -10,6 +10,7 @@
  */
 
 #include <list>
+#include <SDL_mixer.h>
 #include "Display/DisplayElement.h"
 #include "Entity/Bomb.h"
 #include "Utility/Relay.h"
@@ -110,6 +111,7 @@ class BombManager : public DisplayElement
         unsigned int            m_bomb_size;
         unsigned int            m_tile_size;
         Relay*                  m_relay;
+        Mix_Chunk*              m_bomb_sound_effect;
 };
 
 #endif // BOMBMANAGER_H
