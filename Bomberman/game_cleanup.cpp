@@ -2,6 +2,7 @@
 
 void game::Cleanup()
 {
+    delete display_manager;
     Mix_CloseAudio();
     SDL_DestroyTexture(texture);
     SDL_DestroyRenderer(renderer);

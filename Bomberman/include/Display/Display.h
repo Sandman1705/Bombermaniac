@@ -16,10 +16,10 @@
 
 /** \class Display
  *
- * \brief Abstract class which represents a single display or screen in the game
- * \details Defines basic behavior for every display in the game. Includes
+ * \brief Abstract class which represents a single Display or screen in the game
+ * \details Defines basic behavior for every Display in the game. Includes
  *          methods Update() and Draw() which every screen must define. Methods
- *          Init() Enter() Leave() Destroy() define behavior of a display when
+ *          Init() Enter() Leave() Destroy() define behavior of a Display when
  *          it becomes active or inactive.
  *
  */
@@ -39,10 +39,10 @@ class Display
         Display& operator=(const Display&) = delete; /**< \brief Default operator = is disabled */
 
         /**
-         *  \brief Initializes elements of display
+         *  \brief Initializes elements of Display
          *
          *  Method that is automatically called by DisplayManager the first time
-         *  the display becomes active. Every class that inherits display should
+         *  the Display becomes active. Every class that inherits Display should
          *  redefine this method if it has elements that need to be initialized
          *  before they can be used.
          *
@@ -50,38 +50,38 @@ class Display
          */
         virtual void Init();
         /**
-         *  \brief Resets certain values of display. Starts background elements.
+         *  \brief Resets certain values of Display. Starts background elements.
          *
          *  Method that is automatically called by DisplayManager every time the
-         *  display becomes active. Every class that inherits display should
+         *  Display becomes active. Every class that inherits Display should
          *  redefine this method if it has elements that need to be reset or
-         *  or reinitialized when the display comes back into use.
-         *  \param mode represents id of mode the display should run
+         *  or reinitialized when the Display comes back into use.
+         *  \param mode represents id of mode the Display should run
          *
          *  \return void
          */
         virtual void Enter(int mode = 0);
         /**
-         *  \brief Pauses the display. Stops background elements.
+         *  \brief Pauses the Display. Stops background elements.
          *
          *  Method that is automatically called by DisplayManager every time
-         *  this display is used to switch to the next display (not counting
-         *  going back). Every class that inherits display should redefine this
+         *  this Display is used to switch to the next Display (not counting
+         *  going back). Every class that inherits Display should redefine this
          *  method if it has elements that need to are need disabled until
-         *  display becomes active again or are working in the background but
+         *  Display becomes active again or are working in the background but
          *  are not used in other displays.
          *
          *  \return void
          */
         virtual void Leave();
         /**
-         *  \brief Destroys the display.
+         *  \brief Destroys the Display.
          *
          *  Method that is automatically called by DisplayManager the last time
-         *  the display is used. Destroys elements of display and frees up the
-         *  memory if it was using any. Every class that inherits display should
+         *  the Display is used. Destroys elements of Display and frees up the
+         *  memory if it was using any. Every class that inherits Display should
          *  redefine this method if it has elements that need to freed or
-         *  destroyed after the display is no longer needed.
+         *  destroyed after the Display is no longer needed.
          *
          *  \return integer which represents mode the previous screen should
          *          run; default return value is 0
@@ -89,14 +89,14 @@ class Display
         virtual int Destroy();
 
         /**
-         *  \brief Updates the display
+         *  \brief Updates the Display
          *
-         *  Abstract method. This method should be redefined so that a display
+         *  Abstract method. This method should be redefined so that a Display
          *  acts according to user input or makes changes that need to be done
-         *  periodically, whatever the display needs. Also when the display
-         *  needs to be changed either because of user input of some other
-         *  reason changes its internal state specifically values
-         *  m_leave_previous and m_leave_next so that methods
+         *  periodically, whatever the Display needs. Also when the Display
+         *  needs to be swapped with another either because of user input or
+         *  some other reason it should change its internal state, specifically
+         *  values m_leave_previous and m_leave_next so that methods
          *  ShouldLeaveToPrevious() or ShouldLeaveToNext() return true if the
          *  game should go the previous or next Display respectively. In the
          *  case of ShouldLeaveToNext() it should make an object of appropriate
@@ -108,22 +108,24 @@ class Display
          */
         virtual void Update() = 0;
         /**
-         *  \brief Draws the display
+         *  \brief Draws the Display
          *
-         *  Abstract method. This method should be redefined so that the display
+         *  Abstract method. This method should be redefined so that the Display
          *  draws all its elements.
+         *  \param renderer represents the SDL_Renderer on which the Display
+         *         will be drawn on.
          *
          *  \return void
          */
         virtual void Draw(SDL_Renderer* renderer) const = 0;
 
         /**
-         *  \brief Tells if the game should return to previous display
+         *  \brief Tells if the game should return to previous Display
          *
          *  Used by DisplayManager to see if the Display is done and should be
          *  destroyed, after which the game will go back to previous Display.
          *
-         *  \return true if the game should go to next display, false otherwise
+         *  \return true if the game should go to next Display, false otherwise
          */
         bool ShouldLeaveToPrevious() { return m_leave_previous; }
         /**
@@ -133,7 +135,7 @@ class Display
          *  should move to next Display which can be obtained with method
          *  NextDisplay().
          *
-         *  \return true if the game should return to previous display, false
+         *  \return true if the game should return to previous Display, false
          *          otherwise
          */
         bool ShouldLeaveToNext() { return m_leave_next; }

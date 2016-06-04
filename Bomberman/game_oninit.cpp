@@ -41,7 +41,7 @@ bool game::OnInit()
 		return 1;
 	}
     /* SDL Window */
-    if((window = SDL_CreateWindow("SUPER ULTRA MEGA BOMBERMAN",50,50, window_width, window_height, SDL_WINDOW_SHOWN)) == NULL)
+    if((window = SDL_CreateWindow("Bombermaniac!",50,50, window_width, window_height, SDL_WINDOW_SHOWN)) == NULL)
     {
         #ifdef DEBUG_OUTPUT_GAME
         std::cout << "SDL_CreateWindow Error: " << SDL_GetError() << std::endl;

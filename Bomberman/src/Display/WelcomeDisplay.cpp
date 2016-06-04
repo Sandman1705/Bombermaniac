@@ -48,6 +48,22 @@ WelcomeDisplay::WelcomeDisplay(SDL_Texture* texture,
 
 WelcomeDisplay::~WelcomeDisplay()
 {
+    Destroy();
+}
+
+void WelcomeDisplay::Enter(int mode)
+{
+    m_leave_previous = true;
+    m_leave_next = false;
+}
+
+void WelcomeDisplay::Leave()
+{
+    Destroy();
+}
+
+int WelcomeDisplay::Destroy()
+{
     for (auto i = m_textures.begin(); i != m_textures.end(); ++i)
     {
         SDL_DestroyTexture(*i);
@@ -55,12 +71,7 @@ WelcomeDisplay::~WelcomeDisplay()
     m_textures.clear();
     m_textures_draw_src.clear();
     m_textures_draw_dest.clear();
-}
-
-void WelcomeDisplay::Enter(int mode)
-{
-    m_leave_previous = true;
-    m_leave_next = false;
+    return 0;
 }
 
 void WelcomeDisplay::Update()

@@ -18,6 +18,11 @@ DisplayManager::DisplayManager(SDL_Texture* texture,
 
 DisplayManager::~DisplayManager()
 {
+    while (!m_displays.empty())
+    {
+        delete m_displays.top();
+        m_displays.pop();
+    }
 }
 
 void DisplayManager::EnterDisplay(Display* display)
