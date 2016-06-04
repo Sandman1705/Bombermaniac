@@ -22,7 +22,8 @@ MainMenuDisplay::MainMenuDisplay(SDL_Texture* texture,
       m_button_pressed_up(false),
       m_button_pressed_enter(false),
       m_window_width(window_width),
-      m_window_height(window_height)
+      m_window_height(window_height),
+      m_music(nullptr)
 {
     std::string path_font = RESOURCES_BASE_PATH + RESOURCES_FONT;
     TextRenderer text_renderer(path_font,64);

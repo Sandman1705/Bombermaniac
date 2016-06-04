@@ -38,7 +38,7 @@ class LoadingDisplay : public Display
         const unsigned int          m_max_level;
         Timer                       m_timer;
         bool                        m_game_over;
-        Mix_Music*                  m_music = NULL;
+        Mix_Music*                  m_music;
 
         void MakeTexture(std::string text);
         void DestroyTextures();

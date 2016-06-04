@@ -1,5 +1,5 @@
-#include "Display\LoadingDisplay.h"
-#include "System\TextRenderer.h"
+#include "Display/LoadingDisplay.h"
+#include "System/TextRenderer.h"
 #include "Display/GameDisplay.h"
 #include "Constants/ResourcesConstants.h"
 #include <string>
@@ -17,7 +17,8 @@ LoadingDisplay::LoadingDisplay(SDL_Texture* texture,
       m_window_height(window_height),
       m_current_level(1),
       m_max_level(max_level),
-      m_game_over(false)
+      m_game_over(false),
+      m_music(nullptr)
 {
     std::stringstream sstm;
     sstm << "STAGE " << m_current_level;
@@ -65,7 +66,7 @@ void LoadingDisplay::Enter(int mode)
             sstm << "STAGE " << m_current_level;
             MakeTexture(sstm.str());
         }
-        else // GAME COMPLETED / ALL LEVEL FINISHED
+        else
         {
             MakeTexture("GAME COMPLETED");
             m_game_over = true;
