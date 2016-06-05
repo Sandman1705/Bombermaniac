@@ -10,7 +10,7 @@
  */
 
 #include "Display/Display.h"
-#include "Utility/Timer.h"
+#include "System/FreeTimer.h"
 #include <SDL.h>
 #include <vector>
 
@@ -143,9 +143,10 @@ class LoadingDisplay : public Display
         unsigned int                m_window_height;
         unsigned int                m_current_level;
         const unsigned int          m_max_level;
-        Timer                       m_timer;
+        FreeTimer                   m_timer;
         bool                        m_game_over;
         Mix_Music*                  m_music;
+        unsigned int                m_music_wait;
 
 };
 

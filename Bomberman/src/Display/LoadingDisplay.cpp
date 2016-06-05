@@ -23,8 +23,10 @@ LoadingDisplay::LoadingDisplay(SDL_Texture* texture,
       m_window_height(window_height),
       m_current_level(1),
       m_max_level(max_level),
+      m_timer(),
       m_game_over(false),
-      m_music(nullptr)
+      m_music(nullptr),
+      m_music_wait(RESOURCES_MUSIC_LOAD_TIME)
 {
     std::stringstream sstm;
     sstm << "STAGE " << m_current_level;
@@ -53,22 +55,18 @@ void LoadingDisplay::Enter(int mode)
 {
     Mix_PlayMusic(m_music, -1);
     m_next_display = nullptr;
+    m_leave_previous = false;
+    m_leave_next = false;
+    m_timer.Unpause();
+    m_timer.ResetTimer();
     if (mode == 0)
     {
-        m_leave_previous = false;
-        m_leave_next = false;
-        m_timer.Unpause();
-        m_timer.ResetTimer();
         m_game_over = true;
         MakeTexture("GAME OVER");
     }
     else
     {
-        m_timer.Unpause();
-        m_timer.ResetTimer();
         m_current_level = mode;
-        m_leave_next = false;
-        m_leave_previous = false;
         if (m_current_level <= RESOURCES_LEVEL_COUNT)
         {
             std::stringstream sstm;
@@ -116,13 +114,14 @@ void LoadingDisplay::Update()
         #ifdef DEBUG_OUTPUT_GAME_DISPLAY
         std::cout << "LoadingDisplay: making GameDisplay; time: " << m_timer.GetTimeElapsed() << std::endl;
         #endif
+        //SDL_Delay(1000); // test for fake concurrency
         m_next_display = new GameDisplay(m_texture,m_renderer,m_window_width,m_window_height,m_current_level);
         //SDL_Delay(1000); // test for fake concurrency
         #ifdef DEBUG_OUTPUT_GAME_DISPLAY
         std::cout << "LoadingDisplay: finished making GameDisplay; time: " << m_timer.GetTimeElapsed() << std::endl;
         #endif
     }
-    if (m_timer.GetTimeElapsed() > 3100) // make action only after the music has finished
+    else if (m_timer.GetTimeElapsed() > m_music_wait) // take action only after the music has finished
     {
         if (m_game_over)
         {
@@ -145,8 +144,6 @@ void LoadingDisplay::Draw(SDL_Renderer* renderer) const
 
 void LoadingDisplay::MakeTexture(std::string text)
 {
-    m_timer.ResetTimer();
-
     std::string path_font = RESOURCES_BASE_PATH + RESOURCES_FONT;
     TextRenderer text_renderer(path_font,96);
 

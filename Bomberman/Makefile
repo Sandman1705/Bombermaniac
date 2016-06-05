@@ -56,6 +56,7 @@ Manager/ExplosionManager.o \
 Manager/PlayerManager.o \
 Manager/PickUpManager.o \
 Manager/Map.o \
+System/FreeTimer.o \
 System/KeyboardInput.o \
 System/SystemTimer.o \
 System/TextRenderer.o \

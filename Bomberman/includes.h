@@ -39,6 +39,7 @@
  *  - SDL2 image  : <a href="https://www.libsdl.org/projects/SDL_image/">page with download links</a> \n
  *  - SDL2 mixer  : <a href="https://www.libsdl.org/projects/SDL_mixer/">page with download links</a> \n
  *  - SDL2 ttf    : <a href="https://www.libsdl.org/projects/SDL_ttf/">page with download links</a> \n
+ *      - FreeType2.6 : <a href="http://download.savannah.gnu.org/releases/freetype/">page with download links</a> \n
  * .
  * \subsubsection step1-1 Setting up on Microsoft Windows OS:
  * On Windows you can use this specific packages (or use links above to find
@@ -51,6 +52,7 @@
  * download link for version 2.0.1-win32-x86</a> \n
  *  - SDL2 ttf    : <a href="https://www.libsdl.org/projects/SDL_ttf/release/SDL2_ttf-2.0.14-win32-x86.zip">
  * download link for version 2.0.14-win32-x86</a> \n
+ *      -  FreeType2.6 : included in SDL2 ttf
  * .
  * Installing the libraries: \n
  * Extract the archives anywhere you want but remember the path to these files \n
@@ -66,8 +68,6 @@
  * download link for version 2.0.4</a> \n
  *  - SDL2 mixer  : <a href="https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-2.0.1.tar.gz">
  * download link for version 2.0.4</a> \n
- *      - SMPEG       : <a href="https://packages.debian.org/sid/libsmpeg-dev">
- * download link for debian</a>
  *  - SDL2 ttf    : <a href="https://www.libsdl.org/projects/SDL_ttf/release/SDL2_ttf-2.0.14.tar.gz">
  * download link for version 2.0.4</a> \n
  *      - FreeType2.6 : <a href="http://download.savannah.gnu.org/releases/freetype/freetype-2.6.3.tar.gz">
@@ -84,8 +84,6 @@
  * note: command 'make install' needs to be done as root. \n
  * note2: FreeType2.6 (libfreetype6) needs to be installed before SDL2 ttf. You
  * might already have it. \n
- * note3: SMPEG (libsmpeg2) need to be installed before SDL2 mixer. Source code
- * is not available. You might already have it. \n
  * Or use different instruction for installing given in the packages. \n
  * After installing above libraries you should run \n
  *  - <b>$ ldconfig </b>(as root).
@@ -99,9 +97,8 @@
  *  - SDL2 mixer  : <b>$ sudo apt-get install libsdl2-mixer-dev</b> \n
  *  - SDL2 ttf    : <b>$ sudo apt-get install libsdl2-ttf-dev</b> \n
  *  - FreeType2.6 : <b>$ sudo apt-get install libfreetype6-dev</b> \n
- *  - SMPEG       : <b>$ sudo apt-get install libsmpeg-dev</b> \n
  * .
- * \subsection step2 Step 2: Compiling using g++
+ * \subsection step2 Step 2: Compile using g++
  *
  * \subsubsection step2-1 Compiling on Microsoft Windows OS:
  *

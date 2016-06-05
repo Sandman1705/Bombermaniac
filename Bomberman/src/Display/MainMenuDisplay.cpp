@@ -64,6 +64,8 @@ MainMenuDisplay::MainMenuDisplay(SDL_Texture* texture,
     m_arrow_texture = text_renderer.RenderText(">", color, renderer);
     SDL_QueryTexture(m_arrow_texture, NULL, NULL, &m_arrow_width, &m_arrow_height);
 
+    std::string path_music = RESOURCES_BASE_PATH + RESOURCES_MUSIC_MENU;
+    m_music = Mix_LoadMUS(path_music.c_str());
 }
 
 MainMenuDisplay::~MainMenuDisplay()
@@ -80,8 +82,6 @@ MainMenuDisplay::~MainMenuDisplay()
 
 void MainMenuDisplay::Init()
 {
-    std::string path_music = RESOURCES_BASE_PATH + RESOURCES_MUSIC_MENU;
-    m_music = Mix_LoadMUS(path_music.c_str());
     Mix_PlayMusic(m_music, -1);
 
     Enter();
@@ -89,7 +89,7 @@ void MainMenuDisplay::Init()
 
 void MainMenuDisplay::Enter(int mode)
 {
-    Mix_ResumeMusic();
+    Mix_PlayMusic(m_music, -1);
 
     m_leave_next = false;
     m_leave_previous = false;
@@ -101,12 +101,12 @@ void MainMenuDisplay::Enter(int mode)
 
 void MainMenuDisplay::Leave()
 {
-    Mix_PauseMusic();
+    Mix_HaltMusic();
 }
 
 int MainMenuDisplay::Destroy()
 {
-    Mix_PauseMusic();
+    Mix_HaltMusic();
     Mix_FreeMusic(m_music);
 
     for (auto i = m_textures.begin(); i != m_textures.end(); ++i)

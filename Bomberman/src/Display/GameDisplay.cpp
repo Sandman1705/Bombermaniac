@@ -15,8 +15,6 @@
 #include <string>
 #include <sstream>
 
-//#include <iostream>
-
 GameDisplay::GameDisplay(SDL_Texture* texture,
                          SDL_Renderer* renderer,
                          unsigned int window_width,
@@ -33,32 +31,8 @@ GameDisplay::GameDisplay(SDL_Texture* texture,
       m_music(nullptr)
 {
     m_display_elements.reserve(number_of_screen_elements);
-
-    std::string path_music = RESOURCES_BASE_PATH + RESOURCES_MUSIC_GAME;
-    m_music = Mix_LoadMUS(path_music.c_str());
-}
-
-GameDisplay::~GameDisplay()
-{
-    for (auto i = m_display_elements.begin(); i != m_display_elements.end(); ++i)
-    {
-        delete (*i);
-    }
-    m_display_elements.clear();
-    delete m_relay;
-}
-
-void GameDisplay::AddDisplayElement(DisplayElement* display_element)
-{
-    m_display_elements.push_back(display_element);
-}
-
-void GameDisplay::Init()
-{
-//    Timer t;
-//    t.ResetTimer();
-//    std::cout << "GameDisplay::Init start; timer = " << t.GetTimeElapsed() << std::endl;
     SystemTimer::Instance()->Pause();
+
     unsigned int tile_size = 44;
     m_relay = new Relay();
 
@@ -93,9 +67,29 @@ void GameDisplay::Init()
     AddDisplayElement(enemy_manager);
     AddDisplayElement(explosion_manager);
 
+    std::string path_music = RESOURCES_BASE_PATH + RESOURCES_MUSIC_GAME;
+    m_music = Mix_LoadMUS(path_music.c_str());
+}
+
+GameDisplay::~GameDisplay()
+{
+    for (auto i = m_display_elements.begin(); i != m_display_elements.end(); ++i)
+    {
+        delete (*i);
+    }
+    m_display_elements.clear();
+    delete m_relay;
+}
+
+void GameDisplay::AddDisplayElement(DisplayElement* display_element)
+{
+    m_display_elements.push_back(display_element);
+}
+
+void GameDisplay::Init()
+{
     Mix_PlayMusic(m_music, -1);
     SystemTimer::Instance()->Unpause();
-//    std::cout << "GameDisplay::Init end; timer = " << t.GetTimeElapsed() << std::endl;
 }
 
 void GameDisplay::Enter(int mode)
