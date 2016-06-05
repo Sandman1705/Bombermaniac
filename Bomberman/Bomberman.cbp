@@ -113,6 +113,7 @@
 		<Unit filename="include/Utility/Timer.h" />
 		<Unit filename="includes.h" />
 		<Unit filename="resources/Zabdilus.ttf" />
+		<Unit filename="resources/explosion.wav" />
 		<Unit filename="resources/game-play-normal.mp3" />
 		<Unit filename="resources/get-ready.mp3" />
 		<Unit filename="resources/levels/enemy1.txt" />
@@ -146,6 +147,7 @@
 		<Unit filename="resources/levels/player7.txt" />
 		<Unit filename="resources/levels/player8.txt" />
 		<Unit filename="resources/levels/player9.txt" />
+		<Unit filename="resources/neck-snap.wav" />
 		<Unit filename="resources/textures.bmp" />
 		<Unit filename="resources/title-screen.mp3" />
 		<Unit filename="src/Destroyer/Destroyer.cpp" />

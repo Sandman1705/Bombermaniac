@@ -19,10 +19,16 @@
  *
  * Description: Clone of Bomberman game in C++ using SDL2
  *
+ * Source code:
+ *  - <a href="https://github.com/MATF-RS16/rs16-14">Download from GitHub</a>
+ * .
  * Documentation: \n
  *  - html version: <a href="http://alas.matf.bg.ac.rs/~mi13211/bomberman/">alas.matf.bg.ac.rs/~mi13211/bomberman/</a>  \n
  *  - pdf version : <a href="http://alas.matf.bg.ac.rs/~mi13211/Bomberman.pdf">alas.matf.bg.ac.rs/~mi13211/Bomberman.pdf</a> \n
- *
+ * .
+ * Executables for Microsoft Windows OS:
+ *  - <a href="http://alas.matf.bg.ac.rs/~mi13211/Bomberman.rar">Download link</a>
+ * .
  * \section install_sec Installation
  *
  * \subsection step1 Step 1: Setting up SDL2
