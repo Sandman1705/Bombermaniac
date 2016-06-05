@@ -5,7 +5,6 @@ Destroyer::Destroyer()
 {
 }
 
-
 void Destroyer::DestroyEnemy(Enemy* enemy,
                                   unsigned int start_x,
                                   unsigned int start_y,

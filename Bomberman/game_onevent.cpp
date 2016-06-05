@@ -1,4 +1,4 @@
-#include"game.h"
+#include "game.h"
 
 #ifdef DEBUG_OUTPUT_GAME
 #include<cstdio>

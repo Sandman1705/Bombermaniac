@@ -37,17 +37,9 @@ bool game::LoadContent()
     /* Texture loading - End */
 
     /* Game objects initializing - Begin */
-    //keyboard_input = KeyboardInput::Instance();
 
     display_manager = new DisplayManager(texture,renderer,&Running,window_width,window_height);
 
-    //GameDisplay* game_display = new GameDisplay(texture,keyboard_input);
-    //game_display->Init();
-
-//    WelcomeDisplay* welcome_display = new WelcomeDisplay(texture,keyboard_input);
-//    ExitDisplay* exit_display = new ExitDisplay(&Running);
-
-    //display = game_display;
     /* Game objects initializing - End */
 
     return true;

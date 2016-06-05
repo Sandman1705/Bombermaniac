@@ -23,14 +23,6 @@ TextRenderer::~TextRenderer()
     TTF_CloseFont(m_font);
 }
 
-/**
-* \brief Render the message we want to display to a texture for drawing
-*
-* \param message The message we want to display
-* \param color The color we want the text to be
-* \param renderer The renderer to load the texture in
-* \return An SDL_Texture containing the rendered message, or nullptr if something went wrong
-*/
 SDL_Texture* TextRenderer::RenderText(const std::string &message, SDL_Color color, SDL_Renderer *renderer)
 {
     if (m_font == nullptr)

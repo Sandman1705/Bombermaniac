@@ -31,13 +31,14 @@ class FreeTimer
          *  \return void
          */
         void ResetTimer();
-        /** \brief Decreases timer by the given interval
+        /**
+         *  \brief Decreases timer by the given interval
          *
-         * Decreases the timer by the given number of millisecond so that the
-         * next call of GetTimeElapsed() will give number of milliseconds
-         * lessened by the interval.
-         * \param interval number of milliseconds to decrease
-         * \return void
+         *  Decreases the timer by the given number of millisecond so that the
+         *  next call of GetTimeElapsed() will give number of milliseconds
+         *  lessened by the interval.
+         *  \param interval number of milliseconds to decrease
+         *  \return void
          */
         void DecreaseTimer(unsigned long interval);
         /**
@@ -50,7 +51,8 @@ class FreeTimer
          *  \return number of milliseconds since last reset
          */
         unsigned long GetTimeElapsed() const;
-        /** \brief Pauses the timer
+        /**
+         *  \brief Pauses the timer
          *
          * Stops measuring the time. Each consecutive call of the
          * GetTimeElapsed() will always give the same time until Unpause() is
@@ -58,17 +60,19 @@ class FreeTimer
          * \return void
          */
         void Pause();
-        /** \brief Unpauses the timer
+        /**
+         *  \brief Unpauses the timer
          *
-         * Resumes measuring the time if it was paused. Timer will continue to
-         * measure the normally in either case.
-         * \return void
+         *  Resumes measuring the time if it was paused. Timer will continue to
+         *  measure the normally in either case.
+         *  \return void
          */
         void Unpause();
-        /** \brief Tells if the timer is paused
+        /**
+         *  \brief Tells if the timer is paused
          *
-         * Return true if timer is currently not measuring time that passes.
-         * \return true if the timer is paused and not measuring time.
+         *  Return true if timer is currently not measuring time that passes.
+         *  \return true if the timer is paused and not measuring time.
          */
         bool IsPaused() const;
 

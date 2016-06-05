@@ -64,7 +64,24 @@ class Relay
         PickUpManager* GetPickUpManager() const;
         void SetPickUpManager(PickUpManager* val);
 
+        /**
+         *  \brief Tells if all player are dead
+         *
+         *  Reads values from PlayerManager to determine whether all player have
+         *  died in which case returns true, otherwise returns false.
+         *  \return true if all players are dead
+         *
+         */
         bool PlayersDead() const;
+        /**
+         *  \brief Tell if the level was completed successfully
+         *
+         *  Reads values from PlayerManager to determine whether the players
+         *  have completed level successfully in which case returns true,
+         *  otherwise returns false.
+         * \return true if level was completed successfully, otherwise false
+         *
+         */
         bool LevelCompleted() const;
 
     protected:

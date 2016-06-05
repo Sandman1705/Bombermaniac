@@ -48,7 +48,8 @@ void Timer::Unpause()
 {
     if (m_paused)
     {
-        m_past_ticks = m_system_timer->GetTimeElapsed() - (m_paused_ticks - m_past_ticks);
+        m_past_ticks = m_system_timer->GetTimeElapsed() -
+                       (m_paused_ticks - m_past_ticks);
         m_paused = false;
     }
 }

@@ -14,8 +14,14 @@
 #include <iostream>
 #endif // DEBUG_OUTPUT_MAP
 
-Map::Map(std::string path_to_file, SDL_Texture* texture, unsigned int tile_size, Relay* relay)
-    : DisplayElement(texture), m_tile_size(tile_size), m_relay(relay), m_wall_count(0)
+Map::Map(std::string path_to_file,
+         SDL_Texture* texture,
+         unsigned int tile_size,
+         Relay* relay)
+    : DisplayElement(texture),
+      m_tile_size(tile_size),
+      m_relay(relay),
+      m_wall_count(0)
 {
     std::fstream fs;
     fs.open (path_to_file, std::fstream::in);

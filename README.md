@@ -3,15 +3,15 @@
 
 Project name: Bomberman
 
-## Authors: <br />
-	* Aleksandar Miletic <br />
-	* Mirko Brkusanin <br />
+## Authors:
+	* Aleksandar Miletic
+	* Mirko Brkusanin
 
 ## Description: 
 Clone of Bomberman game in C++ using SDL2
 
-## Documentation: <br />
-	* html version: http://alas.matf.bg.ac.rs/~mi13211/bomberman/ <br />
-	* pdf version : http://alas.matf.bg.ac.rs/~mi13211/Bomberman.pdf <br />
+## Documentation:
+html version: http://alas.matf.bg.ac.rs/~mi13211/bomberman/ <br/> 
+pdf version : http://alas.matf.bg.ac.rs/~mi13211/Bomberman.pdf
 
 Further instruction can be found inside documentation.

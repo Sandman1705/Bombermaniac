@@ -57,11 +57,11 @@ class EnemyManager : public DisplayElement
         void AddEnemy(Enemy *enemy);
 
         /**
-         *  \brief Makes new EnemyOne according to given parameters and adds it to
-         *         the list of enemies.
+         *  \brief Makes new EnemyOne according to given parameters and adds it
+         *         to the list of enemies.
          *
-         *  Uses the given parameters and makes a new EnemyOne object and adds it
-         *  to the list of enemies same as method AddEnemy(). The enemy will
+         *  Uses the given parameters and makes a new EnemyOne object and adds
+         *  it to the list of enemies same as method AddEnemy(). The enemy will
          *  be periodically updated and destroyed.
          *
          *  \param x top left x coordinate of the enemy on the map
@@ -72,11 +72,11 @@ class EnemyManager : public DisplayElement
         void MakeEnemyOne(unsigned int x = 1, unsigned int y = 1);
 
         /**
-         *  \brief Makes new EnemyTwo according to given parameters and adds it to
-         *         the list of enemies.
+         *  \brief Makes new EnemyTwo according to given parameters and adds it
+         *         to the list of enemies.
          *
-         *  Uses the given parameters and makes a new EnemyTwo object and adds it
-         *  to the list of enemies same as method AddEnemy(). The enemy will
+         *  Uses the given parameters and makes a new EnemyTwo object and adds
+         *  it to the list of enemies same as method AddEnemy(). The enemy will
          *  be periodically updated and destroyed.
          *
          *  \param x top left x coordinate of the enemy on the map
@@ -87,11 +87,11 @@ class EnemyManager : public DisplayElement
         void MakeEnemyTwo(unsigned int x = 1, unsigned int y = 1);
 
         /**
-         *  \brief Makes new EnemyThree according to given parameters and adds it to
-         *         the list of enemies.
+         *  \brief Makes new EnemyThree according to given parameters and adds
+         *         it to the list of enemies.
          *
-         *  Uses the given parameters and makes a new EnemyThree object and adds it
-         *  to the list of enemies same as method AddEnemy(). The enemy will
+         *  Uses the given parameters and makes a new EnemyThree object and adds
+         *  it to the list of enemies same as method AddEnemy(). The enemy will
          *  be periodically updated and destroyed.
          *
          *  \param x top left x coordinate of the enemy on the map
@@ -125,8 +125,8 @@ class EnemyManager : public DisplayElement
         /**
          *  \brief Kills the enemy if bomb is near enough.
          *
-         *  Calls Destroyer::DestroyEnemy() method that for every enemy it keeps track of
-         *  decreases health if enemy is near the bomb.
+         *  Calls Destroyer::DestroyEnemy() method that for every enemy it keeps
+         *  track of decreases health if enemy is near the bomb.
          *
          *  \param x x coordinate of the center of the bomb on the map
          *  \param y y coordinate of the center of the bomb on the map

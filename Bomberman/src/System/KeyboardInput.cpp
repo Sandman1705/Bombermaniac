@@ -28,7 +28,8 @@ KeyboardInput* KeyboardInput::Instance()
 
 void KeyboardInput::TurnKeyOn(SDL_Keycode key)
 {
-    if (key == SDLK_DOWN || key == SDLK_UP || key == SDLK_LEFT || key == SDLK_RIGHT)
+    if (key == SDLK_DOWN || key == SDLK_UP ||
+        key == SDLK_LEFT || key == SDLK_RIGHT)
     {
         m_keys_pressed[SDLK_DOWN]  = false;
         m_keys_pressed[SDLK_UP]    = false;

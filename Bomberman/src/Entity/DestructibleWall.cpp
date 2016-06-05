@@ -1,8 +1,10 @@
 #include "Entity/DestructibleWall.h"
 #include "Constants/TextureMapObjectConstants.h"
 
-DestructibleWall::DestructibleWall(SDL_Texture *texture, unsigned int kind)
-    : MapObject(MapObject::DESTRUCTIBLE_WALL,texture,kind), m_integrity(S_MAX_INTEGRITY)
+DestructibleWall::DestructibleWall(SDL_Texture *texture,
+                                   unsigned int kind)
+    : MapObject(MapObject::DESTRUCTIBLE_WALL,texture,kind),
+      m_integrity(S_MAX_INTEGRITY)
 {
 }
 

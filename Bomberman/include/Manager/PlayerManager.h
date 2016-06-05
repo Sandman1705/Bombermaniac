@@ -77,10 +77,10 @@ class PlayerManager : public DisplayElement
          /**
          *  \brief Adds new Player to the list of players.
          *
-         *  Adds new Player to the list of players so that it will be periodically
-         *  updated and destroyed when the enemy kills them.
+         *  Adds new Player to the list of players so that it will be
+         *  periodically updated and destroyed when the enemy kills them.
          *
-         *  \param player pointer to object Player which will be added to the list
+         *  \param player pointer to Player which will be added to the list
          *
          *  \return void
          */
@@ -140,8 +140,8 @@ class PlayerManager : public DisplayElement
         /**
          *  \brief Kills the player if bomb is near enough.
          *
-         *  Calls Destroyer::DestroyPlayer() method that for every player it keeps track of
-         *  decreases health if player is near the bomb.
+         *  Calls Destroyer::DestroyPlayer() method that for every player it
+         *  keeps track of, decreases health if player is near the bomb.
          *
          *  \param x x coordinate of the center of the bomb on the map
          *  \param y y coordinate of the center of the bomb on the map

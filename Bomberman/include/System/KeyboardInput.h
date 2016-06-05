@@ -29,11 +29,12 @@ class KeyboardInput
 {
     public:
 
-        /** \brief Method to be used instead of constructor
+        /**
+         *  \brief Method to be used instead of constructor
          *
-         * Returns pointer to object KeyboardInput which is of singleton class
-         * so it will always return pointer to the same object.
-         * \return pointer to singleton KeyboardInput
+         *  Returns pointer to object KeyboardInput which is of singleton class
+         *  so it will always return pointer to the same object.
+         *  \return pointer to singleton KeyboardInput
          */
         static KeyboardInput* Instance();
 
