@@ -89,7 +89,7 @@ void MainMenuDisplay::Init()
 
 void MainMenuDisplay::Enter(int mode)
 {
-    Mix_ResumeMusic();
+    Mix_PlayMusic(m_music, -1);
 
     m_leave_next = false;
     m_leave_previous = false;
