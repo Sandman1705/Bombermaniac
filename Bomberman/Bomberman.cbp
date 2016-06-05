@@ -106,6 +106,7 @@
 		<Unit filename="include/Manager/Map.h" />
 		<Unit filename="include/Manager/PickUpManager.h" />
 		<Unit filename="include/Manager/PlayerManager.h" />
+		<Unit filename="include/System/FreeTimer.h" />
 		<Unit filename="include/System/KeyboardInput.h" />
 		<Unit filename="include/System/SystemTimer.h" />
 		<Unit filename="include/System/TextRenderer.h" />
@@ -177,6 +178,7 @@
 		<Unit filename="src/Manager/Map.cpp" />
 		<Unit filename="src/Manager/PickUpManager.cpp" />
 		<Unit filename="src/Manager/PlayerManager.cpp" />
+		<Unit filename="src/System/FreeTimer.cpp" />
 		<Unit filename="src/System/KeyboardInput.cpp" />
 		<Unit filename="src/System/SystemTimer.cpp" />
 		<Unit filename="src/System/TextRenderer.cpp" />
