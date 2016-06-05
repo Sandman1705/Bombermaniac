@@ -45,6 +45,7 @@ GameDisplay::~GameDisplay()
         delete (*i);
     }
     m_display_elements.clear();
+    delete m_relay;
 }
 
 void GameDisplay::AddDisplayElement(DisplayElement* display_element)
@@ -57,6 +58,7 @@ void GameDisplay::Init()
 //    Timer t;
 //    t.ResetTimer();
 //    std::cout << "GameDisplay::Init start; timer = " << t.GetTimeElapsed() << std::endl;
+    SystemTimer::Instance()->Pause();
     unsigned int tile_size = 44;
     m_relay = new Relay();
 
@@ -77,8 +79,6 @@ void GameDisplay::Init()
     EnemyManager* enemy_manager = new EnemyManager(path_enemy, m_texture, tile_size, m_relay);
     PickUpManager* pickup_manager = new PickUpManager(m_texture,tile_size,m_relay);
 
-    Mix_PlayMusic(m_music, -1);
-
     m_relay->SetExplosionManager(explosion_manager);
     m_relay->SetBombManager(bomb_manager);
     m_relay->SetPlayerManager(player_manager);
@@ -92,6 +92,9 @@ void GameDisplay::Init()
     AddDisplayElement(player_manager);
     AddDisplayElement(enemy_manager);
     AddDisplayElement(explosion_manager);
+
+    Mix_PlayMusic(m_music, -1);
+    SystemTimer::Instance()->Unpause();
 //    std::cout << "GameDisplay::Init end; timer = " << t.GetTimeElapsed() << std::endl;
 }
 
@@ -126,6 +129,7 @@ int GameDisplay::Destroy()
         delete (*i);
     }
     m_display_elements.clear();
+    delete m_relay;
     if (m_level_completed)
         return ++m_current_level;
     else

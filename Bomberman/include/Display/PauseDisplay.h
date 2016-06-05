@@ -18,7 +18,7 @@
  * \brief Class which represents the Display that shows the pause screen and its
  *        options
  * \details Class PauseDisplay represents the pause display that appears when
- *          the user pauses the GameDisplat. Draws a menu that is interactive.
+ *          the user pauses the GameDisplay. Draws a menu that is interactive.
  *          User can navigate through its options and run the one that is
  *          selected with the keyboard.
  *
@@ -49,7 +49,7 @@ class PauseDisplay : public Display
          *  options
          *
          */
-         ~PauseDisplay();
+        ~PauseDisplay();
         PauseDisplay(const PauseDisplay& other) = delete; /**< \brief Default copy constructor is disabled */
         PauseDisplay& operator=(const PauseDisplay&) = delete; /**< \brief Default operator = is disabled */
 
@@ -101,7 +101,7 @@ class PauseDisplay : public Display
          */
         void Update();
         /**
-         *  \brief Draw method for MainMenuDisplay
+         *  \brief Draw method for PauseDisplay
          *
          *  Draws the pause menu options as well as arrow that points to the
          *  currently selected option.
