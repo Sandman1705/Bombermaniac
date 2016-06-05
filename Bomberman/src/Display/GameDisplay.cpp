@@ -15,6 +15,8 @@
 #include <string>
 #include <sstream>
 
+//#include <iostream>
+
 GameDisplay::GameDisplay(SDL_Texture* texture,
                          SDL_Renderer* renderer,
                          unsigned int window_width,
@@ -31,6 +33,9 @@ GameDisplay::GameDisplay(SDL_Texture* texture,
       m_music(nullptr)
 {
     m_display_elements.reserve(number_of_screen_elements);
+
+    std::string path_music = RESOURCES_BASE_PATH + RESOURCES_MUSIC_GAME;
+    m_music = Mix_LoadMUS(path_music.c_str());
 }
 
 GameDisplay::~GameDisplay()
@@ -49,6 +54,9 @@ void GameDisplay::AddDisplayElement(DisplayElement* display_element)
 
 void GameDisplay::Init()
 {
+//    Timer t;
+//    t.ResetTimer();
+//    std::cout << "GameDisplay::Init start; timer = " << t.GetTimeElapsed() << std::endl;
     unsigned int tile_size = 44;
     m_relay = new Relay();
 
@@ -69,8 +77,6 @@ void GameDisplay::Init()
     EnemyManager* enemy_manager = new EnemyManager(path_enemy, m_texture, tile_size, m_relay);
     PickUpManager* pickup_manager = new PickUpManager(m_texture,tile_size,m_relay);
 
-    std::string path_music = RESOURCES_BASE_PATH + RESOURCES_MUSIC_GAME;
-    m_music = Mix_LoadMUS(path_music.c_str());
     Mix_PlayMusic(m_music, -1);
 
     m_relay->SetExplosionManager(explosion_manager);
@@ -86,6 +92,7 @@ void GameDisplay::Init()
     AddDisplayElement(player_manager);
     AddDisplayElement(enemy_manager);
     AddDisplayElement(explosion_manager);
+//    std::cout << "GameDisplay::Init end; timer = " << t.GetTimeElapsed() << std::endl;
 }
 
 void GameDisplay::Enter(int mode)

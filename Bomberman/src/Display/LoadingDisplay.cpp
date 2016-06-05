@@ -5,6 +5,12 @@
 #include <string>
 #include <sstream>
 
+//#define DEBUG_OUTPUT_GAME_DISPLAY
+
+#ifdef DEBUG_OUTPUT_GAME_DISPLAY
+#include <iostream>
+#endif
+
 LoadingDisplay::LoadingDisplay(SDL_Texture* texture,
                                SDL_Renderer* renderer,
                                unsigned int window_width,
@@ -23,6 +29,8 @@ LoadingDisplay::LoadingDisplay(SDL_Texture* texture,
     std::stringstream sstm;
     sstm << "STAGE " << m_current_level;
     MakeTexture(sstm.str());
+    std::string path_music = RESOURCES_BASE_PATH + RESOURCES_MUSIC_LOAD;
+    m_music = Mix_LoadMUS(path_music.c_str());
 }
 
 LoadingDisplay::~LoadingDisplay()
@@ -35,15 +43,16 @@ LoadingDisplay::~LoadingDisplay()
     m_textures_draw_src.clear();
     m_textures_draw_dest.clear();
 }
+
 void LoadingDisplay::Init()
 {
-    std::string path_music = RESOURCES_BASE_PATH + RESOURCES_MUSIC_LOAD;
-    m_music = Mix_LoadMUS(path_music.c_str());
     Mix_PlayMusic(m_music, -1);
 }
+
 void LoadingDisplay::Enter(int mode)
 {
     Mix_PlayMusic(m_music, -1);
+    m_next_display = nullptr;
     if (mode == 0)
     {
         m_leave_previous = false;
@@ -77,6 +86,7 @@ void LoadingDisplay::Enter(int mode)
 void LoadingDisplay::Leave()
 {
     Mix_HaltMusic();
+    DestroyTextures();
 }
 
 int LoadingDisplay::Destroy()
@@ -101,16 +111,26 @@ void LoadingDisplay::DestroyTextures()
 
 void LoadingDisplay::Update()
 {
-    if (m_timer.GetTimeElapsed() > 3100)
+    if (m_next_display == nullptr && !m_game_over)
+    {
+        #ifdef DEBUG_OUTPUT_GAME_DISPLAY
+        std::cout << "LoadingDisplay: making GameDisplay; time: " << m_timer.GetTimeElapsed() << std::endl;
+        #endif
+        m_next_display = new GameDisplay(m_texture,m_renderer,m_window_width,m_window_height,m_current_level);
+        //SDL_Delay(1000); // test for fake concurrency
+        #ifdef DEBUG_OUTPUT_GAME_DISPLAY
+        std::cout << "LoadingDisplay: finished making GameDisplay; time: " << m_timer.GetTimeElapsed() << std::endl;
+        #endif
+    }
+    if (m_timer.GetTimeElapsed() > 3100) // make action only after the music has finished
     {
         if (m_game_over)
         {
             m_leave_previous = true;
         }
-        else // (!m_leave_next)
+        else
         {
             m_leave_next = true;
-            m_next_display = new GameDisplay(m_texture,m_renderer,m_window_width,m_window_height,m_current_level);
         }
     }
 }
@@ -125,7 +145,6 @@ void LoadingDisplay::Draw(SDL_Renderer* renderer) const
 
 void LoadingDisplay::MakeTexture(std::string text)
 {
-    DestroyTextures();
     m_timer.ResetTimer();
 
     std::string path_font = RESOURCES_BASE_PATH + RESOURCES_FONT;
