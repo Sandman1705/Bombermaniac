@@ -18,7 +18,7 @@ BombManager::BombManager(SDL_Texture* texture,
       m_tile_size(tile_size),
       m_relay(relay)
 {
-    std::string path_music = RESOURCES_BASE_PATH + "explosion.wav";
+    std::string path_music = RESOURCES_BASE_PATH + RESOURCES_EXPLOSION_LOAD;
     m_bomb_sound_effect = Mix_LoadWAV(path_music.c_str());
 }
 

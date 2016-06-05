@@ -15,6 +15,7 @@
 #include "Entity/Player.h"
 #include "Utility/Timer.h"
 #include "Utility/Relay.h"
+#include "SDL_mixer.h"
 
 /** \class PlayerManager
  *  \brief Class which is used for keeping track of player in the game.
@@ -159,6 +160,7 @@ class PlayerManager : public DisplayElement
     std::vector<Player*>       m_players;
     Relay*                   m_relay;
     unsigned int             m_tile_size;
+    Mix_Chunk*               m_kill_sound;
 };
 
 #endif // PLAYERMANAGER_H

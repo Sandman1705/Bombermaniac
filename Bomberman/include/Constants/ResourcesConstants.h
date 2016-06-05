@@ -16,6 +16,8 @@ static const std::string RESOURCES_FONT             = "Zabdilus.ttf";
 static const std::string RESOURCES_MUSIC_GAME       = "game-play-normal.mp3";
 static const std::string RESOURCES_MUSIC_MENU       = "title-screen.mp3";
 static const std::string RESOURCES_MUSIC_LOAD       = "get-ready.mp3";
+static const std::string RESOURCES_EXPLOSION_LOAD   = "explosion.wav";
+static const std::string RESOURCES_KILL_LOAD        = "neck-snap.wav";
 
 static const std::string RESOURCES_LEVEL_MAP        = "level";
 static const std::string RESOURCES_LEVEL_MAP_EXT    = ".txt";

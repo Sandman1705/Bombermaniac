@@ -1,6 +1,7 @@
 #include "Manager/PlayerManager.h"
 #include "Destroyer/Destroyer.h"
 #include "Constants/TextureScoreConstants.h"
+#include "Constants/ResourcesConstants.h"
 #include <fstream>
 #include <cstdlib>
 
@@ -29,10 +30,14 @@ PlayerManager::PlayerManager(std::string path_to_file, SDL_Texture* texture, uns
     }
 
     fs.close();
+
+    std::string path_music = RESOURCES_BASE_PATH + RESOURCES_KILL_LOAD;
+    m_kill_sound = Mix_LoadWAV(path_music.c_str());
 }
 
 PlayerManager::~PlayerManager()
 {
+    Mix_FreeChunk(m_kill_sound);
     for(auto i = m_players.begin(); i != m_players.end(); ++i)
     {
         delete (*i);
@@ -95,6 +100,7 @@ void PlayerManager::Update()
     {
         if((*i)->GetHealth() == 0)
         {
+            Mix_PlayChannel(-1, m_kill_sound, 0);
             (*i)->SetAlive(0);
             int lives = (*i)->GetLives();
             if(--lives < 0)
