@@ -31,9 +31,6 @@ class MainMenuDisplay : public Display
         std::vector<SDL_Texture*>   m_textures;
         std::vector<SDL_Rect>       m_textures_draw_src;
         std::vector<SDL_Rect>       m_textures_draw_dest;
-//        std::vector<SDL_Texture*>   m_options_textures;
-//        std::vector<SDL_Rect>       m_options_draw_src;
-//        std::vector<SDL_Rect>       m_options_draw_dest;
         SDL_Texture*                m_arrow_texture;
         int                         m_arrow_height;
         int                         m_arrow_width;

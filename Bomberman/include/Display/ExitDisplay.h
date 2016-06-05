@@ -42,7 +42,7 @@ class ExitDisplay : public Display
          *  \brief Enter method for ExitDisplay
          *
          *  When called signals that the program should quit
-         *  \param this parameter is ignored in this Display
+         *  \param mode this parameter is ignored in this Display
          *  \return void
          *
          */

@@ -13,7 +13,7 @@
 #include "SDL.h"
 #include <vector>
 
-/** \class ExitDisplay
+/** \class WelcomeDisplay
  *
  * \brief Class which represents the first Display that is seen by user
  * \details Class WelcomeDisplay only contains simple texture that represents
@@ -43,7 +43,8 @@ class WelcomeDisplay : public Display
         /**
          *  \brief Destructor for WelcomeDisplay
          *
-         *  Destroys all textures it used for displaying welcoming message
+         *  Destroys all textures that were used for displaying welcoming
+         *  message
          *
          */
         ~WelcomeDisplay();
@@ -66,13 +67,12 @@ class WelcomeDisplay : public Display
          *
          *  Calls Destroy method because the after this Display is left for
          *  another the welcoming text will never be needed again.
-         *  \param mode this parameter is ignored in this Display
          *  \return void
          *
          */
         void Leave();
         /**
-         *  \brief Destroys method for WelcomeDisplay
+         *  \brief Destroy method for WelcomeDisplay
          *
          *  Destroys all textures it used for displaying welcoming message
          *  \return returns 0 on success

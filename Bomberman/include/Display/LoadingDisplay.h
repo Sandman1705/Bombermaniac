@@ -46,19 +46,92 @@ class LoadingDisplay : public Display
                        unsigned int window_width,
                        unsigned int window_height,
                        unsigned int max_level);
+        /**
+         *  \brief Destructor for WelcomeDisplay
+         *
+         *  Destroys all textures that were used for displaying loading message
+         *
+         */
         ~LoadingDisplay();
         LoadingDisplay(const LoadingDisplay& other) = delete; /**< \brief Default copy constructor is disabled */
         LoadingDisplay& operator=(const LoadingDisplay&) = delete; /**< \brief Default operator = is disabled */
 
+        /**
+         *  \brief Init method for LoadingDisplay
+         *
+         *  Play the appropriate music for LoadingDisplay
+         *  \return void
+         *
+         */
         void Init();
+        /**
+         *  \brief Enter method for LoadingDisplay
+         *
+         *  Play the appropriate music for LoadingDisplay and creates the
+         *  texture for displaying correct text message
+         *  \param mode represents the number of the level that should be loaded
+         *         or 0 if the game should be over
+         *  \return void
+         *
+         */
         void Enter(int mode);
+        /**
+         *  \brief Leave method for LoadingDisplay
+         *
+         *  Stops the music and destroys the textures which represent text
+         *  message
+         *  \return void
+         *
+         */
         void Leave();
+        /**
+         *  \brief Destroy method for LoadingDisplay
+         *
+         *  Destroys the music and textures.
+         *  \return returns 0 on success
+         *
+         */
         int Destroy();
 
+        /**
+         *  \brief Update method for LoadingDisplay
+         *
+         *  Makes new GameDisplay if needed. Checks to see if the music finished
+         *  and modifies its own state so that ShouldLeaveToPrevious() or
+         *  ShouldLeaveToPrevious() return true on next call.
+         *  \return void
+         *
+         */
         void Update();
+        /**
+         *  \brief Draw method for LoadingDisplay
+         *
+         *  Draws the text message
+         *  \return void
+         *
+         */
         void Draw(SDL_Renderer* renderer) const;
 
     protected:
+
+        /**
+         *  \brief Make new texture of the given text
+         *
+         *  Makes a texture that is the image of the text given by the string
+         *  parameter
+         *  \param text std::string from which the texture will be made
+         *  \return void
+         *
+         */
+        void MakeTexture(std::string text);
+        /**
+         *  \brief Destroys the textures previously made
+         *
+         *  Destroys all the textures (if any) that this object keeps track off
+         *  \return void
+         *
+         */
+        void DestroyTextures();
 
     private:
         SDL_Texture*                m_texture;
@@ -73,9 +146,6 @@ class LoadingDisplay : public Display
         Timer                       m_timer;
         bool                        m_game_over;
         Mix_Music*                  m_music;
-
-        void MakeTexture(std::string text);
-        void DestroyTextures();
 
 };
 
