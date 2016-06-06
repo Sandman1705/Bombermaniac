@@ -155,70 +155,7 @@ void EnemyThree::Update(Relay *relay)
         m_timer.ResetTimer();
     }
 }
-/*
-void EnemyThree::EnemyThreeDirection(Relay *relay)
-{
-    unsigned int player_min = unsigned(-1); // closest player
-    Player * p = nullptr;
-    int x, y;
 
-    for(PlayerManager::Iterator it(relay->GetPlayerManager()); !it.Finished(); ++it)
-    {
-        Player& player = it.GetPlayer();
-        x = m_x - player.GetX();
-        y = m_y - player.GetY();
-        if(player_min > sqrt(x*x + y*y))
-        {
-            player_min = sqrt(x*x + y*y);
-            p = &player;
-        }
-    }
-
-    if(player_min <= 2*m_tile_size)
-        m_chase = true;
-    else
-        m_chase = false;
-
-    if(m_chase)
-    {
-        ChasePlayer(p, relay);
-    }
-    else
-    {
-        int r;
-
-        if(m_walk_len <= 0)
-        {
-
-            m_walk_len = rand()%5 + 10;
-            r = rand()%4;
-            switch(r)
-            {
-                case 0:
-                    m_direction = LEFT;
-                    break;
-                case 1:
-                    m_direction = RIGHT;
-                    break;
-                case 2:
-                    m_direction = UP;
-                    break;
-                case 3:
-                    m_direction = DOWN;
-                    break;
-                default:
-                    m_direction = DOWN;
-            }
-        }
-    }
-    if(m_timer.GetTimeElapsed() > m_speed)
-    {
-        m_walk_len--;
-        this->EnemyMove(relay);
-        m_timer.ResetTimer();
-    }
-}
-*/
 void EnemyThree::ChasePlayer(Player * player, Relay *relay)
 {
     int i = 1;

@@ -65,7 +65,6 @@ void Enemy::Update(Relay *relay)
                     {
                         player.SetHealth(0);
                     }
-
     }
 
     int r;

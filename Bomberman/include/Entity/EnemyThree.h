@@ -56,7 +56,7 @@ class EnemyThree : public Enemy
         /**
          *  \brief Updates enemy's position on map.
          *
-         *  Calculates where enemy should go with EnemyThreeDirection() method
+         *  Calculates where enemy should go with ChasePlayer() method
          *  and checks for collision with player and updates enemy's position
          *  on map accordingly and calls appropriate actions.
          *
@@ -65,19 +65,6 @@ class EnemyThree : public Enemy
          *  \return void
          */
         void Update(Relay *relay);
-
-        /**
-         *  \brief Calculate if there is a player nearby.
-         *
-         *  Calculates if there is a player nearby for enemy
-         *  to chase and which one is closest, then calls
-         *  ChasePlayer() to setup a direction where enemy should go.
-         *
-         *  \param relay pointer to Relay object of the game
-         *
-         *  \return void
-         */
-        //void EnemyThreeDirection(Relay *relay);
 
         /**
          *  \brief Calculate in what direction enemy should go.
