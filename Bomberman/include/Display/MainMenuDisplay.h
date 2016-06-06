@@ -121,7 +121,9 @@ class MainMenuDisplay : public Display
         bool                        m_button_pressed_enter;
         unsigned int                m_window_width;
         unsigned int                m_window_height;
+        unsigned int                m_players_number;
         Mix_Music*                  m_music;
+        bool                        m_in_options;
 
 };
 

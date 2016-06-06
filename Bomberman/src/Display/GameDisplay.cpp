@@ -19,6 +19,7 @@ GameDisplay::GameDisplay(SDL_Texture* texture,
                          SDL_Renderer* renderer,
                          unsigned int window_width,
                          unsigned int window_height,
+                         unsigned int players_number,
                          unsigned int current_level,
                          unsigned int number_of_screen_elements)
     : Display(),
@@ -26,6 +27,7 @@ GameDisplay::GameDisplay(SDL_Texture* texture,
       m_renderer(renderer),
       m_window_width(window_width),
       m_window_height(window_height),
+      m_players_number(players_number),
       m_current_level(current_level),
       m_level_completed(false),
       m_music(nullptr)
@@ -48,7 +50,7 @@ GameDisplay::GameDisplay(SDL_Texture* texture,
     Map* level = new Map(path_level, m_texture, tile_size, m_relay);
     ExplosionManager* explosion_manager = new ExplosionManager(m_texture, tile_size);
     BombManager* bomb_manager = new BombManager(m_texture, tile_size, m_relay);
-    PlayerManager* player_manager = new PlayerManager(path_player, m_texture, tile_size, m_relay);
+    PlayerManager* player_manager = new PlayerManager(path_player, m_texture, tile_size, m_relay, m_players_number);
     player_manager->GetPlayers()->back()->SetKeycodes(SDLK_w, SDLK_s, SDLK_a, SDLK_d, SDLK_g);
     EnemyManager* enemy_manager = new EnemyManager(path_enemy, m_texture, tile_size, m_relay);
     PickUpManager* pickup_manager = new PickUpManager(m_texture,tile_size,m_relay);

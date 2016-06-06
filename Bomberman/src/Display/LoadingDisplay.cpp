@@ -15,12 +15,14 @@ LoadingDisplay::LoadingDisplay(SDL_Texture* texture,
                                SDL_Renderer* renderer,
                                unsigned int window_width,
                                unsigned int window_height,
+                               unsigned int players_number,
                                unsigned int max_level)
     : Display(),
       m_texture(texture),
       m_renderer(renderer),
       m_window_width(window_width),
       m_window_height(window_height),
+      m_players_number(players_number),
       m_current_level(1),
       m_max_level(max_level),
       m_timer(),
@@ -115,7 +117,7 @@ void LoadingDisplay::Update()
         std::cout << "LoadingDisplay: making GameDisplay; time: " << m_timer.GetTimeElapsed() << std::endl;
         #endif
         //SDL_Delay(1000); // test for fake concurrency
-        m_next_display = new GameDisplay(m_texture,m_renderer,m_window_width,m_window_height,m_current_level);
+        m_next_display = new GameDisplay(m_texture,m_renderer,m_window_width,m_window_height,m_players_number,m_current_level);
         //SDL_Delay(1000); // test for fake concurrency
         #ifdef DEBUG_OUTPUT_GAME_DISPLAY
         std::cout << "LoadingDisplay: finished making GameDisplay; time: " << m_timer.GetTimeElapsed() << std::endl;

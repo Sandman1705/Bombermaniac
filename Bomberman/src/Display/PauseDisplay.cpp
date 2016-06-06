@@ -25,21 +25,21 @@ PauseDisplay::PauseDisplay(SDL_Renderer* renderer,
     image = text_renderer.RenderText("RESUME", color, renderer);
     SDL_QueryTexture(image, NULL, NULL, &(SrcR.w), &(SrcR.h));
     DestR.x = window_width / 2 -  SrcR.w / 2;
-    DestR.y = window_height / 2 - SrcR.h / 2 - SrcR.h;
+    DestR.y = window_height / 2 - SrcR.h;// / 2 - SrcR.h;
     DestR.h = SrcR.h;
     DestR.w = SrcR.w;
     m_textures.push_back(image);
     m_textures_draw_src.push_back(SrcR);
     m_textures_draw_dest.push_back(DestR);
 
-    image = text_renderer.RenderText("OPTIONS", color, renderer);
-    SDL_QueryTexture(image, NULL, NULL, &(SrcR.w), &(SrcR.h));
-    DestR.y += SrcR.h;
-    DestR.h = SrcR.h;
-    DestR.w = SrcR.w;
-    m_textures.push_back(image);
-    m_textures_draw_src.push_back(SrcR);
-    m_textures_draw_dest.push_back(DestR);
+//    image = text_renderer.RenderText("OPTIONS", color, renderer);
+//    SDL_QueryTexture(image, NULL, NULL, &(SrcR.w), &(SrcR.h));
+//    DestR.y += SrcR.h;
+//    DestR.h = SrcR.h;
+//    DestR.w = SrcR.w;
+//    m_textures.push_back(image);
+//    m_textures_draw_src.push_back(SrcR);
+//    m_textures_draw_dest.push_back(DestR);
 
     image = text_renderer.RenderText("QUIT", color, renderer);
     SDL_QueryTexture(image, NULL, NULL, &(SrcR.w), &(SrcR.h));
@@ -125,7 +125,7 @@ void PauseDisplay::Update()
             m_leave_previous = true;
             break;
         case 1:
-            break;
+            //break;
         case 2:
             m_quit = true;
             m_leave_previous = true;

@@ -45,6 +45,7 @@ class LoadingDisplay : public Display
                        SDL_Renderer* renderer,
                        unsigned int window_width,
                        unsigned int window_height,
+                       unsigned int players_number,
                        unsigned int max_level);
         /**
          *  \brief Destructor for WelcomeDisplay
@@ -141,6 +142,7 @@ class LoadingDisplay : public Display
         std::vector<SDL_Rect>       m_textures_draw_dest;
         unsigned int                m_window_width;
         unsigned int                m_window_height;
+        unsigned int                m_players_number;
         unsigned int                m_current_level;
         const unsigned int          m_max_level;
         FreeTimer                   m_timer;

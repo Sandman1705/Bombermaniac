@@ -55,6 +55,7 @@
                     SDL_Renderer* renderer,
                     unsigned int window_width,
                     unsigned int window_height,
+                    unsigned int players_number,
                     unsigned int current_level,
                     unsigned int number_of_screen_elements = 6);
         /**
@@ -153,6 +154,7 @@
         SDL_Renderer*                   m_renderer;
         unsigned int                    m_window_width;
         unsigned int                    m_window_height;
+        unsigned int                    m_players_number;
         unsigned int                    m_current_level;
         bool                            m_level_completed;
         bool                            m_play_music = true;
