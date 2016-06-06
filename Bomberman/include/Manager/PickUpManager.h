@@ -101,15 +101,63 @@ class PickUpManager : public DisplayElement
          */
         void Draw(SDL_Renderer* renderer) const;
 
-        /**
-         *  \brief Returns pointer to the list of pickups
-         *
-         *  Returns pointer to std::list of PickUp pointers so it can be used
-         *  for iterating and reading the values of individual pickups
-         *
-         *  \return pointer to list of pickups
+        /** \class PickUpManager::Iterator
+         *  \brief Class which is used for iterating through list of PickUp
+         *         objects that PickUpManager keeps track off.
+         *  \details This is an embedded class inside of PickUpManager that is
+         *           used for iterating the list of PickUp objects (that a
+         *           PickUpManager is keeping track of) and is meant to be used
+         *           by an outside class effectively keeping internal structure
+         *           of the class hidden.
          */
-        std::list<PickUp*>* GetPickUps();
+        class Iterator
+        {
+        public:
+            /**
+             *  \brief Constructor for PickUpManager::Iterator
+             *
+             *  Makes an iterator for PickUp object inside given PickUpManager
+             *  and sets it to first element.
+             *  \param pickup_manager pointer to PickUpManager through which it
+             *         it iterate.
+             *
+             */
+            Iterator(PickUpManager* pickup_manager);
+            /**
+             *  \brief Resets the iterator to the first element.
+             *
+             *  \return void
+             */
+            void Reset();
+            /**
+             *  \brief Tells if all elements have been iterated
+             *
+             *  \return true if iterator has passed last element
+             */
+            bool Finished() const;
+            /**
+             *  \brief Returns reference to the current PickUp object in the
+             *         iterator
+             *
+             *  \return reference to PickUp object
+             */
+            PickUp& GetPickUp() const;
+            /**
+             *  \brief Increments the iterator, moves onto the next element.
+             *
+             *  \return reference to Iterator class
+             */
+            Iterator& operator++ ();
+
+        private:
+            std::list<PickUp*>* m_pickups_pointer;
+            std::list<PickUp*>::iterator it;
+
+            inline std::list<PickUp*>::iterator Begin() const;
+            inline std::list<PickUp*>::iterator End() const;
+            inline std::list<PickUp*>::iterator Current() const;
+            inline std::list<PickUp*>::iterator Next();
+        };
 
     protected:
 
@@ -118,6 +166,7 @@ class PickUpManager : public DisplayElement
         unsigned int            m_tile_size;
         unsigned int            m_draw_size;
         Relay*                  m_relay;
+        //Iterator                m_iterator;
 };
 
 #endif // PICKUPMANAGER_H

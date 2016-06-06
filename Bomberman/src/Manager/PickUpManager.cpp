@@ -63,7 +63,52 @@ void PickUpManager::Draw(SDL_Renderer* renderer) const
     }
 }
 
-std::list<PickUp*>* PickUpManager::GetPickUps()
+PickUpManager::Iterator::Iterator(PickUpManager* pickup_manager)
+    : m_pickups_pointer(&(pickup_manager->m_pickups)),
+      it (m_pickups_pointer->begin())
 {
-    return &m_pickups;
+}
+
+void PickUpManager::Iterator::Reset()
+{
+    it = m_pickups_pointer->begin();
+}
+
+bool PickUpManager::Iterator::Finished() const
+{
+    return Current() == End();
+}
+
+PickUp& PickUpManager::Iterator::GetPickUp() const
+{
+    return **it;
+}
+
+PickUpManager::Iterator& PickUpManager::Iterator::operator++()
+{
+    Next();
+    return *this;
+}
+
+std::list<PickUp*>::iterator PickUpManager::Iterator::Begin() const
+{
+    return m_pickups_pointer->begin();
+}
+
+std::list<PickUp*>::iterator PickUpManager::Iterator::End() const
+{
+    return m_pickups_pointer->end();
+}
+
+std::list<PickUp*>::iterator PickUpManager::Iterator::Current() const
+{
+     return it;
+}
+
+std::list<PickUp*>::iterator PickUpManager::Iterator::Next()
+{
+    if (it == End())
+        return it;
+    else
+        return ++it;
 }
