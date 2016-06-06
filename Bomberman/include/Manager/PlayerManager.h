@@ -45,7 +45,8 @@ class PlayerManager : public DisplayElement
          *         game (which is needed for getting bomb_manager for sending
          *         signals to that object to make new bomb)
          */
-        PlayerManager(std::string path_to_file, SDL_Texture* texture, unsigned int tile_size, Relay *relay);
+        PlayerManager(std::string path_to_file, SDL_Texture* texture, unsigned int tile_size,
+                      Relay *relay, unsigned int numb_of_players_to_load = 2);
         ~PlayerManager();
         PlayerManager(const PlayerManager& other) = delete; /**< \brief Default copy constructor is disabled */
         PlayerManager& operator=(const PlayerManager&) = delete; /**< \brief Default operator = is disabled */
@@ -156,6 +157,7 @@ class PlayerManager : public DisplayElement
     private:
     unsigned int             m_death_time;
     unsigned int             m_players_numb;
+    unsigned int             m_numb_of_players_to_load;
     Timer                    m_timer;
     std::vector<Player*>       m_players;
     Relay*                   m_relay;

@@ -5,9 +5,11 @@
 #include <fstream>
 #include <cstdlib>
 
-PlayerManager::PlayerManager(std::string path_to_file, SDL_Texture* texture, unsigned int tile_size, Relay *relay)
+PlayerManager::PlayerManager(std::string path_to_file, SDL_Texture* texture, unsigned int tile_size,
+                              Relay *relay, unsigned int numb_of_players_to_load)
     : DisplayElement(texture)
 {
+    m_numb_of_players_to_load = numb_of_players_to_load;
     m_tile_size = tile_size;
     m_relay = relay;
     m_timer.ResetTimer();
@@ -22,7 +24,17 @@ PlayerManager::PlayerManager(std::string path_to_file, SDL_Texture* texture, uns
 
     fs >> m_players_numb;
 
-    for (unsigned i=0; i<m_players_numb; ++i)
+    if(m_numb_of_players_to_load > m_players_numb)
+    {
+        m_numb_of_players_to_load = m_players_numb;
+    }
+    else
+        if(m_numb_of_players_to_load < 1)
+        {
+            m_numb_of_players_to_load = 1;
+        }
+
+    for (unsigned i=0; i<m_numb_of_players_to_load; ++i)
     {
         unsigned int id, x=0, y=0;
         fs >> id >> x >> y;
