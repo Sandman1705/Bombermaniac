@@ -51,7 +51,8 @@ GameDisplay::GameDisplay(SDL_Texture* texture,
     ExplosionManager* explosion_manager = new ExplosionManager(m_texture, tile_size);
     BombManager* bomb_manager = new BombManager(m_texture, tile_size, m_relay);
     PlayerManager* player_manager = new PlayerManager(path_player, m_texture, tile_size, m_relay, m_players_number);
-    player_manager->GetPlayers()->back()->SetKeycodes(SDLK_w, SDLK_s, SDLK_a, SDLK_d, SDLK_g);
+    if (m_players_number>1)
+        player_manager->GetPlayerById(1)->SetKeycodes(SDLK_w, SDLK_s, SDLK_a, SDLK_d, SDLK_g);
     EnemyManager* enemy_manager = new EnemyManager(path_enemy, m_texture, tile_size, m_relay);
     PickUpManager* pickup_manager = new PickUpManager(m_texture,tile_size,m_relay);
 

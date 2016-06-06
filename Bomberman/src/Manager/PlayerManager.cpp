@@ -139,11 +139,6 @@ Player* PlayerManager::GetPlayerById(int id)
     return m_players[id];
 }
 
-std::vector<Player*>* PlayerManager::GetPlayers()
-{
-    return &m_players;
-}
-
 bool PlayerManager::AreAllDead() const
 {
     for(auto i = m_players.begin(); i != m_players.end(); ++i)

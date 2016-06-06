@@ -152,7 +152,6 @@ class PlayerManager : public DisplayElement
          */
         void KillPlayer(unsigned int x, unsigned int y, double intensity);
 
-        std::vector<Player*>* GetPlayers();
 
         /** \class PlayerManager::Iterator
          *  \brief Class which is used for iterating through list of Player
