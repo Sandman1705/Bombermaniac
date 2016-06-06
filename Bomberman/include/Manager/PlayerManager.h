@@ -51,7 +51,6 @@ class PlayerManager : public DisplayElement
         PlayerManager(const PlayerManager& other) = delete; /**< \brief Default copy constructor is disabled */
         PlayerManager& operator=(const PlayerManager&) = delete; /**< \brief Default operator = is disabled */
 
-        std::vector<Player*>* GetPlayers();
         Player* GetPlayerById(int id);
 
         /**
@@ -152,17 +151,77 @@ class PlayerManager : public DisplayElement
          */
         void KillPlayer(unsigned int x, unsigned int y, double intensity);
 
+        std::vector<Player*>* GetPlayers();
+
+        /** \class PlayerManager::Iterator
+         *  \brief Class which is used for iterating through list of Player
+         *         objects that PlayerManager keeps track off.
+         *  \details This is an embedded class inside of PlayerManager that is
+         *           used for iterating the list of Player objects (that a
+         *           PlayerManager is keeping track of) and is meant to be used
+         *           by an outside class effectively keeping internal structure
+         *           of the class hidden.
+         */
+        class Iterator
+        {
+        public:
+            /**
+             *  \brief Constructor for PlayerManager::Iterator
+             *
+             *  Makes an iterator for Player objects inside given PlayerManager
+             *  and sets it to first element.
+             *  \param player_manager pointer to PlayerManager through which it
+             *         will iterate.
+             *
+             */
+            Iterator(PlayerManager* player_manager);
+            /**
+             *  \brief Resets the iterator to the first element.
+             *
+             *  \return void
+             */
+            void Reset();
+            /**
+             *  \brief Tells if all elements have been iterated
+             *
+             *  \return true if iterator has passed last element
+             */
+            bool Finished() const;
+            /**
+             *  \brief Returns reference to the current Player object in the
+             *         iterator
+             *
+             *  \return reference to Player object
+             */
+            Player& GetPlayer() const;
+            /**
+             *  \brief Increments the iterator, moves onto the next element.
+             *
+             *  \return reference to Iterator class
+             */
+            Iterator& operator++ ();
+
+        private:
+            std::vector<Player*>* m_players_pointer;
+            std::vector<Player*>::iterator it;
+
+            inline std::vector<Player*>::iterator Begin() const;
+            inline std::vector<Player*>::iterator End() const;
+            inline std::vector<Player*>::iterator Current() const;
+            inline std::vector<Player*>::iterator Next();
+        };
+
     protected:
 
     private:
-    unsigned int             m_death_time;
-    unsigned int             m_players_numb;
-    unsigned int             m_numb_of_players_to_load;
-    Timer                    m_timer;
-    std::vector<Player*>       m_players;
-    Relay*                   m_relay;
-    unsigned int             m_tile_size;
-    Mix_Chunk*               m_kill_sound;
+        unsigned int             m_death_time;
+        unsigned int             m_players_numb;
+        unsigned int             m_numb_of_players_to_load;
+        Timer                    m_timer;
+        std::vector<Player*>     m_players;
+        Relay*                   m_relay;
+        unsigned int             m_tile_size;
+        Mix_Chunk*               m_kill_sound;
 };
 
 #endif // PLAYERMANAGER_H
