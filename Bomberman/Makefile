@@ -39,6 +39,7 @@ Display/GameDisplay.o \
 Display/LoadingDisplay.o \
 Display/MainMenuDisplay.o \
 Display/PauseDisplay.o \
+Display/PlayersNumberDisplay.o \
 Display/WelcomeDisplay.o \
 Entity/Bomb.o \
 Entity/DestructibleWall.o \
