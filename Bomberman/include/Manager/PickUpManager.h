@@ -116,10 +116,10 @@ class PickUpManager : public DisplayElement
             /**
              *  \brief Constructor for PickUpManager::Iterator
              *
-             *  Makes an iterator for PickUp object inside given PickUpManager
+             *  Makes an iterator for PickUp objects inside given PickUpManager
              *  and sets it to first element.
              *  \param pickup_manager pointer to PickUpManager through which it
-             *         it iterate.
+             *         will iterate.
              *
              */
             Iterator(PickUpManager* pickup_manager);

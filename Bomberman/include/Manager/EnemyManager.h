@@ -139,10 +139,10 @@ class EnemyManager : public DisplayElement
     protected:
 
     private:
-    unsigned int            m_enemies_numb;
-    std::list<Enemy*>       m_enemies;
-    Relay*                  m_relay;
-    unsigned int            m_tile_size;
+        unsigned int            m_enemies_numb;
+        std::list<Enemy*>       m_enemies;
+        Relay*                  m_relay;
+        unsigned int            m_tile_size;
 };
 
 #endif // ENEMYMANAGER_H

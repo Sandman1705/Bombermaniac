@@ -161,3 +161,52 @@ bool PlayerManager::AreAllCompleted() const
 
 }
 
+PlayerManager::Iterator::Iterator(PlayerManager* player_manager)
+    : m_players_pointer(&(player_manager->m_players)),
+      it (m_players_pointer->begin())
+{
+}
+
+void PlayerManager::Iterator::Reset()
+{
+    it = m_players_pointer->begin();
+}
+
+bool PlayerManager::Iterator::Finished() const
+{
+    return Current() == End();
+}
+
+Player& PlayerManager::Iterator::GetPlayer() const
+{
+    return **it;
+}
+
+PlayerManager::Iterator& PlayerManager::Iterator::operator++()
+{
+    Next();
+    return *this;
+}
+
+std::vector<Player*>::iterator PlayerManager::Iterator::Begin() const
+{
+    return m_players_pointer->begin();
+}
+
+std::vector<Player*>::iterator PlayerManager::Iterator::End() const
+{
+    return m_players_pointer->end();
+}
+
+std::vector<Player*>::iterator PlayerManager::Iterator::Current() const
+{
+     return it;
+}
+
+std::vector<Player*>::iterator PlayerManager::Iterator::Next()
+{
+    if (it == End())
+        return it;
+    else
+        return ++it;
+}

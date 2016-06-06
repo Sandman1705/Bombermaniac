@@ -102,14 +102,15 @@ void EnemyThree::EnemyThreeDirection(Relay *relay)
     Player * p = nullptr;
     int x, y;
 
-    for(auto it = relay->GetPlayerManager()->GetPlayers()->begin(); it != relay->GetPlayerManager()->GetPlayers()->end(); it++)
+    for(PlayerManager::Iterator it(relay->GetPlayerManager()); !it.Finished(); ++it)
     {
-        x = m_x - (*it)->GetX();
-        y = m_y - (*it)->GetY();
+        Player& player = it.GetPlayer();
+        x = m_x - player.GetX();
+        y = m_y - player.GetY();
         if(player_min > sqrt(x*x + y*y))
         {
             player_min = sqrt(x*x + y*y);
-            p = *it;
+            p = &player;
         }
     }
 
