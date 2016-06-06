@@ -38,6 +38,7 @@ class LoadingDisplay : public Display
          *         will be drawn on.
          *  \param window_width width of the program's window in pixels
          *  \param window_height height of the program's window in pixels
+         *  \param players_number number of players that will be in the game
          *  \param max_level number of levels the game has
          *
          */

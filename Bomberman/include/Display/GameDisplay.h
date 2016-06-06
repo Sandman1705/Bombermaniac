@@ -44,6 +44,7 @@
          *         well as all of its DisplayElements will be drawn on.
          *  \param window_width width of the program's window in pixels
          *  \param window_height height of the program's window in pixels
+         *  \param players_number number of players that will be in the game
          *  \param current_level number of the level that is currently being
          *         played
          *  \param number_of_screen_elements number of object of DisplayElement

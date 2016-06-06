@@ -3,10 +3,10 @@
 
 /* PickUp Textures */
 /* EXIT pickup */
-static const unsigned int TEXTURE_PICKUP_EXIT_H = 24;
-static const unsigned int TEXTURE_PICKUP_EXIT_W = 24;
-static const unsigned int TEXTURE_PICKUP_EXIT_X = 0;
-static const unsigned int TEXTURE_PICKUP_EXIT_Y = 101;
+static const unsigned int TEXTURE_PICKUP_EXIT_H = 190; //24
+static const unsigned int TEXTURE_PICKUP_EXIT_W = 190; //24
+static const unsigned int TEXTURE_PICKUP_EXIT_X = 920; //0
+static const unsigned int TEXTURE_PICKUP_EXIT_Y = 454; //101
 
 /* SPEED pickup */
 static const unsigned int TEXTURE_PICKUP_SPEED_H = 24;
