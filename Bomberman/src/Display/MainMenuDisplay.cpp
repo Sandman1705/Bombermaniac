@@ -156,7 +156,7 @@ void MainMenuDisplay::Update()
             m_leave_next = true;
             break;
         case 1:
-            m_next_display = new PlayersNumberDisplay(m_texture,m_renderer,m_window_width,m_window_height);
+            m_next_display = new PlayersNumberDisplay(m_renderer,m_window_width,m_window_height);
             m_in_options = true;
             m_leave_next = true;
             break;

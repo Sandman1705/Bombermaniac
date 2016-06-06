@@ -29,7 +29,7 @@ class WelcomeDisplay : public Display
          *
          *  Makes the WelcomeDisplay with the given parameters
          *  \param texture pointer to SDL_Texture from which the various game
-         *         assets will be draw and will be passed on to GameDisplay
+         *         assets will be drawn and will be passed on to GameDisplay
          *  \param renderer represents the SDL_Renderer on which the Display
          *         will be drawn on.
          *  \param window_width width of the program's window in pixels

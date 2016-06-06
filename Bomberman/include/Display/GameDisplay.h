@@ -38,7 +38,7 @@
          *
          *  Makes the PauseDisplay with the given parameters
          *  \param texture pointer to SDL_Texture from which the various game
-         *         assets will be draw and will be passed on to DisplayElement
+         *         assets will be drawn and will be passed on to DisplayElement
          *         objects within GameDisplay
          *  \param renderer represents the SDL_Renderer on which the Display as
          *         well as all of its DisplayElements will be drawn on.

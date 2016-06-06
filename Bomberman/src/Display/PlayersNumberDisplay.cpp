@@ -2,12 +2,10 @@
 #include "System/TextRenderer.h"
 #include "Constants/ResourcesConstants.h"
 
-PlayersNumberDisplay::PlayersNumberDisplay(SDL_Texture* texture,
-                                           SDL_Renderer* renderer,
+PlayersNumberDisplay::PlayersNumberDisplay(SDL_Renderer* renderer,
                                            unsigned int window_width,
                                            unsigned int window_height)
     : Display(),
-      m_texture(texture),
       m_renderer(renderer),
       m_arrow(0),
       m_button_pressed_down(false),
