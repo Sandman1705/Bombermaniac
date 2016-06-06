@@ -1,5 +1,6 @@
 #include "Entity/Enemy.h"
 #include "Manager/Map.h"
+#include "Manager/PlayerManager.h"
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
@@ -31,61 +32,67 @@ bool Enemy::Touch(unsigned int player_x, unsigned int player_y)
     return false;
 }
 
-void Enemy::Update(Relay *relay, Player *player)
+void Enemy::Update(Relay *relay)
 {
-    unsigned int player_x = player->GetX();
-    unsigned int player_y = player->GetY();
-    unsigned int player_w = player->GetSizeW();
-    unsigned int player_h = player->GetSizeH();
-
-    //Setting coordinates for better collision
-    player_x = player_x + m_tile_size/6;
-    player_y = player_y + m_tile_size/6;
-    player_w = player_w - m_tile_size/3;
-    player_h = player_h - m_tile_size/4;
-    //----------------------------------------
-
-    if(Touch(player_x, player_y))
+    for(PlayerManager::Iterator it(relay->GetPlayerManager()); !it.Finished(); ++it)
     {
-        player->SetHealth(0);
-    }
-    else if(Touch(player_x+player_w, player_y))
+        Player& player = it.GetPlayer();
+        unsigned int player_x = player.GetX();
+        unsigned int player_y = player.GetY();
+        unsigned int player_w = player.GetSizeW();
+        unsigned int player_h = player.GetSizeH();
+
+        //Setting coordinates for better collision
+        player_x = player_x + m_tile_size/6;
+        player_y = player_y + m_tile_size/6;
+        player_w = player_w - m_tile_size/3;
+        player_h = player_h - m_tile_size/4;
+        //----------------------------------------
+
+        if(Touch(player_x, player_y))
         {
-            player->SetHealth(0);
+            player.SetHealth(0);
         }
-        else if(Touch(player_x, player_y+player_h))
+        else if(Touch(player_x+player_w, player_y))
             {
-                player->SetHealth(0);
+                player.SetHealth(0);
             }
-            else if(Touch(player_x+player_w, player_y+player_h))
+            else if(Touch(player_x, player_y+player_h))
                 {
-                    player->SetHealth(0);
+                    player.SetHealth(0);
                 }
+                else if(Touch(player_x+player_w, player_y+player_h))
+                    {
+                        player.SetHealth(0);
+                    }
+
+    }
+
     int r;
 
-    if(m_walk_len <= 0)
-    {
-
-        m_walk_len = rand()%5 + 10;
-        r = rand()%4;
-        switch(r)
+        if(m_walk_len <= 0)
         {
-            case 0:
-                m_direction = LEFT;
-                break;
-            case 1:
-                m_direction = RIGHT;
-                break;
-            case 2:
-                m_direction = UP;
-                break;
-            case 3:
-                m_direction = DOWN;
-                break;
-            default:
-                m_direction = DOWN;
+
+            m_walk_len = rand()%5 + 10;
+            r = rand()%4;
+            switch(r)
+            {
+                case 0:
+                    m_direction = LEFT;
+                    break;
+                case 1:
+                    m_direction = RIGHT;
+                    break;
+                case 2:
+                    m_direction = UP;
+                    break;
+                case 3:
+                    m_direction = DOWN;
+                    break;
+                default:
+                    m_direction = DOWN;
+            }
         }
-    }
 
     if(m_timer.GetTimeElapsed() > m_speed)
     {
@@ -93,6 +100,7 @@ void Enemy::Update(Relay *relay, Player *player)
         this->EnemyMove(relay);
         m_timer.ResetTimer();
     }
+
 }
 
 void Enemy::EnemyMove(Relay *relay)

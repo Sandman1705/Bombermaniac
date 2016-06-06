@@ -44,6 +44,7 @@ class PlayerManager : public DisplayElement
          *  \param relay pointer to the relay of the
          *         game (which is needed for getting bomb_manager for sending
          *         signals to that object to make new bomb)
+         *  \param numb_of_players_to_load number of players selected in options
          */
         PlayerManager(std::string path_to_file, SDL_Texture* texture, unsigned int tile_size,
                       Relay *relay, unsigned int numb_of_players_to_load = 2);

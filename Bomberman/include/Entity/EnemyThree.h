@@ -61,11 +61,10 @@ class EnemyThree : public Enemy
          *  on map accordingly and calls appropriate actions.
          *
          *  \param relay pointer to Relay object of the game
-         *  \param player pointer to Player object of the game
          *
          *  \return void
          */
-        void Update(Relay *relay,Player *player);
+        void Update(Relay *relay);
 
         /**
          *  \brief Calculate if there is a player nearby.
@@ -78,7 +77,7 @@ class EnemyThree : public Enemy
          *
          *  \return void
          */
-        void EnemyThreeDirection(Relay *relay);
+        //void EnemyThreeDirection(Relay *relay);
 
         /**
          *  \brief Calculate in what direction enemy should go.
