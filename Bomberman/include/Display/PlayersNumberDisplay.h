@@ -38,7 +38,7 @@ class PlayersNumberDisplay : public Display
                              unsigned int window_width,
                              unsigned int window_height);
         /**
-         *  \brief Destructor for WelcomeDisplay
+         *  \brief Destructor for PlayersNumberDisplay
          *
          *  Destroys all textures that were used for displaying menu options
          *
@@ -92,7 +92,7 @@ class PlayersNumberDisplay : public Display
          */
         void Update();
         /**
-         *  \brief Draw method for MainMenuDisplay
+         *  \brief Draw method for PlayersNumberDisplay
          *
          *  Draws the menu options as well as arrow that points to the currently
          *  selected option.
