@@ -3,7 +3,7 @@
 #include <time.h>       /* time */
 #include <fstream>      /* fstream open close */
 #include "Constants/TextureMapObjectConstants.h"
-#include "Constants/TexturePickUpConstants.h"
+#include "Constants/PickUpConstants.h"
 #include "Entity/PickUp.h"
 #include "Manager/PickUpManager.h"
 #include "Entity/DestructibleWall.h"

@@ -11,6 +11,7 @@
 #include "Manager/PickUpManager.h"
 
 #include "Constants/ResourcesConstants.h"
+#include "Constants/WindowConstants.h"
 
 #include <string>
 #include <sstream>
@@ -35,7 +36,7 @@ GameDisplay::GameDisplay(SDL_Texture* texture,
     m_display_elements.reserve(number_of_screen_elements);
     SystemTimer::Instance()->Pause();
 
-    unsigned int tile_size = 44;
+    unsigned int tile_size = MAP_TILE_SIZE;
     m_relay = new Relay();
 
     std::string level_num;

@@ -2,6 +2,7 @@
 #include "Manager/Map.h"
 #include "Manager/BombManager.h"
 #include "Constants/TexturePlayerConstants.h"
+#include "Constants/PlayerConstants.h"
 #include "Manager/PickUpManager.h"
 #include "Entity/PickUp.h"
 #include <iostream>
@@ -67,28 +68,28 @@ void Player::Update()
                 case PickUp::SPEED: // SPEED
                     if(!pick_up.IsUsed())
                     {
-                        if(m_speed > TEXTURE_PLAYER_MAX_SPEED) //It's reversed because it's in milisec
+                        if(m_speed > PLAYER_MAX_SPEED) //It's reversed because it's in milisec
                         {
                             m_speed -= pick_up.GetValue();
                             pick_up.Use();
                         }
                         else
                         {
-                            m_speed = TEXTURE_PLAYER_MAX_SPEED;
+                            m_speed = PLAYER_MAX_SPEED;
                         }
                     }
                     break;
                 case PickUp::BOMB:
                     if(!pick_up.IsUsed())
                     {
-                        if(m_bomb_num < TEXTURE_PLAYER_MAX_BOMBS)
+                        if(m_bomb_num < PLAYER_MAX_BOMBS)
                         {
                             m_bomb_num += pick_up.GetValue();
                             pick_up.Use();
                         }
                         else
                         {
-                            m_bomb_num = TEXTURE_PLAYER_MAX_BOMBS;
+                            m_bomb_num = PLAYER_MAX_BOMBS;
                         }
                     }
                     break;
@@ -97,7 +98,7 @@ void Player::Update()
                     {
                         bool t = false;
                         //Damage
-                        if(m_bomb_damage < TEXTURE_PLAYER_MAX_BOMB_DAMAGE)
+                        if(m_bomb_damage < PLAYER_MAX_BOMB_DAMAGE)
                         {
                             m_bomb_damage += pick_up.GetValue();
                             pick_up.Use();
@@ -105,59 +106,59 @@ void Player::Update()
                         }
                         else
                         {
-                            m_bomb_damage = TEXTURE_PLAYER_MAX_BOMB_DAMAGE;
+                            m_bomb_damage = PLAYER_MAX_BOMB_DAMAGE;
                         }
 
                         //Intensity
-                        if(m_bomb_intensity < TEXTURE_PLAYER_MAX_BOMB_INTENSITY && t)
+                        if(m_bomb_intensity < PLAYER_MAX_BOMB_INTENSITY && t)
                         {
                             m_bomb_intensity += pick_up.GetValue()/100.0;
                         }
                         else
                         {
-                            m_bomb_intensity = TEXTURE_PLAYER_MAX_BOMB_INTENSITY;
+                            m_bomb_intensity = PLAYER_MAX_BOMB_INTENSITY;
                         }
                     }
                     break;
                 case PickUp::LIFE:
                     if(!pick_up.IsUsed())
                     {
-                        if(m_lives < TEXTURE_PLAYER_MAX_LIVES)
+                        if(m_lives < PLAYER_MAX_LIVES)
                         {
                             m_lives += pick_up.GetValue();
                             pick_up.Use();
                         }
                         else
                         {
-                            m_lives = TEXTURE_PLAYER_MAX_LIVES;
+                            m_lives = PLAYER_MAX_LIVES;
                         }
                     }
                     break;
                 case PickUp::SPEED_DECREASE:
                     if(!pick_up.IsUsed())
                     {
-                        if(m_speed < TEXTURE_PLAYER_MIN_SPEED) //It's reversed because it's in milisec
+                        if(m_speed < PLAYER_MIN_SPEED) //It's reversed because it's in milisec
                         {
                             m_speed += pick_up.GetValue();
                             pick_up.Use();
                         }
                         else
                         {
-                            m_speed = TEXTURE_PLAYER_MIN_SPEED;
+                            m_speed = PLAYER_MIN_SPEED;
                         }
                     }
                     break;
                 case PickUp::BOMB_DECREASE:
                     if(!pick_up.IsUsed())
                     {
-                        if(m_bomb_num > TEXTURE_PLAYER_MIN_BOMBS)
+                        if(m_bomb_num > PLAYER_MIN_BOMBS)
                         {
                             m_bomb_num -= pick_up.GetValue();
                             pick_up.Use();
                         }
                         else
                         {
-                            m_bomb_num = TEXTURE_PLAYER_MIN_BOMBS;
+                            m_bomb_num = PLAYER_MIN_BOMBS;
                         }
                     }
                     break;
@@ -166,7 +167,7 @@ void Player::Update()
                     {
                         bool t = false;
                         //Damage
-                        if(m_bomb_damage > TEXTURE_PLAYER_MIN_BOMB_DAMAGE)
+                        if(m_bomb_damage > PLAYER_MIN_BOMB_DAMAGE)
                         {
                             m_bomb_damage -= pick_up.GetValue();
                             pick_up.Use();
@@ -174,17 +175,17 @@ void Player::Update()
                         }
                         else
                         {
-                            m_bomb_damage = TEXTURE_PLAYER_MIN_BOMB_DAMAGE;
+                            m_bomb_damage = PLAYER_MIN_BOMB_DAMAGE;
                         }
 
                         //Intensity
-                        if(m_bomb_intensity > TEXTURE_PLAYER_MIN_BOMB_INTENSITY && t)
+                        if(m_bomb_intensity > PLAYER_MIN_BOMB_INTENSITY && t)
                         {
                             m_bomb_intensity -= pick_up.GetValue()/100.0;
                         }
                         else
                         {
-                            m_bomb_intensity = TEXTURE_PLAYER_MIN_BOMB_INTENSITY;
+                            m_bomb_intensity = PLAYER_MIN_BOMB_INTENSITY;
                         }
                     }
                     break;

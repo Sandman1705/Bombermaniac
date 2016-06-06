@@ -105,8 +105,8 @@ class game
         SDL_Texture*        texture;
         DisplayManager*     display_manager;
 
-        unsigned int        window_width = 25*44;
-        unsigned int        window_height = 15*44;
+        unsigned int        window_width;
+        unsigned int        window_height;
 
 };
 #endif // GAME_H_INCLUDED

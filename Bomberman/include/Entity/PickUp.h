@@ -54,7 +54,7 @@ class PickUp
                int value,
                unsigned int x,
                unsigned int y,
-               unsigned int draw_size = 30);
+               unsigned int draw_size);
 
         PickUpType GetType() const { return m_type; } /**< \brief Gives the type of the PickUp */
         int GetValue() const { return m_value; } /**< \brief Gives the value of the PickUp */

@@ -109,8 +109,25 @@ class Map : public DisplayElement
 
     protected:
 
+        /**
+         *  \brief Places PickUp::EXIT on the given map tile
+         *
+         *  \param i row coordinate of the map
+         *  \param j row coordinate of the map
+         *  \return void
+         *
+         */
         void PlaceExit(unsigned int i, unsigned int j);
-        void TryPlacePickUp(unsigned int i, unsigned int j);
+        /**
+         *  \brief Calculates chance of PickUp appearing and places it on the
+         *         map
+         *
+         *  \param i row coordinate of the map
+         *  \param j row coordinate of the map
+         *  \return void
+         *
+         */
+         void TryPlacePickUp(unsigned int i, unsigned int j);
 
     private:
         unsigned int                            m_height;
@@ -119,8 +136,6 @@ class Map : public DisplayElement
         const int                               m_tile_size;
         Relay*                                  m_relay;
         unsigned int                            m_wall_count;
-
-        static const unsigned int               TEXTURE_SIZE = 64;
 };
 
 #endif // MAP_H

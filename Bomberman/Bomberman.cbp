@@ -71,6 +71,8 @@
 		<Unit filename="game_oninit.cpp" />
 		<Unit filename="game_onloop.cpp" />
 		<Unit filename="game_onrender.cpp" />
+		<Unit filename="include/Constants/PickUpConstants.h" />
+		<Unit filename="include/Constants/PlayerConstants.h" />
 		<Unit filename="include/Constants/ResourcesConstants.h" />
 		<Unit filename="include/Constants/TextureBombConstants.h" />
 		<Unit filename="include/Constants/TextureEnemyConstants.h" />
@@ -79,6 +81,7 @@
 		<Unit filename="include/Constants/TexturePickUpConstants.h" />
 		<Unit filename="include/Constants/TexturePlayerConstants.h" />
 		<Unit filename="include/Constants/TextureScoreConstants.h" />
+		<Unit filename="include/Constants/WindowConstants.h" />
 		<Unit filename="include/Destroyer/Destroyer.h" />
 		<Unit filename="include/Destroyer/WallDestroyer.h" />
 		<Unit filename="include/Display/Display.h" />

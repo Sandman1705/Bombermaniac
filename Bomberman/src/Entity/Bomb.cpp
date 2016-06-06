@@ -37,7 +37,6 @@ Bomb::~Bomb()
 }
 #endif // DEBUG_OUTPUT_BOMB
 
-
 void Bomb::Update()
 {
     if (m_timer.GetTimeElapsed() > m_fuse_duration)

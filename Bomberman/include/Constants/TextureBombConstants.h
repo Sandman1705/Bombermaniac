@@ -9,5 +9,6 @@ static const unsigned int TEXTURE_BOMB_Y = 1;
 static const unsigned int TEXTURE_BOMB_COUNT = 3;
 static const unsigned int TEXTURE_BOMB_OFFSET_X = -24;
 static const unsigned int TEXTURE_BOMB_OFFSET_Y = 0;
+static const double BOMB_SIZE_RELATIVE_TO_TILE_SIZE = 0.625;
 
 #endif // TEXTUREBOMBCONSTANTS_H_INCLUDED
