@@ -89,11 +89,10 @@ class Enemy
          *  on map accordingly and calls appropriate actions.
          *
          *  \param relay pointer to Relay object of the game
-         *  \param player pointer to Player object of the game
          *
          *  \return void
          */
-        virtual void Update(Relay *relay,Player *player);
+        virtual void Update(Relay *relay);
 
          /**
          *  \brief Checks if enemy touched player.
