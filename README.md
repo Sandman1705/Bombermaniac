@@ -7,6 +7,8 @@ Project name: Bomberman
 * Libs and tools: SDL2
 * IDE: CodeBlocks
 
+Spring 2016
+
 ## Authors:
 	* Aleksandar Miletic
 	* Mirko Brkusanin
