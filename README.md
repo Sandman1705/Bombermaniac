@@ -3,6 +3,10 @@
 
 Project name: Bomberman
 
+* Language: C++
+* Libs and tools: SDL2
+* IDE: CodeBlocks
+
 ## Authors:
 	* Aleksandar Miletic
 	* Mirko Brkusanin
